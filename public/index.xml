@@ -113,6 +113,13 @@
       <description></description>
     </item>
     <item>
+      <title>Our Portfolio &amp; Approach</title>
+      <link>http://localhost:1313/portfolio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/portfolio/</guid>
+      <description>&lt;h2 id=&#34;architecting-your-digital-future-web-mobile-ai--marketing-solutions&#34;&gt;Architecting Your Digital Future: Web, Mobile, AI &amp;amp; Marketing Solutions&lt;/h2&gt;&#xA;&lt;h3 id=&#34;about-us-your-dedicated-partner-in-digital-transformation&#34;&gt;About Us: Your Dedicated Partner in Digital Transformation&lt;/h3&gt;&#xA;&lt;p&gt;From our headquarters in Singapore, Viliha serves as a global architect of digital excellence. We are more than just developers; we specialize in crafting bespoke web, mobile, AI-powered, and marketing solutions that drive tangible results for a discerning international clientele. Our foundation is built upon a team of seasoned experts, passionately committed to delivering scalable, high-quality digital products. As a registered company, we believe that the cornerstone of every successful project lies in our commitment to go beyond and above to fulfill client needs, ensuring your solutions are masterfully engineered for future success.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Privacy Policy for Viliha Web Services</title>
       <link>http://localhost:1313/privacy-policy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -132,6 +139,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/technologies/react/</guid>
       <description>&lt;h3 id=&#34;what-is-react&#34;&gt;What is React?&lt;/h3&gt;&#xA;&lt;p&gt;React is a powerful and popular open-source JavaScript library developed by Facebook for building user interfaces (UIs), particularly for single-page applications. It allows developers to create large web applications that can change data without reloading the page, by building reusable UI components.&lt;/p&gt;&#xA;&lt;h3 id=&#34;how-it-works-in-a-real-world-project&#34;&gt;How It Works in a Real-World Project&lt;/h3&gt;&#xA;&lt;p&gt;Imagine an interactive dashboard for an e-commerce store. With React, the entire dashboard is built from small, independent components like &lt;code&gt;SalesChart&lt;/code&gt;, &lt;code&gt;OrderList&lt;/code&gt;, and &lt;code&gt;ProductFilter&lt;/code&gt;. When you apply a filter (e.g., &amp;ldquo;last 30 days&amp;rdquo;), only the &lt;code&gt;SalesChart&lt;/code&gt; and &lt;code&gt;OrderList&lt;/code&gt; components receive new data and re-render themselves instantly. The rest of the page, like the header and sidebar, remains untouched. This &amp;ldquo;surgical&amp;rdquo; updating makes the application feel incredibly fast and responsive.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Responsive Web Development</title>
+      <link>http://localhost:1313/services/bk-layout-service-single-page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/services/bk-layout-service-single-page/</guid>
+      <description></description>
     </item>
     <item>
       <title>Responsive Web Development</title>

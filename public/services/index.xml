@@ -58,6 +58,13 @@
     </item>
     <item>
       <title>Responsive Web Development</title>
+      <link>http://localhost:1313/services/bk-layout-service-single-page/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/services/bk-layout-service-single-page/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Responsive Web Development</title>
       <link>http://localhost:1313/services/web-development/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/services/web-development/</guid>

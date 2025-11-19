@@ -1,0 +1,4 @@
+bitbucket password
+ATBBg8SubM4cY39DCu3nW5qyDJ4ZFE7524E1
+
+AWS : 399184192334 Vi

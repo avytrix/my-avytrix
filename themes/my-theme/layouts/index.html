@@ -1,0 +1,152 @@
+{{ define "main" }}
+<div class="container">
+<!-- 1. Hero Section -->
+{{ with .Params.hero }}
+
+
+ <!-- Hero Section -->
+                <section class="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between py-10 lg:py-36 px-4 md:h-[600px]">
+                    <div class="hero-content flex-1 z-10 py-6 lg:py-0">
+                        <h1 class="text-4xl md:text-5xl font-semibold leading-[40px] lg:leading-[56px]">{{ .heading }}</h1>
+                        <p class="text-xl font-medium text-[#0058EE] my-4">{{ .subheading }}</p>
+                        <p class="text-base text-gray-600 max-w-lg">{{ .paragraph }}</p>
+                        <a href="{{ .button_url }}" class="mt-8 inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-12 rounded-full transition-colors">{{ .button_text }}</a>
+                    </div>
+                    <div class="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
+                        <img src="https://ik.imagekit.io/viliha/images/viliha-banner_image.webp" alt="Viliha | Custom Software, DevOps, Automation & Web Development Experts" class="max-w-full h-auto" />
+                    </div>
+                </section>
+
+{{ end }}
+
+<div class="container mx-auto px-4">
+
+    <!-- Services Overview -->
+    {{ with .Params.services_overview }}
+    <section class="py-16">
+        <h2 class="text-3xl font-semibold text-center">{{ .heading }}</h2>
+        <p class="text-center max-w-xl mx-auto mt-4 text-gray-600">{{ .subheading }}</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            {{ range .services }}
+            <a href="{{ .button_url }}" class="service-card block p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-xl">
+                {{ if .image_link }}
+                <img src="{{ .image_link | relURL }}" alt="{{ .image_alt_txt | default .title }}" class="w-12 h-12 mb-6">
+                {{ end }}
+                <h3 class="text-xl font-semibold py-3">{{ .title }}</h3>
+                <p class="text-sm text-gray-600 my-4">{{ .content }}</p>
+            </a>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Technologies Section (from new_tech_section instead of technologies) -->
+    {{ with .Params.new_tech_section }}
+    <section class="technologies-section py-16">
+        {{ range $index, $section := . }}
+        {{ if eq .type "interactive_image_list" }}
+        <h2 class="text-3xl font-semibold text-center">{{ .title }}</h2>
+        <p class="text-center max-w-xl mx-auto mt-4 text-gray-600">{{ .paragraph }}</p>
+
+        <div class="tech-stack-list-container max-w-4xl mx-auto mt-12">
+            <div class="tech-stack-list-button-column flex flex-row lg:flex-wrap justify-between gap-4">
+                {{ range $i, $item := .items }}
+                <button class="tech-stack-list-button px-6 py-2 rounded-full text-sm font-medium transition-colors bg-gray-200 hover:bg-gray-300 data-[active=true]:bg-[#0058EE] data-[active=true]:text-white {{ if eq $i 0 }}active{{ end }}" 
+                data-target="#{{ .target_id }}"
+                {{ if eq $i 0 }}data-active="true"{{ end }}>
+                    {{ .button_text }}
+                </button>
+                {{ end }}
+            </div>
+            <div class="tech-stack-list-content-column mt-10">
+                {{ range $index, $item := .items }}
+                <div id="{{ $item.target_id }}" class="tech-stack-content-item {{ if eq $index 0 }}flex{{ else }}hidden{{ end }} justify-evenly items-center gap-8 md:gap-16 flex-wrap">
+                    {{ range $imgIndex, $img := $item.images_list }}
+                    <div class="text-center">
+                        {{ if $img.link_url }}
+                        <a href="{{ $img.link_url | relURL }}" title="{{ $img.link_text }}">
+                            <img src="{{ $img.image | relURL }}" alt="{{ $img.link_text }}" class="h-16 mx-auto">
+                            <p class="mt-2 text-sm">{{ $img.title }}</p>
+                        </a>
+                        {{ else }}
+                        <img src="{{ $img.image | relURL }}" alt="{{ $img.link_text }}" class="h-16 mx-auto">
+                        <p class="mt-2 text-sm">{{ $img.title }}</p>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+        {{ end }}
+    </section>
+    {{ end }}
+
+    <!-- Why Choose Us / Digital Innovation -->
+    {{ with .Params.digital_innovation }}
+    <section class="py-16">
+        <h2 class="text-3xl font-semibold text-center">{{ .title }}</h2>
+        <div class="mt-12 grid md:grid-cols-2 gap-12 items-center">
+            <div class="image-wrapper">
+                <img src="{{ .image | relURL }}" alt="Illustration for Digital Innovation section" class="mx-auto rounded-lg">
+            </div>
+            <div class="content space-y-4">
+                {{ range .faq_items }}
+                <details class="faq-item-details border-b py-4">
+                    <summary class="faq-question-summary font-semibold text-md cursor-pointer list-none flex justify-between items-center">
+                        {{ .question }} <span class="text-xl icon"></span>
+                    </summary>
+                    <div class="faq-answer-content mt-2 text-gray-600">
+                        <p>{{ .answer }}</p>
+                    </div>
+                </details>
+                {{ end }}
+                <div class="text-center mt-10">
+                    <a href="{{ .button_url }}" class="inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-8 rounded-full transition-colors">{{ .button_text }}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    {{ end }}
+
+    <!-- Case Studies Section -->
+{{ with .Params.two_column_section }}
+<section class="py-16">
+  <h2 class="text-3xl font-semibold text-center">{{ .heading }}</h2>
+  <p class="text-center max-w-3xl mx-auto mt-4 text-gray-600">{{ .subheading }}</p>
+
+  <div class="space-y-20 mt-12">
+    {{ range $i, $study := .studies }}
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+      <!-- If even index: swap order -->
+      <div class="content order-2 {{ if modBool $i 2 }}lg:order-2{{ else }}lg:order-1{{ end }}">
+        <div class="py-8 px-2 lg:px-8 rounded-lg">
+          <h3 class="text-2xl font-semibold">{{ $study.client }}</h3>
+          <p class="mt-4 text-sm"><strong>Challenge:</strong> {{ $study.challenge }}</p>
+          <p class="mt-2 text-sm"><strong>Our Solution:</strong> {{ $study.solution }}</p>
+          <p class="mt-4 text-sm"><strong>Key Results:</strong></p>
+          <ul class="list-disc list-inside space-y-1 mt-2 text-sm">
+            {{ range $study.key_results }}
+            <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+
+      {{ if $study.image }}
+      <div class="image-wrapper order-1 {{ if modBool $i 2 }}lg:order-1{{ else }}lg:order-2{{ end }}">
+        <img src="{{ $study.image | relURL }}" alt="{{ $study.client }}" class="rounded-lg shadow-md">
+      </div>
+      {{ end }}
+
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+</div>
+
+{{ end }}           

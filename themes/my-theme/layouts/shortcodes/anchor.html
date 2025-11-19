@@ -1,0 +1,8 @@
+{{/*
+  Shortcode for a Call-to-Action button.
+  Usage:
+  {{< anchor href="/contact/" text="Contact Us" >}}
+*/}}
+<a href="{{ .Get "href" | default "/" }}" class="btn btn-small">
+    {{ .Get "text" | default "Learn More" }}
+  </a>

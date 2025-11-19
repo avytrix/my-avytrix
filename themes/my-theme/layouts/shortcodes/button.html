@@ -1,0 +1,10 @@
+{{/*
+  Shortcode for a Call-to-Action button.
+  Usage:
+  {{< button href="/contact/" text="Contact Us" >}}
+*/}}
+<div class="cta-button-wrapper" style="margin-top: 2rem; text-align: center;">
+  <a href="{{ .Get "href" | default "/" }}" class="btn btn-small">
+    {{ .Get "text" | default "Learn More" }}
+  </a>
+</div>

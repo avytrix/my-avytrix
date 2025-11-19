@@ -1,0 +1,201 @@
+/*
+ * Styles for the custom "Approach" page layout.
+ * This file uses the variables defined in style.css.
+ */
+
+/* Main container for the new layout */
+.layout-approach-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--desktop-space-md);
+}
+
+/* --- Banner Section --- */
+.approach-banner {
+    position: relative;
+    padding: var(--hd-space-md) var(--desktop-space-md);
+    background-size: cover;
+    background-position: center;
+    color: var(--text-white-color);
+    text-align: center;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.approach-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(17, 24, 39, 0.6); /* --primary-text-shades-dark with opacity */
+}
+.approach-banner > * {
+    position: relative;
+    z-index: 1;
+}
+.approach-banner h1 {
+    font-size: var(--font-size-h1);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--desktop-space-sm);
+}
+.approach-banner .tagline {
+    font-size: var(--font-size-h5);
+    max-width: 700px;
+}
+
+/* Breadcrumbs Styling */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: var(--desktop-space-xs);
+    margin-bottom: var(--desktop-space-md);
+    font-size: var(--font-size-p);
+    font-weight: var(--font-weight-medium);
+}
+.breadcrumbs a {
+    color: var(--text-white-color);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.breadcrumbs a:hover {
+    opacity: 1;
+}
+.breadcrumbs .separator {
+    opacity: 0.8;
+}
+.breadcrumbs span.current-page {
+    font-weight: var(--font-weight-medium);
+    color: var(--primary-accent) !important;
+}
+.breadcrumbs .home-icon svg {
+    width: var(--font-size-h6);
+    height: var(--font-size-h6);
+    fill: currentColor;
+    display: block;
+}
+
+/* --- Two-Column Section --- */
+.two-column-section {
+    padding: var(--hd-space-lg) 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--hd-space-md);
+    align-items: center;
+    grid-template-areas: "left right";
+}
+.two-column-section .content h2 {
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--desktop-space-md);
+    color: var(--primary-text-shades-dark);
+}
+.two-column-section .content p {
+    font-size: var(--font-size-h6);
+    line-height: var(--line-height-relaxed);
+    color: var(--primary-text-shades-medium);
+}
+.two-column-section .image-wrapper img {
+    width: 100%;
+    border-radius: var(--desktop-radius-md);
+}
+.case-studies-section .two-column-section:nth-child(even) {
+  grid-template-areas: "right left";
+}
+.case-studies-section .two-column-section{
+    padding: 0;
+    padding-top: var(--hd-space-xs);
+}
+.case-studies-section .two-column-section .grid-left {
+  grid-area: left;
+}
+.case-studies-section .two-column-section .grid-right {
+  grid-area: right;
+}
+.case-studies-section .service-card {
+    padding: 0 25px;
+}
+
+/* --- Three-Column Mission Section --- */
+.mission-section {
+    padding: var(--hd-space-lg) 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--hd-space-md);
+    background-color: var(--bg-color-default);
+    padding: var(--hd-space-lg) var(--desktop-space-md);
+    border-radius: var(--desktop-radius-lg);
+}
+.mission-card h3 {
+    font-size: var(--font-size-h3);
+    color: var(--primary-accent);
+    margin-bottom: var(--desktop-space-sm);
+    font-weight: var(--font-weight-bold);
+}
+.mission-card p {
+    font-size: var(--font-size-h6);
+    color: var(--primary-text-shades-medium);
+    line-height: var(--line-height-relaxed);
+}
+
+/* --- Features Grid Section --- */
+.features-section {
+    padding: var(--hd-space-lg) 0;
+    text-align: center;
+}
+.features-section .section-heading {
+    font-size: var(--font-size-h2);
+    color: var(--primary-text-shades-dark);
+}
+.features-section .section-intro {
+    max-width: 800px;
+    margin: var(--desktop-space-sm) auto var(--hd-space-md) auto;
+    font-size: var(--font-size-h6);
+    color: var(--primary-text-shades-medium);
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--hd-space-md);
+    text-align: left;
+}
+.feature-item {
+    padding: var(--desktop-space-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--desktop-radius-md);
+}
+.feature-item .icon {
+    width: 48px; /* --hd-space-md */
+    height: 48px;
+    margin-bottom: var(--desktop-space-sm);
+    color: var(--primary-accent);
+}
+.feature-item h4 {
+    font-size: var(--font-size-h4);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--desktop-space-xs);
+}
+.feature-item p {
+    font-size: var(--font-size-p);
+    line-height: var(--line-height-relaxed);
+    color: var(--primary-text-shades-medium);
+}
+
+.footer-column ul{margin: 0;padding: 0;}
+.footer-column ul li a { display: block; padding: 6px 0; opacity: 0.7; transition: opacity 0.3s; text-decoration: none !important;font-size:var(--font-size-p)}
+.footer-column ul li a:hover { opacity: 1; }
+.footer-column ul li{margin: 0;}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .two-column-section,
+    .mission-section,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    .layout-approach-container.mobile-view-about .two-column-section{
+        display: flex !important;
+        flex-direction: column;
+    }
+}

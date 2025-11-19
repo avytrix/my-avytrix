@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ partial "breadcrumbs.html" . }}
+
+<!-- Banner Section -->
+{{ if .Params.banner_tagline }}
+  <div id="banner" class="container mx-auto py-20 lg:mx-4 bg-[#0A3176]">
+    <div class="flex items-center justify-center text-3xl font-semibold w-full">
+        <h1 class="text-[28px] lg:text-[36px] font-bold text-center text-white">{{ .Params.banner_tagline | markdownify }}</h1>
+    </div>
+</div>
+{{ else }}
+  <div id="banner" class="container-1200px auto">
+    <div class="py-20 mx-4 bg-[#0A3176]">
+      <div class="flex items-center justify-center text-3xl font-semibold w-full">
+          <h1 class="text-[28px] lg:text-[36px] font-bold text-center text-white">{{ .Title | markdownify }}</h1>
+      </div>
+    </div>
+</div>
+{{ end }}
+
+<div class="mx-auto px-4 py-10">
+  <article class="prose prose-lg prose-headings:font-bold prose-headings:text-gray-900 prose-a:text-primary prose-a:underline prose-strong:text-gray-900 prose-strong:font-bold max-w-[1024px] mx-auto pb-6 border-b border-gray-200">
+
+    <article class="legal-article-content">
+            {{ if .Params.show_last_updated }}
+                <p class="last-updated"><strong>Last updated: {{ now.Format "January 02, 2006" }}</strong></p>
+            {{ end }}
+
+            {{ .Content }}
+        </article>
+  </article>
+</div>
+
+
+{{ end }}
+
+
+
+{{ define "head-end" }}
+<style>
+  .legal-article-content .last-updated,.legal-page .breadcrumbs a,.legal-page .breadcrumbs span{color:var(--primary-text-shades-medium)}:root{--font-family:'Poppins',sans-serif;--bg-color-default:#F9FAFB;--primary-accent:#0058EE;--secondary-color:#00CBE5;--text-white-color:#FFFFFF;--text-color-default:#111827;--border-color:#D1D3D4;--bg-disable-color:#E5E7EB;--btn-active-color:#808080;--btn-active-text-color:#FFFFFF;--bg-color-secondary:#1F2937;--bg-color-footer-secondary:#1F2937;--primary-color-shades-dark:#00358f;--primary-color-shades-medium:#0058ee;--primary-color-shades-light:#ccdefc;--primary-text-shades-dark:#111827;--primary-text-shades-medium:#6B7280;--primary-text-shades-light:#E5E7EB;--hover-color:#0058ee;--bg-hover-color:linear-gradient(90deg, #00CBE5, #0058EE);--bg-active-color:#00358f;--bg-active-45-color:linear-gradient(45deg, #FF79001A -1%, #00CBE5 40%, #0058EE 100%);--bg-active-90-color:linear-gradient(90deg, #FF79001A -1%, #00CBE5 40%, #0058EE 100%);--bg-active-180-color:linear-gradient(180deg, #FF79001A -1%, #00CBE5 40%, #0058EE 100%);--bg-active-270-color:linear-gradient(270deg, #FF79001A -1%, #00CBE5 40%, #0058EE 100%);--bg-active-test-color:linear-gradient(45deg, #0058ee78 -50%, #00cbe57a 40%, #0058ee70 150%);--btn-width-small:241px;--btn-width-normal:275px;--btn-width-medium:310px;--btn-width-large:344px;--btn-height-small:48px;--btn-height-normal:51px;--btn-height-medium:62px;--btn-height-large:68px;--btn-radius:32px;--font-family-base:'Inter','Poppins';--font-size-hero:4rem;--font-size-h1:3rem;--font-size-h2:2.25rem;--font-size-h3:1.75rem;--font-size-h4:1.375rem;--font-size-h5:1.125rem;--font-size-h6:1rem;--font-size-p:0.875rem;--font-size-label:0.75rem;--font-size-base:1rem;--font-weight-light:300;--font-weight-regular:400;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--line-height-hard-tight:1.1;--line-height-tight:1.2;--line-height-snug:1.3;--line-height-normal:1.4;--line-height-relaxed:1.5;--line-height-loose:1.6;--line-height-base:1.5;--h1-line-height:1.2;--h2-line-height:1.3;--h3-line-height:1.3;--h4-line-height:1.4;--h5-line-height:1.5;--p-line-height:1.6;--caption-line-height:1.5;--tagline-line-height:1.5;--header-height:62px;--header-mobile-height:53px;--mobile-space-xs:0.5rem;--mobile-space-sm:1rem;--mobile-space-md:1.5rem;--mobile-space-lg:2rem;--desktop-space-xs:0.75rem;--desktop-space-sm:1.25rem;--desktop-space-md:2rem;--desktop-space-lg:3rem;--hd-space-xs:1rem;--hd-space-sm:2rem;--hd-space-md:3rem;--hd-space-lg:4rem;--mobile-radius-sm:0.5rem;--mobile-radius-md:1rem;--mobile-radius-lg:1.5rem;--desktop-radius-sm:0.75rem;--desktop-radius-md:1.25rem;--desktop-radius-lg:2rem;--hd-radius-sm:1rem;--hd-radius-md:1.5rem;--hd-radius-lg:2.5rem;--danger-color:#eb5758;--warning-color:#f3ebca;--success-color:#28ae60;--input-border-default-color:#bdbdbd;--input-text-color:#4f4f4f;--input-focus-color:#0058EE}h2{font-size:var(--font-size-h3) !important}.container-1240{max-width:1240px;margin:0 auto;padding:0 20px}.legal-page .breadcrumbsDiv{padding:3.5rem 0 1.5rem;max-width:1240px;margin:0 auto}.legal-page .breadcrumbs{padding:0 20px}.legal-page .breadcrumbs .home-icon svg{fill:var(--primary-text-shades-medium)}.legal-article-content{margin:0 auto;max-width:1024px;padding-bottom:4rem}.legal-article-content .last-updated{font-size:var(--font-size-p);margin-bottom:2rem;border-bottom:1px solid var(--border-color);padding-bottom:2rem}.legal-article-content h2,.legal-article-content h3{color:var(--text-color-default);font-weight:var(--font-weight-bold);margin:2.5rem 0 1rem;line-height:var(--line-height-tight)}.legal-article-content h2{font-size:var(--font-size-h2);padding-bottom:.5rem;border-bottom:2px solid var(--border-color)}.legal-article-content h3{font-size:var(--font-size-h3);color:var(--text-color-default)}.legal-article-content li,.legal-article-content p{font-size:var(--font-size-p);line-height:var(--line-height-relaxed);color:var(--text-color-default);margin-bottom:1.5rem}.legal-article-content ol,.legal-article-content ul{margin-bottom:1.5rem;padding-left:25px}.legal-article-content a{color:var(--primary-accent);font-weight:var(--font-weight-medium);text-decoration:underline}.legal-article-content strong{font-weight:var(--font-weight-bold);color:var(--text-color-default)}@media (max-width:768px){.legal-article-content h2{font-size:var(--font-size-h3)}.legal-article-content h3{font-size:var(--font-size-h4)}.legal-article-content li,.legal-article-content p{font-size:var(--font-size-p)}}
+</style>
+{{ end }}

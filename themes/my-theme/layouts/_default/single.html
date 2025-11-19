@@ -1,0 +1,26 @@
+{{ define "main" }}
+<!-- Page Header Banner -->
+<div class="page-header" {{ with .Params.image }} style="background-image: url('{{ . | relURL }}')" {{ end }}>
+    <div class="container">
+        <h1>{{ .Title | markdownify}}</h1>
+    </div>
+</div>
+
+<!-- Main Page Content -->
+<div class="container single-content">
+    
+    {{ if .Params.show_last_updated }}
+        <p><strong>Last updated: {{ now.Format "January 02, 2006" }}</strong></p>
+        <hr style="margin: 1rem 0 2rem 0;">
+    {{ end }}
+
+    {{ .Content }}
+
+    {{ with .Params.show_button }}
+        {{ partial "button.html" (dict "href" "/contact/" "text" "Get In Touch") }}
+    {{ end }}
+    {{ with .Params.show_button }}
+        {{ partial "button-new.html" (dict "href" "/contact/" "text" "Get In Touch") }}
+    {{ end }}
+</div>
+{{ end }}

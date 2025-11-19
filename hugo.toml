@@ -1,0 +1,4 @@
+baseURL = 'https://www.viliha.com'
+languageCode = 'en-us'
+title = 'Viliha Web Services'
+theme = 'my-theme'

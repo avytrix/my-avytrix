@@ -1,0 +1,30 @@
+{{ define "main" }}
+<div id="tech-article-page" class="tech-article-page">
+    
+    <!-- 1. Banner Section -->
+    {{ with .Params.banner_image }}
+    <section class="article-banner" style="background-image: url('{{ . | relURL }}');">
+        <div class="container-1240">
+            <h1>{{ $.Title | markdownify }}</h1>
+        </div>
+    </section>
+    {{ end }}
+
+    <div class="container-1240">
+        <!-- 2. Breadcrumbs Section -->
+        {{ partial "breadcrumbs.html" . }}
+
+        <!-- Main Article Content -->
+        <article class="article-content">
+            {{ .Content }}
+        </article>
+
+    </div>
+</div>
+{{ end }}
+
+
+{{ define "head-end" }}
+  {{/* This injects our new CSS link into the <head> of the page */}}
+  <link rel="stylesheet" href="{{ "https://ik.imagekit.io/viliha/css/layout-tech-article.css?ver=0.1" | relURL }}">
+{{ end }}

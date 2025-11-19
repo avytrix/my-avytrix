@@ -1,0 +1,45 @@
+<div id="breadcrumbs" class="container mx-auto px-4">
+  <nav aria-label="Breadcrumb" class="flex items-center text-sm text-gray-500 dark:text-gray-400 py-5">
+    
+    <!-- Home link -->
+    <a href="{{ .Site.BaseURL }}" class="hover:text-[#0058EE]">
+      <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+      </svg>
+    </a>
+  {{ if .Params.breadcrumbs }}
+    {{ range .Params.breadcrumbs }}
+      <span class="mx-2">></span>
+      {{ if .url }}
+        {{ if eq .url $.RelPermalink }}
+          <span class="current-page">{{ .name }}</span>
+        {{ else }}
+          <a class="hover:text-[#0058EE] dark:hover:text-[#00CBE5]" href="{{ .url | relURL }}">{{ .name }}</a>
+        {{ end }}
+      {{ else }}
+        <span class="font-medium text-[#0058EE] dark:text-[#00CBE5]">{{ .name }}</span>
+      {{ end }}
+    {{ end }}
+    
+  {{ else }}
+    {{ range .Ancestors.Reverse }}
+      {{ if not .IsHome }}
+        <!-- <span class="separator">></span> -->
+        <!-- <a href="{{ .Permalink }}">{{ .Title }}</a> -->
+      {{ end }}
+    {{ end }}
+    <span class="mx-2">></span>
+    <span class="font-medium text-[#0058EE] dark:text-[#00CBE5]">
+      {{ $base := "" }}
+      {{ with .File }}{{ $base = .BaseFileName }}{{ end }}
+      {{ if eq $base "" }}
+        About Us
+      {{ else }}
+        {{ with .Title }}{{ . }}{{ else }}{{ .Params.page }}{{ end }}
+      {{ end }}
+    </span>
+
+  {{ end }}
+    
+  </nav>
+</div>

@@ -1,0 +1,7 @@
+baseURL = 'https://www.viliha.com'
+languageCode = 'en-us'
+title = 'Viliha Web Services'
+theme = 'viliha-theme'
+
+[params]
+  cdnURL = "https://ik.imagekit.io/viliha/images/"

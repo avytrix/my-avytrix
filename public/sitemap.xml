@@ -2,60 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:61517/about-us/</loc>
+    <loc>http://localhost:1313/about-us/</loc>
   </url><url>
-    <loc>http://localhost:61517/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/aws/</loc>
+    <loc>http://localhost:1313/technologies/aws/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/api-development/</loc>
+    <loc>http://localhost:1313/services/api-development/</loc>
   </url><url>
-    <loc>http://localhost:61517/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/cloud-solutions/</loc>
+    <loc>http://localhost:1313/services/cloud-solutions/</loc>
   </url><url>
-    <loc>http://localhost:61517/contact/</loc>
+    <loc>http://localhost:1313/contact/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/custom-software-development/</loc>
+    <loc>http://localhost:1313/services/custom-software-development/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/dedicated-development-teams/</loc>
+    <loc>http://localhost:1313/services/dedicated-development-teams/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/docker/</loc>
+    <loc>http://localhost:1313/technologies/docker/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/ecommerce-solutions/</loc>
+    <loc>http://localhost:1313/services/ecommerce-solutions/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/flutter/</loc>
+    <loc>http://localhost:1313/technologies/flutter/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/mobile-app-development/</loc>
+    <loc>http://localhost:1313/services/mobile-app-development/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/nodejs/</loc>
+    <loc>http://localhost:1313/technologies/nodejs/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/ongoing-support/</loc>
+    <loc>http://localhost:1313/services/ongoing-support/</loc>
   </url><url>
-    <loc>http://localhost:61517/our-approach/</loc>
+    <loc>http://localhost:1313/our-approach/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/</loc>
+    <loc>http://localhost:1313/services/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/</loc>
+    <loc>http://localhost:1313/technologies/</loc>
   </url><url>
-    <loc>http://localhost:61517/privacy-policy/</loc>
+    <loc>http://localhost:1313/privacy-policy/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/python/</loc>
+    <loc>http://localhost:1313/technologies/python/</loc>
   </url><url>
-    <loc>http://localhost:61517/technologies/react/</loc>
+    <loc>http://localhost:1313/technologies/react/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/web-development/</loc>
+    <loc>http://localhost:1313/services/web-development/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/seo/</loc>
+    <loc>http://localhost:1313/services/seo/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/qa-and-testing/</loc>
+    <loc>http://localhost:1313/services/qa-and-testing/</loc>
   </url><url>
-    <loc>http://localhost:61517/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
   </url><url>
-    <loc>http://localhost:61517/terms-conditions/</loc>
+    <loc>http://localhost:1313/terms-conditions/</loc>
   </url><url>
-    <loc>http://localhost:61517/services/ux-ui-design/</loc>
+    <loc>http://localhost:1313/services/ux-ui-design/</loc>
   </url><url>
-    <loc>http://localhost:61517/</loc>
+    <loc>http://localhost:1313/</loc>
   </url>
 </urlset>

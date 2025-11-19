@@ -1,6 +1,6 @@
 ---
 title: "Node.js"
-logo: "/images/tech/nodejs.png"
+logo: "https://ik.imagekit.io/viliha/images/technologies/Node.js-150x150.png"
 description: ""
 keywords: []
 ---
@@ -19,4 +19,4 @@ We leverage Node.js to build fast, scalable, and data-intensive backend services
 *   **Core Concepts:** Non-blocking I/O, Event Loop, NPM (Node Package Manager).
 *   **Use Cases:** APIs, Microservices, Real-time applications (chats, games), Streaming services.
 
-{{< button href="/contact/" text="Develop Your Backend with Node.js" >}}
+{{< button-new href="/contact/" text="Develop Your Backend with Node.js" >}}

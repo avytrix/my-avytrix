@@ -1,6 +1,6 @@
 ---
 title: "Python with Django & FastAPI"
-logo: "/images/tech/python.png"
+logo: "https://ik.imagekit.io/viliha/images/technologies/Python.png"
 description: ""
 keywords: []
 ---
@@ -22,4 +22,4 @@ We choose Python for its readability, rapid development capabilities, and powerf
 *   **Frameworks:** Django (full-stack, batteries-included), FastAPI (high-performance API framework).
 *   **Use Cases:** Web Development, Data Science, Artificial Intelligence, Automation, Scientific Computing.
 
-{{< button href="/contact/" text="Build Your Platform with Python" >}}
+{{< button-new href="/contact/" text="Build Your Platform with Python" >}}

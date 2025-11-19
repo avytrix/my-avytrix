@@ -1,6 +1,6 @@
 ---
 title: "React"
-logo: "/images/tech/react.png"
+logo: "https://ik.imagekit.io/viliha/images/technologies/React.png"
 description: ""
 keywords: []
 ---
@@ -20,4 +20,4 @@ We use React to build modern, fast, and scalable frontends. Its component-based 
 *   **Core Concepts:** Components, JSX (JavaScript XML), Virtual DOM, State & Props.
 *   **Use Cases:** Single-Page Applications (SPAs), interactive UIs, mobile apps (with React Native).
 
-{{< button href="/contact/" text="Build Your App with React" >}}
+{{< button-new href="/contact/" text="Build Your App with React" >}}

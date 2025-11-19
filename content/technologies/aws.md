@@ -1,6 +1,6 @@
 ---
 title: "Amazon Web Services (AWS)"
-logo: "/images/tech/aws.png"
+logo: "https://ik.imagekit.io/viliha/images/technologies/AWS.png"
 description: ""
 keywords: []
 ---
@@ -25,4 +25,4 @@ We use AWS to provide our clients with a secure, scalable, and highly reliable i
 *   **Core Benefit:** Pay-as-you-go pricing, global reach, and unmatched reliability.
 
 
-{{< button href="/contact/" text="Host Your Application on AWS" >}}
+{{< button-new href="/contact/" text="Host Your Application on AWS" >}}

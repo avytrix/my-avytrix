@@ -1,6 +1,6 @@
 ---
 title: "Flutter"
-logo: "/images/tech/flutter.png"
+logo: "https://ik.imagekit.io/viliha/images/technologies/Flutter.png"
 description: ""
 keywords: []
 ---
@@ -20,4 +20,4 @@ We use Flutter to build beautiful, fast, and expressive mobile apps in record ti
 *   **Programming Language:** Dart.
 *   **Core Benefit:** Single codebase for multiple platforms, high performance, and beautiful UIs.
 
-{{< button href="/contact/" text="Build Your Mobile App with Flutter" >}}
+{{< button-new href="/contact/" text="Build Your Mobile App with Flutter" >}}

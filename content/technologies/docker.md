@@ -1,6 +1,6 @@
 ---
 title: "Docker"
-logo: "/images/tech/docker.png"
+logo: "https://ik.imagekit.io/viliha/images/technologies/Docker.png"
 description: ""
 keywords: []
 ---
@@ -19,4 +19,4 @@ We use Docker to standardize our development and deployment environments. It ens
 *   **Core Concepts:** Images, Containers, Dockerfile, Docker Hub.
 *   **Core Benefit:** Portability, consistency, and efficient use of system resources.
 
-{{< button href="/contact/" text="Containerize Your Application" >}}
+{{< button-new href="/contact/" text="Containerize Your Application" >}}

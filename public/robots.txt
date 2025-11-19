@@ -1,8 +1,0 @@
-User-agent: * 
-Allow: / 
-Disallow: 
-
-Disallow: /*.js
-Disallow: /*.css
-
-Sitemap: https://www.viliha.com/sitemap.xml

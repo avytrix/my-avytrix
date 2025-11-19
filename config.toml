@@ -1,3 +1,6 @@
-baseURL = "http://localhost:1313/"
-[params]                                                                                                                               │
-    cdnURL = "https://ik.imagekit.io/viliha/images/"   
+baseURL = "https://viliha.com"
+languageCode = "en-us"
+title = "Viliha"
+
+[params]
+  cdnURL = "https://ik.imagekit.io/viliha/images/"

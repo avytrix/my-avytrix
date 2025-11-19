@@ -203,7 +203,7 @@ section { padding: var(--section-padding); }
 a.header__logo {
     width: 120px;
     height: 40px;
-    background-image: url("/images/logos/viliha-d.jpg");
+    background-image: url("https://ik.imagekit.io/viliha/images/logos/viliha-d.jpg");
     background-size: contain;
     background-position-y: center;
     background-repeat: no-repeat;
@@ -251,7 +251,7 @@ a.header__logo {
   display: inline-block;
   width: 20px;
   height: 20px;
-  background-image: url("/images/icons/dropdown.svg");
+  background-image: url("https://ik.imagekit.io/viliha/images/icons/dropdown.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;

@@ -1,6 +1,0 @@
-baseURL = "https://viliha.com"
-languageCode = "en-us"
-title = "Viliha"
-
-[params]
-  cdnURL = "https://ik.imagekit.io/viliha/images/"

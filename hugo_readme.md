@@ -12,7 +12,7 @@ mysite/
  ├── config.qa.toml      # QA environment config
  ├── config.prod.toml    # Production environment config
  ├── themes/
- │    └── my-theme/        # Your custom theme
+ │    └── viliha-theme/        # Your custom theme
  ├── content/            # Site content (Markdown)
  ├── layouts/            # Custom layouts (optional)
  ├── static/             # Static assets (CSS, JS, images)

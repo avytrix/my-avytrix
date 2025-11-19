@@ -1,7 +1,6 @@
 baseURL = 'https://www.viliha.com'
 languageCode = 'en-us'
 title = 'Viliha Web Services'
-theme = 'my-theme'
 image = 'https://ik.imagekit.io/viliha/images/viliha_home.png'
 
 # Enable multilingual support for the translator

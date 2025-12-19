@@ -1,123 +1,239 @@
-{{ define "main" }}
-
-{{ partial "breadcrumbs.html" . }}
+{{ define "main" }} {{ partial "breadcrumbs.html" . }}
 
 <!-- New Tailwind Layout -->
-<div id="" class="container mx-auto ">
-    <div class="py-20 mx-4 bg-[#0A3176]">
-        <div class="flex items-center justify-center text-3xl font-semibold w-full">
-            <h1 class="text-[28px] lg:text-[36px] font-bold text-center text-white">Contact</h1>
-        </div>
+<div id="" class="container mx-auto">
+  <div class="py-20 mx-4 bg-[#0A3176]">
+    <div class="flex items-center justify-center text-3xl font-semibold w-full">
+      <h1 class="text-[28px] lg:text-[36px] font-bold text-center text-white">
+        Contact
+      </h1>
     </div>
+  </div>
 </div>
 
 <div id="container" class="container mx-auto px-4 py-16">
-    <div class="grid lg:grid-cols-3 gap-16">
-        <!-- Info Column -->
-        <div class="lg:col-span-1 space-y-8 pt-4">
-            <div>
-                <h2 class="text-3xl font-semibold">{{ .Params.info_heading }}</h2>
-                <p class="mt-4 text-sm">{{ .Params.info_paragraph }}</p>
-            </div>
-            <div class="border-t border-gray-200 0 pt-8">
-                <h2 class="text-2xl font-semibold">{{ .Params.expect_heading }}</h2>
-                <p class="mt-4 text-sm">{{ .Params.expect_paragraph }}</p>
-            </div>
-        </div>
-
-        <!-- Form Column -->
-        <div class="lg:col-span-2 bg-gray-50 7] p-4 rounded-lg">
-            <h2 class="text-3xl font-semibold mb-8">{{ .Params.form_heading }}</h2>
-            <form name="premium-contact" id="contact-form" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="space-y-6">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="form-group">
-                        <label for="name" class="block mb-2 font-medium">Full Name</label>
-                        <input type="text" id="name" name="name" required
-                            class="w-full p-3 border border-gray-300  rounded-md bg-white 00 focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none">
-                        <div class="error-message hidden mt-1 text-sm text-red-600">Full name is required.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="block mb-2 font-medium">Email Address</label>
-                        <input type="email" id="email" name="email" required
-                            class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none">
-                        <div class="error-message hidden mt-1 text-sm text-red-600">A valid email is required.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="company" class="block mb-2 font-medium">Company (Optional)</label>
-                        <input type="text" id="company" name="company"
-                            class="w-full p-3 border border-gray-300  rounded-md bg-white focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none">
-                    </div>
-                    <div class="form-group">
-                        <label class="block mb-2 font-medium">Service of Interest</label>
-                        <div class="custom-select-wrapper relative">
-                            <div class="custom-select-trigger flex justify-between items-center w-full p-3 border border-gray-300  rounded-md bg-white  cursor-pointer">
-                                <span>Select a service...</span>
-                                <div class="arrow w-2.5 h-2.5"></div>
-                            </div>
-                            <div class="custom-options hidden absolute top-full left-0 w-full bg-white rounded-b-md z-10 max-h-48 overflow-y-auto border border-gray-300">
-                                <span class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer" data-value="Custom Software Development">Custom Software Development</span>
-                                <span class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer" data-value="Web Development">Web Development</span>
-                                <span class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer" data-value="Mobile App Development">Mobile App Development</span>
-                                <span class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer" data-value="Other">Other</span>
-                            </div>
-                            <input type="hidden" name="service_interest" id="service_interest_input">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="message" class="block mb-2 font-medium">Your Message</label>
-                    <textarea id="message" name="message" rows="5" required
-                        class="w-full p-3 border border-gray-300  rounded-md bg-white  focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none"></textarea>
-                    <div class="error-message hidden mt-1 text-sm text-red-600">A message is required.</div>
-                </div>
-
-                <!-- reCAPTCHA + Consent -->
-                <div class="form-group space-y-4">
-                    <div class="g-recaptcha" data-sitekey="{{ .Site.Params.recaptcha_site_key }}"></div>
-                    <div class="text-xs text-gray-500 ">
-                        *By submitting this form, you have read and agreed to Viliha Web Services' 
-                        <a href="/terms-conditions/" target="_blank" class="text-[#0058EE] underline">Term of Use</a> and 
-                        <a href="/privacy-policy/" target="_blank" class="text-[#0058EE] underline">Privacy Statement</a>.
-                    </div>
-                </div>
-
-                <input type="hidden" name="recaptcha_token" id="recaptcha_token">
-
-                <!-- Hidden timestamp for bot detection -->
-                <input type="hidden" name="form_timestamp" id="form_timestamp">
-
-                <!-- Honeypot field - hidden from real users, bots will fill it -->
-                <div style="position: absolute; left: -9999px;" aria-hidden="true">
-                    <label for="website_url">Leave this field empty</label>
-                    <input type="text" name="website_url" id="website_url" tabindex="-1" autocomplete="off">
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn-submit w-full md:w-auto flex justify-center items-center bg-[#0058EE] hover:bg-[#00358f] text-white font-semibold py-3 px-8 rounded-full transition-colors disabled:bg-gray-400">
-                        <div class="spinner hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                        <span>Send Message</span>
-                    </button>
-                </div>
-            </form>
-        </div>
+  <div class="grid lg:grid-cols-3 gap-16">
+    <!-- Info Column -->
+    <div class="lg:col-span-1 space-y-8 pt-4">
+      <div>
+        <h2 class="text-3xl font-semibold">{{ .Params.info_heading }}</h2>
+        <p class="mt-4 text-sm">{{ .Params.info_paragraph }}</p>
+      </div>
+      <div class="border-t border-gray-200 0 pt-8">
+        <h2 class="text-2xl font-semibold">{{ .Params.expect_heading }}</h2>
+        <p class="mt-4 text-sm">{{ .Params.expect_paragraph }}</p>
+      </div>
     </div>
+
+    <!-- Form Column -->
+    <div class="lg:col-span-2 bg-gray-50 7] p-4 rounded-lg">
+      <h2 class="text-3xl font-semibold mb-8">{{ .Params.form_heading }}</h2>
+      <form
+        name="premium-contact"
+        id="contact-form"
+        method="POST"
+        data-netlify="true"
+        data-netlify-recaptcha="true"
+        class="space-y-6"
+      >
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="form-group">
+            <label for="name" class="block mb-2 font-medium">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full p-3 border border-gray-300 rounded-md bg-white 00 focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none"
+            />
+            <div class="error-message hidden mt-1 text-sm text-red-600">
+              Full name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="block mb-2 font-medium"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none"
+            />
+            <div class="error-message hidden mt-1 text-sm text-red-600">
+              A valid email is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="company" class="block mb-2 font-medium">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              required
+              class="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none"
+            />
+            <div class="error-message hidden mt-1 text-sm text-red-600">
+              A valid Company Name is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="block mb-2 font-medium">Service of Interest</label>
+            <div class="custom-select-wrapper relative">
+              <div
+                class="custom-select-trigger flex justify-between items-center w-full p-3 border border-gray-300 rounded-md bg-white cursor-pointer"
+              >
+                <span>Web Development</span>
+                <div class="arrow w-2.5 h-2.5"></div>
+              </div>
+              <div
+                class="custom-options hidden absolute top-full left-0 w-full bg-white rounded-b-md z-10 max-h-48 overflow-y-auto border border-gray-300"
+              >
+                <span
+                  class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer"
+                  data-value="Custom Software Development"
+                  >Custom Software Development</span
+                >
+                <span
+                  class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer"
+                  data-value="Web Development"
+                  >Web Development</span
+                >
+                <span
+                  class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer"
+                  data-value="Mobile App Development"
+                  >Mobile App Development</span
+                >
+                <span
+                  class="custom-option block px-4 py-2 hover:bg-[#0058EE] hover:text-white cursor-pointer"
+                  data-value="Other"
+                  >Other</span
+                >
+              </div>
+              <input
+                type="hidden"
+                name="service_interest"
+                id="service_interest_input"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message" class="block mb-2 font-medium"
+            >Your Message</label
+          >
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none"
+          ></textarea>
+          <div class="error-message hidden mt-1 text-sm text-red-600">
+            A message is required.
+          </div>
+        </div>
+
+        <!-- reCAPTCHA + Consent -->
+        <div class="form-group space-y-4">
+          <div
+            class="g-recaptcha"
+            data-sitekey="6LdkkXorAAAAAHQbCUTBx90vatSQhwAsR5iZjbZi"
+          ></div>
+          <div class="text-xs text-gray-500">
+            *By submitting this form, you have read and agreed to Viliha Web
+            Services'
+            <a
+              href="/terms-conditions/"
+              target="_blank"
+              class="text-[#0058EE] underline"
+              >Term of Use</a
+            >
+            and
+            <a
+              href="/privacy-policy/"
+              target="_blank"
+              class="text-[#0058EE] underline"
+              >Privacy Statement</a
+            >.
+          </div>
+        </div>
+
+        <input type="hidden" name="recaptcha_token" id="recaptcha_token" />
+
+        <!-- Hidden timestamp for bot detection -->
+        <input type="hidden" name="form_timestamp" id="form_timestamp" />
+
+        <!-- Honeypot field - hidden from real users, bots will fill it -->
+        <div style="position: absolute; left: -9999px" aria-hidden="true">
+          <label for="website_url">Leave this field empty</label>
+          <input
+            type="text"
+            name="website_url"
+            id="website_url"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="form-group">
+          <button
+            type="submit"
+            class="btn-submit w-full md:w-auto flex justify-center items-center bg-[#0058EE] hover:bg-[#00358f] text-white font-semibold py-3 px-8 rounded-full transition-colors disabled:bg-gray-400"
+          >
+            <div
+              class="spinner hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
+            ></div>
+            <span>Send Message</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-
 <!-- Success Modal -->
-            <div id="success-modal" class="success-modal-overlay hidden fixed inset-0 bg-black/60 z-[2000] flex items-center justify-center">
-                <div class="success-modal-content bg-white  p-8 rounded-lg text-center max-w-md w-full relative">
-                    <button id="close-modal-btn" class="absolute top-4 right-4 text-2xl text-gray-600  hover:text-black te">&times;</button>
-                    <div class="mx-auto w-16 h-16 flex items-center justify-center bg-green-100  rounded-full mb-4">
-                        <svg class="w-10 h-10 text-green-600 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
-                    </div>
-                    <h3 class="text-2xl font-semibold mb-2">Thank You!</h3>
-                    <p class="text-gray-600 ">Your message has been sent successfully. Our team will reach out to you soon.</p>
-                </div>
-            </div>
+<div
+  id="success-modal"
+  class="success-modal-overlay hidden fixed inset-0 bg-black/60 z-[2000] flex items-center justify-center"
+>
+  <div
+    class="success-modal-content bg-white p-8 rounded-lg text-center max-w-md w-full relative"
+  >
+    <button
+      id="close-modal-btn"
+      class="absolute top-4 right-4 text-2xl text-gray-600 hover:text-black te"
+    >
+      &times;
+    </button>
+    <div
+      class="mx-auto w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mb-4"
+    >
+      <svg
+        class="w-10 h-10 text-green-600"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 13l4 4L19 7"
+        />
+      </svg>
+    </div>
+    <h3 class="text-2xl font-semibold mb-2">Thank You!</h3>
+    <p class="text-gray-600">
+      Your message has been sent successfully. Our team will reach out to you
+      soon.
+    </p>
+  </div>
+</div>
 
-{{ end }}
-
-{{ define "head-end" }}
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{{ end }} {{ define "head-end" }}
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 {{ end }}

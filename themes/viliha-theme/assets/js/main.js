@@ -343,8 +343,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       try {
-        // Email verification API - add your API key here
-        const apiKey = ""; // Replace with your actual API key
+        // Email verification API - get API key from Hugo config
+        const apiKey =
+          window.VILIHA_CONFIG && window.VILIHA_CONFIG.abstractApiKey;
 
         if (!apiKey) {
           console.log("Email verification API not configured");
@@ -352,9 +353,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         const response = await fetch(
-          `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(
-            email
-          )}`
+          `${
+            window.VILIHA_CONFIG.abstractApiUrl ||
+            "https://emailreputation.abstractapi.com/v1/"
+          }?api_key=${apiKey}&email=${encodeURIComponent(email)}`
         );
 
         if (!response.ok) {
@@ -364,8 +366,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const data = await response.json();
 
-        // Check if email is deliverable
-        if (data.deliverability === "UNDELIVERABLE") {
+        // Check if email is deliverable based on the expected API response format
+        if (
+          data.email_deliverability &&
+          data.email_deliverability.status === "undeliverable"
+        ) {
           return {
             valid: false,
             reason: "Email address does not exist or cannot receive emails.",
@@ -373,26 +378,32 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Check if email format is valid
-        if (data.is_valid_format && data.is_valid_format.value === false) {
+        if (
+          data.email_deliverability &&
+          data.email_deliverability.is_format_valid === false
+        ) {
           return { valid: false, reason: "Invalid email format." };
         }
 
-        // Check if MX records are found
-        if (data.is_mx_found && data.is_mx_found.value === false) {
-          return {
-            valid: false,
-            reason: "Email domain does not have valid mail servers.",
-          };
-        }
-
-        // Check if it's a disposable email
+        // Check if SMTP is valid
         if (
-          data.is_disposable_email &&
-          data.is_disposable_email.value === true
+          data.email_deliverability &&
+          data.email_deliverability.is_smtp_valid === false
         ) {
           return {
             valid: false,
-            reason: "Disposable email addresses are not allowed.",
+            reason: "Email address does not exist or cannot receive emails.",
+          };
+        }
+
+        // Check if MX records are valid
+        if (
+          data.email_deliverability &&
+          data.email_deliverability.is_mx_valid === false
+        ) {
+          return {
+            valid: false,
+            reason: "Email domain does not have valid mail servers.",
           };
         }
 

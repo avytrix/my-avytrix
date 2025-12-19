@@ -877,14 +877,18 @@
                   </div>
                   <div class="form-group">
                     <label for="company" class="block mb-2 font-medium"
-                      >Company (Optional)</label
-                    >
+                      >Company
+                    </label>
                     <input
                       type="text"
                       id="company"
                       name="company"
+                      required
                       class="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-[#0058EE] focus:border-transparent outline-none"
                     />
+                    <div class="error-message hidden mt-1 text-sm text-red-600">
+                      A valid Company Name is required.
+                    </div>
                   </div>
                   <div class="form-group">
                     <label class="block mb-2 font-medium"
@@ -894,7 +898,7 @@
                       <div
                         class="custom-select-trigger flex justify-between items-center w-full p-3 border border-gray-300 rounded-md bg-white cursor-pointer"
                       >
-                        <span>Select a service...</span>
+                        <span>Web Development</span>
                         <div class="arrow w-2.5 h-2.5"></div>
                       </div>
                       <div
@@ -1484,145 +1488,93 @@
             return true;
           };
 
-          // Rate limiting for email verification API calls
-          const EMAIL_VERIFICATION_KEY = "viliha_email_verification_attempts";
-          const EMAIL_VERIFICATION_LIMIT = 1; // 1 verification per day
-          const EMAIL_VERIFICATION_WINDOW = 86400000; // 24 hours in milliseconds
-
-          const checkEmailVerificationRateLimit = () => {
-            const attempts = JSON.parse(
-              localStorage.getItem(EMAIL_VERIFICATION_KEY) || "[]"
-            );
-            const now = Date.now();
-
-            // Filter attempts within 24-hour window
-            const recentAttempts = attempts.filter(
-              (time) => now - time < EMAIL_VERIFICATION_WINDOW
-            );
-
-            // Update localStorage with only recent attempts
-            localStorage.setItem(
-              EMAIL_VERIFICATION_KEY,
-              JSON.stringify(recentAttempts)
-            );
-
-            console.log(
-              `📊 Email verification attempts today: ${recentAttempts.length}/${EMAIL_VERIFICATION_LIMIT}`
-            );
-
-            return recentAttempts.length < EMAIL_VERIFICATION_LIMIT;
-          };
-
-          const recordEmailVerificationAttempt = () => {
-            const attempts = JSON.parse(
-              localStorage.getItem(EMAIL_VERIFICATION_KEY) || "[]"
-            );
-            attempts.push(Date.now());
-            localStorage.setItem(
-              EMAIL_VERIFICATION_KEY,
-              JSON.stringify(attempts)
-            );
-            console.log("📝 Recorded email verification attempt");
-          };
-
           const verifyEmailExists = async (email) => {
-            console.log(
-              "🔍 Starting email reputation verification for:",
-              email
-            );
-
-            // Check rate limiting for email verification API calls
-            if (!checkEmailVerificationRateLimit()) {
-              console.log("🚫 Email verification rate limit exceeded");
-              return {
-                valid: false,
-                reason:
-                  "Too many email verification attempts. Please try again tomorrow.",
-              };
+            const trustedDomains = [
+              "gmail.com",
+              "yahoo.com",
+              "outlook.com",
+              "hotmail.com",
+              "live.com",
+              "icloud.com",
+              "me.com",
+              "mac.com",
+              "aol.com",
+              "msn.com",
+              "protonmail.com",
+              "proton.me",
+              "zoho.com",
+              "mail.com",
+              "gmx.com",
+              "gmx.net",
+              "yandex.com",
+              "fastmail.com",
+              "tutanota.com",
+              "hey.com",
+              "pm.me",
+            ];
+            const domain = email.split("@")[1]?.toLowerCase();
+            if (trustedDomains.includes(domain)) {
+              return { valid: true, reason: "trusted_domain" };
             }
 
             try {
-              // Record verification attempt before making API call
-              recordEmailVerificationAttempt();
+              const apiKey = "";
 
-              // Use Hugo configuration values instead of hardcoded API key
-              const apiKey = '{{ .Site.Params.abstract_api_key | default "" }}';
-              const baseUrl =
-                '{{ .Site.Params.abstract_api_url | default "https://emailreputation.abstractapi.com/v1/" }}';
-              const apiUrl = `${baseUrl}?api_key=${apiKey}&email=${encodeURIComponent(
-                email
-              )}`;
+              if (!apiKey) {
+                console.log("Email verification API not configured");
+                return { valid: true, reason: "api_not_configured" };
+              }
 
-              console.log(
-                "📡 Calling Abstract API:",
-                apiUrl.replace(apiKey, "API_KEY_HIDDEN")
-              );
-
-              const response = await fetch(apiUrl);
-
-              console.log(
-                "📡 API Response Status:",
-                response.status,
-                response.statusText
+              const response = await fetch(
+                `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(
+                  email
+                )}`
               );
 
               if (!response.ok) {
-                console.error(
-                  "❌ Email reputation API error:",
-                  response.status,
-                  response.statusText
-                );
-                const errorText = await response.text();
-                console.error("❌ Error response body:", errorText);
+                console.log("Email verification API error");
                 return { valid: true, reason: "api_error" };
               }
 
               const data = await response.json();
-              console.log("✅ API Response Data:", data);
 
-              // Check if email is valid and deliverable using correct API response structure
-              const deliverability = data.email_deliverability;
-
-              if (!deliverability) {
-                console.log("❌ No deliverability data in response");
+              if (data.deliverability === "UNDELIVERABLE") {
                 return {
                   valid: false,
-                  reason: "Unable to verify email deliverability.",
+                  reason:
+                    "Email address does not exist or cannot receive emails.",
                 };
               }
 
-              // SIMPLIFIED: Only check deliverability status as requested
-              if (deliverability.status === "undeliverable") {
-                console.log(
-                  "❌ Email is undeliverable:",
-                  deliverability.status_detail
-                );
+              if (
+                data.is_valid_format &&
+                data.is_valid_format.value === false
+              ) {
+                return { valid: false, reason: "Invalid email format." };
+              }
+
+              if (data.is_mx_found && data.is_mx_found.value === false) {
                 return {
                   valid: false,
-                  reason: `Email address does not exist or cannot receive emails (${deliverability.status_detail}).`,
+                  reason: "Email domain does not have valid mail servers.",
                 };
               }
 
-              // All other cases pass (deliverable, unknown, etc.)
-              console.log(
-                "✅ Email verification passed - deliverability status:",
-                deliverability.status
-              );
-              return { valid: true, reason: "email_verified" };
+              if (
+                data.is_disposable_email &&
+                data.is_disposable_email.value === true
+              ) {
+                return {
+                  valid: false,
+                  reason: "Disposable email addresses are not allowed.",
+                };
+              }
+
+              return { valid: true, reason: "verified" };
             } catch (error) {
-              console.error("💥 Email reputation verification failed:", error);
-              console.error("💥 Error stack:", error.stack);
-              // Allow submission if API fails to avoid blocking legitimate users
+              console.log("Email verification failed:", error);
               return { valid: true, reason: "verification_failed" };
             }
-          };
-
-          // Test function for debugging email validation
-          window.testEmailValidation = async function (email) {
-            console.log(`🧪 Testing email validation for: ${email}`);
-            const result = await verifyEmailExists(email);
-            console.log(`📊 Test result:`, result);
-            return result;
           };
 
           const toggleError = (input, show) => {

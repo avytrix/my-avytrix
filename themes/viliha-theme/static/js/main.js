@@ -196,7 +196,7 @@ if (contactPage) {
       const triggerText = trigger.querySelector('span');
       const options = wrapper.querySelectorAll('.custom-option');
       const hiddenInput = wrapper.querySelector('#service_interest_input');
-      
+
       trigger.addEventListener('click', () => wrapper.classList.toggle('open'));
       options.forEach(option => {
           option.addEventListener('click', () => {
@@ -221,10 +221,155 @@ if (contactPage) {
     const emailInput = form.querySelector('#email');
     const companyInput = form.querySelector('#company');
     const messageInput = form.querySelector('#message');
+    const honeypotInput = form.querySelector('#website_url');
+    const timestampInput = form.querySelector('#form_timestamp');
+
+    // Set form load timestamp for bot detection
+    const formLoadTime = Date.now();
+    if (timestampInput) {
+        timestampInput.value = formLoadTime;
+    }
+
+    // Rate limiting - track submissions
+    const RATE_LIMIT_KEY = 'viliha_form_submissions';
+    const RATE_LIMIT_MAX = 3; // Max 3 submissions
+    const RATE_LIMIT_WINDOW = 3600000; // Per hour (in milliseconds)
+
+    const checkRateLimit = () => {
+        const submissions = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '[]');
+        const now = Date.now();
+        const recentSubmissions = submissions.filter(time => now - time < RATE_LIMIT_WINDOW);
+        localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recentSubmissions));
+        return recentSubmissions.length < RATE_LIMIT_MAX;
+    };
+
+    const recordSubmission = () => {
+        const submissions = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '[]');
+        submissions.push(Date.now());
+        localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(submissions));
+    };
+
+    // Input sanitization function
+    const sanitizeInput = (str) => {
+        if (!str) return '';
+        return str
+            .replace(/[<>]/g, '')
+            .replace(/javascript:/gi, '')
+            .replace(/on\w+=/gi, '')
+            .trim();
+    };
 
     const validateEmail = (email) => {
         const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
+    };
+
+    // Check for disposable/temporary email domains
+    const isDisposableEmail = (email) => {
+        const disposableDomains = [
+            'tempmail.com', 'throwaway.email', 'guerrillamail.com', 'mailinator.com',
+            'temp-mail.org', '10minutemail.com', 'fakeinbox.com', 'trashmail.com',
+            'yopmail.com', 'getnada.com', 'mohmal.com', 'dispostable.com',
+            'mailnesia.com', 'tempr.email', 'discard.email', 'throwawaymail.com'
+        ];
+        const domain = email.split('@')[1]?.toLowerCase();
+        return disposableDomains.some(d => domain?.includes(d));
+    };
+
+    // Validate email domain is legitimate
+    const isValidEmailDomain = (email) => {
+        const domain = email.split('@')[1]?.toLowerCase();
+        if (!domain) return false;
+
+        const domainParts = domain.split('.');
+        if (domainParts.length < 2) return false;
+
+        const tld = domainParts[domainParts.length - 1];
+        if (tld.length < 2) return false;
+
+        // Block gibberish TLDs (common valid TLDs whitelist)
+        const validTLDs = [
+            'com', 'org', 'net', 'edu', 'gov', 'mil', 'int', 'io', 'co', 'ai', 'app',
+            'dev', 'tech', 'info', 'biz', 'name', 'pro', 'mobi', 'tel', 'asia', 'eu',
+            'de', 'uk', 'fr', 'it', 'es', 'nl', 'be', 'at', 'ch', 'pl', 'ru', 'cn',
+            'jp', 'kr', 'in', 'au', 'nz', 'ca', 'us', 'mx', 'br', 'ar', 'za', 'ae',
+            'sg', 'hk', 'tw', 'th', 'my', 'id', 'ph', 'vn', 'pk', 'bd', 'ng', 'eg',
+            'tr', 'il', 'sa', 'qa', 'kw', 'se', 'no', 'dk', 'fi', 'ie', 'pt', 'gr',
+            'cz', 'hu', 'ro', 'bg', 'hr', 'sk', 'si', 'rs', 'ua', 'by', 'kz', 'cloud',
+            'online', 'store', 'shop', 'site', 'website', 'blog', 'agency', 'digital',
+            'media', 'design', 'studio', 'solutions', 'services', 'consulting', 'group',
+            'company', 'business', 'marketing', 'software', 'systems', 'network', 'xyz'
+        ];
+
+        if (!validTLDs.includes(tld)) return false;
+
+        const domainName = domainParts.slice(0, -1).join('.');
+        if (domainName.length < 2) return false;
+
+        // Check for keyboard mashing patterns (too many consonants in a row)
+        const consonantPattern = /[bcdfghjklmnpqrstvwxyz]{5,}/i;
+        if (consonantPattern.test(domainName)) return false;
+
+        // Check for repeated characters (aaaa, xxxx)
+        const repeatedPattern = /(.)\1{3,}/;
+        if (repeatedPattern.test(domainName)) return false;
+
+        return true;
+    };
+
+    // Verify email exists using API (async)
+    const verifyEmailExists = async (email) => {
+        // Skip verification for known trusted domains
+        const trustedDomains = [
+            'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'live.com',
+            'icloud.com', 'me.com', 'mac.com', 'aol.com', 'msn.com', 'protonmail.com',
+            'proton.me', 'zoho.com', 'mail.com', 'gmx.com', 'gmx.net', 'yandex.com',
+            'fastmail.com', 'tutanota.com', 'hey.com', 'pm.me'
+        ];
+        const domain = email.split('@')[1]?.toLowerCase();
+        if (trustedDomains.includes(domain)) {
+            return { valid: true, reason: 'trusted_domain' };
+        }
+
+        try {
+            // Abstract API key should be set in window.ABSTRACT_API_KEY or skip verification
+            const apiKey = window.ABSTRACT_API_KEY || '';
+
+            if (!apiKey) {
+                console.log('Email verification API not configured');
+                return { valid: true, reason: 'api_not_configured' };
+            }
+
+            const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`);
+
+            if (!response.ok) {
+                console.log('Email verification API error');
+                return { valid: true, reason: 'api_error' };
+            }
+
+            const data = await response.json();
+
+            if (data.deliverability === 'UNDELIVERABLE') {
+                return { valid: false, reason: 'Email address does not exist or cannot receive emails.' };
+            }
+
+            if (data.is_valid_format && data.is_valid_format.value === false) {
+                return { valid: false, reason: 'Invalid email format.' };
+            }
+
+            if (data.is_mx_found && data.is_mx_found.value === false) {
+                return { valid: false, reason: 'Email domain does not have valid mail servers.' };
+            }
+
+            if (data.is_disposable_email && data.is_disposable_email.value === true) {
+                return { valid: false, reason: 'Disposable email addresses are not allowed.' };
+            }
+
+            return { valid: true, reason: 'verified' };
+        } catch (error) {
+            console.log('Email verification failed:', error);
+            return { valid: true, reason: 'verification_failed' };
+        }
     };
 
     const toggleError = (input, show) => {
@@ -232,84 +377,119 @@ if (contactPage) {
         formGroup.classList.toggle('error', show);
     };
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault(); // Stop default form submission
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
 
-        // --- Validation ---
+        // --- Security Checks ---
+
+        // 1. Honeypot check
+        if (honeypotInput && honeypotInput.value !== '') {
+            console.log('Bot detected via honeypot');
+            showSuccessModal();
+            return;
+        }
+
+        // 2. Timestamp check - form filled too fast (under 3 seconds = likely bot)
+        const timeTaken = Date.now() - formLoadTime;
+        if (timeTaken < 3000) {
+            console.log('Bot detected - form submitted too quickly');
+            showSuccessModal();
+            return;
+        }
+
+        // 3. Rate limiting check
+        if (!checkRateLimit()) {
+            alert('Too many submissions. Please try again later.');
+            return;
+        }
+
+        // 4. reCAPTCHA validation
+        if (window.grecaptcha) {
+            const recaptchaResponse = grecaptcha.getResponse();
+            if (!recaptchaResponse || recaptchaResponse.length === 0) {
+                alert('Please complete the reCAPTCHA verification.');
+                return;
+            }
+        }
+
+        // --- Input Validation ---
         let isValid = true;
-        if (nameInput.value.trim() === '') {
+
+        // Sanitize inputs
+        nameInput.value = sanitizeInput(nameInput.value);
+        emailInput.value = sanitizeInput(emailInput.value);
+        companyInput.value = sanitizeInput(companyInput.value);
+        messageInput.value = sanitizeInput(messageInput.value);
+
+        if (nameInput.value.trim() === '' || nameInput.value.length > 100) {
             toggleError(nameInput, true);
             isValid = false;
         } else {
             toggleError(nameInput, false);
         }
 
-        if (!validateEmail(emailInput.value)) {
+        if (!validateEmail(emailInput.value) || emailInput.value.length > 254) {
             toggleError(emailInput, true);
+            isValid = false;
+        } else if (!isValidEmailDomain(emailInput.value)) {
+            toggleError(emailInput, true);
+            alert('Please enter a valid email domain.');
+            isValid = false;
+        } else if (isDisposableEmail(emailInput.value)) {
+            toggleError(emailInput, true);
+            alert('Please use a valid business email address.');
             isValid = false;
         } else {
             toggleError(emailInput, false);
         }
 
-        if (messageInput.value.trim() === '') {
+        if (messageInput.value.trim() === '' || messageInput.value.length > 5000) {
             toggleError(messageInput, true);
             isValid = false;
         } else {
             toggleError(messageInput, false);
         }
-        
-        if (!isValid) return; 
+
+        if (!isValid) return;
+
+        // 5. Verify email exists (async API call)
         submitButton.classList.add('sending');
         submitButton.disabled = true;
 
+        const emailVerification = await verifyEmailExists(emailInput.value);
+        if (!emailVerification.valid) {
+            toggleError(emailInput, true);
+            alert(emailVerification.reason);
+            submitButton.classList.remove('sending');
+            submitButton.disabled = false;
+            return;
+        }
+
+        // Record this submission for rate limiting
+        recordSubmission();
+
         const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-        const data_new = {
-            service_id: 'service_l8b23vd',
-            template_id: 'template_u5v3z1a',
-            user_id: 'vB13cSMPfCxIjEKME',
-            template_params: {
-                'name': nameInput.value.trim(),
-                'email':emailInput.value,
-                'company':companyInput.value,
-                'message':messageInput.value,
-            }
-        };
-        // $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-        //     type: 'POST',
-        //     data: JSON.stringify(data_new),
-        //     contentType: 'application/json'
-        // }).done(function() {
-        //     showSuccessModal();
-        //     if (window.grecaptcha) {
-        //           grecaptcha.reset(); 
-        //     }
-        //     submitButton.classList.remove('sending');
-        //     submitButton.disabled = false;
-        // }).fail(function(error) {
-        //     alert('Oops unable sent message' );
-        //     submitButton.classList.remove('sending');
-        //     submitButton.disabled = false;
-        // });
 
         formData.append('service_id', 'service_l8b23vd');
         formData.append('template_id', 'template_u5v3z1a');
         formData.append('user_id', 'vB13cSMPfCxIjEKME');
-    
+
         $.ajax('https://api.emailjs.com/api/v1.0/email/send-form', {
             type: 'POST',
             data: formData,
-            contentType: false, 
-            processData: false 
+            contentType: false,
+            processData: false
         }).done(function() {
             showSuccessModal();
             if (window.grecaptcha) {
-                grecaptcha.reset(); 
+                grecaptcha.reset();
             }
             submitButton.classList.remove('sending');
             submitButton.disabled = false;
         }).fail(function(error) {
             alert('Sorry, something went wrong. Your message was not sent.');
+            submitButton.classList.remove('sending');
+            submitButton.disabled = false;
         });
 
     });

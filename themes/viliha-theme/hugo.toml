@@ -79,6 +79,9 @@ image = 'https://ik.imagekit.io/viliha/images/viliha_home.png'
   keywords = "custom software, web development, mobile app development, ux/ui design..."
   image = "https://ik.imagekit.io/viliha/images/viliha banner.png"
   recaptcha_site_key = "6LdkkXorAAAAAHQbCUTBx90vatSQhwAsR5iZjbZi"
+  # Abstract API key for email verification (get free key at https://www.abstractapi.com/email-verification-validation-api)
+  # Free tier: 100 verifications/month
+  abstract_api_key = ""
 
   # This is where we define the columns for our mega menu
   [params.mega_menu]

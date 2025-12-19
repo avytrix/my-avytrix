@@ -2,6 +2,7 @@ baseURL = 'https://www.viliha.com'
 languageCode = 'en-us'
 title = 'Viliha Web Services'
 theme = 'viliha-theme'
+abstract_api_key = "6db0b5c93c2444a38435337db3622afa"
 
 [params]
   cdnURL = "https://ik.imagekit.io/viliha/images/"

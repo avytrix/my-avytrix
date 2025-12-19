@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   // Contact form functionality
-  const contactPage = document.getElementById("contact-form");
+  const contactPage = document.getElementById("premium-contact-page");
   if (contactPage) {
     const wrapper = contactPage.querySelector(".custom-select-wrapper");
     if (wrapper) {

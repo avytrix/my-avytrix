@@ -3,6 +3,8 @@ languageCode = 'en-us'
 title = 'Viliha Web Services'
 theme = 'viliha-theme'
 abstract_api_key = "6db0b5c93c2444a38435337db3622afa"
+abstract_api_url = "https://emailreputation.abstractapi.com/v1/"
+
 
 [params]
   cdnURL = "https://ik.imagekit.io/viliha/images/"

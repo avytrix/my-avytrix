@@ -366,11 +366,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const data = await response.json();
 
-        // Check if email is deliverable based on the expected API response format
-        if (
-          data.email_deliverability &&
-          data.email_deliverability.status === "undeliverable"
-        ) {
+        // Email Reputation API response format
+        // Check if email is deliverable
+        if (data.email && data.email.deliverability === "undeliverable") {
           return {
             valid: false,
             reason: "Email address does not exist or cannot receive emails.",
@@ -378,32 +376,31 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Check if email format is valid
-        if (
-          data.email_deliverability &&
-          data.email_deliverability.is_format_valid === false
-        ) {
+        if (data.email && data.email.is_valid_format === false) {
           return { valid: false, reason: "Invalid email format." };
         }
 
-        // Check if SMTP is valid
-        if (
-          data.email_deliverability &&
-          data.email_deliverability.is_smtp_valid === false
-        ) {
-          return {
-            valid: false,
-            reason: "Email address does not exist or cannot receive emails.",
-          };
-        }
-
         // Check if MX records are valid
-        if (
-          data.email_deliverability &&
-          data.email_deliverability.is_mx_valid === false
-        ) {
+        if (data.email && data.email.is_mx_found === false) {
           return {
             valid: false,
             reason: "Email domain does not have valid mail servers.",
+          };
+        }
+
+        // Check if it's a disposable email
+        if (data.email && data.email.is_disposable === true) {
+          return {
+            valid: false,
+            reason: "Please use a valid business email address.",
+          };
+        }
+
+        // Check reputation score (0-100, lower is worse)
+        if (data.reputation && data.reputation.score !== null && data.reputation.score < 20) {
+          return {
+            valid: false,
+            reason: "This email address has a low reputation score.",
           };
         }
 

@@ -81,7 +81,8 @@ image = 'https://ik.imagekit.io/viliha/images/viliha_home.png'
   recaptcha_site_key = "6LdkkXorAAAAAHQbCUTBx90vatSQhwAsR5iZjbZi"
   # Abstract API key for email verification (get free key at https://www.abstractapi.com/email-verification-validation-api)
   # Free tier: 100 verifications/month
-  abstract_api_key = ""
+  abstract_api_key = "6db0b5c93c2444a38435337db3622afa"
+  abstract_api_url = "https://emailreputation.abstractapi.com/v1/"
 
   # This is where we define the columns for our mega menu
   [params.mega_menu]

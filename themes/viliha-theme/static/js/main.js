@@ -230,23 +230,44 @@ if (contactPage) {
         timestampInput.value = formLoadTime;
     }
 
-    // Rate limiting - track submissions
-    const RATE_LIMIT_KEY = 'viliha_form_submissions';
-    const RATE_LIMIT_MAX = 3; // Max 3 submissions
-    const RATE_LIMIT_WINDOW = 3600000; // Per hour (in milliseconds)
+    // ============================================
+    // RATE LIMITING CONFIGURATION
+    // ============================================
 
-    const checkRateLimit = () => {
-        const submissions = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '[]');
+    // Rate limit for form submissions: 3 per day
+    const SUBMISSION_RATE_KEY = 'viliha_form_submissions';
+    const SUBMISSION_RATE_MAX = 3;
+    const SUBMISSION_RATE_WINDOW = 86400000; // 24 hours in milliseconds
+
+    // Rate limit for API calls (email domain validation): 1 per day
+    const API_RATE_KEY = 'viliha_api_calls';
+    const API_RATE_MAX = 1;
+    const API_RATE_WINDOW = 86400000; // 24 hours in milliseconds
+
+    // Check rate limit helper function
+    const checkRateLimitGeneric = (key, max, window) => {
+        const entries = JSON.parse(localStorage.getItem(key) || '[]');
         const now = Date.now();
-        const recentSubmissions = submissions.filter(time => now - time < RATE_LIMIT_WINDOW);
-        localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recentSubmissions));
-        return recentSubmissions.length < RATE_LIMIT_MAX;
+        const recentEntries = entries.filter(time => now - time < window);
+        localStorage.setItem(key, JSON.stringify(recentEntries));
+        return recentEntries.length < max;
     };
 
-    const recordSubmission = () => {
-        const submissions = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || '[]');
-        submissions.push(Date.now());
-        localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(submissions));
+    // Record rate limit entry helper function
+    const recordRateLimitEntry = (key) => {
+        const entries = JSON.parse(localStorage.getItem(key) || '[]');
+        entries.push(Date.now());
+        localStorage.setItem(key, JSON.stringify(entries));
+    };
+
+    // Check submission rate limit (3 emails per day)
+    const checkSubmissionRateLimit = () => {
+        return checkRateLimitGeneric(SUBMISSION_RATE_KEY, SUBMISSION_RATE_MAX, SUBMISSION_RATE_WINDOW);
+    };
+
+    // Check API rate limit (1 API call per day for domain validation)
+    const checkApiRateLimit = () => {
+        return checkRateLimitGeneric(API_RATE_KEY, API_RATE_MAX, API_RATE_WINDOW);
     };
 
     // Input sanitization function
@@ -276,7 +297,7 @@ if (contactPage) {
         return disposableDomains.some(d => domain?.includes(d));
     };
 
-    // Validate email domain is legitimate
+    // Validate email domain structure (basic local check)
     const isValidEmailDomain = (email) => {
         const domain = email.split('@')[1]?.toLowerCase();
         if (!domain) return false;
@@ -317,9 +338,10 @@ if (contactPage) {
         return true;
     };
 
-    // Verify email exists using API (async)
-    const verifyEmailExists = async (email) => {
-        // Skip verification for known trusted domains
+    // Verify email reputation using Abstract API (Email Reputation API)
+    // Rate limited to 1 call per day
+    const verifyEmailReputation = async (email) => {
+        // Skip verification for known trusted domains (no API call needed)
         const trustedDomains = [
             'gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'live.com',
             'icloud.com', 'me.com', 'mac.com', 'aol.com', 'msn.com', 'protonmail.com',
@@ -328,47 +350,65 @@ if (contactPage) {
         ];
         const domain = email.split('@')[1]?.toLowerCase();
         if (trustedDomains.includes(domain)) {
-            return { valid: true, reason: 'trusted_domain' };
+            return { valid: true, reason: 'trusted_domain', apiCalled: false };
+        }
+
+        // Check API rate limit (1 call per day)
+        if (!checkApiRateLimit()) {
+            console.log('API rate limit reached (1/day). Skipping domain verification.');
+            return { valid: true, reason: 'api_rate_limited', apiCalled: false };
         }
 
         try {
-            // Abstract API key should be set in window.ABSTRACT_API_KEY or skip verification
-            const apiKey = window.ABSTRACT_API_KEY || '';
+            // Get API config from Hugo
+            const config = window.VILIHA_CONFIG || {};
+            const apiKey = config.abstractApiKey || '';
+            const apiUrl = config.abstractApiUrl || 'https://emailreputation.abstractapi.com/v1/';
 
             if (!apiKey) {
                 console.log('Email verification API not configured');
-                return { valid: true, reason: 'api_not_configured' };
+                return { valid: true, reason: 'api_not_configured', apiCalled: false };
             }
 
-            const response = await fetch(`https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`);
+            // Make API call to Email Reputation API
+            const response = await fetch(`${apiUrl}?api_key=${apiKey}&email=${encodeURIComponent(email)}`);
 
             if (!response.ok) {
-                console.log('Email verification API error');
-                return { valid: true, reason: 'api_error' };
+                console.log('Email verification API error:', response.status);
+                return { valid: true, reason: 'api_error', apiCalled: false };
             }
+
+            // Record API call for rate limiting
+            recordRateLimitEntry(API_RATE_KEY);
 
             const data = await response.json();
+            console.log('Email Reputation API response:', data);
 
-            if (data.deliverability === 'UNDELIVERABLE') {
-                return { valid: false, reason: 'Email address does not exist or cannot receive emails.' };
+            // Check email reputation score and flags
+            // Email Reputation API returns: email, score, and breach data
+
+            // If score is very low (high spam risk), reject
+            if (data.score !== undefined && data.score < 0.3) {
+                return { valid: false, reason: 'Email has low reputation score. Please use a different email.', apiCalled: true };
             }
 
-            if (data.is_valid_format && data.is_valid_format.value === false) {
-                return { valid: false, reason: 'Invalid email format.' };
+            // Check if email is from a suspicious domain
+            if (data.details) {
+                if (data.details.is_disposable === true) {
+                    return { valid: false, reason: 'Disposable email addresses are not allowed.', apiCalled: true };
+                }
+                if (data.details.is_valid === false) {
+                    return { valid: false, reason: 'Invalid email address.', apiCalled: true };
+                }
+                if (data.details.is_spam_trap === true) {
+                    return { valid: false, reason: 'This email cannot be used.', apiCalled: true };
+                }
             }
 
-            if (data.is_mx_found && data.is_mx_found.value === false) {
-                return { valid: false, reason: 'Email domain does not have valid mail servers.' };
-            }
-
-            if (data.is_disposable_email && data.is_disposable_email.value === true) {
-                return { valid: false, reason: 'Disposable email addresses are not allowed.' };
-            }
-
-            return { valid: true, reason: 'verified' };
+            return { valid: true, reason: 'verified', apiCalled: true };
         } catch (error) {
             console.log('Email verification failed:', error);
-            return { valid: true, reason: 'verification_failed' };
+            return { valid: true, reason: 'verification_failed', apiCalled: false };
         }
     };
 
@@ -380,12 +420,14 @@ if (contactPage) {
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
 
-        // --- Security Checks ---
+        // ============================================
+        // SECURITY CHECKS
+        // ============================================
 
-        // 1. Honeypot check
+        // 1. Honeypot check - if filled, it's a bot
         if (honeypotInput && honeypotInput.value !== '') {
             console.log('Bot detected via honeypot');
-            showSuccessModal();
+            showSuccessModal(); // Fake success to confuse bots
             return;
         }
 
@@ -393,13 +435,13 @@ if (contactPage) {
         const timeTaken = Date.now() - formLoadTime;
         if (timeTaken < 3000) {
             console.log('Bot detected - form submitted too quickly');
-            showSuccessModal();
+            showSuccessModal(); // Fake success
             return;
         }
 
-        // 3. Rate limiting check
-        if (!checkRateLimit()) {
-            alert('Too many submissions. Please try again later.');
+        // 3. Submission rate limit check (3 emails per day)
+        if (!checkSubmissionRateLimit()) {
+            alert('You have reached the maximum number of submissions for today (3). Please try again tomorrow.');
             return;
         }
 
@@ -412,22 +454,26 @@ if (contactPage) {
             }
         }
 
-        // --- Input Validation ---
+        // ============================================
+        // INPUT VALIDATION (All fields required)
+        // ============================================
         let isValid = true;
 
-        // Sanitize inputs
+        // Sanitize all inputs
         nameInput.value = sanitizeInput(nameInput.value);
         emailInput.value = sanitizeInput(emailInput.value);
         companyInput.value = sanitizeInput(companyInput.value);
         messageInput.value = sanitizeInput(messageInput.value);
 
-        if (nameInput.value.trim() === '' || nameInput.value.length > 100) {
+        // Validate Name (required, max 20 chars)
+        if (nameInput.value.trim() === '' || nameInput.value.length > 20) {
             toggleError(nameInput, true);
             isValid = false;
         } else {
             toggleError(nameInput, false);
         }
 
+        // Validate Email (required, valid format, valid domain structure)
         if (!validateEmail(emailInput.value) || emailInput.value.length > 254) {
             toggleError(emailInput, true);
             isValid = false;
@@ -443,7 +489,16 @@ if (contactPage) {
             toggleError(emailInput, false);
         }
 
-        if (messageInput.value.trim() === '' || messageInput.value.length > 5000) {
+        // Validate Company (required, max 20 chars)
+        if (companyInput.value.trim() === '' || companyInput.value.length > 20) {
+            toggleError(companyInput, true);
+            isValid = false;
+        } else {
+            toggleError(companyInput, false);
+        }
+
+        // Validate Message (required, max 500 chars)
+        if (messageInput.value.trim() === '' || messageInput.value.length > 500) {
             toggleError(messageInput, true);
             isValid = false;
         } else {
@@ -452,11 +507,13 @@ if (contactPage) {
 
         if (!isValid) return;
 
-        // 5. Verify email exists (async API call)
+        // ============================================
+        // EMAIL DOMAIN VERIFICATION (API - 1 call/day)
+        // ============================================
         submitButton.classList.add('sending');
         submitButton.disabled = true;
 
-        const emailVerification = await verifyEmailExists(emailInput.value);
+        const emailVerification = await verifyEmailReputation(emailInput.value);
         if (!emailVerification.valid) {
             toggleError(emailInput, true);
             alert(emailVerification.reason);
@@ -465,8 +522,12 @@ if (contactPage) {
             return;
         }
 
-        // Record this submission for rate limiting
-        recordSubmission();
+        // ============================================
+        // SUBMIT FORM
+        // ============================================
+
+        // Record this submission for rate limiting (3/day)
+        recordRateLimitEntry(SUBMISSION_RATE_KEY);
 
         const formData = new FormData(form);
 
@@ -486,6 +547,8 @@ if (contactPage) {
             }
             submitButton.classList.remove('sending');
             submitButton.disabled = false;
+            // Clear form
+            form.reset();
         }).fail(function(error) {
             alert('Sorry, something went wrong. Your message was not sent.');
             submitButton.classList.remove('sending');

@@ -38,14 +38,28 @@ document.addEventListener("DOMContentLoaded", function () {
       const hiddenInput = wrapper.querySelector("#service_interest_input");
       const customOptions = wrapper.querySelector(".custom-options");
 
-      trigger.addEventListener("click", () =>
-        customOptions.classList.remove("hidden")
-      );
+      console.log("Custom select initialized");
+      console.log("Hidden input:", hiddenInput);
+
+      // Set default value for the service interest field
+      if (hiddenInput) {
+        hiddenInput.value = "Web Development";
+        console.log("Default service interest set to:", hiddenInput.value);
+      }
+
+      trigger.addEventListener("click", () => {
+        console.log("Custom select clicked");
+        customOptions.classList.remove("hidden");
+      });
       options.forEach((option) => {
         option.addEventListener("click", () => {
           const selectedValue = option.getAttribute("data-value");
+          console.log("Option selected:", selectedValue);
           triggerText.textContent = selectedValue;
-          hiddenInput.value = selectedValue;
+          if (hiddenInput) {
+            hiddenInput.value = selectedValue;
+            console.log("Hidden input value set to:", hiddenInput.value);
+          }
           wrapper.classList.remove("open");
           customOptions.classList.add("hidden");
         });
@@ -328,9 +342,65 @@ document.addEventListener("DOMContentLoaded", function () {
         return { valid: true, reason: "trusted_domain" };
       }
 
-      // Placeholder for email verification API
-      console.log("Email verification API not configured");
-      return { valid: true, reason: "api_not_configured" };
+      try {
+        // Email verification API - add your API key here
+        const apiKey = ""; // Replace with your actual API key
+
+        if (!apiKey) {
+          console.log("Email verification API not configured");
+          return { valid: true, reason: "api_not_configured" };
+        }
+
+        const response = await fetch(
+          `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(
+            email
+          )}`
+        );
+
+        if (!response.ok) {
+          console.log("Email verification API error");
+          return { valid: true, reason: "api_error" };
+        }
+
+        const data = await response.json();
+
+        // Check if email is deliverable
+        if (data.deliverability === "UNDELIVERABLE") {
+          return {
+            valid: false,
+            reason: "Email address does not exist or cannot receive emails.",
+          };
+        }
+
+        // Check if email format is valid
+        if (data.is_valid_format && data.is_valid_format.value === false) {
+          return { valid: false, reason: "Invalid email format." };
+        }
+
+        // Check if MX records are found
+        if (data.is_mx_found && data.is_mx_found.value === false) {
+          return {
+            valid: false,
+            reason: "Email domain does not have valid mail servers.",
+          };
+        }
+
+        // Check if it's a disposable email
+        if (
+          data.is_disposable_email &&
+          data.is_disposable_email.value === true
+        ) {
+          return {
+            valid: false,
+            reason: "Disposable email addresses are not allowed.",
+          };
+        }
+
+        return { valid: true, reason: "verified" };
+      } catch (error) {
+        console.log("Email verification failed:", error);
+        return { valid: true, reason: "verification_failed" };
+      }
     };
 
     const toggleError = (input, show) => {
@@ -341,6 +411,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Form submission
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
+      console.log("Form submission started");
 
       // Honeypot check
       if (honeypotInput && honeypotInput.value !== "") {
@@ -351,6 +422,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Time-based bot detection
       const timeTaken = Date.now() - formLoadTime;
+      console.log("Time taken:", timeTaken);
       if (timeTaken < 3000) {
         console.log("Bot detected - form submitted too quickly");
         showSuccessModal();
@@ -380,7 +452,13 @@ document.addEventListener("DOMContentLoaded", function () {
       companyInput.value = sanitizeInput(companyInput.value);
       messageInput.value = sanitizeInput(messageInput.value);
 
+      console.log("Name:", nameInput.value);
+      console.log("Email:", emailInput.value);
+      console.log("Company:", companyInput.value);
+      console.log("Message:", messageInput.value);
+
       if (nameInput.value.trim() === "" || nameInput.value.length > 100) {
+        console.log("Name validation failed");
         toggleError(nameInput, true);
         isValid = false;
       } else {
@@ -388,13 +466,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (!validateEmail(emailInput.value) || emailInput.value.length > 254) {
+        console.log("Email format validation failed");
         toggleError(emailInput, true);
         isValid = false;
       } else if (!isValidEmailDomain(emailInput.value)) {
+        console.log("Email domain validation failed");
         toggleError(emailInput, true);
         alert("Please enter a valid email domain.");
         isValid = false;
       } else if (isDisposableEmail(emailInput.value)) {
+        console.log("Disposable email detected");
         toggleError(emailInput, true);
         alert("Please use a valid business email address.");
         isValid = false;
@@ -406,12 +487,14 @@ document.addEventListener("DOMContentLoaded", function () {
         messageInput.value.trim() === "" ||
         messageInput.value.length > 5000
       ) {
+        console.log("Message validation failed");
         toggleError(messageInput, true);
         isValid = false;
       } else {
         toggleError(messageInput, false);
       }
 
+      console.log("Form validation result:", isValid);
       if (!isValid) return;
 
       // Show loading state
@@ -419,8 +502,14 @@ document.addEventListener("DOMContentLoaded", function () {
       submitButton.disabled = true;
 
       // Verify email
+      console.log("Starting email verification for:", emailInput.value);
       const emailVerification = await verifyEmailExists(emailInput.value);
+      console.log("Email verification result:", emailVerification);
       if (!emailVerification.valid) {
+        console.log(
+          "Email verification failed, reason:",
+          emailVerification.reason
+        );
         toggleError(emailInput, true);
         alert(emailVerification.reason);
         submitButton.classList.remove("sending");
@@ -434,19 +523,28 @@ document.addEventListener("DOMContentLoaded", function () {
       // Prepare form data
       const formData = new FormData(form);
 
+      // Log form data for debugging
+      console.log("Form data prepared:");
+      for (let [key, value] of formData.entries()) {
+        console.log(key, value);
+      }
+
       // Use jQuery queue for sequential email sending
       const queueObj = $({});
 
       queueObj
         .queue("sendQueue", function (next) {
+          console.log("Sending to customer...");
           sendToCustomer(formData, "template_u5v3z1a");
           next();
         })
         .queue("sendQueue", function (next) {
+          console.log("Sending to Viliha...");
           sendToViliha(formData, "template_6uq3gfq");
           next();
         })
         .queue("sendQueue", function (next) {
+          console.log("Clearing form...");
           clearForm();
           next();
         });
@@ -468,6 +566,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Email sending functions
     function sendToCustomer(formData, templateId) {
+      console.log("Sending email to customer with template:", templateId);
       formData.append("template_id", templateId);
       $.ajax("https://api.emailjs.com/api/v1.0/email/send-form", {
         type: "POST",
@@ -476,6 +575,7 @@ document.addEventListener("DOMContentLoaded", function () {
         processData: false,
       })
         .done(function () {
+          console.log("Customer email sent successfully");
           showSuccessModal();
           if (window.grecaptcha) {
             grecaptcha.reset();
@@ -484,11 +584,13 @@ document.addEventListener("DOMContentLoaded", function () {
           submitButton.disabled = false;
         })
         .fail(function (error) {
+          console.log("Customer email failed:", error);
           alert("Sorry, something went wrong. Your message was not sent.");
         });
     }
 
     function sendToViliha(formData, templateId) {
+      console.log("Sending email to Viliha with template:", templateId);
       formData.set("template_id", templateId);
       formData.append("dateTime", GermanTimeZone());
       $.ajax("https://api.emailjs.com/api/v1.0/email/send-form", {

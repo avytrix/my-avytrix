@@ -371,6 +371,7 @@ if (contactPage) {
             }
 
             // Make API call to Email Reputation API
+            // Format: https://emailreputation.abstractapi.com/v1/?api_key=KEY&email=EMAIL
             const response = await fetch(`${apiUrl}?api_key=${apiKey}&email=${encodeURIComponent(email)}`);
 
             if (!response.ok) {
@@ -384,24 +385,38 @@ if (contactPage) {
             const data = await response.json();
             console.log('Email Reputation API response:', data);
 
-            // Check email reputation score and flags
-            // Email Reputation API returns: email, score, and breach data
-
-            // If score is very low (high spam risk), reject
-            if (data.score !== undefined && data.score < 0.3) {
-                return { valid: false, reason: 'Email has low reputation score. Please use a different email.', apiCalled: true };
+            // Check email deliverability
+            if (data.email_deliverability) {
+                if (data.email_deliverability.is_format_valid === false) {
+                    return { valid: false, reason: 'Invalid email format.', apiCalled: true };
+                }
+                if (data.email_deliverability.is_mx_valid === false) {
+                    return { valid: false, reason: 'Email domain does not exist.', apiCalled: true };
+                }
+                if (data.email_deliverability.status === 'undeliverable') {
+                    return { valid: false, reason: 'This email address cannot receive emails.', apiCalled: true };
+                }
             }
 
-            // Check if email is from a suspicious domain
-            if (data.details) {
-                if (data.details.is_disposable === true) {
+            // Check email quality score (0-1, lower is worse)
+            if (data.email_quality) {
+                if (data.email_quality.score !== undefined && data.email_quality.score < 0.3) {
+                    return { valid: false, reason: 'Email has low quality score. Please use a different email.', apiCalled: true };
+                }
+                if (data.email_quality.is_disposable === true) {
                     return { valid: false, reason: 'Disposable email addresses are not allowed.', apiCalled: true };
                 }
-                if (data.details.is_valid === false) {
-                    return { valid: false, reason: 'Invalid email address.', apiCalled: true };
+                if (data.email_quality.is_username_suspicious === true) {
+                    return { valid: false, reason: 'This email address appears suspicious. Please use a valid email.', apiCalled: true };
                 }
-                if (data.details.is_spam_trap === true) {
-                    return { valid: false, reason: 'This email cannot be used.', apiCalled: true };
+            }
+
+            // Check email risk levels
+            if (data.email_risk) {
+                const highRiskLevels = ['high', 'very_high'];
+                if (highRiskLevels.includes(data.email_risk.address_risk_status) ||
+                    highRiskLevels.includes(data.email_risk.domain_risk_status)) {
+                    return { valid: false, reason: 'This email cannot be used. Please use a different email address.', apiCalled: true };
                 }
             }
 

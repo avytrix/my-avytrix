@@ -4,72 +4,253 @@ import { navigation } from "@/lib/config";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#121828] text-white pt-8 sm:pt-12 pb-6 sm:pb-8">
-      <div className="max-w-[1200px] mx-auto px-4 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
-        {/* Logo Column */}
-        <div className="footer-column col-span-2 md:col-span-1">
-          <Link href="/" className="mb-4 inline-block">
-            <Image
-              src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
-              alt="Viliha Web Services Logo"
-              width={144}
-              height={48}
-              className="rounded-lg w-[120px] sm:w-[144px]"
-            />
-          </Link>
-          <p className="text-xs sm:text-sm opacity-70">Architecting Your Digital Future.</p>
-          <div className="mt-3 sm:mt-4 text-xs opacity-50">© {new Date().getFullYear()} Viliha. All Rights Reserved.</div>
+    <footer className="bg-[#121828] text-white">
+      {/* Main Footer Content */}
+      <div className="max-w-[1200px] mx-auto px-4 py-10 lg:py-14">
+
+        {/* Mobile Layout (< 768px) - Logo centered, 2 columns */}
+        <div className="md:hidden">
+          {/* Logo Section - Centered */}
+          <div className="text-center mb-8">
+            <Link href="/" className="inline-block mb-3">
+              <Image
+                src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
+                alt="Viliha Web Services Logo"
+                width={160}
+                height={53}
+                className="rounded-lg mx-auto"
+              />
+            </Link>
+            <p className="text-gray-400 text-sm">Architecting Your Digital Future.</p>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-700/50 mb-8"></div>
+
+          {/* 2 Column Menu Grid */}
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            {/* Services Column */}
+            <div>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Services</h3>
+              <ul className="space-y-2.5">
+                {navigation.footer.services.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Infrastructure Column */}
+            <div>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Infrastructure</h3>
+              <ul className="space-y-2.5">
+                {navigation.footer.migration.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company Column */}
+            <div>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Company</h3>
+              <ul className="space-y-2.5">
+                {navigation.footer.company.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact Column */}
+            <div>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Contact</h3>
+              <ul className="space-y-2.5">
+                <li>
+                  <a
+                    href="mailto:getintouch@viliha.com"
+                    className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors break-all"
+                  >
+                    getintouch@viliha.com
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+84915193536"
+                    className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                  >
+                    +84 915 193 536
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Services Column */}
-        <div className="footer-column">
-          <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Services</h3>
-          <ul className="space-y-1.5 sm:space-y-2">
-            {navigation.footer.services.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="text-xs sm:text-sm opacity-70 hover:opacity-100 transition text-[#aaa]"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        {/* Tablet Layout (768px - 1023px) */}
+        <div className="hidden md:block lg:hidden">
+          <div className="grid grid-cols-5 gap-8">
+            {/* Logo Column */}
+            <div className="col-span-2">
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
+                  alt="Viliha Web Services Logo"
+                  width={160}
+                  height={53}
+                  className="rounded-lg"
+                />
+              </Link>
+              <p className="text-sm text-gray-400 mb-2">Architecting Your Digital Future.</p>
+            </div>
+
+            {/* Services Column */}
+            <div>
+              <h3 className="font-semibold text-sm mb-4 text-white">Services</h3>
+              <ul className="space-y-2.5">
+                {navigation.footer.services.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Infrastructure Column */}
+            <div>
+              <h3 className="font-semibold text-sm mb-4 text-white">Infrastructure</h3>
+              <ul className="space-y-2.5">
+                {navigation.footer.migration.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company Column */}
+            <div>
+              <h3 className="font-semibold text-sm mb-4 text-white">Company</h3>
+              <ul className="space-y-2.5">
+                {navigation.footer.company.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
-        {/* Migration Services Column */}
-        <div className="footer-column">
-          <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Infrastructure</h3>
-          <ul className="space-y-1.5 sm:space-y-2">
-            {navigation.footer.migration.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="text-xs sm:text-sm opacity-70 hover:opacity-100 transition text-[#aaa]"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        {/* Desktop Layout (>= 1024px) - Original Layout */}
+        <div className="hidden lg:grid lg:grid-cols-4 lg:gap-12">
+          {/* Logo Column */}
+          <div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
+                alt="Viliha Web Services Logo"
+                width={144}
+                height={48}
+                className="rounded-lg"
+              />
+            </Link>
+            <p className="text-sm text-gray-400 mb-2">Architecting Your Digital Future.</p>
+            <p className="text-xs text-gray-500">© {new Date().getFullYear()} Viliha. All Rights Reserved.</p>
+          </div>
 
-        {/* Company Column */}
-        <div className="footer-column">
-          <h3 className="font-semibold text-sm sm:text-base mb-3 sm:mb-4">Company</h3>
-          <ul className="space-y-1.5 sm:space-y-2">
-            {navigation.footer.company.map((link) => (
-              <li key={link.name}>
-                <Link
-                  href={link.href}
-                  className="text-xs sm:text-sm opacity-70 hover:opacity-100 transition text-[#aaa]"
-                >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          {/* Services Column */}
+          <div>
+            <h3 className="font-semibold text-base mb-4 text-white">Services</h3>
+            <ul className="space-y-2.5">
+              {navigation.footer.services.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Infrastructure Column */}
+          <div>
+            <h3 className="font-semibold text-base mb-4 text-white">Infrastructure</h3>
+            <ul className="space-y-2.5">
+              {navigation.footer.migration.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h3 className="font-semibold text-base mb-4 text-white">Company</h3>
+            <ul className="space-y-2.5">
+              {navigation.footer.company.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Bar - Mobile & Tablet only */}
+      <div className="border-t border-gray-700/50 lg:hidden">
+        <div className="max-w-[1200px] mx-auto px-4 py-5">
+          <p className="text-center text-sm text-gray-500">
+            © {new Date().getFullYear()} Viliha. All Rights Reserved.
+          </p>
         </div>
       </div>
     </footer>

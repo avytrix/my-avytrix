@@ -19,6 +19,10 @@ export const metadata: Metadata = {
     "DevOps services",
     "startup software services",
     "enterprise software solutions",
+    "remote development team",
+    "remote software development",
+    "hire remote developers",
+    "dedicated remote teams",
   ],
   alternates: {
     canonical: `${siteConfig.url}/services`,

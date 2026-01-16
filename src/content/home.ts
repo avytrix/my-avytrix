@@ -1,9 +1,9 @@
 export const homeContent = {
   hero: {
-    heading: "Architecting Your Digital Future: Premier Web & Mobile Solutions",
-    subheading: "Innovative Digital Platforms. Global Impact.",
+    heading: "Remote Software Development for Startups & AI Companies",
+    subheading: "Trusted by Businesses in USA, UK, Europe & Australia",
     paragraph:
-      "We provide comprehensive software services, delivering world-class solutions and strengthening your projects with skilled, trusted tech talent.",
+      "We provide custom software solutions with dedicated remote development teams. From MVP to enterprise scale, our skilled tech talent delivers world-class results for startups and growing businesses.",
     buttonText: "Let's Build Your Solution",
     buttonUrl: "/contact",
     image: "https://ik.imagekit.io/viliha/images/viliha-banner_image.webp",

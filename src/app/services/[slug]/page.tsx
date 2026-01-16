@@ -32,6 +32,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     "software development",
     "AI companies",
     "startup solutions",
+    "remote development team",
+    "hire remote developers",
   ];
 
   return {

@@ -1,10 +1,12 @@
 import { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/config";
 import { getAllServiceSlugs } from "@/content/services";
+import { getAllLocationSlugs } from "@/content/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const serviceSlugs = getAllServiceSlugs();
+  const locationSlugs = getAllLocationSlugs();
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
@@ -54,5 +56,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages];
+  // Location landing pages
+  const locationPages: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
+    url: `${baseUrl}/software-development/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
+
+  return [...staticPages, ...servicePages, ...locationPages];
 }

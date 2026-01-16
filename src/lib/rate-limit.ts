@@ -1,19 +1,25 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 
-// Create Redis client
-const redis = new Redis({
-  url: process.env.UPSTASH_REDIS_REST_URL!,
-  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
-});
+// Lazy initialization to avoid build-time errors
+let rateLimiter: Ratelimit | null = null;
 
-// Rate limiter: 1 request per day per identifier (IP or email)
-export const contactFormRateLimiter = new Ratelimit({
-  redis,
-  limiter: Ratelimit.fixedWindow(1, "1 d"), // 1 request per day
-  analytics: true,
-  prefix: "contact_form",
-});
+function getRateLimiter() {
+  if (!rateLimiter) {
+    const redis = new Redis({
+      url: process.env.UPSTASH_REDIS_REST_URL!,
+      token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+    });
+
+    rateLimiter = new Ratelimit({
+      redis,
+      limiter: Ratelimit.fixedWindow(1, "1 d"), // 1 request per day
+      analytics: true,
+      prefix: "contact_form",
+    });
+  }
+  return rateLimiter;
+}
 
 // Check rate limit for both IP and email
 export async function checkRateLimit(ip: string, email: string): Promise<{
@@ -21,8 +27,10 @@ export async function checkRateLimit(ip: string, email: string): Promise<{
   error?: string;
   resetAt?: Date;
 }> {
+  const limiter = getRateLimiter();
+
   // Check IP rate limit
-  const ipResult = await contactFormRateLimiter.limit(`ip:${ip}`);
+  const ipResult = await limiter.limit(`ip:${ip}`);
   if (!ipResult.success) {
     const resetAt = new Date(ipResult.reset);
     return {
@@ -33,7 +41,7 @@ export async function checkRateLimit(ip: string, email: string): Promise<{
   }
 
   // Check email rate limit
-  const emailResult = await contactFormRateLimiter.limit(`email:${email.toLowerCase()}`);
+  const emailResult = await limiter.limit(`email:${email.toLowerCase()}`);
   if (!emailResult.success) {
     const resetAt = new Date(emailResult.reset);
     return {

@@ -8,7 +8,15 @@ import {
 } from "@/lib/email-templates";
 import { checkRateLimit } from "@/lib/rate-limit";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Lazy initialization to avoid build-time errors
+let resend: Resend | null = null;
+
+function getResendClient() {
+  if (!resend) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 // Verified domain email
 const FROM_EMAIL = `${siteConfig.email.fromName} <${siteConfig.email.fromEmail}>`;
@@ -66,7 +74,8 @@ export async function POST(request: NextRequest) {
     }
 
     // Send thank you email to customer
-    const customerEmailResult = await resend.emails.send({
+    const resendClient = getResendClient();
+    const customerEmailResult = await resendClient.emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: "Thank You for Contacting Viliha",
@@ -82,7 +91,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send notification email to Viliha
-    const vilihaEmailResult = await resend.emails.send({
+    const vilihaEmailResult = await resendClient.emails.send({
       from: FROM_EMAIL,
       to: siteConfig.email.notificationEmail,
       replyTo: email,

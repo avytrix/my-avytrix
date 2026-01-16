@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #0058EE;
+  --color-primary-dark: #00358f;
+  --color-dark-blue: #0A3176;
+}
+
+/* Custom styles */
+.btn-primary {
+  @apply bg-[--color-primary] hover:bg-[--color-primary-dark] text-white font-semibold py-3 px-8 rounded-full transition-colors;
+}
+
+.section-heading {
+  @apply text-3xl md:text-4xl font-bold text-gray-900;
+}
+
+.section-subheading {
+  @apply text-lg text-gray-600 mt-4;
+}
+
+/* Form error states */
+.form-group.error input,
+.form-group.error textarea {
+  @apply border-red-500;
+}
+
+.form-group .error-message {
+  @apply hidden;
+}
+
+.form-group.error .error-message {
+  @apply block;
+}
+
+/* Success modal */
+.success-modal-overlay {
+  @apply fixed inset-0 bg-black/60 z-[2000] flex items-center justify-center opacity-0 pointer-events-none transition-opacity;
+}
+
+.success-modal-overlay.show {
+  @apply opacity-100 pointer-events-auto;
+}
+
+/* Custom select dropdown */
+.custom-select-wrapper.open .custom-options {
+  @apply block;
+}
+
+.custom-select-wrapper .arrow {
+  @apply border-r-2 border-b-2 border-gray-400 transform rotate-45 transition-transform;
+}
+
+.custom-select-wrapper.open .arrow {
+  @apply -rotate-135;
+}
+
+/* Spinner animation */
+.btn-submit.sending .spinner {
+  @apply block;
+}
+
+.btn-submit.sending span {
+  @apply hidden;
+}

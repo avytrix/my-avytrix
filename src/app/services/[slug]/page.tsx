@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { getServiceBySlug, getAllServiceSlugs } from "@/content/services";
 import ServiceTabs from "@/components/ServiceTabs";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
+import { siteConfig, navigation } from "@/lib/config";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -76,10 +76,19 @@ export default async function ServicePage({ params }: Props) {
 
   const { intro, sections } = service;
 
+  const parentGroup = navigation.megaMenu.find((group) =>
+    group.links.some((link) => link.href === `/services/${slug}`)
+  );
+
   return (
     <>
       {/* Breadcrumb */}
-      <Breadcrumb items={[{ label: intro.pageTitle }]} />
+      <Breadcrumb
+        items={[
+          ...(parentGroup ? [{ label: parentGroup.title }] : []),
+          { label: intro.pageTitle },
+        ]}
+      />
 
       {/* Hero/Intro Section */}
       <section className="py-4">

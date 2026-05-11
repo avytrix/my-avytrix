@@ -1,13 +1,12 @@
-import Link from "next/link";
-import Image from "next/image";
 import { navigation } from "@/lib/config";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   return (
     <footer className="bg-[#121828] text-white">
       {/* Main Footer Content */}
       <div className="max-w-[1200px] mx-auto px-4 py-10 lg:py-14">
-
         {/* Mobile Layout (< 768px) - Same as desktop */}
         <div className="md:hidden">
           {/* Logo Section - Centered */}
@@ -21,7 +20,9 @@ export default function Footer() {
                 className="rounded-lg mx-auto"
               />
             </Link>
-            <p className="text-gray-400 text-sm">Remote Software Development for Startups & AI Companies</p>
+            <p className="text-gray-400 text-sm">
+              Remote Software Development for Startups & AI Companies
+            </p>
           </div>
 
           {/* Divider */}
@@ -31,7 +32,9 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-6 mb-8">
             {/* Services Column */}
             <div>
-              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Services</h3>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">
+                Services
+              </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.services.map((link) => (
                   <li key={link.name}>
@@ -48,7 +51,9 @@ export default function Footer() {
 
             {/* Locations Column */}
             <div>
-              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Locations</h3>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">
+                Locations
+              </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.locations.map((link) => (
                   <li key={link.name}>
@@ -65,7 +70,9 @@ export default function Footer() {
 
             {/* Company Column */}
             <div>
-              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Company</h3>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">
+                Company
+              </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.company.map((link) => (
                   <li key={link.name}>
@@ -82,7 +89,9 @@ export default function Footer() {
 
             {/* Contact Column */}
             <div>
-              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">Contact</h3>
+              <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">
+                Contact
+              </h3>
               <ul className="space-y-2.5">
                 <li>
                   <a
@@ -96,9 +105,7 @@ export default function Footer() {
                   <a
                     href="tel:+84915193536"
                     className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
-                  >
-                    +84 915 193 536
-                  </a>
+                  ></a>
                 </li>
                 <li className="pt-2">
                   <Link
@@ -127,12 +134,16 @@ export default function Footer() {
                   className="rounded-lg"
                 />
               </Link>
-              <p className="text-sm text-gray-400 mb-2">Remote Software Development for Startups</p>
+              <p className="text-sm text-gray-400 mb-2">
+                Remote Software Development for Startups
+              </p>
             </div>
 
             {/* Services Column */}
             <div>
-              <h3 className="font-semibold text-sm mb-4 text-white">Services</h3>
+              <h3 className="font-semibold text-sm mb-4 text-white">
+                Services
+              </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.services.map((link) => (
                   <li key={link.name}>
@@ -149,7 +160,9 @@ export default function Footer() {
 
             {/* Locations Column */}
             <div>
-              <h3 className="font-semibold text-sm mb-4 text-white">Locations</h3>
+              <h3 className="font-semibold text-sm mb-4 text-white">
+                Locations
+              </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.locations.map((link) => (
                   <li key={link.name}>
@@ -197,9 +210,7 @@ export default function Footer() {
                   <a
                     href="tel:+84915193536"
                     className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
-                  >
-                    +84 915 193 536
-                  </a>
+                  ></a>
                 </li>
               </ul>
             </div>
@@ -219,13 +230,19 @@ export default function Footer() {
                 className="rounded-lg"
               />
             </Link>
-            <p className="text-sm text-gray-400 mb-2">Remote Software Development for Startups & AI Companies</p>
-            <p className="text-xs text-gray-500">© {new Date().getFullYear()} Viliha. All Rights Reserved.</p>
+            <p className="text-sm text-gray-400 mb-2">
+              Remote Software Development for Startups & AI Companies
+            </p>
+            <p className="text-xs text-gray-500">
+              © {new Date().getFullYear()} Viliha. All Rights Reserved.
+            </p>
           </div>
 
           {/* Services Column */}
           <div>
-            <h3 className="font-semibold text-base mb-4 text-white">Services</h3>
+            <h3 className="font-semibold text-base mb-4 text-white">
+              Services
+            </h3>
             <ul className="space-y-2.5">
               {navigation.footer.services.map((link) => (
                 <li key={link.name}>
@@ -242,7 +259,9 @@ export default function Footer() {
 
           {/* Locations Column */}
           <div>
-            <h3 className="font-semibold text-base mb-4 text-white">Locations</h3>
+            <h3 className="font-semibold text-base mb-4 text-white">
+              Locations
+            </h3>
             <ul className="space-y-2.5">
               {navigation.footer.locations.map((link) => (
                 <li key={link.name}>
@@ -290,9 +309,7 @@ export default function Footer() {
                 <a
                   href="tel:+84915193536"
                   className="text-sm text-gray-400 hover:text-white transition-colors"
-                >
-                  +84 915 193 536
-                </a>
+                ></a>
               </li>
               <li className="pt-2">
                 <Link

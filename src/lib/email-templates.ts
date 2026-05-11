@@ -72,8 +72,8 @@ export function getCustomerEmailTemplate(name: string): string {
 </tr>
 <tr>
 <td style="padding: 0 24px 24px 24px;" align="center">
-<a style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; color: #0058ee; text-decoration: none;" href="tel:+84915193536">Suman Bonakurthi</a>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #1a202c; margin: 8px 0 0 0;">+84 915193536</p>
+<a style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; color: #0058ee; text-decoration: none;" href="tel:+84915193591">Nguyen Thi Le Thanh</a>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #1a202c; margin: 8px 0 0 0;">+84 915193591</p>
 </td>
 </tr>
 <tr>

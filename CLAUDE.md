@@ -79,7 +79,7 @@ Nothing environment-specific is hardcoded: brand name, site URL, ImageKit base, 
 
 - `.env.example` lists every variable; copy it to `.env.local` (gitignored).
 - `NEXT_PUBLIC_*` values are inlined at build, so read them as literal `process.env.NEXT_PUBLIC_X`, never `process.env[name]`.
-- CI: the `NEXT_PUBLIC_*` values are GitHub repo variables (`gh variable set`), mapped in `.github/workflows/nextjs.yml`. Server-only secrets aren't needed for the static build.
+- GitHub: `NEXT_PUBLIC_*` are repo variables (`gh variable set`), mapped in `.github/workflows/nextjs.yml`; all other values are repo secrets (`gh secret set`). The static build only needs the variables.
 - Images: use `` `${siteConfig.cdnUrl}/path` ``, never a literal ImageKit URL.
 
 ## Adding New Service Pages

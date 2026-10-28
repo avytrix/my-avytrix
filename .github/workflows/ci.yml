@@ -1,0 +1,133 @@
+# CI for every pull request, and the GitHub Pages deploy on push to main.
+# Job `name:`s are the required status checks in the branch rulesets: rename one and every PR blocks.
+#   develop: Lint, Type check
+#   main:    Lint, Type check, Build site, Source branch
+name: CI
+
+on:
+  # `edited` re-runs Source branch when a PR's base is retargeted
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  push:
+    branches: [develop, main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  source:
+    name: Source branch
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      # main is production; everything reaches it through develop
+      - name: Only develop may be merged into main
+        if: github.base_ref == 'main' && (github.head_ref != 'develop' || github.event.pull_request.head.repo.full_name != github.repository)
+        run: |
+          echo "::error::Pull requests into main must come from develop. Open this one against develop instead."
+          exit 1
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+
+  types:
+    name: Type check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm type-check
+
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    # Public build-time config from repo variables (Settings > Secrets and variables > Actions > Variables)
+    env:
+      NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+      NEXT_PUBLIC_SITE_NAME: ${{ vars.NEXT_PUBLIC_SITE_NAME }}
+      NEXT_PUBLIC_EMAIL_FROM_NAME: ${{ vars.NEXT_PUBLIC_EMAIL_FROM_NAME }}
+      NEXT_PUBLIC_CDN_URL: ${{ vars.NEXT_PUBLIC_CDN_URL }}
+      NEXT_PUBLIC_CONTACT_EMAIL: ${{ vars.NEXT_PUBLIC_CONTACT_EMAIL }}
+      NEXT_PUBLIC_EMAIL_FROM: ${{ vars.NEXT_PUBLIC_EMAIL_FROM }}
+      NEXT_PUBLIC_NOTIFICATION_EMAIL: ${{ vars.NEXT_PUBLIC_NOTIFICATION_EMAIL }}
+      NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ vars.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
+      NEXT_PUBLIC_LINKEDIN_URL: ${{ vars.NEXT_PUBLIC_LINKEDIN_URL }}
+      NEXT_PUBLIC_FACEBOOK_URL: ${{ vars.NEXT_PUBLIC_FACEBOOK_URL }}
+      NEXT_PUBLIC_CONTACT_NAME: ${{ vars.NEXT_PUBLIC_CONTACT_NAME }}
+      NEXT_PUBLIC_CONTACT_PHONE: ${{ vars.NEXT_PUBLIC_CONTACT_PHONE }}
+      NEXT_PUBLIC_CONTACT2_NAME: ${{ vars.NEXT_PUBLIC_CONTACT2_NAME }}
+      NEXT_PUBLIC_CONTACT2_PHONE: ${{ vars.NEXT_PUBLIC_CONTACT2_PHONE }}
+      NEXT_PUBLIC_CONTACT_ADDRESS: ${{ vars.NEXT_PUBLIC_CONTACT_ADDRESS }}
+      NEXT_PUBLIC_LEGAL_NAME: ${{ vars.NEXT_PUBLIC_LEGAL_NAME }}
+      NEXT_PUBLIC_TAX_ID: ${{ vars.NEXT_PUBLIC_TAX_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          # Injects output: "export" and unoptimized images into next.config
+          static_site_generator: next
+      - run: pnpm install --frozen-lockfile
+      # ponytail: Pages is static-only, so API routes can't run there. The contact form needs them hosted elsewhere.
+      - name: Remove API routes
+        run: rm -rf src/app/api
+      - run: pnpm next build
+      - name: SEO/AEO gates
+        run: python3 scripts/seo_check.py out
+      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [lint, types, build]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    # Never cancel a running production deploy; queue behind it
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

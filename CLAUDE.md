@@ -16,11 +16,14 @@ pnpm dev                          # Development: http://localhost:3000
 pnpm build                        # Production build
 pnpm start                        # Start production server
 pnpm lint                         # Run ESLint
+pnpm type-check                   # tsc --noEmit
 ```
 
 ## Deployment
 
-`.github/workflows/nextjs.yml` deploys on every push to `main`. It builds a static export (`output: "export"`, injected by `actions/configure-pages`) and publishes `out/` to GitHub Pages.
+Branch flow (enforced by repo rulesets): feature branch → PR into `develop` (squash) → PR from `develop` into `main` (merge commit). No direct pushes, force pushes or deletions on either; only admins can merge into `main`.
+
+`.github/workflows/ci.yml` runs Lint, Type check, Build site and Source branch on every PR (these job names are the rulesets' required checks; renaming one blocks every PR) and deploys on every push to `main`. It builds a static export (`output: "export"`, injected by `actions/configure-pages`) and publishes `out/` to GitHub Pages.
 
 GitHub Pages is static-only, so the workflow deletes `src/app/api` before building. The contact form's API routes do not run on Pages.
 Any route must be statically renderable: dynamic routes need `generateStaticParams`, and metadata routes need `export const dynamic = "force-static"`.
@@ -79,7 +82,7 @@ Nothing environment-specific is hardcoded: brand name, site URL, ImageKit base, 
 
 - `.env.example` lists every variable; copy it to `.env.local` (gitignored).
 - `NEXT_PUBLIC_*` values are inlined at build, so read them as literal `process.env.NEXT_PUBLIC_X`, never `process.env[name]`.
-- GitHub: `NEXT_PUBLIC_*` are repo variables (`gh variable set`), mapped in `.github/workflows/nextjs.yml`; all other values are repo secrets (`gh secret set`). The static build only needs the variables.
+- GitHub: `NEXT_PUBLIC_*` are repo variables (`gh variable set`), mapped in `.github/workflows/ci.yml`; all other values are repo secrets (`gh secret set`). The static build only needs the variables.
 - Images: use `` `${siteConfig.cdnUrl}/path` ``, never a literal ImageKit URL.
 
 ## Adding New Service Pages

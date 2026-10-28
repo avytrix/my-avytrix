@@ -1,10 +1,8 @@
-import { env, siteConfig } from "@/lib/config";
+import { siteConfig } from "@/lib/config";
 
 // Email template for customer (thank you email)
 export function getCustomerEmailTemplate(name: string): string {
-  // Server-only: email templates are rendered in API routes
-  const contactName = env(process.env.CONTACT_NAME, "CONTACT_NAME");
-  const contactPhone = env(process.env.CONTACT_PHONE, "CONTACT_PHONE");
+  const { name: contactName, phone: contactPhone } = siteConfig.contact;
   return `<!DOCTYPE html>
 <html>
 <head>

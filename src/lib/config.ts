@@ -1,6 +1,6 @@
 // All environment-specific values come from .env (see .env.example).
 // NEXT_PUBLIC_ values are inlined at build time, so each must be read as a literal process.env.X.
-export function env(value: string | undefined, name: string): string {
+function env(value: string | undefined, name: string): string {
   if (!value) throw new Error(`Missing environment variable ${name} (see .env.example)`);
   return value;
 }
@@ -36,6 +36,13 @@ export const siteConfig = {
     fromEmail: env(process.env.NEXT_PUBLIC_EMAIL_FROM, "NEXT_PUBLIC_EMAIL_FROM"),
     fromName: env(process.env.NEXT_PUBLIC_EMAIL_FROM_NAME, "NEXT_PUBLIC_EMAIL_FROM_NAME"),
     notificationEmail: env(process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL, "NEXT_PUBLIC_NOTIFICATION_EMAIL"),
+  },
+
+  // Contact person shown on /contact and in emails; address is optional
+  contact: {
+    name: env(process.env.NEXT_PUBLIC_CONTACT_NAME, "NEXT_PUBLIC_CONTACT_NAME"),
+    phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE, "NEXT_PUBLIC_CONTACT_PHONE"),
+    address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "",
   },
 };
 

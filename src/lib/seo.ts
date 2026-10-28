@@ -68,10 +68,12 @@ export function pageGraph({ path, title, description, crumbs = [], extra = [] }:
         logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: `${siteConfig.cdnUrl}/logos/viliha-d.jpg` },
         email: siteConfig.email.contactEmail,
         ...(siteConfig.social.length > 0 && { sameAs: siteConfig.social }),
+        ...(siteConfig.contact.address && { address: siteConfig.contact.address }),
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "sales",
           email: siteConfig.email.contactEmail,
+          telephone: siteConfig.contact.phone,
           url: `${origin}/contact`,
           availableLanguage: "English",
         },

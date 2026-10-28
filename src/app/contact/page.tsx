@@ -1,14 +1,17 @@
 import { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
-import ContactForm from "@/components/ContactForm";
+// Contact form disabled: GitHub Pages can't run its API routes. Re-enable with a backend.
+// import ContactForm from "@/components/ContactForm";
+import { Mail, Phone, MapPin, User } from "lucide-react";
+import { siteConfig } from "@/lib/config";
 import Breadcrumb from "@/components/Breadcrumb";
 
 const seo = {
   path: "/contact",
   title: "Contact Viliha: Start Your Software Project | Viliha",
   description:
-    "Contact Viliha about custom software, AI, DevOps or cloud projects. Tell us which service you need and what you are building to request a free consultation.",
+    "Contact Viliha about custom software, AI, DevOps or cloud projects. Email or call our team directly to describe what you are building and book a consultation.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -19,11 +22,13 @@ const contactContent = {
     "We're excited to learn about your ideas. Whether you have a specific project in mind, need a consultation, or just want to learn more, our team is ready to connect with you.",
   expectHeading: "What to Expect Next",
   expectParagraph:
-    "Once you submit the form, one of our specialists will review your message and get back to you within 24-48 business hours. We look forward to exploring how we can create impactful digital solutions together.",
-  formHeading: "Send Us a Message",
+    "Email or call us with a short description of your project, and one of our specialists will get back to you within 24-48 business hours. We look forward to exploring how we can create impactful digital solutions together.",
+  directHeading: "Contact Us Directly",
 };
 
 export default function ContactPage() {
+  const { contact } = siteConfig;
+
   return (
     <>
       <JsonLd {...seo} crumbs={[{ label: "Contact" }]} />
@@ -53,10 +58,56 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Form Column */}
+          {/* Form Column (disabled, see import note)
           <div className="lg:col-span-2 bg-gray-50 p-4 rounded-lg">
-            <h2 className="text-3xl font-semibold mb-8">{contactContent.formHeading}</h2>
+            <h2 className="text-3xl font-semibold mb-8">Send Us a Message</h2>
             <ContactForm />
+          </div>
+          */}
+
+          {/* Direct Contact Column */}
+          <div className="lg:col-span-2 bg-gray-50 p-6 lg:p-10 rounded-lg">
+            <h2 className="text-3xl font-semibold mb-8">{contactContent.directHeading}</h2>
+            <address className="not-italic space-y-6 text-lg">
+              <p className="flex items-center gap-4">
+                <User className="w-6 h-6 text-[#0058EE] flex-shrink-0" aria-hidden="true" />
+                <span>
+                  <span className="font-semibold">{contact.name}</span>
+                  <span className="block text-sm text-gray-600">{siteConfig.name}</span>
+                </span>
+              </p>
+              <p className="flex items-center gap-4">
+                <Mail className="w-6 h-6 text-[#0058EE] flex-shrink-0" aria-hidden="true" />
+                <a href={`mailto:${siteConfig.email.contactEmail}`} className="text-[#0058EE] hover:underline">
+                  {siteConfig.email.contactEmail}
+                </a>
+              </p>
+              <p className="flex items-center gap-4">
+                <Phone className="w-6 h-6 text-[#0058EE] flex-shrink-0" aria-hidden="true" />
+                <a href={`tel:${contact.phone.replace(/\s/g, "")}`} className="text-[#0058EE] hover:underline">
+                  {contact.phone}
+                </a>
+              </p>
+              {contact.address && (
+                <p className="flex items-start gap-4">
+                  <MapPin className="w-6 h-6 text-[#0058EE] flex-shrink-0 mt-1" aria-hidden="true" />
+                  <span className="whitespace-pre-line">{contact.address}</span>
+                </p>
+              )}
+            </address>
+            {siteConfig.social.length > 0 && (
+              <p className="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-600">
+                Also find us on{" "}
+                {siteConfig.social.map((url, i) => (
+                  <span key={url}>
+                    {i > 0 && " and "}
+                    <a href={url} className="text-[#0058EE] hover:underline" rel="me noopener" target="_blank">
+                      {url.includes("linkedin") ? "LinkedIn" : url.includes("facebook") ? "Facebook" : url}
+                    </a>
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
         </div>
       </div>

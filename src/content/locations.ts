@@ -235,9 +235,9 @@ export const locations: LocationData[] = [
     ],
     benefits: [
       {
-        title: "Same Timezone (SGT)",
+        title: "One Hour Behind Singapore",
         description:
-          "Our Vietnam-based teams operate in the same timezone as Singapore, enabling real-time collaboration throughout your entire workday.",
+          "Our Vietnam-based team works one hour behind Singapore time (UTC+7 vs UTC+8), so almost the whole working day overlaps for real-time collaboration.",
       },
       {
         title: "Regional Proximity",

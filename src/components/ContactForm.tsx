@@ -375,11 +375,11 @@ export default function ContactForm() {
           <div className="text-xs text-gray-500">
             *By submitting this form, you have read and agreed to {siteConfig.name}&apos;{" "}
             <a href="/terms-conditions" target="_blank" className="text-[#0058EE] underline">
-              Terms of Use
+              Terms & Conditions
             </a>{" "}
             and{" "}
             <a href="/privacy-policy" target="_blank" className="text-[#0058EE] underline">
-              Privacy Statement
+              Privacy Policy
             </a>
             . This site is protected by reCAPTCHA and the Google{" "}
             <a href="https://policies.google.com/privacy" target="_blank" className="text-[#0058EE] underline">

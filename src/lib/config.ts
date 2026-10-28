@@ -72,6 +72,7 @@ export const navigation = {
         { name: "Mobile App Development", href: "/services/mobile-app-development" },
         { name: "UX/UI Design Services", href: "/services/ux-ui-design" },
         { name: "E-commerce & Enterprise", href: "/services/ecommerce-solutions" },
+        { name: "SEO Services", href: "/services/seo" },
       ],
     },
     {
@@ -92,6 +93,7 @@ export const navigation = {
       { name: "Mobile App Development", href: "/services/mobile-app-development" },
       { name: "UX/UI Design Services", href: "/services/ux-ui-design" },
       { name: "E-commerce & Enterprise", href: "/services/ecommerce-solutions" },
+      { name: "SEO Services", href: "/services/seo" },
     ],
     infrastructure: [
       { name: "Cloud Solutions & Infrastructure", href: "/services/cloud-solutions" },

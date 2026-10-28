@@ -94,6 +94,22 @@ export default function ContactPage() {
                   {contact.phone}
                 </a>
               </p>
+              {contact.secondary.name && (
+                <p className="flex items-center gap-4">
+                  <User className="w-6 h-6 text-[#0058EE] flex-shrink-0" aria-hidden="true" />
+                  <span>
+                    <span className="font-semibold">{contact.secondary.name}</span>
+                    {contact.secondary.phone && (
+                      <a
+                        href={`tel:${contact.secondary.phone.replace(/\s/g, "")}`}
+                        className="block text-base text-[#0058EE] hover:underline"
+                      >
+                        {contact.secondary.phone}
+                      </a>
+                    )}
+                  </span>
+                </p>
+              )}
               {contact.address && (
                 <p className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-[#0058EE] flex-shrink-0 mt-1" aria-hidden="true" />

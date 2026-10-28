@@ -49,6 +49,11 @@ export const siteConfig = {
     name: env(process.env.NEXT_PUBLIC_CONTACT_NAME, "NEXT_PUBLIC_CONTACT_NAME"),
     phone: env(process.env.NEXT_PUBLIC_CONTACT_PHONE, "NEXT_PUBLIC_CONTACT_PHONE"),
     address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS ?? "",
+    // Optional second person, shown after the primary contact on /contact
+    secondary: {
+      name: process.env.NEXT_PUBLIC_CONTACT2_NAME ?? "",
+      phone: process.env.NEXT_PUBLIC_CONTACT2_PHONE ?? "",
+    },
   },
 };
 

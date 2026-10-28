@@ -17,7 +17,8 @@ export default function Header() {
         {/* Logo */}
         <Link
           href="/"
-          className="block w-[120px] h-[40px] bg-[url('https://ik.imagekit.io/viliha/images/logos/viliha-d.jpg')] bg-contain bg-center bg-no-repeat"
+          className="block w-[120px] h-[40px] bg-contain bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${siteConfig.cdnUrl}/logos/viliha-d.jpg)` }}
           aria-label={siteConfig.name}
           onClick={closeMenu}
         />

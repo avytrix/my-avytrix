@@ -8,7 +8,7 @@ const seo = {
   path: "/privacy-policy",
   title: "Privacy Policy | Viliha",
   description:
-    "Read how Viliha Web Services collects, uses and protects your personal information when you use viliha.com, and how to contact us about your data.",
+    "Read how Viliha Web Services collects, uses and protects your personal information when you use this website, and how to contact us about your data.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);

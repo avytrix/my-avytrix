@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 import Breadcrumb from "@/components/Breadcrumb";
+import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/about-us",
@@ -17,7 +18,7 @@ export const metadata: Metadata = pageMetadata(seo);
 
 const aboutContent = {
   banner: {
-    bgImage: "https://ik.imagekit.io/viliha/images/About-us-hero-banner-image.webp",
+    bgImage: `${siteConfig.cdnUrl}/About-us-hero-banner-image.webp`,
     heading: "Your Partner in Digital Innovation",
     tagline:
       "We are a passionate team of strategists, designers, and developers dedicated to crafting exceptional digital experiences that drive growth and solve real-world challenges.",
@@ -28,7 +29,7 @@ const aboutContent = {
     heading: "Our Story: Powering Digital Futures",
     content:
       "Viliha Services was founded with a clear mission: to be a trusted software partner for businesses worldwide, helping them navigate and thrive in the ever-evolving digital landscape. Our journey is driven by a passion for technology and a commitment to delivering scalable, high-quality products that make a real impact. We believe in harnessing modern tools not just to build software, but to architect brighter digital futures for our clients.",
-    image: "https://ik.imagekit.io/viliha/images/virtual-meeting 2.jpg",
+    image: `${siteConfig.cdnUrl}/virtual-meeting 2.jpg`,
   },
   mission: [
     {
@@ -48,37 +49,37 @@ const aboutContent = {
       "Our values are the bedrock of our company culture and the principles that define our approach to every client engagement.",
     items: [
       {
-        icon: "https://ik.imagekit.io/viliha/images/icons/Dedicated Team.svg",
+        icon: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
         title: "Quality",
         content:
           "We are committed to delivering robust, scalable, and secure solutions that stand the test of time. Excellence is not just an aspiration; it's our standard.",
       },
       {
-        icon: "https://ik.imagekit.io/viliha/images/icons/Responsive.svg",
+        icon: `${siteConfig.cdnUrl}/icons/Responsive.svg`,
         title: "Transparency",
         content:
           "We believe in clear, open communication and providing full visibility throughout the project lifecycle. You'll always know where things stand.",
       },
       {
-        icon: "https://ik.imagekit.io/viliha/images/icons/E-commerce.svg",
+        icon: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
         title: "Efficiency",
         content:
           "Our streamlined processes and experienced team ensure fast, reliable delivery without compromising on quality. We value your time and investment.",
       },
       {
-        icon: "https://ik.imagekit.io/viliha/images/icons/Dedicated Team.svg",
+        icon: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
         title: "Innovation",
         content:
           "We thrive on leveraging modern technologies and creative thinking to develop cutting-edge solutions that address complex challenges.",
       },
       {
-        icon: "https://ik.imagekit.io/viliha/images/icons/Responsive.svg",
+        icon: `${siteConfig.cdnUrl}/icons/Responsive.svg`,
         title: "Affordability",
         content:
           "We provide effective, high-impact digital solutions at fair and reasonable prices, ensuring you receive exceptional value.",
       },
       {
-        icon: "https://ik.imagekit.io/viliha/images/icons/E-commerce.svg",
+        icon: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
         title: "On-Time Delivery",
         content:
           "We understand the importance of deadlines and are dedicated to delivering every project as promised.",
@@ -86,7 +87,7 @@ const aboutContent = {
     ],
   },
   whyUs: {
-    image: "https://ik.imagekit.io/viliha/images/why-partner-with-viliha.webp",
+    image: `${siteConfig.cdnUrl}/why-partner-with-viliha.webp`,
     title: "Why Partner with Viliha?",
     para: "Choosing Viliha means choosing a partner dedicated to your success. Here's what sets us apart:",
     faqItems: [

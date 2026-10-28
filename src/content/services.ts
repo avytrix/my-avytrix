@@ -1,3 +1,4 @@
+import { siteConfig } from "@/lib/config";
 export interface ServiceItem {
   buttonText: string;
   targetId: string;
@@ -50,7 +51,7 @@ export const services: Service[] = [
       paragraph: "Bespoke Software Solutions, Engineered for Your Exact Needs",
       buttonText: "Discuss Your Custom Software Project",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/Custom-Software-development.png",
+      image: `${siteConfig.cdnUrl}/services/Custom-Software-development.png`,
       imageAlt: "A diagram showing a custom software development lifecycle.",
     },
     sections: [
@@ -165,7 +166,7 @@ export const services: Service[] = [
       paragraph: "Engaging Websites, Flawless on Every Screen",
       buttonText: "Get Your Responsive Website",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/Web-Application.png",
+      image: `${siteConfig.cdnUrl}/services/Web-Application.png`,
       imageAlt: "A responsive website shown on a desktop, tablet, and mobile device.",
     },
     sections: [
@@ -267,7 +268,7 @@ export const services: Service[] = [
       paragraph: "Native & Cross-Platform Mobile Solutions",
       buttonText: "Develop Your Mobile App",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/Mobile-App-Development.png",
+      image: `${siteConfig.cdnUrl}/services/Mobile-App-Development.png`,
       imageAlt: "Mobile app development illustration",
     },
     sections: [
@@ -352,7 +353,7 @@ export const services: Service[] = [
       paragraph: "Design That Delights and Converts",
       buttonText: "Design Your Experience",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/UI.png",
+      image: `${siteConfig.cdnUrl}/services/UI.png`,
       imageAlt: "UX/UI design illustration",
     },
     sections: [
@@ -437,7 +438,7 @@ export const services: Service[] = [
       paragraph: "Connect, Integrate, Scale",
       buttonText: "Integrate Your Systems",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/API-Development.png",
+      image: `${siteConfig.cdnUrl}/services/API-Development.png`,
       imageAlt: "API development illustration",
     },
     sections: [
@@ -521,7 +522,7 @@ export const services: Service[] = [
       paragraph: "Scale Your Infrastructure in the Cloud",
       buttonText: "Optimize Your Cloud",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/Cloud-infrastructure.png",
+      image: `${siteConfig.cdnUrl}/services/Cloud-infrastructure.png`,
       imageAlt: "Cloud solutions illustration",
     },
     sections: [
@@ -605,7 +606,7 @@ export const services: Service[] = [
       paragraph: "Quality Assurance for Reliable Software",
       buttonText: "Ensure Quality",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/Software-qa-testing.png",
+      image: `${siteConfig.cdnUrl}/services/Software-qa-testing.png`,
       imageAlt: "QA testing illustration",
     },
     sections: [
@@ -690,7 +691,7 @@ export const services: Service[] = [
       paragraph: "Scale Your Team with Expert Developers",
       buttonText: "Scale Your Team",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/team.png",
+      image: `${siteConfig.cdnUrl}/services/team.png`,
       imageAlt: "Dedicated teams illustration",
     },
     sections: [
@@ -775,7 +776,7 @@ export const services: Service[] = [
       paragraph: "E-commerce & Enterprise Platforms",
       buttonText: "Build Your Platform",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/E-Commerce.png",
+      image: `${siteConfig.cdnUrl}/services/E-Commerce.png`,
       imageAlt: "E-commerce illustration",
     },
     sections: [
@@ -859,7 +860,7 @@ export const services: Service[] = [
       paragraph: "Reliable Support & Maintenance",
       buttonText: "Get Support",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/services/Support_new.png",
+      image: `${siteConfig.cdnUrl}/services/Support_new.png`,
       imageAlt: "Support illustration",
     },
     sections: [
@@ -943,7 +944,7 @@ export const services: Service[] = [
       paragraph: "Search Engine Optimization",
       buttonText: "Boost Your Rankings",
       buttonUrl: "/contact",
-      image: "https://ik.imagekit.io/viliha/images/icons/Custom Web Development.svg",
+      image: `${siteConfig.cdnUrl}/icons/Custom Web Development.svg`,
       imageAlt: "SEO illustration",
     },
     sections: [

@@ -1,5 +1,10 @@
+import { env, siteConfig } from "@/lib/config";
+
 // Email template for customer (thank you email)
 export function getCustomerEmailTemplate(name: string): string {
+  // Server-only: email templates are rendered in API routes
+  const contactName = env(process.env.CONTACT_NAME, "CONTACT_NAME");
+  const contactPhone = env(process.env.CONTACT_PHONE, "CONTACT_PHONE");
   return `<!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +20,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Viliha" href="https://www.viliha.com/"> <img style="display: block; border-radius: 6px;" src="https://ik.imagekit.io/viliha/images/logos/viliha-d.jpg" alt="Viliha Logo" width="150" height="40"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Viliha" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/logos/viliha-d.jpg" alt="Viliha Logo" width="150" height="40"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">
@@ -72,8 +77,8 @@ export function getCustomerEmailTemplate(name: string): string {
 </tr>
 <tr>
 <td style="padding: 0 24px 24px 24px;" align="center">
-<a style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; color: #0058ee; text-decoration: none;" href="tel:+84915193591">Nguyen Thi Le Thanh</a>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #1a202c; margin: 8px 0 0 0;">+84 915193591</p>
+<a style="font-family: 'Inter', Arial, sans-serif; font-weight: 600; color: #0058ee; text-decoration: none;" href="tel:${contactPhone.replace(/\s/g, "")}">${contactName}</a>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #1a202c; margin: 8px 0 0 0;">${contactPhone}</p>
 </td>
 </tr>
 <tr>
@@ -94,7 +99,7 @@ export function getCustomerEmailTemplate(name: string): string {
 </tr>
 <tr>
 <td style="padding: 0 24px 40px 24px;" align="center">
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #a0aec0; margin: 0;">If you did not make this request, please let us know immediately by replying to this email. Read our <a style="color: #0058ee; text-decoration: none;" href="https://www.viliha.com/privacy-policy/">Privacy policy</a>.</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #a0aec0; margin: 0;">If you did not make this request, please let us know immediately by replying to this email. Read our <a style="color: #0058ee; text-decoration: none;" href="${siteConfig.url}/privacy-policy">Privacy policy</a>.</p>
 </td>
 </tr>
 </tbody>
@@ -136,7 +141,7 @@ export function getVilihaNotificationTemplate(data: {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Viliha" href="https://www.viliha.com/"> <img style="display: block; border-radius: 6px;" src="https://ik.imagekit.io/viliha/images/logos/viliha-d.jpg" alt="Viliha Logo" width="150" height="40"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Viliha" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/logos/viliha-d.jpg" alt="Viliha Logo" width="150" height="40"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">

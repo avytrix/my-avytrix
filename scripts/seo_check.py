@@ -4,6 +4,7 @@
 Usage: python3 scripts/seo_check.py [out_dir]   (exits 1 on any failure)
 """
 import json
+import os
 import re
 import sys
 from collections import defaultdict
@@ -11,7 +12,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
-ORIGIN = "https://viliha.com"
+ORIGIN = os.environ.get("NEXT_PUBLIC_SITE_URL") or sys.exit("NEXT_PUBLIC_SITE_URL is not set")
 GENERIC_ANCHORS = {"click here", "here", "read more", "link", "more", "learn more"}
 ROBOTS_INDEX = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
 

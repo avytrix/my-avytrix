@@ -1,25 +1,40 @@
+// All environment-specific values come from .env (see .env.example).
+// NEXT_PUBLIC_ values are inlined at build time, so each must be read as a literal process.env.X.
+export function env(value: string | undefined, name: string): string {
+  if (!value) throw new Error(`Missing environment variable ${name} (see .env.example)`);
+  return value;
+}
+
+const cdnUrl = env(process.env.NEXT_PUBLIC_CDN_URL, "NEXT_PUBLIC_CDN_URL");
+
 export const siteConfig = {
   name: "Viliha Web Services",
-  url: "https://viliha.com",
-  cdnUrl: "https://ik.imagekit.io/viliha/images",
+  url: env(process.env.NEXT_PUBLIC_SITE_URL, "NEXT_PUBLIC_SITE_URL"),
+  cdnUrl,
 
   // SEO Configuration
   seo: {
     siteName: "Viliha Web Services",
     author: "Viliha Web Services",
     // ponytail: ImageKit pads the hero banner to 1200x630; swap for a designed card when one exists
-    ogImage: "https://ik.imagekit.io/viliha/images/viliha-banner_image.webp?tr=w-1200,h-630,cm-pad_resize,bg-FFFFFF,f-jpg",
+    ogImage: `${cdnUrl}/viliha-banner_image.webp?tr=w-1200,h-630,cm-pad_resize,bg-FFFFFF,f-jpg`,
     locale: "en_US",
   },
 
+  // Official profiles (schema.org sameAs); unset ones are skipped
+  social: [process.env.NEXT_PUBLIC_LINKEDIN_URL, process.env.NEXT_PUBLIC_FACEBOOK_URL].filter(
+    (url): url is string => !!url
+  ),
+
   // reCAPTCHA v3
-  recaptchaSiteKey: "6Lfp93QrAAAAAKKxShtL7B4EJjaU16e_uN7DB-lj",
+  recaptchaSiteKey: env(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, "NEXT_PUBLIC_RECAPTCHA_SITE_KEY"),
 
   // Resend Email Configuration
   email: {
-    fromEmail: "getintouch@viliha.com",
+    contactEmail: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL, "NEXT_PUBLIC_CONTACT_EMAIL"),
+    fromEmail: env(process.env.NEXT_PUBLIC_EMAIL_FROM, "NEXT_PUBLIC_EMAIL_FROM"),
     fromName: "Viliha Web Application Development Services",
-    notificationEmail: "getintouch@viliha.com",
+    notificationEmail: env(process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL, "NEXT_PUBLIC_NOTIFICATION_EMAIL"),
   },
 };
 

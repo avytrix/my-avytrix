@@ -8,6 +8,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
 import { orgRef, pageMetadata, pageUrl, type Crumb } from "@/lib/seo";
 import type { LocationData } from "@/content/locations";
+import { siteConfig } from "@/lib/config";
 
 const locationSeo = (location: LocationData) => ({
   path: `/software-development/${location.slug}`,
@@ -99,7 +100,7 @@ export default async function LocationPage({ params }: Props) {
         </div>
         <div className="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
           <Image
-            src="https://ik.imagekit.io/viliha/images/viliha-banner_image.webp"
+            src={`${siteConfig.cdnUrl}/viliha-banner_image.webp`}
             alt={`Software Development Services for ${location.country}`}
             width={500}
             height={400}
@@ -278,12 +279,12 @@ export default async function LocationPage({ params }: Props) {
 
           <div className="flex flex-wrap justify-center gap-8 items-center opacity-80">
             {[
-              { name: "React", img: "https://ik.imagekit.io/viliha/images/technologies/React.png" },
-              { name: "Node.js", img: "https://ik.imagekit.io/viliha/images/technologies/Nodejs.png" },
-              { name: "Python", img: "https://ik.imagekit.io/viliha/images/technologies/Python.png" },
-              { name: "AWS", img: "https://ik.imagekit.io/viliha/images/technologies/AWS.png" },
-              { name: "Flutter", img: "https://ik.imagekit.io/viliha/images/technologies/Flutter.png" },
-              { name: "PostgreSQL", img: "https://ik.imagekit.io/viliha/images/technologies/PostgreSQL.png" },
+              { name: "React", img: `${siteConfig.cdnUrl}/technologies/React.png` },
+              { name: "Node.js", img: `${siteConfig.cdnUrl}/technologies/Nodejs.png` },
+              { name: "Python", img: `${siteConfig.cdnUrl}/technologies/Python.png` },
+              { name: "AWS", img: `${siteConfig.cdnUrl}/technologies/AWS.png` },
+              { name: "Flutter", img: `${siteConfig.cdnUrl}/technologies/Flutter.png` },
+              { name: "PostgreSQL", img: `${siteConfig.cdnUrl}/technologies/PostgreSQL.png` },
             ].map((tech) => (
               <Image
                 key={tech.name}
@@ -316,7 +317,7 @@ export default async function LocationPage({ params }: Props) {
               Get Free Consultation
             </Link>
             <a
-              href="mailto:getintouch@viliha.com"
+              href={`mailto:${siteConfig.email.contactEmail}`}
               className="inline-flex items-center justify-center border-2 border-white text-white font-semibold py-3 px-8 rounded-full hover:bg-white/10 transition-colors"
             >
               Email Us Directly

@@ -1,6 +1,7 @@
 import { navigation } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-block mb-3">
               <Image
-                src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
+                src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
                 alt="Viliha Web Services Logo"
                 width={160}
                 height={53}
@@ -95,10 +96,10 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <a
-                    href="mailto:getintouch@viliha.com"
+                    href={`mailto:${siteConfig.email.contactEmail}`}
                     className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors break-all"
                   >
-                    getintouch@viliha.com
+                    {siteConfig.email.contactEmail}
                   </a>
                 </li>
                 <li>
@@ -127,7 +128,7 @@ export default function Footer() {
             <div className="col-span-2">
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
+                  src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
                   alt="Viliha Web Services Logo"
                   width={160}
                   height={53}
@@ -200,10 +201,10 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 <li>
                   <a
-                    href="mailto:getintouch@viliha.com"
+                    href={`mailto:${siteConfig.email.contactEmail}`}
                     className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors break-all"
                   >
-                    getintouch@viliha.com
+                    {siteConfig.email.contactEmail}
                   </a>
                 </li>
                 <li>
@@ -223,7 +224,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="https://ik.imagekit.io/viliha/images/logos/viliha-footer-logo.jpg"
+                src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
                 alt="Viliha Web Services Logo"
                 width={144}
                 height={48}
@@ -299,10 +300,10 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href="mailto:getintouch@viliha.com"
+                  href={`mailto:${siteConfig.email.contactEmail}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
-                  getintouch@viliha.com
+                  {siteConfig.email.contactEmail}
                 </a>
               </li>
               <li>

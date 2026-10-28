@@ -65,7 +65,7 @@ export default function HomePage() {
                     alt={service.title}
                     width={48}
                     height={48}
-                    className="w-12 h-12 mb-6"
+                    className="w-12 h-12 mb-6 object-contain"
                   />
                 )}
                 <h3 className="text-xl font-semibold py-3">{service.title}</h3>

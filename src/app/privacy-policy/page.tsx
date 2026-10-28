@@ -3,12 +3,13 @@ import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/privacy-policy",
   title: "Privacy Policy | Viliha",
   description:
-    "Read how Viliha Web Services collects, uses and protects your personal information when you use this website, and how to contact us about your data.",
+    `Read how ${siteConfig.name} collects, uses and protects your personal information when you use this website, and how to contact us about your data.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -24,7 +25,7 @@ export default function PrivacyPolicyPage() {
         <div className="py-20 mx-4 bg-[#0A3176]">
           <div className="flex items-center justify-center">
             <h1 className="text-[28px] lg:text-[36px] font-bold text-center text-white">
-              Privacy Policy for Viliha Web Services
+              Privacy Policy for {siteConfig.name}
             </h1>
           </div>
         </div>
@@ -56,14 +57,14 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc list-inside text-gray-600 space-y-2 mb-6">
             <li>
               <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or
-              &quot;Our&quot; in this Agreement) refers to Viliha Web Services.
+              &quot;Our&quot; in this Agreement) refers to {siteConfig.name}.
             </li>
             <li>
               <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal
               entity on behalf of which such individual is accessing or using the Service, as applicable.
             </li>
             <li>
-              <strong>Website</strong> refers to Viliha Web Services, accessible from{" "}
+              <strong>Website</strong> refers to {siteConfig.name}, accessible from{" "}
               <Link href="/" className="text-[#0058EE] underline">
                 Viliha
               </Link>

@@ -6,16 +6,17 @@ export function env(value: string | undefined, name: string): string {
 }
 
 const cdnUrl = env(process.env.NEXT_PUBLIC_CDN_URL, "NEXT_PUBLIC_CDN_URL");
+const name = env(process.env.NEXT_PUBLIC_SITE_NAME, "NEXT_PUBLIC_SITE_NAME");
 
 export const siteConfig = {
-  name: "Viliha Web Services",
+  name,
   url: env(process.env.NEXT_PUBLIC_SITE_URL, "NEXT_PUBLIC_SITE_URL"),
   cdnUrl,
 
   // SEO Configuration
   seo: {
-    siteName: "Viliha Web Services",
-    author: "Viliha Web Services",
+    siteName: name,
+    author: name,
     // ponytail: ImageKit pads the hero banner to 1200x630; swap for a designed card when one exists
     ogImage: `${cdnUrl}/viliha-banner_image.webp?tr=w-1200,h-630,cm-pad_resize,bg-FFFFFF,f-jpg`,
     locale: "en_US",
@@ -33,7 +34,7 @@ export const siteConfig = {
   email: {
     contactEmail: env(process.env.NEXT_PUBLIC_CONTACT_EMAIL, "NEXT_PUBLIC_CONTACT_EMAIL"),
     fromEmail: env(process.env.NEXT_PUBLIC_EMAIL_FROM, "NEXT_PUBLIC_EMAIL_FROM"),
-    fromName: "Viliha Web Application Development Services",
+    fromName: env(process.env.NEXT_PUBLIC_EMAIL_FROM_NAME, "NEXT_PUBLIC_EMAIL_FROM_NAME"),
     notificationEmail: env(process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL, "NEXT_PUBLIC_NOTIFICATION_EMAIL"),
   },
 };

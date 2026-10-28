@@ -15,7 +15,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-3">
               <Image
                 src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
-                alt="Viliha Web Services Logo"
+                alt={`${siteConfig.name} Logo`}
                 width={160}
                 height={53}
                 className="rounded-lg mx-auto"
@@ -129,7 +129,7 @@ export default function Footer() {
               <Link href="/" className="inline-block mb-4">
                 <Image
                   src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
-                  alt="Viliha Web Services Logo"
+                  alt={`${siteConfig.name} Logo`}
                   width={160}
                   height={53}
                   className="rounded-lg"
@@ -225,7 +225,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4">
               <Image
                 src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
-                alt="Viliha Web Services Logo"
+                alt={`${siteConfig.name} Logo`}
                 width={144}
                 height={48}
                 className="rounded-lg"

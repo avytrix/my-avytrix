@@ -373,7 +373,7 @@ export default function ContactForm() {
         {/* Consent & reCAPTCHA Notice */}
         <div className="form-group space-y-4">
           <div className="text-xs text-gray-500">
-            *By submitting this form, you have read and agreed to Viliha Web Services&apos;{" "}
+            *By submitting this form, you have read and agreed to {siteConfig.name}&apos;{" "}
             <a href="/terms-conditions" target="_blank" className="text-[#0058EE] underline">
               Terms of Use
             </a>{" "}

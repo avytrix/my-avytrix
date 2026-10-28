@@ -3,12 +3,13 @@ import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/terms-conditions",
   title: "Terms and Conditions | Viliha",
   description:
-    "Read the terms and conditions that apply when you use the Viliha Web Services website and services, including limits of liability and the governing law.",
+    `Read the terms and conditions that apply when you use the ${siteConfig.name} website and services, including limits of liability and the governing law.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);

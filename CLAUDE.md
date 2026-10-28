@@ -75,7 +75,7 @@ Follows `seo_and_aeo_engineering_standard.md` (v2.1). Rules that bite:
 
 ## Environment Variables
 
-Nothing environment-specific is hardcoded: site URL, ImageKit base, emails, social profiles, reCAPTCHA, contact person, Resend and Upstash Redis all come from env. `src/lib/config.ts` reads them and throws at build if a required one is missing.
+Nothing environment-specific is hardcoded: brand name, site URL, ImageKit base, emails, social profiles, reCAPTCHA, contact person, Resend and Upstash Redis all come from env. `src/lib/config.ts` reads them and throws at build if a required one is missing.
 
 - `.env.example` lists every variable; copy it to `.env.local` (gitignored).
 - `NEXT_PUBLIC_*` values are inlined at build, so read them as literal `process.env.NEXT_PUBLIC_X`, never `process.env[name]`.

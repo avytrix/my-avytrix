@@ -51,7 +51,7 @@ export default function ServicesPage() {
                 alt={service.title}
                 width={48}
                 height={48}
-                className="w-12 h-12 mb-4"
+                className="w-12 h-12 mb-4 object-contain"
               />
               <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-sm text-gray-600">{service.description}</p>

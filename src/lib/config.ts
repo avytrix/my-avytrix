@@ -38,6 +38,12 @@ export const siteConfig = {
     notificationEmail: env(process.env.NEXT_PUBLIC_NOTIFICATION_EMAIL, "NEXT_PUBLIC_NOTIFICATION_EMAIL"),
   },
 
+  // Legal entity operating the site (optional; shown on /contact, footer, privacy policy and schema)
+  legal: {
+    name: process.env.NEXT_PUBLIC_LEGAL_NAME ?? "",
+    taxId: process.env.NEXT_PUBLIC_TAX_ID ?? "",
+  },
+
   // Contact person shown on /contact and in emails; address is optional
   contact: {
     name: env(process.env.NEXT_PUBLIC_CONTACT_NAME, "NEXT_PUBLIC_CONTACT_NAME"),

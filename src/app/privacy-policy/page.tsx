@@ -57,7 +57,10 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc list-inside text-gray-600 space-y-2 mb-6">
             <li>
               <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or
-              &quot;Our&quot; in this Agreement) refers to {siteConfig.name}.
+              &quot;Our&quot; in this Agreement) refers to {siteConfig.name}
+              {siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}
+              {siteConfig.legal.taxId && <> (tax code {siteConfig.legal.taxId})</>}
+              {siteConfig.contact.address && <>, {siteConfig.contact.address}</>}.
             </li>
             <li>
               <strong>You</strong> means the individual accessing or using the Service, or the company, or other legal

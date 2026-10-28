@@ -73,7 +73,13 @@ export default function ContactPage() {
                 <User className="w-6 h-6 text-[#0058EE] flex-shrink-0" aria-hidden="true" />
                 <span>
                   <span className="font-semibold">{contact.name}</span>
-                  <span className="block text-sm text-gray-600">{siteConfig.name}</span>
+                  <span className="block text-sm text-gray-600">
+                    {siteConfig.name}
+                    {siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}
+                  </span>
+                  {siteConfig.legal.taxId && (
+                    <span className="block text-sm text-gray-600">Tax code: {siteConfig.legal.taxId}</span>
+                  )}
                 </span>
               </p>
               <p className="flex items-center gap-4">

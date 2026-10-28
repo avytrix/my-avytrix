@@ -33,6 +33,8 @@ jobs:
       NEXT_PUBLIC_CONTACT_NAME: ${{ vars.NEXT_PUBLIC_CONTACT_NAME }}
       NEXT_PUBLIC_CONTACT_PHONE: ${{ vars.NEXT_PUBLIC_CONTACT_PHONE }}
       NEXT_PUBLIC_CONTACT_ADDRESS: ${{ vars.NEXT_PUBLIC_CONTACT_ADDRESS }}
+      NEXT_PUBLIC_LEGAL_NAME: ${{ vars.NEXT_PUBLIC_LEGAL_NAME }}
+      NEXT_PUBLIC_TAX_ID: ${{ vars.NEXT_PUBLIC_TAX_ID }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4

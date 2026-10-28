@@ -13,7 +13,7 @@ export function GET() {
 
   const body = `# ${siteConfig.name}
 
-> ${siteConfig.name} is a remote software development company. It builds custom software, web and mobile applications, APIs, and cloud infrastructure for startups, AI companies and enterprises, and it supplies dedicated development teams. Clients are served remotely in ${locations.map((l) => l.country).join(", ")}. To start a project, use ${url}/contact or email ${siteConfig.email.contactEmail}.
+> ${siteConfig.name} is a remote software development company${siteConfig.legal.name ? ` operated by ${siteConfig.legal.name}` : ""}. It builds custom software, web and mobile applications, APIs, and cloud infrastructure for startups, AI companies and enterprises, and it supplies dedicated development teams. Clients are served remotely in ${locations.map((l) => l.country).join(", ")}. To start a project, use ${url}/contact or email ${siteConfig.email.contactEmail}.
 
 Key facts, each one stated on this site:
 - Services: ${services.map((s) => s.title).join(", ")}.

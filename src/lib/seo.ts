@@ -68,6 +68,8 @@ export function pageGraph({ path, title, description, crumbs = [], extra = [] }:
         logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: `${siteConfig.cdnUrl}/logos/viliha-d.jpg` },
         email: siteConfig.email.contactEmail,
         ...(siteConfig.social.length > 0 && { sameAs: siteConfig.social }),
+        ...(siteConfig.legal.name && { legalName: siteConfig.legal.name }),
+        ...(siteConfig.legal.taxId && { taxID: siteConfig.legal.taxId }),
         ...(siteConfig.contact.address && { address: siteConfig.contact.address }),
         contactPoint: {
           "@type": "ContactPoint",

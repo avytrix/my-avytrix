@@ -235,7 +235,7 @@ export default function Footer() {
               Remote Software Development for Startups & AI Companies
             </p>
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} Viliha. All Rights Reserved.
+              © {new Date().getFullYear()} Viliha{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
             </p>
           </div>
 
@@ -329,7 +329,7 @@ export default function Footer() {
       <div className="border-t border-gray-700/50 lg:hidden">
         <div className="max-w-[1200px] mx-auto px-4 py-5">
           <p className="text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} Viliha. All Rights Reserved.
+            © {new Date().getFullYear()} Viliha{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
           </p>
         </div>
       </div>

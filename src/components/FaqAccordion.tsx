@@ -32,11 +32,9 @@ export default function FaqAccordion({ items }: FaqAccordionProps) {
               {openIndex === index ? "−" : "+"}
             </span>
           </summary>
-          {openIndex === index && (
-            <div className="faq-answer-content mt-2 text-gray-600">
-              <p>{item.answer}</p>
-            </div>
-          )}
+          <div className="faq-answer-content mt-2 text-gray-600">
+            <p>{item.answer}</p>
+          </div>
         </details>
       ))}
     </div>

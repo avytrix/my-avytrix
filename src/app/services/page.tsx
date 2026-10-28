@@ -1,43 +1,24 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/content/services";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "Software Development Services for Startups & AI Companies",
+const seo = {
+  path: "/services",
+  title: "Software Development Services for Startups | Viliha",
   description:
-    "Explore Viliha's comprehensive software development services: custom software, web & mobile development, AI integration, cloud solutions, DevOps, and dedicated teams for startups worldwide.",
-  keywords: [
-    "software development services",
-    "custom software development",
-    "web development services",
-    "mobile app development",
-    "AI software development",
-    "cloud solutions",
-    "DevOps services",
-    "startup software services",
-    "enterprise software solutions",
-    "remote development team",
-    "remote software development",
-    "hire remote developers",
-    "dedicated remote teams",
-  ],
-  alternates: {
-    canonical: `${siteConfig.url}/services`,
-  },
-  openGraph: {
-    title: "Software Development Services | Viliha",
-    description: "Comprehensive software solutions for startups and AI companies worldwide.",
-    url: `${siteConfig.url}/services`,
-  },
+    "Compare Viliha's services: custom software, web and mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, dedicated teams and ongoing support for startups.",
 };
+
+export const metadata: Metadata = pageMetadata(seo);
 
 export default function ServicesPage() {
   return (
     <>
-      {/* Breadcrumb */}
+      <JsonLd {...seo} crumbs={[{ label: "Services" }]} />
       <Breadcrumb items={[{ label: "Services" }]} />
 
       {/* Page Header */}

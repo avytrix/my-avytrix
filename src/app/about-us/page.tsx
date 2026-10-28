@@ -1,33 +1,19 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import FaqAccordion from "@/components/FaqAccordion";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "About Us - Your Trusted Software Development Partner",
+const seo = {
+  path: "/about-us",
+  title: "About Viliha: Software Development Partner | Viliha",
   description:
-    "Viliha is a trusted software development company serving startups and AI companies across USA, UK, Europe, Australia, Singapore, Malaysia & Vietnam. Expert DevOps, automation, and digital transformation.",
-  keywords: [
-    "software development company",
-    "about Viliha",
-    "software development partner",
-    "trusted software company",
-    "DevOps experts",
-    "digital transformation company",
-    "startup technology partner",
-    "AI company partner",
-  ],
-  alternates: {
-    canonical: `${siteConfig.url}/about-us`,
-  },
-  openGraph: {
-    title: "About Viliha - Your Software Development Partner",
-    description: "Trusted software development partner for startups and AI companies worldwide.",
-    url: `${siteConfig.url}/about-us`,
-  },
+    "Learn who Viliha is: a software development company serving startups and AI companies with custom software, DevOps, automation and digital transformation.",
 };
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const aboutContent = {
   banner: {
@@ -135,7 +121,7 @@ export default function AboutPage() {
 
   return (
     <>
-      {/* Breadcrumb */}
+      <JsonLd {...seo} crumbs={[{ label: "About Us" }]} />
       <Breadcrumb items={[{ label: "About Us" }]} />
 
       {/* Hero Banner */}

@@ -26,9 +26,9 @@ export const locations: LocationData[] = [
     heroSubtitle: "Your Trusted Remote Development Partner for American Businesses",
     heroDescription:
       "Viliha delivers custom software solutions for US-based startups and enterprises. Our remote development teams work in your timezone, providing seamless collaboration and world-class results.",
-    metaTitle: "Software Development Services USA | Remote Development Teams | Viliha",
+    metaTitle: "Software Development Company for US Businesses | Viliha",
     metaDescription:
-      "Top-rated software development company serving USA businesses. Custom software, web & mobile apps, AI integration, and dedicated remote teams for startups and enterprises across America.",
+      "Custom software, web and mobile apps, cloud and dedicated remote teams for US startups and enterprises, with EST and PST overlap. Get a free consultation.",
     keywords: [
       "software development USA",
       "software development company USA",
@@ -74,9 +74,9 @@ export const locations: LocationData[] = [
     heroSubtitle: "Premier Remote Development Partner for British Businesses",
     heroDescription:
       "Viliha provides bespoke software solutions for UK startups and enterprises. Our dedicated teams deliver exceptional quality with seamless GMT timezone collaboration.",
-    metaTitle: "Software Development Services UK | Remote Development Teams | Viliha",
+    metaTitle: "Software Development Company for UK Businesses | Viliha",
     metaDescription:
-      "Leading software development company serving UK businesses. Custom software, web & mobile apps, and dedicated remote development teams for British startups and enterprises.",
+      "Custom software, web and mobile apps, cloud and dedicated remote teams for UK startups and enterprises, working in UK business hours. Get a free consultation.",
     keywords: [
       "software development UK",
       "software development company UK",
@@ -122,9 +122,9 @@ export const locations: LocationData[] = [
     heroSubtitle: "Your Dedicated Remote Development Partner in APAC",
     heroDescription:
       "Viliha delivers premium software solutions for Australian businesses. Our teams provide excellent timezone coverage and deep understanding of the ANZ market.",
-    metaTitle: "Software Development Services Australia | Remote Teams | Viliha",
+    metaTitle: "Software Development Company for Australia | Viliha",
     metaDescription:
-      "Expert software development company serving Australian businesses. Custom software, web & mobile apps, and dedicated remote teams for startups in Sydney, Melbourne & beyond.",
+      "Custom software, web and mobile apps, cloud and dedicated remote teams for Australian businesses, aligned with AEST/AEDT hours. Get a free consultation.",
     keywords: [
       "software development Australia",
       "software development company Australia",
@@ -170,9 +170,9 @@ export const locations: LocationData[] = [
     heroSubtitle: "Trusted Remote Development Partner for European Enterprises",
     heroDescription:
       "Viliha empowers European businesses with custom software solutions. Our teams deliver GDPR-aware development with excellent CET timezone collaboration.",
-    metaTitle: "Software Development Services Europe | Remote Development Teams | Viliha",
+    metaTitle: "Software Development Company for Europe | Viliha",
     metaDescription:
-      "Professional software development company serving European businesses. Custom software, web & mobile apps, and dedicated remote teams for EU startups and enterprises.",
+      "Custom software, web and mobile apps and remote teams for European businesses, with CET overlap and GDPR built into development. Get a free consultation.",
     keywords: [
       "software development Europe",
       "software development company Europe",
@@ -218,9 +218,9 @@ export const locations: LocationData[] = [
     heroSubtitle: "Your Strategic Development Partner in Southeast Asia",
     heroDescription:
       "Viliha provides cutting-edge software solutions for Singapore-based businesses. Our regional presence ensures seamless collaboration and deep APAC market understanding.",
-    metaTitle: "Software Development Services Singapore | Remote Teams | Viliha",
+    metaTitle: "Software Development Company for Singapore | Viliha",
     metaDescription:
-      "Leading software development company serving Singapore businesses. Custom software, web & mobile apps, and dedicated remote teams for startups and enterprises in Singapore.",
+      "Custom software, web and mobile apps and remote teams for Singapore businesses, delivered from Vietnam, one hour behind Singapore time. Get a free consultation.",
     keywords: [
       "software development Singapore",
       "software development company Singapore",
@@ -266,9 +266,9 @@ export const locations: LocationData[] = [
     heroSubtitle: "Precision Engineering for German Businesses",
     heroDescription:
       "Viliha delivers hochwertige software solutions for German enterprises. Our teams combine technical excellence with the precision and reliability German businesses expect.",
-    metaTitle: "Software Development Services Germany | Remote Development Teams | Viliha",
+    metaTitle: "Software Development Company for Germany | Viliha",
     metaDescription:
-      "Professional software development company serving German businesses. Custom software, web & mobile apps, and dedicated remote teams for Mittelstand and enterprises.",
+      "Custom software, web and mobile apps and remote teams for German SMEs and Mittelstand firms, with full German business-hour overlap. Get a free consultation.",
     keywords: [
       "software development Germany",
       "Softwareentwicklung Deutschland",

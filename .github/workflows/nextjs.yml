@@ -42,6 +42,8 @@ jobs:
         run: rm -rf src/app/api
       - name: Build with Next.js
         run: pnpm next build
+      - name: SEO/AEO gates
+        run: python3 scripts/seo_check.py out
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

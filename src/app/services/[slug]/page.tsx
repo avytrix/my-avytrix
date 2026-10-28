@@ -5,7 +5,16 @@ import { notFound } from "next/navigation";
 import { getServiceBySlug, getAllServiceSlugs } from "@/content/services";
 import ServiceTabs from "@/components/ServiceTabs";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig, navigation } from "@/lib/config";
+import JsonLd from "@/components/JsonLd";
+import { navigation } from "@/lib/config";
+import { orgRef, pageMetadata, pageUrl, type Crumb } from "@/lib/seo";
+import type { Service } from "@/content/services";
+
+const serviceSeo = (service: Service) => ({
+  path: `/services/${service.slug}`,
+  title: service.metaTitle,
+  description: service.description,
+});
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -24,46 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Service Not Found" };
   }
 
-  const keywords = [
-    service.title.toLowerCase(),
-    `${service.title.toLowerCase()} services`,
-    `${service.title.toLowerCase()} for startups`,
-    `${service.title.toLowerCase()} company`,
-    "software development",
-    "AI companies",
-    "startup solutions",
-    "remote development team",
-    "hire remote developers",
-  ];
-
-  return {
-    title: service.metaTitle,
-    description: service.description,
-    keywords,
-    alternates: {
-      canonical: `${siteConfig.url}/services/${slug}`,
-    },
-    openGraph: {
-      title: service.metaTitle,
-      description: service.description,
-      url: `${siteConfig.url}/services/${slug}`,
-      type: "website",
-      images: [
-        {
-          url: service.intro.image,
-          width: 800,
-          height: 600,
-          alt: service.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: service.metaTitle,
-      description: service.description,
-      images: [service.intro.image],
-    },
-  };
+  return pageMetadata(serviceSeo(service));
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -80,15 +50,25 @@ export default async function ServicePage({ params }: Props) {
     group.links.some((link) => link.href === `/services/${slug}`)
   );
 
+  const crumbs: Crumb[] = [...(parentGroup ? [{ label: parentGroup.title }] : []), { label: intro.pageTitle }];
+  const seo = serviceSeo(service);
+
   return (
     <>
-      {/* Breadcrumb */}
-      <Breadcrumb
-        items={[
-          ...(parentGroup ? [{ label: parentGroup.title }] : []),
-          { label: intro.pageTitle },
+      <JsonLd
+        {...seo}
+        crumbs={crumbs}
+        extra={[
+          {
+            "@type": "Service",
+            "@id": `${pageUrl(seo.path)}#service`,
+            name: service.title,
+            description: service.description,
+            provider: orgRef,
+          },
         ]}
       />
+      <Breadcrumb items={crumbs} />
 
       {/* Hero/Intro Section */}
       <section className="py-4">

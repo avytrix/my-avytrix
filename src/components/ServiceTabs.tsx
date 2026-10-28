@@ -12,7 +12,6 @@ export default function ServiceTabs({ sections }: ServiceTabsProps) {
 
   // Flatten all items from all sections for the sidebar
   const allItems = sections.flatMap((s) => s.items);
-  const currentItem = allItems.find((i) => i.targetId === activeItem);
 
   if (!sections.length || !allItems.length) return null;
 
@@ -38,16 +37,17 @@ export default function ServiceTabs({ sections }: ServiceTabsProps) {
 
         {/* Right Content Column */}
         <div className="content-column lg:w-2/3 mt-4 lg:mt-0">
-          {currentItem && (
-            <div>
-              <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">{currentItem.title}</h2>
+          {/* All items stay in the HTML for crawlers; inactive ones are hidden */}
+          {allItems.map((item) => (
+            <div key={item.targetId} hidden={item.targetId !== activeItem}>
+              <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4">{item.title}</h2>
               <div className="space-y-4 sm:space-y-6 text-gray-700 text-sm sm:text-base">
-                <p>{currentItem.content}</p>
+                <p>{item.content}</p>
 
-                {currentItem.listBlocks?.map((block, blockIndex) => (
+                {item.listBlocks?.map((block, blockIndex) => (
                   <div key={blockIndex} className="mt-4 sm:mt-6">
                     {block.listSubtitle && (
-                      <h4 className="font-semibold text-base sm:text-lg">{block.listSubtitle}</h4>
+                      <h3 className="font-semibold text-base sm:text-lg">{block.listSubtitle}</h3>
                     )}
                     {block.listSubtitlePara && (
                       <p className="mt-2">{block.listSubtitlePara}</p>
@@ -68,7 +68,7 @@ export default function ServiceTabs({ sections }: ServiceTabsProps) {
                 ))}
               </div>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </section>

@@ -25,6 +25,15 @@ pnpm lint                         # Run ESLint
 GitHub Pages is static-only, so the workflow deletes `src/app/api` before building. The contact form's API routes do not run on Pages.
 Any route must be statically renderable: dynamic routes need `generateStaticParams`, and metadata routes need `export const dynamic = "force-static"`.
 
+## SEO / AEO
+
+Follows `seo_and_aeo_engineering_standard.md` (v2.1). Rules that bite:
+- Every page builds metadata and JSON-LD from one `seo` object: `pageMetadata(seo)` and `<JsonLd {...seo} crumbs={...} />` (`src/lib/seo.ts`). That gives exactly one `@graph` per page.
+- Title ≤ 60 chars ending `| Viliha`; description 140–160 chars; both unique.
+- Schema and `public/llms.txt` may only state facts visible on the site: no invented `sameAs`, addresses, phone numbers, ratings, or FAQ entries.
+- Tab and accordion content must stay in the HTML (hide it, don't unmount it).
+- `scripts/seo_check.py` runs the gates against `out/` in CI and fails the deploy.
+
 ## Architecture
 
 **Pages** (`src/app/`):
@@ -40,6 +49,8 @@ Any route must be statically renderable: dynamic routes need `generateStaticPara
 | `/terms-conditions` | Terms & conditions |
 | `/api/verify-recaptcha` | Server-side reCAPTCHA verification |
 | `/api/send-email` | Contact form email via Resend |
+
+`src/lib/seo.ts` - `pageMetadata()` and `pageGraph()` (single JSON-LD graph)
 
 **Components** (`src/components/`):
 - `Header.tsx` - Navigation with mega menu dropdown

@@ -41,9 +41,9 @@ export const services: Service[] = [
   {
     slug: "custom-software-development",
     title: "Custom Software Development",
-    metaTitle: "Custom Software Development for Healthcare, Finance & Retail",
+    metaTitle: "Custom Software Development Services | Viliha",
     description:
-      "Tailored business software by Viliha, built for healthcare, finance, and e-commerce. Scalable architecture, database optimization, and workflow automation included.",
+      "Custom software built around your workflows: scalable architecture, SQL/NoSQL database design, API integration and CI/CD. Discuss your project with Viliha.",
     intro: {
       pageTitle: "Custom Software Development",
       mainTitle: "Bespoke Software Solutions, Engineered for Your Exact Needs",
@@ -156,9 +156,9 @@ export const services: Service[] = [
   {
     slug: "web-development",
     title: "Web Development",
-    metaTitle: "Responsive Web Development | Fast, Secure, Industry-Tailored Solutions",
+    metaTitle: "Responsive Web Development Services | Viliha",
     description:
-      "Build fast, secure web apps tailored to healthcare, education, or retail. Viliha ensures responsive design, SEO, performance, and industry compliance.",
+      "Fast, secure, responsive web apps built with React, Vue, Node.js, Laravel, .NET or Django, with SEO-friendly structure. Plan your web project with Viliha.",
     intro: {
       pageTitle: "Responsive Web Development",
       mainTitle: "Engaging Websites, Flawless on Every Screen",
@@ -258,9 +258,9 @@ export const services: Service[] = [
   {
     slug: "mobile-app-development",
     title: "Mobile App Development",
-    metaTitle: "Mobile App Development Services | iOS & Android | Viliha",
+    metaTitle: "Mobile App Development for iOS & Android | Viliha",
     description:
-      "Launch intuitive native and cross-platform mobile apps that expand your brand's reach on any device.",
+      "Native iOS (Swift) and Android (Kotlin) apps, or cross-platform with React Native and Flutter, from discovery to app store launch. Build your app with Viliha.",
     intro: {
       pageTitle: "Mobile App Development",
       mainTitle: "Native & Cross-Platform Mobile Solutions",
@@ -343,8 +343,9 @@ export const services: Service[] = [
   {
     slug: "ux-ui-design",
     title: "UX/UI Design Services",
-    metaTitle: "UX/UI Design Services | Viliha",
-    description: "Transform ideas into visually stunning, user-friendly digital products.",
+    metaTitle: "UX/UI Design for Web, Mobile & SaaS Products | Viliha",
+    description:
+      "User research, wireframes, prototypes, visual design and design systems for web, mobile and SaaS products, validated by usability testing. Start with Viliha.",
     intro: {
       pageTitle: "UX/UI Design",
       mainTitle: "Design That Delights and Converts",
@@ -428,7 +429,8 @@ export const services: Service[] = [
     slug: "api-development",
     title: "API Development & Integration",
     metaTitle: "API Development & Integration Services | Viliha",
-    description: "Build robust APIs and seamlessly integrate diverse systems.",
+    description:
+      "REST and GraphQL API development plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to Viliha.",
     intro: {
       pageTitle: "API Development",
       mainTitle: "Connect, Integrate, Scale",
@@ -510,8 +512,9 @@ export const services: Service[] = [
   {
     slug: "cloud-solutions",
     title: "Cloud Solutions & Infrastructure",
-    metaTitle: "Cloud Solutions & Infrastructure | AWS, Azure, GCP | Viliha",
-    description: "Optimize with scalable, secure cloud architecture for high availability and peak performance.",
+    metaTitle: "Cloud Solutions on AWS, Azure & GCP | Viliha",
+    description:
+      "Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization across AWS, Azure, GCP and DigitalOcean. Plan your cloud with Viliha.",
     intro: {
       pageTitle: "Cloud Solutions",
       mainTitle: "Scale Your Infrastructure in the Cloud",
@@ -594,7 +597,8 @@ export const services: Service[] = [
     slug: "qa-and-testing",
     title: "Software QA & Testing",
     metaTitle: "Software QA & Testing Services | Viliha",
-    description: "Ensure flawless, reliable software with comprehensive QA and testing services.",
+    description:
+      "Manual, automated, performance, security, API and mobile testing, plus regression and UAT built into your CI pipeline. Improve your release quality with Viliha.",
     intro: {
       pageTitle: "QA & Testing",
       mainTitle: "Quality Assurance for Reliable Software",
@@ -677,8 +681,9 @@ export const services: Service[] = [
   {
     slug: "dedicated-development-teams",
     title: "Dedicated Development Teams",
-    metaTitle: "Dedicated Development Teams | Staff Augmentation | Viliha",
-    description: "Augment your capacity with skilled, agile development teams.",
+    metaTitle: "Dedicated Development Teams & Staff Augmentation | Viliha",
+    description:
+      "Full-stack, mobile, DevOps, QA and UI/UX specialists as a dedicated team, team augmentation or project-based team. Scale your engineering capacity with Viliha.",
     intro: {
       pageTitle: "Dedicated Teams",
       mainTitle: "Scale Your Team with Expert Developers",
@@ -761,8 +766,9 @@ export const services: Service[] = [
   {
     slug: "ecommerce-solutions",
     title: "E-commerce & Enterprise Solutions",
-    metaTitle: "E-commerce & Enterprise Solutions | Viliha",
-    description: "Build powerful e-commerce platforms or custom enterprise web solutions.",
+    metaTitle: "E-commerce & Enterprise Software Development | Viliha",
+    description:
+      "Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payment integration, ERP and CRM systems and analytics dashboards. Build with Viliha.",
     intro: {
       pageTitle: "E-commerce Solutions",
       mainTitle: "E-commerce & Enterprise Platforms",
@@ -844,8 +850,9 @@ export const services: Service[] = [
   {
     slug: "ongoing-support",
     title: "Ongoing Support & Maintenance",
-    metaTitle: "Ongoing Support & Maintenance | Viliha",
-    description: "Keep your software running smoothly with our maintenance and support services.",
+    metaTitle: "Software Support & Maintenance Services | Viliha",
+    description:
+      "Monitoring, bug fixes, security updates, performance tuning and feature work, on business-hours, extended or 24/7 enterprise plans. Keep your software healthy.",
     intro: {
       pageTitle: "Ongoing Support",
       mainTitle: "Reliable Support & Maintenance",
@@ -927,8 +934,9 @@ export const services: Service[] = [
   {
     slug: "seo",
     title: "SEO Services",
-    metaTitle: "SEO Services | Viliha",
-    description: "Improve your search engine rankings and drive organic traffic.",
+    metaTitle: "SEO Services: Technical, On-Page & Local SEO | Viliha",
+    description:
+      "Technical SEO audits, keyword research, on-page and content optimization, local SEO, link building and site speed work. Grow your organic traffic with Viliha.",
     intro: {
       pageTitle: "SEO Services",
       mainTitle: "Search Engine Optimization",

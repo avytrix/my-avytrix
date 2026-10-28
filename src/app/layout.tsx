@@ -5,7 +5,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { siteConfig } from "@/lib/config";
-import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -29,83 +28,19 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.seo.title,
-    template: `%s | ${siteConfig.name}`,
-  },
-  description: siteConfig.description,
-  keywords: siteConfig.seo.keywords,
+  // Every page sets its own title, description, canonical and Open Graph via pageMetadata()
   authors: [{ name: siteConfig.seo.author, url: siteConfig.url }],
-  creator: siteConfig.seo.author,
-  publisher: siteConfig.seo.author,
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  alternates: {
-    canonical: siteConfig.url,
-    languages: {
-      "en-US": siteConfig.url,
-      "en-GB": `${siteConfig.url}`,
-      "en-AU": `${siteConfig.url}`,
-      "x-default": siteConfig.url,
-    },
-  },
-  openGraph: {
-    type: "website",
-    locale: siteConfig.seo.locale,
-    alternateLocale: siteConfig.seo.alternateLocales,
-    url: siteConfig.url,
-    siteName: siteConfig.seo.siteName,
-    title: siteConfig.seo.title,
-    description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.seo.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: siteConfig.seo.title,
-    description: siteConfig.description,
-    site: siteConfig.seo.twitterHandle,
-    creator: siteConfig.seo.twitterHandle,
-    images: [siteConfig.seo.ogImage],
-  },
   robots: {
     index: true,
     follow: true,
-    nocache: false,
-    googleBot: {
-      index: true,
-      follow: true,
-      noimageindex: false,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  verification: {
-    // Add your verification codes here
-    // google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
-  },
-  category: "technology",
-  classification: "Software Development Services",
-  other: {
-    "geo.region": "US",
-    "geo.placename": "United States",
-    "distribution": "global",
-    "target": "all",
-    "audience": "startups, AI companies, enterprises",
-    "revisit-after": "7 days",
-    "rating": "general",
+    "max-snippet": -1,
+    "max-image-preview": "large",
+    "max-video-preview": -1,
   },
 };
 
@@ -126,7 +61,6 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
       <body className="font-sans antialiased min-h-screen flex flex-col">
-        <JsonLd />
         <CookieConsent />
         <Header />
         <main className="pt-[54px] flex-1">{children}</main>

@@ -1,51 +1,27 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { homeContent } from "@/content/home";
 import TechStackTabs from "@/components/TechStackTabs";
 import FaqAccordion from "@/components/FaqAccordion";
-import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "Custom Software Development for Startups & AI Companies | Viliha",
+const seo = {
+  path: "",
+  title: "Custom Software Development for Startups & AI | Viliha",
   description:
-    "Viliha delivers custom software development, AI integration, DevOps, and cloud solutions for startups and enterprises across USA, UK, Europe, Australia, Singapore, Malaysia & Vietnam.",
-  keywords: [
-    "custom software development",
-    "AI software development company",
-    "startup software solutions",
-    "remote development team",
-    "remote software development",
-    "hire remote developers",
-    "offshore development team",
-    "DevOps services",
-    "cloud migration services",
-    "software development USA",
-    "software development UK",
-    "software development Europe",
-    "software development Australia",
-    "software development Singapore",
-    "AI integration services",
-    "MVP development",
-    "SaaS development",
-  ],
-  alternates: {
-    canonical: siteConfig.url,
-  },
-  openGraph: {
-    title: "Custom Software Development for Startups & AI Companies | Viliha",
-    description:
-      "Expert software development services for startups and AI companies. Custom solutions, DevOps, cloud migration & more.",
-    url: siteConfig.url,
-    type: "website",
-  },
+    "Viliha builds custom software, web and mobile apps, AI integrations and cloud infrastructure for startups and AI companies. Book a free consultation today.",
 };
+
+export const metadata: Metadata = pageMetadata(seo);
 
 export default function HomePage() {
   const { hero, servicesOverview, techStack, digitalInnovation, caseStudies } = homeContent;
 
   return (
     <div>
+      <JsonLd {...seo} />
       {/* Hero Section */}
       <section className="relative max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-between py-10 lg:py-36 px-4 md:h-[600px]">
         <div className="hero-content flex-1 z-10 py-6 lg:py-0">

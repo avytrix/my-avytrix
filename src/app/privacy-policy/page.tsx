@@ -1,25 +1,22 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
+const seo = {
+  path: "/privacy-policy",
+  title: "Privacy Policy | Viliha",
   description:
-    "Learn how Viliha Web Services collects, uses, and protects your personal information when you use our website and services.",
-  alternates: {
-    canonical: `${siteConfig.url}/privacy-policy`,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+    "Read how Viliha Web Services collects, uses and protects your personal information when you use viliha.com, and how to contact us about your data.",
 };
+
+export const metadata: Metadata = pageMetadata(seo);
 
 export default function PrivacyPolicyPage() {
   return (
     <>
-      {/* Breadcrumb */}
+      <JsonLd {...seo} crumbs={[{ label: "Privacy Policy" }]} />
       <Breadcrumb items={[{ label: "Privacy Policy" }]} />
 
       {/* Page Header */}
@@ -123,9 +120,9 @@ export default function PrivacyPolicyPage() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Contact Us</h2>
           <p className="text-gray-600">
-            If you have any questions about this Privacy Policy, You can contact us:{" "}
+            If you have any questions about this Privacy Policy, You can contact us via{" "}
             <Link href="/contact" className="text-[#0058EE] underline">
-              click here
+              the Viliha contact form
             </Link>
           </p>
         </div>

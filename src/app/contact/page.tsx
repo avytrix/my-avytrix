@@ -1,29 +1,17 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "Contact Us - Start Your Software Project Today",
+const seo = {
+  path: "/contact",
+  title: "Contact Viliha: Start Your Software Project | Viliha",
   description:
-    "Get in touch with Viliha for custom software development, AI solutions, DevOps, and cloud services. Free consultation for startups and enterprises in USA, UK, Europe, Australia & Asia.",
-  keywords: [
-    "contact software development company",
-    "hire software developers",
-    "software development consultation",
-    "custom software quote",
-    "startup software development",
-    "AI development services contact",
-  ],
-  alternates: {
-    canonical: `${siteConfig.url}/contact`,
-  },
-  openGraph: {
-    title: "Contact Viliha - Start Your Software Project",
-    description: "Free consultation for your software development needs. Serving startups and AI companies worldwide.",
-    url: `${siteConfig.url}/contact`,
-  },
+    "Contact Viliha about custom software, AI, DevOps or cloud projects. Tell us which service you need and what you are building to request a free consultation.",
 };
+
+export const metadata: Metadata = pageMetadata(seo);
 
 const contactContent = {
   infoHeading: "Let's Discuss Your Project",
@@ -38,7 +26,7 @@ const contactContent = {
 export default function ContactPage() {
   return (
     <>
-      {/* Breadcrumb */}
+      <JsonLd {...seo} crumbs={[{ label: "Contact" }]} />
       <Breadcrumb items={[{ label: "Contact" }]} />
 
       {/* Page Header */}

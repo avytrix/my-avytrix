@@ -5,7 +5,15 @@ import { notFound } from "next/navigation";
 import { getLocationBySlug, getAllLocationSlugs } from "@/content/locations";
 import { services } from "@/content/services";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
+import JsonLd from "@/components/JsonLd";
+import { orgRef, pageMetadata, pageUrl, type Crumb } from "@/lib/seo";
+import type { LocationData } from "@/content/locations";
+
+const locationSeo = (location: LocationData) => ({
+  path: `/software-development/${location.slug}`,
+  title: location.metaTitle,
+  description: location.metaDescription,
+});
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -24,33 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Location Not Found" };
   }
 
-  return {
-    title: location.metaTitle,
-    description: location.metaDescription,
-    keywords: location.keywords,
-    alternates: {
-      canonical: `${siteConfig.url}/software-development/${slug}`,
-    },
-    openGraph: {
-      title: location.metaTitle,
-      description: location.metaDescription,
-      url: `${siteConfig.url}/software-development/${slug}`,
-      type: "website",
-      images: [
-        {
-          url: siteConfig.seo.ogImage,
-          width: 1200,
-          height: 630,
-          alt: location.heroTitle,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: location.metaTitle,
-      description: location.metaDescription,
-    },
-  };
+  return pageMetadata(locationSeo(location));
 }
 
 export default async function LocationPage({ params }: Props) {
@@ -64,15 +46,27 @@ export default async function LocationPage({ params }: Props) {
   // Select featured services (first 6)
   const featuredServices = services.slice(0, 6);
 
+  const crumbs: Crumb[] = [{ label: "Software Development", href: "/services" }, { label: location.country }];
+  const seo = locationSeo(location);
+
   return (
     <>
-      {/* Breadcrumb */}
-      <Breadcrumb
-        items={[
-          { label: "Software Development", href: "/services" },
-          { label: location.country },
+      <JsonLd
+        {...seo}
+        crumbs={crumbs}
+        extra={[
+          {
+            "@type": "Service",
+            "@id": `${pageUrl(seo.path)}#service`,
+            name: location.heroTitle,
+            description: location.metaDescription,
+            serviceType: featuredServices.map((service) => service.title),
+            areaServed: location.country, // text, since "Europe" is not a Country
+            provider: orgRef,
+          },
         ]}
       />
+      <Breadcrumb items={crumbs} />
 
       {/* Hero Section - Consistent with homepage */}
       <section className="relative max-w-[1200px] mx-auto flex flex-col lg:flex-row items-center justify-between pt-2 pb-10 lg:pt-4 lg:pb-20 px-4">
@@ -331,35 +325,6 @@ export default async function LocationPage({ params }: Props) {
         </div>
       </section>
 
-      {/* JSON-LD for Local Business */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "ProfessionalService",
-            name: `Viliha - Software Development ${location.country}`,
-            description: location.metaDescription,
-            url: `${siteConfig.url}/software-development/${slug}`,
-            areaServed: {
-              "@type": "Country",
-              name: location.country,
-            },
-            serviceType: [
-              "Custom Software Development",
-              "Web Development",
-              "Mobile App Development",
-              "Cloud Solutions",
-              "DevOps Services",
-            ],
-            provider: {
-              "@type": "Organization",
-              name: "Viliha Web Services",
-              url: siteConfig.url,
-            },
-          }),
-        }}
-      />
     </>
   );
 }

@@ -1,25 +1,22 @@
 import { Metadata } from "next";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
-import { siteConfig } from "@/lib/config";
 
-export const metadata: Metadata = {
-  title: "Terms and Conditions",
+const seo = {
+  path: "/terms-conditions",
+  title: "Terms and Conditions | Viliha",
   description:
-    "Please read these terms and conditions carefully before using the Viliha Web Services website and services.",
-  alternates: {
-    canonical: `${siteConfig.url}/terms-conditions`,
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+    "Read the terms and conditions that apply when you use the Viliha Web Services website and services, including limits of liability and the governing law.",
 };
+
+export const metadata: Metadata = pageMetadata(seo);
 
 export default function TermsConditionsPage() {
   return (
     <>
-      {/* Breadcrumb */}
+      <JsonLd {...seo} crumbs={[{ label: "Terms and Conditions" }]} />
       <Breadcrumb items={[{ label: "Terms and Conditions" }]} />
 
       {/* Page Header */}
@@ -93,9 +90,9 @@ export default function TermsConditionsPage() {
 
           <h2 className="text-2xl font-semibold mt-8 mb-4">Contact Us</h2>
           <p className="text-gray-600">
-            If you have any questions about these Terms and Conditions, You can contact us:{" "}
+            If you have any questions about these Terms and Conditions, You can contact us via{" "}
             <Link href="/contact" className="text-[#0058EE] underline">
-              click here
+              the Viliha contact form
             </Link>
           </p>
         </div>

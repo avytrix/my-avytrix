@@ -3,6 +3,9 @@ import { siteConfig } from "@/lib/config";
 import { getAllServiceSlugs } from "@/content/services";
 import { getAllLocationSlugs } from "@/content/locations";
 
+// Required for static export (GitHub Pages)
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = siteConfig.url;
   const serviceSlugs = getAllServiceSlugs();

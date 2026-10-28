@@ -87,18 +87,6 @@ export const siteConfig = {
   // reCAPTCHA v3
   recaptchaSiteKey: "6Lfp93QrAAAAAKKxShtL7B4EJjaU16e_uN7DB-lj",
 
-  // Abstract API for email verification
-  abstractApiKey: process.env.ABSTRACT_API_KEY || "6db0b5c93c2444a38435337db3622afa",
-  abstractApiUrl: "https://emailreputation.abstractapi.com/v1/",
-
-  // EmailJS (legacy)
-  emailjs: {
-    serviceId: "service_l8b23vd",
-    templateIdCustomer: "template_u5v3z1a",
-    templateIdViliha: "template_6uq3gfq",
-    userId: "vB13cSMPfCxIjEKME",
-  },
-
   // Resend Email Configuration
   email: {
     fromEmail: "getintouch@viliha.com",

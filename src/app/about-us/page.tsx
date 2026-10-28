@@ -28,7 +28,7 @@ const aboutContent = {
   twoColumn: {
     heading: "Our Story: Powering Digital Futures",
     content:
-      "Viliha Services was founded with a clear mission: to be a trusted software partner for businesses worldwide, helping them navigate and thrive in the ever-evolving digital landscape. Our journey is driven by a passion for technology and a commitment to delivering scalable, high-quality products that make a real impact. We believe in harnessing modern tools not just to build software, but to architect brighter digital futures for our clients.",
+      `${siteConfig.name} was founded with a clear mission: to be a trusted software partner for businesses worldwide, helping them navigate and thrive in the ever-evolving digital landscape. Our journey is driven by a passion for technology and a commitment to delivering scalable, high-quality products that make a real impact. We believe in harnessing modern tools not just to build software, but to architect brighter digital futures for our clients.`,
     image: `${siteConfig.cdnUrl}/virtual-meeting 2.jpg`,
   },
   mission: [
@@ -40,7 +40,7 @@ const aboutContent = {
     {
       title: "Meet Our Driving Force (Our Team)",
       content:
-        "At the heart of Viliha Services is a team of experienced developers and strategists passionate about technology and client success. While our skills are diverse, we are united by a shared commitment to excellence and innovation.",
+        `At the heart of ${siteConfig.name} is a team of experienced developers and strategists passionate about technology and client success. While our skills are diverse, we are united by a shared commitment to excellence and innovation.`,
     },
   ],
   coreValues: {

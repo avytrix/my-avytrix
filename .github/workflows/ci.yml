@@ -109,6 +109,9 @@ jobs:
       - run: pnpm next build
       - name: SEO/AEO gates
         run: python3 scripts/seo_check.py out
+      # After the gates: the stubs it writes are redirects, not pages
+      - name: Trailing-slash redirects
+        run: python3 scripts/trailing_slash_redirects.py out
       - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:

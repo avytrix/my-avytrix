@@ -53,21 +53,16 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                     href={item.href}
                     className="hover:text-[#0058EE] flex items-center gap-1"
                     title={groupMeta.label}
-                    aria-label={groupMeta.label}
                   >
                     {/* Icon always visible */}
                     <span className="flex-shrink-0">{groupMeta.icon}</span>
-                    {/* Text only on lg+ */}
-                    <span className="hidden lg:inline">{groupMeta.label}</span>
+                    {/* Text visible on lg+, screen-reader only below */}
+                    <span className="sr-only lg:not-sr-only">{groupMeta.label}</span>
                   </Link>
                 ) : (
-                  <span
-                    className="flex items-center gap-1"
-                    title={groupMeta.label}
-                    aria-label={groupMeta.label}
-                  >
+                  <span className="flex items-center gap-1" title={groupMeta.label}>
                     <span className="flex-shrink-0">{groupMeta.icon}</span>
-                    <span className="hidden lg:inline">{groupMeta.label}</span>
+                    <span className="sr-only lg:not-sr-only">{groupMeta.label}</span>
                   </span>
                 )
               ) : (

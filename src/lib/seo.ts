@@ -65,7 +65,7 @@ export function pageGraph({ path, title, description, crumbs = [], extra = [] }:
         ...org,
         name: siteConfig.name,
         url: origin,
-        logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: `${siteConfig.cdnUrl}/logos/avytrix-logo.png` },
+        logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: `${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png` },
         email: siteConfig.email.contactEmail,
         ...(siteConfig.social.length > 0 && { sameAs: siteConfig.social }),
         ...(siteConfig.legal.name && { legalName: siteConfig.legal.name }),

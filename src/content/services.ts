@@ -52,7 +52,7 @@ export const services: Service[] = [
         "Custom software development means building an application from scratch for your business instead of bending an off-the-shelf tool to fit. We handle discovery, design, architecture, databases, APIs, testing and automated deployment, then keep the software maintained after launch.",
       buttonText: "Discuss Your Custom Software Project",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/Custom-Software-development.png`,
+      image: `${siteConfig.cdnUrl}/services/custom-software-development-services.png`,
       imageAlt: "Custom software development lifecycle diagram",
     },
     sections: [
@@ -168,7 +168,7 @@ export const services: Service[] = [
         "Web development services cover everything needed to put a website or web application online: design, front-end and back-end development, integrations, SEO-friendly structure and launch. We build with React, Vue, Next.js, Node.js, Laravel, .NET and Django for clients in the USA, Europe and Australia.",
       buttonText: "Plan Your Website or Web App",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/Web-Application.png`,
+      image: `${siteConfig.cdnUrl}/services/web-application-development-services.png`,
       imageAlt: "Responsive website on desktop, tablet and mobile",
     },
     sections: [
@@ -271,7 +271,7 @@ export const services: Service[] = [
         "Mobile app development is designing, building and launching apps for iPhone and Android phones. We build native apps in Swift and Kotlin, cross-platform apps in React Native and Flutter, and Progressive Web Apps, then handle app store submission and support after launch.",
       buttonText: "Develop Your Mobile App",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/Mobile-App-Development.png`,
+      image: `${siteConfig.cdnUrl}/services/mobile-app-development-services.png`,
       imageAlt: "Mobile app development on iOS and Android",
     },
     sections: [
@@ -357,7 +357,7 @@ export const services: Service[] = [
         "UX/UI design shapes how a website or app works (UX) and how it looks (UI). We start with user research, then move through information architecture, wireframes, prototypes, visual design and usability testing, and hand developers a design system they can build from.",
       buttonText: "Design Your Experience",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/UI.png`,
+      image: `${siteConfig.cdnUrl}/services/ui-ux-design-services.png`,
       imageAlt: "UX/UI design for web and mobile apps",
     },
     sections: [
@@ -443,7 +443,7 @@ export const services: Service[] = [
         "API development is building the interfaces that let software systems exchange data. We design and build secure, documented REST and GraphQL APIs and connect your software to payment gateways, CRMs, ERPs, cloud services and communication platforms such as Stripe, Salesforce, SAP and Twilio.",
       buttonText: "Integrate Your Systems",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/API-Development.png`,
+      image: `${siteConfig.cdnUrl}/services/api-development-services.png`,
       imageAlt: "API development and system integration",
     },
     sections: [
@@ -528,7 +528,7 @@ export const services: Service[] = [
         "Cloud solutions move and run your applications on platforms such as AWS, Microsoft Azure, Google Cloud and DigitalOcean. We plan migrations, write infrastructure as code, run containers with Docker and Kubernetes, build serverless setups, and keep costs and security under control.",
       buttonText: "Optimize Your Cloud",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/Cloud-infrastructure.png`,
+      image: `${siteConfig.cdnUrl}/services/cloud-solutions-infrastructure.png`,
       imageAlt: "Cloud infrastructure on AWS, Azure and Google Cloud",
     },
     sections: [
@@ -613,7 +613,7 @@ export const services: Service[] = [
         "Software QA and testing checks that an application works as intended before your users find the problems. We run manual, automated, performance, security, API and mobile tests, build them into your CI pipeline, and cover regression and user acceptance testing.",
       buttonText: "Talk to Our QA Team",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/Software-qa-testing.png`,
+      image: `${siteConfig.cdnUrl}/services/software-qa-testing-services.png`,
       imageAlt: "Software QA and testing",
     },
     sections: [
@@ -699,7 +699,7 @@ export const services: Service[] = [
         "A dedicated development team is a group of developers who work only on your product, as an extension of your own staff. We provide full-stack, front-end, back-end, mobile, DevOps, QA and UI/UX specialists as a full-time team, as extra hands for your team, or for a single project.",
       buttonText: "Build Your Team",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/team.png`,
+      image: `${siteConfig.cdnUrl}/services/dedicated-development-teams.png`,
       imageAlt: "Dedicated remote development team",
     },
     sections: [
@@ -785,7 +785,7 @@ export const services: Service[] = [
         "E-commerce development is building online stores and marketplaces, with payments and inventory behind them. We build custom stores, customize Shopify, WooCommerce and Magento, and develop enterprise systems such as ERP, CRM, business process automation and analytics dashboards.",
       buttonText: "Build Your Platform",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/E-Commerce.png`,
+      image: `${siteConfig.cdnUrl}/services/ecommerce-development-services.png`,
       imageAlt: "E-commerce website development",
     },
     sections: [
@@ -870,7 +870,7 @@ export const services: Service[] = [
         "Software support and maintenance keeps an application secure and working after launch. We monitor it, fix bugs, apply security updates, tune performance and add features, on business-hours, extended-hours or 24/7 enterprise plans, or on demand.",
       buttonText: "Talk About Support",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/services/Support_new.png`,
+      image: `${siteConfig.cdnUrl}/services/software-support-maintenance-services.png`,
       imageAlt: "Software support and maintenance",
     },
     sections: [
@@ -955,7 +955,7 @@ export const services: Service[] = [
         "SEO (search engine optimization) is the work that helps your website rank in Google and other search engines for the terms your customers search. Our SEO services cover technical audits, keyword research, on-page and content optimization, local SEO, link building, site speed and mobile optimization.",
       buttonText: "Improve Your Rankings",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/icons/Custom_Web_Development.svg`,
+      image: `${siteConfig.cdnUrl}/icons/web-development-icon.svg`,
       imageAlt: "SEO services",
     },
     sections: [

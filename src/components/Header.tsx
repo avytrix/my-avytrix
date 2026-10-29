@@ -18,7 +18,7 @@ export default function Header() {
         <Link
           href="/"
           className="block w-[120px] h-[40px] bg-contain bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${siteConfig.cdnUrl}/logos/avytrix-logo.png)` }}
+          style={{ backgroundImage: `url(${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png)` }}
           aria-label={siteConfig.name}
           onClick={closeMenu}
         />

@@ -103,7 +103,7 @@ export default async function ServicePage({ params }: Props) {
         <div className="max-w-[800px] mx-auto px-4 text-center">
           <h2 className="text-3xl font-semibold mb-4">Ready to Get Started?</h2>
           <p className="text-gray-600 mb-8">
-            Let&apos;s discuss how we can help you achieve your goals with our {service.title.replace(/ services$/i, "").toLowerCase()} services.
+            Tell us about your project and we will explain how our {service.title.replace(/ services$/i, "").toLowerCase()} services can help.
           </p>
           <Link
             href="/contact"

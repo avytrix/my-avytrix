@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-gray-600">
             If you have any questions about this Privacy Policy, You can contact us via{" "}
             <Link href="/contact" className="text-[#0058EE] underline">
-              the Avytrix Technologies contact form
+              our contact page
             </Link>
           </p>
         </div>

@@ -22,7 +22,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-400 text-sm">
-              Remote Software Development for Startups & AI Companies
+              Web Development Company for Startups and Growing Businesses
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
             {/* Locations Column */}
             <div>
               <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">
-                Locations
+                Web Development by Region
               </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.locations.map((link) => (
@@ -136,7 +136,7 @@ export default function Footer() {
                 />
               </Link>
               <p className="text-sm text-gray-400 mb-2">
-                Remote Software Development for Startups
+                Web Development for Startups and Growing Businesses
               </p>
             </div>
 
@@ -162,7 +162,7 @@ export default function Footer() {
             {/* Locations Column */}
             <div>
               <h3 className="font-semibold text-sm mb-4 text-white">
-                Locations
+                Web Development by Region
               </h3>
               <ul className="space-y-2.5">
                 {navigation.footer.locations.map((link) => (
@@ -232,7 +232,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-gray-400 mb-2">
-              Remote Software Development for Startups & AI Companies
+              Web Development Company for Startups and Growing Businesses
             </p>
             <p className="text-xs text-gray-500">
               © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.

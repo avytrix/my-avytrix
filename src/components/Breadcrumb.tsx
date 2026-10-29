@@ -11,9 +11,9 @@ interface BreadcrumbProps {
 }
 
 const GROUP_ICONS: Record<string, { icon: React.ReactNode; label: string }> = {
-  "Software Development": {
+  "Web & Software Development": {
     icon: <Code2 className="w-4 h-4" aria-hidden="true" />,
-    label: "Software Development",
+    label: "Web & Software Development",
   },
   "Infrastructure & Teams": {
     icon: <Server className="w-4 h-4" aria-hidden="true" />,
@@ -39,7 +39,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
               <ChevronRight className="w-4 h-4 mx-1 flex-shrink-0" aria-hidden="true" />
 
               {isLast ? (
-                // Current page — always show full text, truncate if very long
+                // Current page: always show full text, truncate if very long
                 <span
                   className="font-medium text-[#0058EE] truncate max-w-[140px] sm:max-w-[220px] md:max-w-none"
                   title={item.label}
@@ -47,7 +47,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
                   {item.label}
                 </span>
               ) : groupMeta ? (
-                // Parent group — icon on mobile/tablet, icon + text on desktop
+                // Parent group: icon on mobile/tablet, icon + text on desktop
                 item.href ? (
                   <Link
                     href={item.href}

@@ -65,10 +65,10 @@ export const navigation = {
   ],
   megaMenu: [
     {
-      title: "Software Development",
+      title: "Web & Software Development",
       links: [
         { name: "Custom Software Solutions", href: "/services/custom-software-development" },
-        { name: "Web Application Development", href: "/services/web-development" },
+        { name: "Web Development Services", href: "/services/web-development" },
         { name: "Mobile App Development", href: "/services/mobile-app-development" },
         { name: "UX/UI Design Services", href: "/services/ux-ui-design" },
         { name: "E-commerce & Enterprise", href: "/services/ecommerce-solutions" },
@@ -89,7 +89,7 @@ export const navigation = {
   footer: {
     services: [
       { name: "Custom Software Solutions", href: "/services/custom-software-development" },
-      { name: "Web Application Development", href: "/services/web-development" },
+      { name: "Web Development Services", href: "/services/web-development" },
       { name: "Mobile App Development", href: "/services/mobile-app-development" },
       { name: "UX/UI Design Services", href: "/services/ux-ui-design" },
       { name: "E-commerce & Enterprise", href: "/services/ecommerce-solutions" },
@@ -103,12 +103,12 @@ export const navigation = {
       { name: "Ongoing Support & Maintenance", href: "/services/ongoing-support" },
     ],
     locations: [
-      { name: "USA", href: "/software-development/usa" },
-      { name: "United Kingdom", href: "/software-development/uk" },
-      { name: "Australia", href: "/software-development/australia" },
-      { name: "Europe", href: "/software-development/europe" },
-      { name: "Singapore", href: "/software-development/singapore" },
-      { name: "Germany", href: "/software-development/germany" },
+      { name: "USA", href: "/web-development/usa" },
+      { name: "United Kingdom", href: "/web-development/uk" },
+      { name: "Australia", href: "/web-development/australia" },
+      { name: "Europe", href: "/web-development/europe" },
+      { name: "Singapore", href: "/web-development/singapore" },
+      { name: "Germany", href: "/web-development/germany" },
     ],
     company: [
       { name: "About Us", href: "/about-us" },

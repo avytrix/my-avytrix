@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Avytrix Technologies corporate website: Next.js 15, React 19, TypeScript, Tailwind CSS 4, pnpm.
+Avytrix Technologies corporate website: Next.js 16, React 19, TypeScript, Tailwind CSS 4, pnpm.
 
 Production: GitHub Pages, static export (origin from `NEXT_PUBLIC_SITE_URL`)
 
@@ -15,7 +15,7 @@ pnpm install                      # Install dependencies
 pnpm dev                          # Development: http://localhost:3000
 pnpm build                        # Production build
 pnpm start                        # Start production server
-pnpm lint                         # Run ESLint
+pnpm lint                         # eslint . (flat config; `next lint` is gone in Next 16)
 pnpm type-check                   # tsc --noEmit
 ```
 

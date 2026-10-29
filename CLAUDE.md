@@ -23,7 +23,7 @@ pnpm type-check                   # tsc --noEmit
 
 Branch flow (enforced by repo rulesets): feature branch → PR into `develop` (squash) → PR from `develop` into `main` (merge commit). No direct pushes, force pushes or deletions on either; only admins can merge into `main`.
 
-`.github/workflows/ci.yml` runs Lint, Type check, Build site and Source branch on every PR (these job names are the rulesets' required checks; renaming one blocks every PR) and deploys on every push to `main`. It builds a static export (`output: "export"`, injected by `actions/configure-pages`) and publishes `out/` to GitHub Pages.
+`.github/workflows/ci.yml` runs Lint, Type check, Build site and Source branch on every PR (these job names are the rulesets' required checks; renaming one blocks every PR) and deploys on every push to `main`. It builds a static export (`output: "export"` in `next.config.ts` when `NEXT_OUTPUT=export`, set by CI) and publishes `out/` to GitHub Pages. Images go through the ImageKit loader (`src/lib/imagekit-loader.ts`) for responsive sizes; do not add `static_site_generator: next` to `configure-pages`, it forces unoptimized images.
 
 GitHub Pages is static-only, so the workflow deletes `src/app/api` before building. The contact form's API routes do not run on Pages.
 Any route must be statically renderable: dynamic routes need `generateStaticParams`, and metadata routes need `export const dynamic = "force-static"`.

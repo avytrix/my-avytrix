@@ -18,7 +18,6 @@ export const metadata: Metadata = pageMetadata(seo);
 
 const aboutContent = {
   banner: {
-    bgImage: `${siteConfig.cdnUrl}/About-us-hero-banner-image.webp`,
     heading: "About Avytrix Technologies",
     tagline:
       "We are a team of strategists, designers and developers who build websites, web applications and software that help businesses grow and solve real problems.",
@@ -29,7 +28,7 @@ const aboutContent = {
     heading: "Our Story",
     content:
       `${siteConfig.name} started with a simple goal: to be a software partner businesses around the world can rely on as technology keeps changing. We care about technology and about shipping high-quality products that grow with our clients and make a real difference to how they work.`,
-    image: `${siteConfig.cdnUrl}/virtual-meeting_2.jpg`,
+    image: `${siteConfig.cdnUrl}/illustrations/remote-development-team-video-call.jpg`,
   },
   mission: [
     {
@@ -49,37 +48,37 @@ const aboutContent = {
       "These principles shape our culture and how we work with every client.",
     items: [
       {
-        icon: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/dedicated-development-team-icon.svg`,
         title: "Quality",
         content:
           "We build secure, scalable software that lasts. High quality is our normal standard, not a special effort.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/Responsive.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/responsive-design-icon.svg`,
         title: "Transparency",
         content:
           "We communicate clearly and openly from start to finish. You will always know where your project stands.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/ecommerce-development-icon.svg`,
         title: "Efficiency",
         content:
           "A lean process and an experienced team mean fast, reliable delivery without cutting corners. We respect your time and your budget.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/dedicated-development-team-icon.svg`,
         title: "Innovation",
         content:
           "We enjoy using modern technology and fresh thinking to solve hard problems.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/Responsive.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/responsive-design-icon.svg`,
         title: "Affordability",
         content:
           "Good work at fair prices, so you get real value for what you spend.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/ecommerce-development-icon.svg`,
         title: "On-Time Delivery",
         content:
           "Deadlines matter. We deliver every project as promised.",
@@ -87,7 +86,7 @@ const aboutContent = {
     ],
   },
   whyUs: {
-    image: `${siteConfig.cdnUrl}/why-partner.webp`,
+    image: `${siteConfig.cdnUrl}/illustrations/global-business-partnership.webp`,
     title: "Why Partner with Avytrix Technologies?",
     para: "When you work with Avytrix Technologies, you get a partner focused on your success. Here is what makes us different:",
     faqItems: [
@@ -150,7 +149,7 @@ export default function AboutPage() {
             <div>
               <Image
                 src={twoColumn.image}
-                alt="Avytrix Technologies team collaborating"
+                alt="Avytrix Technologies remote development team on a video call"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -178,7 +177,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coreValues.items.map((item) => (
               <div key={item.title} className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-                <Image src={item.icon} alt={item.title} width={48} height={48} className="mb-4" />
+                <Image src={item.icon} alt="" aria-hidden="true" width={48} height={48} className="mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.content}</p>
               </div>

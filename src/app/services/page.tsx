@@ -48,7 +48,8 @@ export default function ServicesPage() {
             >
               <Image
                 src={service.intro.image}
-                alt={service.title}
+                alt=""
+                aria-hidden="true"
                 width={48}
                 height={48}
                 className="w-12 h-12 mb-4 object-contain"

@@ -62,7 +62,8 @@ export default function HomePage() {
                 {service.imageLink && (
                   <Image
                     src={service.imageLink}
-                    alt={service.title}
+                    alt=""
+                    aria-hidden="true"
                     width={48}
                     height={48}
                     className="w-12 h-12 mb-6 object-contain"
@@ -139,7 +140,7 @@ export default function HomePage() {
                 <div className={`image-wrapper order-1 ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}>
                   <Image
                     src={study.image}
-                    alt={study.client}
+                    alt={`${study.client} case study`}
                     width={600}
                     height={400}
                     className="rounded-lg shadow-md"

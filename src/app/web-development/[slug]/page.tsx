@@ -134,7 +134,7 @@ export default async function LocationPage({ params }: Props) {
         </div>
         <div className="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
           <Image
-            src={`${siteConfig.cdnUrl}/avytrix-banner_image.png`}
+            src={`${siteConfig.cdnUrl}/hero/web-development-company-hero.png`}
             alt={`Web development services for ${location.country}`}
             width={500}
             height={400}
@@ -230,7 +230,8 @@ export default async function LocationPage({ params }: Props) {
               >
                 <Image
                   src={service.intro.image}
-                  alt={service.title}
+                  alt=""
+                  aria-hidden="true"
                   width={48}
                   height={48}
                   className="w-12 h-12 mb-4 object-contain"
@@ -291,17 +292,17 @@ export default async function LocationPage({ params }: Props) {
 
           <div className="flex flex-wrap justify-center gap-8 items-center opacity-80">
             {[
-              { name: "React", img: `${siteConfig.cdnUrl}/technologies/React.png` },
-              { name: "Node.js", img: `${siteConfig.cdnUrl}/technologies/Nodejs.png` },
-              { name: "Python", img: `${siteConfig.cdnUrl}/technologies/Python.png` },
-              { name: "AWS", img: `${siteConfig.cdnUrl}/technologies/AWS.png` },
-              { name: "Flutter", img: `${siteConfig.cdnUrl}/technologies/Flutter.png` },
-              { name: "PostgreSQL", img: `${siteConfig.cdnUrl}/technologies/PostgreSQL.png` },
+              { name: "React", img: `${siteConfig.cdnUrl}/technologies/react-logo.png` },
+              { name: "Node.js", img: `${siteConfig.cdnUrl}/technologies/nodejs-logo.png` },
+              { name: "Python", img: `${siteConfig.cdnUrl}/technologies/python-logo.png` },
+              { name: "AWS", img: `${siteConfig.cdnUrl}/technologies/aws-logo.png` },
+              { name: "Flutter", img: `${siteConfig.cdnUrl}/technologies/flutter-logo.png` },
+              { name: "PostgreSQL", img: `${siteConfig.cdnUrl}/technologies/postgresql-logo.png` },
             ].map((tech) => (
               <Image
                 key={tech.name}
                 src={tech.img}
-                alt={tech.name}
+                alt={`${tech.name} logo`}
                 width={60}
                 height={60}
                 className="h-12 w-auto grayscale hover:grayscale-0 transition-all"

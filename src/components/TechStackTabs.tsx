@@ -49,7 +49,7 @@ export default function TechStackTabs({ categories }: TechStackTabsProps) {
             <div key={item.title} className="text-center">
               <Image
                 src={item.image}
-                alt={item.title}
+                alt={`${item.title} logo`}
                 width={64}
                 height={64}
                 className="h-10 sm:h-12 md:h-16 w-auto mx-auto"

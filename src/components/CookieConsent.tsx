@@ -1,21 +1,22 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
+
+// The choice lives in sessionStorage; this event tells the banner it changed
+const EVENT = "cookie-consent-change";
+const subscribe = (onChange: () => void) => {
+  window.addEventListener(EVENT, onChange);
+  return () => window.removeEventListener(EVENT, onChange);
+};
+
+const choose = (value: "accepted" | "declined") => {
+  sessionStorage.setItem("cookieConsent", value);
+  window.dispatchEvent(new Event(EVENT));
+};
 
 export default function CookieConsent() {
-  const [showBanner, setShowBanner] = useState(false);
-
-  useEffect(() => {
-    const consent = sessionStorage.getItem("cookieConsent");
-    if (!consent) {
-      setShowBanner(true);
-    }
-  }, []);
-
-  const handleAccept = () => {
-    sessionStorage.setItem("cookieConsent", "accepted");
-    setShowBanner(false);
-  };
+  // Server render and hydration show nothing; the client shows the banner until a choice is stored
+  const showBanner = useSyncExternalStore(subscribe, () => !sessionStorage.getItem("cookieConsent"), () => false);
 
   if (!showBanner) return null;
 
@@ -31,13 +32,13 @@ export default function CookieConsent() {
         </p>
         <div className="flex gap-2">
           <button
-            onClick={handleAccept}
+            onClick={() => choose("accepted")}
             className="bg-[#0058EE] hover:bg-[#00358f] text-white text-sm font-medium py-2 px-6 rounded-full transition-colors"
           >
             Accept
           </button>
           <button
-            onClick={handleAccept}
+            onClick={() => choose("declined")}
             className="bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium py-2 px-6 rounded-full transition-colors"
           >
             Decline

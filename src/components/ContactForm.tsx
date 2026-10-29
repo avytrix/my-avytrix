@@ -79,7 +79,12 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectOpen, setSelectOpen] = useState(false);
-  const formLoadTime = useRef(Date.now());
+  const formLoadTime = useRef(0);
+
+  // Start the bot-detection timer on mount (reading the clock during render is impure)
+  useEffect(() => {
+    formLoadTime.current = Date.now();
+  }, []);
 
   // Close select when clicking outside
   useEffect(() => {

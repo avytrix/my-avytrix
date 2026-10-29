@@ -1,3 +1,6 @@
 allowBuilds:
   sharp: true
   unrs-resolver: true
+# next pins postcss 8.4.31, which has open advisories (patched in 8.5.23)
+overrides:
+  "postcss@<8.5.23": "^8.5.32"

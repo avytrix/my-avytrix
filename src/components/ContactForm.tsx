@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, FormEvent } from "react";
 import Script from "next/script";
-import { Asterisk, AlertCircle } from "lucide-react";
+import { Asterisk, CircleAlert } from "lucide-react";
 import { z } from "zod";
 import { siteConfig } from "@/lib/config";
 
@@ -251,7 +251,7 @@ export default function ContactForm() {
         {/* Form Error Alert */}
         {formError && (
           <div className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
-            <AlertCircle className="w-5 h-5 flex-shrink-0" />
+            <CircleAlert className="w-5 h-5 flex-shrink-0" />
             <p className="text-sm font-medium">{formError}</p>
           </div>
         )}

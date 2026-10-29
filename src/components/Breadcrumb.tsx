@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Code2, Server, Home, ChevronRight } from "lucide-react";
+import { CodeXml, Server, House, ChevronRight } from "lucide-react";
 
 interface BreadcrumbItem {
   label: string;
@@ -12,7 +12,7 @@ interface BreadcrumbProps {
 
 const GROUP_ICONS: Record<string, { icon: React.ReactNode; label: string }> = {
   "Web & Software Development": {
-    icon: <Code2 className="w-4 h-4" aria-hidden="true" />,
+    icon: <CodeXml className="w-4 h-4" aria-hidden="true" />,
     label: "Web & Software Development",
   },
   "Infrastructure & Teams": {
@@ -27,7 +27,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
       <nav aria-label="Breadcrumb" className="flex items-center text-sm text-gray-500 py-5">
         {/* Home */}
         <Link href="/" className="hover:text-[#0058EE] flex items-center" aria-label="Home">
-          <Home className="w-4 h-4" aria-hidden="true" />
+          <House className="w-4 h-4" aria-hidden="true" />
         </Link>
 
         {items.map((item, index) => {

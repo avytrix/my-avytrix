@@ -104,9 +104,11 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="tel:+84915193591"
+                    href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
                     className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
-                  ></a>
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
                 </li>
                 <li className="pt-2">
                   <Link
@@ -209,9 +211,11 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="tel:+84915193591"
+                    href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
                     className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
-                  ></a>
+                  >
+                    {siteConfig.contact.phone}
+                  </a>
                 </li>
               </ul>
             </div>
@@ -234,7 +238,7 @@ export default function Footer() {
             <p className="text-sm text-gray-400 mb-2">
               Web Development Company for Startups and Growing Businesses
             </p>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-gray-400">
               © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
             </p>
           </div>
@@ -308,9 +312,11 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+84915193591"
+                  href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors"
-                ></a>
+                >
+                  {siteConfig.contact.phone}
+                </a>
               </li>
               <li className="pt-2">
                 <Link
@@ -328,7 +334,7 @@ export default function Footer() {
       {/* Bottom Bar - Mobile & Tablet only */}
       <div className="border-t border-gray-700/50 lg:hidden">
         <div className="max-w-[1200px] mx-auto px-4 py-5">
-          <p className="text-center text-sm text-gray-500">
+          <p className="text-center text-sm text-gray-400">
             © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
           </p>
         </div>

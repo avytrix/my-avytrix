@@ -90,6 +90,9 @@ export default async function ServicePage({ params }: Props) {
               width={400}
               height={300}
               className="max-w-sm md:max-w-md w-full rounded-lg"
+              priority
+              fetchPriority="high"
+              sizes="(max-width: 768px) 90vw, 448px"
             />
           </div>
         </div>

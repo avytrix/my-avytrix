@@ -43,7 +43,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
@@ -58,7 +58,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm type-check
@@ -95,7 +95,7 @@ jobs:
           version: 10
       - uses: actions/setup-node@v7
         with:
-          node-version: "20"
+          node-version: "24"
           cache: pnpm
       # No static_site_generator: it would force unoptimized images and bypass the ImageKit loader
       - name: Setup Pages

@@ -1,0 +1,22 @@
+# Version-update PRs target develop: only develop may merge into main (Source branch check).
+# ponytail: security-update PRs always open against the default branch (main); retarget them with
+# `gh pr edit N --base develop`. Making develop the default branch would fix that if it gets tedious.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]

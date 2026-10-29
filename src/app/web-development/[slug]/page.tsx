@@ -140,6 +140,8 @@ export default async function LocationPage({ params }: Props) {
             height={400}
             className="max-w-full h-auto"
             priority
+            fetchPriority="high"
+            sizes="(max-width: 1024px) 90vw, 500px"
           />
         </div>
       </section>

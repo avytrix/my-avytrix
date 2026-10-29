@@ -97,16 +97,16 @@ jobs:
         with:
           node-version: "20"
           cache: pnpm
+      # No static_site_generator: it would force unoptimized images and bypass the ImageKit loader
       - name: Setup Pages
         uses: actions/configure-pages@v5
-        with:
-          # Injects output: "export" and unoptimized images into next.config
-          static_site_generator: next
       - run: pnpm install --frozen-lockfile
       # ponytail: Pages is static-only, so API routes can't run there. The contact form needs them hosted elsewhere.
       - name: Remove API routes
         run: rm -rf src/app/api
       - run: pnpm next build
+        env:
+          NEXT_OUTPUT: export
       - name: SEO/AEO gates
         run: python3 scripts/seo_check.py out
       # After the gates: the stubs it writes are redirects, not pages

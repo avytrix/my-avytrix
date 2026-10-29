@@ -18,7 +18,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png" alt="Avytrix Technologies logo" width="150" height="60"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png?tr=w-300" alt="Avytrix Technologies logo" width="150" height="60"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">
@@ -139,7 +139,7 @@ export function getNotificationTemplate(data: {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png" alt="Avytrix Technologies logo" width="150" height="60"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png?tr=w-300" alt="Avytrix Technologies logo" width="150" height="60"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">

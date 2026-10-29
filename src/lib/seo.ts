@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/config";
 
 export interface PageSeo {
   path: string; // "" for home, "/about-us" otherwise
-  title: string; // full <title>, max 60 chars including "| Viliha"
+  title: string; // full <title>, max 60 chars including "| Avytrix Technologies"
   description: string; // 140-160 chars
   image?: { url: string; width: number; height: number };
 }
@@ -65,7 +65,7 @@ export function pageGraph({ path, title, description, crumbs = [], extra = [] }:
         ...org,
         name: siteConfig.name,
         url: origin,
-        logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: `${siteConfig.cdnUrl}/logos/viliha-d.jpg` },
+        logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: `${siteConfig.cdnUrl}/logos/avytrix-logo.png` },
         email: siteConfig.email.contactEmail,
         ...(siteConfig.social.length > 0 && { sameAs: siteConfig.social }),
         ...(siteConfig.legal.name && { legalName: siteConfig.legal.name }),

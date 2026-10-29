@@ -25,8 +25,8 @@ export const locations: LocationData[] = [
     heroTitle: "Software Development Services in the USA",
     heroSubtitle: "Your Trusted Remote Development Partner for American Businesses",
     heroDescription:
-      "Viliha delivers custom software solutions for US-based startups and enterprises. Our remote development teams work in your timezone, providing seamless collaboration and world-class results.",
-    metaTitle: "Software Development Company for US Businesses | Viliha",
+      "Avytrix Technologies delivers custom software solutions for US-based startups and enterprises. Our remote development teams work in your timezone, providing seamless collaboration and world-class results.",
+    metaTitle: "Software Development for the USA | Avytrix Technologies",
     metaDescription:
       "Custom software, web and mobile apps, cloud and dedicated remote teams for US startups and enterprises, with EST and PST overlap. Get a free consultation.",
     keywords: [
@@ -73,8 +73,8 @@ export const locations: LocationData[] = [
     heroTitle: "Software Development Services in the UK",
     heroSubtitle: "Premier Remote Development Partner for British Businesses",
     heroDescription:
-      "Viliha provides bespoke software solutions for UK startups and enterprises. Our dedicated teams deliver exceptional quality with seamless GMT timezone collaboration.",
-    metaTitle: "Software Development Company for UK Businesses | Viliha",
+      "Avytrix Technologies provides bespoke software solutions for UK startups and enterprises. Our dedicated teams deliver exceptional quality with seamless GMT timezone collaboration.",
+    metaTitle: "Software Development for the UK | Avytrix Technologies",
     metaDescription:
       "Custom software, web and mobile apps, cloud and dedicated remote teams for UK startups and enterprises, working in UK business hours. Get a free consultation.",
     keywords: [
@@ -121,8 +121,8 @@ export const locations: LocationData[] = [
     heroTitle: "Software Development Services in Australia",
     heroSubtitle: "Your Dedicated Remote Development Partner in APAC",
     heroDescription:
-      "Viliha delivers premium software solutions for Australian businesses. Our teams provide excellent timezone coverage and deep understanding of the ANZ market.",
-    metaTitle: "Software Development Company for Australia | Viliha",
+      "Avytrix Technologies delivers premium software solutions for Australian businesses. Our teams provide excellent timezone coverage and deep understanding of the ANZ market.",
+    metaTitle: "Software Development for Australia | Avytrix Technologies",
     metaDescription:
       "Custom software, web and mobile apps, cloud and dedicated remote teams for Australian businesses, aligned with AEST/AEDT hours. Get a free consultation.",
     keywords: [
@@ -169,8 +169,8 @@ export const locations: LocationData[] = [
     heroTitle: "Software Development Services in Europe",
     heroSubtitle: "Trusted Remote Development Partner for European Enterprises",
     heroDescription:
-      "Viliha empowers European businesses with custom software solutions. Our teams deliver GDPR-aware development with excellent CET timezone collaboration.",
-    metaTitle: "Software Development Company for Europe | Viliha",
+      "Avytrix Technologies empowers European businesses with custom software solutions. Our teams deliver GDPR-aware development with excellent CET timezone collaboration.",
+    metaTitle: "Software Development for Europe | Avytrix Technologies",
     metaDescription:
       "Custom software, web and mobile apps and remote teams for European businesses, with CET overlap and GDPR built into development. Get a free consultation.",
     keywords: [
@@ -217,8 +217,8 @@ export const locations: LocationData[] = [
     heroTitle: "Software Development Services in Singapore",
     heroSubtitle: "Your Strategic Development Partner in Southeast Asia",
     heroDescription:
-      "Viliha provides cutting-edge software solutions for Singapore-based businesses. Our regional presence ensures seamless collaboration and deep APAC market understanding.",
-    metaTitle: "Software Development Company for Singapore | Viliha",
+      "Avytrix Technologies provides cutting-edge software solutions for Singapore-based businesses. Our regional presence ensures seamless collaboration and deep APAC market understanding.",
+    metaTitle: "Software Development for Singapore | Avytrix Technologies",
     metaDescription:
       "Custom software, web and mobile apps and remote teams for Singapore businesses, delivered from Vietnam, one hour behind Singapore time. Get a free consultation.",
     keywords: [
@@ -265,8 +265,8 @@ export const locations: LocationData[] = [
     heroTitle: "Software Development Services in Germany",
     heroSubtitle: "Precision Engineering for German Businesses",
     heroDescription:
-      "Viliha delivers hochwertige software solutions for German enterprises. Our teams combine technical excellence with the precision and reliability German businesses expect.",
-    metaTitle: "Software Development Company for Germany | Viliha",
+      "Avytrix Technologies delivers hochwertige software solutions for German enterprises. Our teams combine technical excellence with the precision and reliability German businesses expect.",
+    metaTitle: "Software Development for Germany | Avytrix Technologies",
     metaDescription:
       "Custom software, web and mobile apps and remote teams for German SMEs and Mittelstand firms, with full German business-hour overlap. Get a free consultation.",
     keywords: [

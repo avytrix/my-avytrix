@@ -14,11 +14,11 @@ export default function Footer() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-block mb-3">
               <Image
-                src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
+                src={`${siteConfig.cdnUrl}/logos/avytrix-logo.png`}
                 alt={`${siteConfig.name} Logo`}
                 width={160}
-                height={53}
-                className="rounded-lg mx-auto"
+                height={64}
+                className="rounded-lg mx-auto bg-white"
               />
             </Link>
             <p className="text-gray-400 text-sm">
@@ -128,11 +128,11 @@ export default function Footer() {
             <div className="col-span-2">
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
+                  src={`${siteConfig.cdnUrl}/logos/avytrix-logo.png`}
                   alt={`${siteConfig.name} Logo`}
                   width={160}
-                  height={53}
-                  className="rounded-lg"
+                  height={64}
+                  className="rounded-lg bg-white"
                 />
               </Link>
               <p className="text-sm text-gray-400 mb-2">
@@ -224,18 +224,18 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src={`${siteConfig.cdnUrl}/logos/viliha-footer-logo.jpg`}
+                src={`${siteConfig.cdnUrl}/logos/avytrix-logo.png`}
                 alt={`${siteConfig.name} Logo`}
-                width={144}
-                height={48}
-                className="rounded-lg"
+                width={145}
+                height={58}
+                className="rounded-lg bg-white"
               />
             </Link>
             <p className="text-sm text-gray-400 mb-2">
               Remote Software Development for Startups & AI Companies
             </p>
             <p className="text-xs text-gray-500">
-              © {new Date().getFullYear()} Viliha{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
+              © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
             </p>
           </div>
 
@@ -329,7 +329,7 @@ export default function Footer() {
       <div className="border-t border-gray-700/50 lg:hidden">
         <div className="max-w-[1200px] mx-auto px-4 py-5">
           <p className="text-center text-sm text-gray-500">
-            © {new Date().getFullYear()} Viliha{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
+            © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
           </p>
         </div>
       </div>

@@ -9,9 +9,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const seo = {
   path: "/contact",
-  title: "Contact Viliha: Start Your Software Project | Viliha",
+  title: "Contact Us: Start Your Project | Avytrix Technologies",
   description:
-    "Contact Viliha about custom software, AI, DevOps or cloud projects. Email or call our team directly to describe what you are building and book a consultation.",
+    "Contact Avytrix Technologies about custom software, AI, DevOps or cloud projects. Email or call our team to describe what you are building and book a call.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);

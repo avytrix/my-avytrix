@@ -9,9 +9,9 @@ import FaqAccordion from "@/components/FaqAccordion";
 
 const seo = {
   path: "",
-  title: "Custom Software Development for Startups & AI | Viliha",
+  title: "Custom Software & Web Development | Avytrix Technologies",
   description:
-    "Viliha builds custom software, web and mobile apps, AI integrations and cloud infrastructure for startups and AI companies. Book a free consultation today.",
+    "Avytrix Technologies builds custom software, web and mobile apps, AI integrations and cloud infrastructure for startups and AI companies. Book a consultation.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -38,7 +38,7 @@ export default function HomePage() {
         <div className="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
           <Image
             src={hero.image}
-            alt="Viliha | Custom Software, DevOps, Automation & Web Development Experts"
+            alt="Avytrix Technologies | Custom Software, DevOps, Automation & Web Development Experts"
             width={500}
             height={400}
             className="max-w-full h-auto"

@@ -42,9 +42,9 @@ export const services: Service[] = [
   {
     slug: "custom-software-development",
     title: "Custom Software Development",
-    metaTitle: "Custom Software Development Services | Viliha",
+    metaTitle: "Custom Software Development Services | Avytrix Technologies",
     description:
-      "Custom software built around your workflows: scalable architecture, SQL/NoSQL database design, API integration and CI/CD. Discuss your project with Viliha.",
+      "Custom software built around your workflows: scalable architecture, SQL/NoSQL database design, API integration and CI/CD. Talk to Avytrix Technologies.",
     intro: {
       pageTitle: "Custom Software Development",
       mainTitle: "Bespoke Software Solutions, Engineered for Your Exact Needs",
@@ -68,7 +68,7 @@ export const services: Service[] = [
             targetId: "Overview",
             title: "Purpose-Built Software for Growth",
             content:
-              "At Viliha, we specialize in custom software development tailored to your exact business needs. Our bespoke applications are crafted to eliminate inefficiencies, improve user experience, and support business automation across various industries. Off-the-shelf tools often fail to meet the complex, evolving requirements of modern businesses—our custom-built platforms offer the flexibility and performance needed to scale and thrive.",
+              "At Avytrix Technologies, we specialize in custom software development tailored to your exact business needs. Our bespoke applications are crafted to eliminate inefficiencies, improve user experience, and support business automation across various industries. Off-the-shelf tools often fail to meet the complex, evolving requirements of modern businesses—our custom-built platforms offer the flexibility and performance needed to scale and thrive.",
             listBlocks: [
               {
                 listSubtitle: "Why businesses choose custom software:",
@@ -118,11 +118,11 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
+            buttonText: "Why Choose Avytrix Technologies",
             targetId: "process-development",
             title: "Tailored, Transparent, Trusted",
             content:
-              "Viliha doesn't believe in one-size-fits-all. Every project we take on is uniquely built to match your internal operations, customer expectations, and industry standards.",
+              "Avytrix Technologies doesn't believe in one-size-fits-all. Every project we take on is uniquely built to match your internal operations, customer expectations, and industry standards.",
             listBlocks: [
               {
                 listSubtitle: "What sets us apart:",
@@ -157,9 +157,9 @@ export const services: Service[] = [
   {
     slug: "web-development",
     title: "Web Development",
-    metaTitle: "Responsive Web Development Services | Viliha",
+    metaTitle: "Responsive Web Development Services | Avytrix Technologies",
     description:
-      "Fast, secure, responsive web apps built with React, Vue, Node.js, Laravel, .NET or Django, with SEO-friendly structure. Plan your web project with Viliha.",
+      "Fast, secure, responsive web apps built with React, Vue, Node.js, Laravel, .NET or Django, with SEO-friendly structure. Plan it with Avytrix Technologies.",
     intro: {
       pageTitle: "Responsive Web Development",
       mainTitle: "Engaging Websites, Flawless on Every Screen",
@@ -183,7 +183,7 @@ export const services: Service[] = [
             targetId: "web-overview",
             title: "Build Smart, Fast & Secure",
             content:
-              "At Viliha, we craft responsive, SEO-optimized websites and web applications that help your business grow. Our websites are more than just visually appealing—they're built for performance, accessibility, and scalability across all devices. Whether you need a corporate site, SaaS dashboard, or full web portal, we deliver secure, standards-compliant platforms that serve both users and business goals.",
+              "At Avytrix Technologies, we craft responsive, SEO-optimized websites and web applications that help your business grow. Our websites are more than just visually appealing—they're built for performance, accessibility, and scalability across all devices. Whether you need a corporate site, SaaS dashboard, or full web portal, we deliver secure, standards-compliant platforms that serve both users and business goals.",
             listBlocks: [
               {
                 listAfterPara:
@@ -232,11 +232,11 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "web-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "web-why-avytrix",
             title: "Experts in Purpose-Driven Web Platforms",
             content:
-              "Viliha is your trusted partner for building custom web platforms that scale with your business. We go beyond just front-end visuals; we create backend frameworks that support complex business logic, user role management, and automation.",
+              "Avytrix Technologies is your trusted partner for building custom web platforms that scale with your business. We go beyond just front-end visuals; we create backend frameworks that support complex business logic, user role management, and automation.",
             listBlocks: [
               {
                 listSubtitle: "Why choose us for web development:",
@@ -259,9 +259,9 @@ export const services: Service[] = [
   {
     slug: "mobile-app-development",
     title: "Mobile App Development",
-    metaTitle: "Mobile App Development for iOS & Android | Viliha",
+    metaTitle: "iOS & Android App Development | Avytrix Technologies",
     description:
-      "Native iOS (Swift) and Android (Kotlin) apps, or cross-platform with React Native and Flutter, from discovery to app store launch. Build your app with Viliha.",
+      "Native iOS (Swift) and Android (Kotlin) apps, or cross-platform React Native and Flutter, from discovery to app store launch. Build with Avytrix Technologies.",
     intro: {
       pageTitle: "Mobile App Development",
       mainTitle: "Native & Cross-Platform Mobile Solutions",
@@ -284,7 +284,7 @@ export const services: Service[] = [
             targetId: "mobile-overview",
             title: "Apps That Users Love",
             content:
-              "At Viliha, we create mobile applications that combine stunning design with powerful functionality. Whether you need a native iOS app, Android app, or cross-platform solution, our team delivers apps that engage users and drive business results.",
+              "At Avytrix Technologies, we create mobile applications that combine stunning design with powerful functionality. Whether you need a native iOS app, Android app, or cross-platform solution, our team delivers apps that engage users and drive business results.",
             listBlocks: [
               {
                 listSubtitle: "Our mobile development services:",
@@ -319,8 +319,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "mobile-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "mobile-why-avytrix",
             title: "Your Mobile Partner",
             content:
               "We bring years of experience in mobile development across industries including healthcare, finance, retail, and education.",
@@ -344,9 +344,9 @@ export const services: Service[] = [
   {
     slug: "ux-ui-design",
     title: "UX/UI Design Services",
-    metaTitle: "UX/UI Design for Web, Mobile & SaaS Products | Viliha",
+    metaTitle: "UX/UI Design for Web & Mobile | Avytrix Technologies",
     description:
-      "User research, wireframes, prototypes, visual design and design systems for web, mobile and SaaS products, validated by usability testing. Start with Viliha.",
+      "User research, wireframes, prototypes, visual design and design systems for web, mobile and SaaS, tested with real users. Start with Avytrix Technologies.",
     intro: {
       pageTitle: "UX/UI Design",
       mainTitle: "Design That Delights and Converts",
@@ -404,8 +404,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "design-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "design-why-avytrix",
             title: "Design Excellence",
             content:
               "Our design team combines creativity with strategic thinking to deliver experiences that users love and businesses benefit from.",
@@ -429,9 +429,9 @@ export const services: Service[] = [
   {
     slug: "api-development",
     title: "API Development & Integration",
-    metaTitle: "API Development & Integration Services | Viliha",
+    metaTitle: "API Development & Integration | Avytrix Technologies",
     description:
-      "REST and GraphQL API development plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to Viliha.",
+      "REST and GraphQL APIs plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to Avytrix Technologies.",
     intro: {
       pageTitle: "API Development",
       mainTitle: "Connect, Integrate, Scale",
@@ -488,8 +488,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "api-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "api-why-avytrix",
             title: "API Expertise",
             content:
               "Our team has extensive experience building and integrating APIs across various industries and platforms.",
@@ -513,9 +513,9 @@ export const services: Service[] = [
   {
     slug: "cloud-solutions",
     title: "Cloud Solutions & Infrastructure",
-    metaTitle: "Cloud Solutions on AWS, Azure & GCP | Viliha",
+    metaTitle: "Cloud Solutions on AWS, Azure & GCP | Avytrix Technologies",
     description:
-      "Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization across AWS, Azure, GCP and DigitalOcean. Plan your cloud with Viliha.",
+      "Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization on AWS, Azure, GCP and DigitalOcean. Plan it with Avytrix Technologies.",
     intro: {
       pageTitle: "Cloud Solutions",
       mainTitle: "Scale Your Infrastructure in the Cloud",
@@ -572,8 +572,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "cloud-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "cloud-why-avytrix",
             title: "Cloud Expertise",
             content:
               "Our certified cloud architects help you build and maintain robust cloud infrastructure.",
@@ -597,9 +597,9 @@ export const services: Service[] = [
   {
     slug: "qa-and-testing",
     title: "Software QA & Testing",
-    metaTitle: "Software QA & Testing Services | Viliha",
+    metaTitle: "Software QA & Testing Services | Avytrix Technologies",
     description:
-      "Manual, automated, performance, security, API and mobile testing, plus regression and UAT built into your CI pipeline. Improve your release quality with Viliha.",
+      "Manual, automated, performance, security, API and mobile testing, plus regression and UAT built into your CI pipeline. Ship better with Avytrix Technologies.",
     intro: {
       pageTitle: "QA & Testing",
       mainTitle: "Quality Assurance for Reliable Software",
@@ -657,8 +657,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "qa-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "qa-why-avytrix",
             title: "QA Excellence",
             content:
               "Our experienced QA engineers bring rigorous attention to detail and comprehensive testing expertise.",
@@ -682,9 +682,9 @@ export const services: Service[] = [
   {
     slug: "dedicated-development-teams",
     title: "Dedicated Development Teams",
-    metaTitle: "Dedicated Development Teams & Staff Augmentation | Viliha",
+    metaTitle: "Dedicated Development Teams | Avytrix Technologies",
     description:
-      "Full-stack, mobile, DevOps, QA and UI/UX specialists as a dedicated team, team augmentation or project-based team. Scale your engineering capacity with Viliha.",
+      "Full-stack, mobile, DevOps, QA and UI/UX specialists as a dedicated team, team augmentation or project-based team. Scale up with Avytrix Technologies.",
     intro: {
       pageTitle: "Dedicated Teams",
       mainTitle: "Scale Your Team with Expert Developers",
@@ -742,8 +742,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "teams-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "teams-why-avytrix",
             title: "Trusted Partnership",
             content:
               "We build long-term relationships based on trust, transparency, and shared success.",
@@ -767,9 +767,9 @@ export const services: Service[] = [
   {
     slug: "ecommerce-solutions",
     title: "E-commerce & Enterprise Solutions",
-    metaTitle: "E-commerce & Enterprise Software Development | Viliha",
+    metaTitle: "E-commerce & Enterprise Software | Avytrix Technologies",
     description:
-      "Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payment integration, ERP and CRM systems and analytics dashboards. Build with Viliha.",
+      "Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payments, ERP and CRM systems and dashboards. Build with Avytrix Technologies.",
     intro: {
       pageTitle: "E-commerce Solutions",
       mainTitle: "E-commerce & Enterprise Platforms",
@@ -826,8 +826,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "ecommerce-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "ecommerce-why-avytrix",
             title: "Commerce Expertise",
             content:
               "Our team has deep experience in building successful e-commerce and enterprise solutions.",
@@ -851,7 +851,7 @@ export const services: Service[] = [
   {
     slug: "ongoing-support",
     title: "Ongoing Support & Maintenance",
-    metaTitle: "Software Support & Maintenance Services | Viliha",
+    metaTitle: "Software Support & Maintenance | Avytrix Technologies",
     description:
       "Monitoring, bug fixes, security updates, performance tuning and feature work, on business-hours, extended or 24/7 enterprise plans. Keep your software healthy.",
     intro: {
@@ -910,8 +910,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "support-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "support-why-avytrix",
             title: "Reliable Partnership",
             content:
               "We're committed to your long-term success with responsive, proactive support.",
@@ -935,16 +935,16 @@ export const services: Service[] = [
   {
     slug: "seo",
     title: "SEO Services",
-    metaTitle: "SEO Services: Technical, On-Page & Local SEO | Viliha",
+    metaTitle: "Technical, On-Page & Local SEO | Avytrix Technologies",
     description:
-      "Technical SEO audits, keyword research, on-page and content optimization, local SEO, link building and site speed work. Grow your organic traffic with Viliha.",
+      "Technical SEO audits, keyword research, on-page and content optimization, local SEO, link building and site speed work. Grow traffic with Avytrix Technologies.",
     intro: {
       pageTitle: "SEO Services",
       mainTitle: "Search Engine Optimization",
       paragraph: "Search Engine Optimization",
       buttonText: "Boost Your Rankings",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/icons/Custom Web Development.svg`,
+      image: `${siteConfig.cdnUrl}/icons/Custom_Web_Development.svg`,
       imageAlt: "SEO illustration",
     },
     sections: [
@@ -994,8 +994,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Viliha",
-            targetId: "seo-why-viliha",
+            buttonText: "Why Choose Avytrix Technologies",
+            targetId: "seo-why-avytrix",
             title: "SEO Expertise",
             content:
               "Our SEO team stays current with algorithm updates and industry best practices.",

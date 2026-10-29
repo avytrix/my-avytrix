@@ -8,9 +8,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const seo = {
   path: "/services",
-  title: "Software Development Services for Startups | Viliha",
+  title: "Software Development Services | Avytrix Technologies",
   description:
-    "Compare Viliha's services: custom software, web and mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, dedicated teams and ongoing support for startups.",
+    "Compare Avytrix Technologies' services: custom software, web and mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, dedicated teams and ongoing support.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);

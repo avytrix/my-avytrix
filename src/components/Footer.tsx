@@ -14,8 +14,8 @@ export default function Footer() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-block mb-3">
               <Image
-                src={`${siteConfig.cdnUrl}/logos/avytrix-logo.png`}
-                alt={`${siteConfig.name} Logo`}
+                src={`${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png`}
+                alt={`${siteConfig.name} logo`}
                 width={160}
                 height={64}
                 className="rounded-lg mx-auto bg-white"
@@ -128,8 +128,8 @@ export default function Footer() {
             <div className="col-span-2">
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src={`${siteConfig.cdnUrl}/logos/avytrix-logo.png`}
-                  alt={`${siteConfig.name} Logo`}
+                  src={`${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png`}
+                  alt={`${siteConfig.name} logo`}
                   width={160}
                   height={64}
                   className="rounded-lg bg-white"
@@ -224,8 +224,8 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src={`${siteConfig.cdnUrl}/logos/avytrix-logo.png`}
-                alt={`${siteConfig.name} Logo`}
+                src={`${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png`}
+                alt={`${siteConfig.name} logo`}
                 width={145}
                 height={58}
                 className="rounded-lg bg-white"

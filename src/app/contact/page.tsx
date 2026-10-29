@@ -9,9 +9,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const seo = {
   path: "/contact",
-  title: "Contact Viliha: Start Your Software Project | Viliha",
+  title: "Contact Us: Start Your Project | Avytrix Technologies",
   description:
-    "Contact Viliha about custom software, AI, DevOps or cloud projects. Email or call our team directly to describe what you are building and book a consultation.",
+    "Contact Avytrix Technologies about a website, web app or custom software project. Email or call our team to describe what you are building and book a free call.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -19,10 +19,10 @@ export const metadata: Metadata = pageMetadata(seo);
 const contactContent = {
   infoHeading: "Let's Discuss Your Project",
   infoParagraph:
-    "We're excited to learn about your ideas. Whether you have a specific project in mind, need a consultation, or just want to learn more, our team is ready to connect with you.",
+    "We would like to hear about your idea. Whether you have a project ready to go, want a consultation or just have questions, get in touch.",
   expectHeading: "What to Expect Next",
   expectParagraph:
-    "Email or call us with a short description of your project, and one of our specialists will get back to you within 24-48 business hours. We look forward to exploring how we can create impactful digital solutions together.",
+    "Email or call us with a short description of your project, and one of our specialists will reply within 24 to 48 business hours.",
   directHeading: "Contact Us Directly",
 };
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
       <div className="max-w-[1200px] mx-auto">
         <div className="py-20 mx-4 bg-[#0A3176]">
           <div className="flex items-center justify-center text-3xl font-semibold w-full">
-            <h1 className="text-[28px] lg:text-[36px] font-bold text-center text-white">Contact</h1>
+            <h1 className="text-[28px] lg:text-[36px] font-bold text-center text-white">Contact Avytrix Technologies</h1>
           </div>
         </div>
       </div>

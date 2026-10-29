@@ -1,80 +1,80 @@
 import { siteConfig } from "@/lib/config";
 export const homeContent = {
   hero: {
-    heading: "Remote Software Development for Startups & AI Companies",
-    subheading: "Trusted by Businesses in USA, UK, Europe & Australia",
+    heading: "Web Development Company for Startups and Growing Businesses",
+    subheading: "Web development services for clients in the USA, Europe and Australia",
     paragraph:
-      "We provide custom software solutions with dedicated remote development teams. From MVP to enterprise scale, our skilled tech talent delivers world-class results for startups and growing businesses.",
-    buttonText: "Let's Build Your Solution",
+      "We design and build websites, web applications and custom software with dedicated remote teams. Whether you need an MVP or a platform that serves thousands of users, we take it from first sketch to launch and keep it running after.",
+    buttonText: "Get a Free Consultation",
     buttonUrl: "/contact",
-    image: `${siteConfig.cdnUrl}/viliha-banner_image.webp`,
+    image: `${siteConfig.cdnUrl}/avytrix-banner_image.png`,
   },
 
   servicesOverview: {
-    heading: "Solutions Engineered for Your Ambition",
+    heading: "Web and Software Development Services",
     subheading:
-      "We deliver precisely what you need. Straightforward, powerful digital solutions designed for performance and scalability.",
+      "Pick one service or combine several. Every project gets the same care for speed, security and room to grow.",
     services: [
       {
         title: "Custom Software Development",
         content:
-          "Get tailored, high-performance software solutions built from scratch to perfectly match your unique business requirements and drive operational efficiency.",
+          "Software built from scratch around how your business actually works, so your team spends less time on workarounds.",
         imageLink: `${siteConfig.cdnUrl}/icons/Support.svg`,
         buttonUrl: "/services/custom-software-development",
       },
       {
-        title: "Responsive Web Development",
+        title: "Web Application Development",
         content:
-          "We build secure, scalable, and responsive websites and web applications using cutting-edge technologies that guarantee user engagement and business growth.",
-        imageLink: `${siteConfig.cdnUrl}/icons/Custom Web Development.svg`,
+          "Fast, secure websites and web apps built with React, Vue, Node.js and other proven tools. They work on every screen and are easy for search engines to read.",
+        imageLink: `${siteConfig.cdnUrl}/icons/Custom_Web_Development.svg`,
         buttonUrl: "/services/web-development",
       },
       {
         title: "Mobile App Development",
         content:
-          "Launch intuitive native and cross-platform mobile apps. We design captivating user experiences that expand your brand's reach on any device.",
-        imageLink: `${siteConfig.cdnUrl}/icons/App Code.svg`,
+          "Native iOS and Android apps, or one cross-platform app for both. Designed to be simple to use and ready for the app stores.",
+        imageLink: `${siteConfig.cdnUrl}/icons/App_Code.svg`,
         buttonUrl: "/services/mobile-app-development",
       },
       {
         title: "User Experience (UX/UI) Design",
         content:
-          "Transform ideas into visually stunning, user-friendly digital products. Our expert UX/UI design ensures exceptional engagement and effortless navigation for your users.",
-        imageLink: `${siteConfig.cdnUrl}/icons/UI Design.svg`,
+          "Research, wireframes and clean interface design that make your product easy to understand and pleasant to use.",
+        imageLink: `${siteConfig.cdnUrl}/icons/UI_Design.svg`,
         buttonUrl: "/services/ux-ui-design",
       },
       {
         title: "API Development & Integration",
         content:
-          "Build robust APIs and seamlessly integrate diverse systems. Enhance your software's functionality and streamline data flow across your entire digital ecosystem.",
+          "Reliable REST and GraphQL APIs, plus integrations that connect your payment, CRM and internal systems so data flows without manual work.",
         imageLink: `${siteConfig.cdnUrl}/icons/API.svg`,
         buttonUrl: "/services/api-development",
       },
       {
         title: "Cloud Solutions & Infrastructure",
         content:
-          "Optimize with scalable, secure cloud architecture (e.g., AWS). We ensure high availability, cost-efficiency, and peak performance for your applications.",
+          "Secure cloud setups on AWS, Google Cloud or Azure that stay online, scale with traffic and keep hosting costs in check.",
         imageLink: `${siteConfig.cdnUrl}/icons/Cloud.svg`,
         buttonUrl: "/services/cloud-solutions",
       },
       {
         title: "Software QA & Testing",
         content:
-          "Ensure flawless, reliable software with our comprehensive QA. We cover rigorous manual, automated, and performance testing for optimal quality assurance.",
-        imageLink: `${siteConfig.cdnUrl}/icons/QA Testing.svg`,
+          "Manual, automated and performance testing that catches problems before your users do.",
+        imageLink: `${siteConfig.cdnUrl}/icons/QA_Testing.svg`,
         buttonUrl: "/services/qa-and-testing",
       },
       {
         title: "Dedicated Development Teams",
         content:
-          "Augment your capacity with our skilled, agile development teams. Get flexible talent and deep expertise to accelerate projects and drive innovation.",
-        imageLink: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
+          "Add experienced developers to your team, or hand us a whole project. You choose the size and change it as your needs change.",
+        imageLink: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
         buttonUrl: "/services/dedicated-development-teams",
       },
       {
         title: "E-commerce & Enterprise Solutions",
         content:
-          "Build powerful e-commerce platforms or custom enterprise web solutions (ERP/CRM focus). We design for growth, security, and seamless management.",
+          "Online stores and business systems such as ERP and CRM, built to handle growth and simple for your staff to manage.",
         imageLink: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
         buttonUrl: "/services/ecommerce-solutions",
       },
@@ -82,8 +82,8 @@ export const homeContent = {
   },
 
   techStack: {
-    title: "Powered by Modern Technology",
-    paragraph: "We select the best tools for the job to ensure your website is fast, secure, and scalable.",
+    title: "Technologies We Use",
+    paragraph: "We pick tools for the job at hand, so your website or app stays fast, secure and easy to extend.",
     categories: [
       {
         name: "Frontend",
@@ -132,8 +132,8 @@ export const homeContent = {
         id: "tech-cloud",
         items: [
           { image: `${siteConfig.cdnUrl}/technologies/AWS.png`, title: "AWS" },
-          { image: `${siteConfig.cdnUrl}/technologies/Google Cloud.png`, title: "Google Cloud" },
-          { image: `${siteConfig.cdnUrl}/technologies/Microsoft Azure.png`, title: "Microsoft Azure" },
+          { image: `${siteConfig.cdnUrl}/technologies/Google_Cloud.png`, title: "Google Cloud" },
+          { image: `${siteConfig.cdnUrl}/technologies/Microsoft_Azure.png`, title: "Microsoft Azure" },
         ],
       },
       {
@@ -149,62 +149,62 @@ export const homeContent = {
   },
 
   digitalInnovation: {
-    title: "Your Trusted Partner in Digital Innovation",
-    image: `${siteConfig.cdnUrl}/trusted partner.png`,
+    title: "Why Clients Work With Us",
+    image: `${siteConfig.cdnUrl}/trusted_partner.png`,
     faqItems: [
       {
         question: "Expert Problem Solvers",
         answer:
-          "We transform complex challenges into elegant, effective digital solutions with deep technical expertise across diverse industries, including regulated sectors.",
+          "We turn complicated requirements into software that is simple to use, drawing on experience across many industries, including regulated ones.",
       },
       {
         question: "Trusted Technology Partner",
         answer:
-          "Count on us for transparent communication, on-time delivery, and a commitment to building long-term, successful partnerships based on mutual trust.",
+          "You always know where your project stands. We communicate openly, deliver on the dates we agree and aim to work with you for the long term.",
       },
       {
         question: "Agile & Efficient Delivery",
         answer:
-          "Our agile methodologies and streamlined processes ensure the rapid, reliable delivery of high-quality software, keeping you ahead of the curve.",
+          "We work in short agile cycles, so you see working software early and can change direction without losing weeks.",
       },
       {
-        question: "Innovation & Quality Focused",
+        question: "Quality First",
         answer:
-          "We leverage cutting-edge technology and a relentless focus on quality to deliver robust, scalable, and secure solutions that drive real results for your business.",
+          "Code reviews, automated tests and modern tools keep what we build secure, stable and ready to scale.",
       },
     ],
-    buttonText: "Start Your Project with Viliha",
+    buttonText: "Start Your Project with Avytrix Technologies",
     buttonUrl: "/contact",
   },
 
   caseStudies: {
-    heading: "Proven Success in Action",
+    heading: "Selected Work",
     subheading:
-      "We empower businesses worldwide by transforming complex challenges into high-impact digital solutions. See how we've helped industry leaders achieve their goals.",
+      "Two examples of large platforms our engineers have helped modernize and grow.",
     studies: [
       {
         client: "Kelley Blue Book (KBB.COM)",
         challenge:
-          "Modernize a monolithic platform to enhance scalability, performance, and user support for millions.",
+          "Modernize a monolithic platform so it could scale, load faster and serve millions of users.",
         solution:
-          "Executed a full monolith to microservices migration, including cloud optimization (AWS/GCP), enhanced security integration, and performance engineering.",
+          "Moved the monolith to microservices, tuned the AWS and GCP setup, tightened security and worked on performance end to end.",
         keyResults: [
-          "50%+ Decrease in average page load time and API response latency.",
-          "30% Year-over-year reduction in infrastructure costs.",
-          "Improved platform scalability and resilience, seamlessly supporting millions of U.S. users.",
+          "50%+ faster average page loads and API responses.",
+          "30% lower infrastructure costs year over year.",
+          "A more scalable, resilient platform serving millions of U.S. users.",
         ],
-        image: `${siteConfig.cdnUrl}/Kelley Blue Book.png`,
+        image: `${siteConfig.cdnUrl}/Kelley_Blue_Book.png`,
       },
       {
         client: "Criteo",
         challenge:
-          "Develop a self-service web application to streamline campaign management for publishers and marketers.",
+          "Build a self-service web application that makes campaign management simpler for publishers and marketers.",
         solution:
-          "Developed core features for campaign configuration, registration, catalog management, integration monitoring, and comprehensive campaign controls with detailed performance analytics.",
+          "Built the core features: campaign setup, registration, catalog management, integration monitoring and campaign controls with detailed performance analytics.",
         keyResults: [
-          "40%+ Reduction in onboarding and campaign setup time for users.",
-          "Enabled independent advertising lifecycle management, boosting platform adoption.",
-          "Contributed to a scalable, self-service advertising ecosystem.",
+          "40%+ less time for users to onboard and set up campaigns.",
+          "Advertisers could run campaigns end to end on their own, which lifted platform adoption.",
+          "Helped build a self-service advertising platform that scales.",
         ],
         image: `${siteConfig.cdnUrl}/Criteo.png`,
       },

@@ -6,12 +6,36 @@ import { getLocationBySlug, getAllLocationSlugs } from "@/content/locations";
 import { services } from "@/content/services";
 import Breadcrumb from "@/components/Breadcrumb";
 import JsonLd from "@/components/JsonLd";
+import FaqAccordion from "@/components/FaqAccordion";
 import { orgRef, pageMetadata, pageUrl, type Crumb } from "@/lib/seo";
 import type { LocationData } from "@/content/locations";
 import { siteConfig } from "@/lib/config";
 
+const steps = [
+  { step: "01", title: "Discovery", description: "We start with a free consultation to understand your requirements, goals and timeline." },
+  { step: "02", title: "Planning", description: "We draw up a roadmap, recommend a tech stack and agree on a timeline with you." },
+  { step: "03", title: "Development", description: "We build in short agile cycles, with regular updates, demos and room for your feedback." },
+  { step: "04", title: "Delivery", description: "We test thoroughly, help you launch and stay on for maintenance after go-live." },
+];
+
+// Answers restate facts already shown on the page, so the FAQ schema stays truthful
+const locationFaq = (location: LocationData, serviceTitles: string[]) => [
+  {
+    question: `Do you work in ${location.region} business hours?`,
+    answer: location.benefits[0].description,
+  },
+  {
+    question: `What web development services do you offer ${location.country} businesses?`,
+    answer: `${serviceTitles.join(", ")}. See every service on our services page.`,
+  },
+  {
+    question: "How does a project start?",
+    answer: steps.map((s) => s.description).join(" "),
+  },
+];
+
 const locationSeo = (location: LocationData) => ({
-  path: `/software-development/${location.slug}`,
+  path: `/web-development/${location.slug}`,
   title: location.metaTitle,
   description: location.metaDescription,
 });
@@ -47,8 +71,9 @@ export default async function LocationPage({ params }: Props) {
   // Select featured services (first 6)
   const featuredServices = services.slice(0, 6);
 
-  const crumbs: Crumb[] = [{ label: "Software Development", href: "/services" }, { label: location.country }];
+  const crumbs: Crumb[] = [{ label: "Web Development", href: "/services/web-development" }, { label: location.country }];
   const seo = locationSeo(location);
+  const faq = locationFaq(location, featuredServices.map((service) => service.title));
 
   return (
     <>
@@ -64,6 +89,15 @@ export default async function LocationPage({ params }: Props) {
             serviceType: featuredServices.map((service) => service.title),
             areaServed: location.country, // text, since "Europe" is not a Country
             provider: orgRef,
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${pageUrl(seo.path)}#faq`,
+            mainEntity: faq.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: { "@type": "Answer", text: item.answer },
+            })),
           },
         ]}
       />
@@ -100,8 +134,8 @@ export default async function LocationPage({ params }: Props) {
         </div>
         <div className="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
           <Image
-            src={`${siteConfig.cdnUrl}/viliha-banner_image.webp`}
-            alt={`Software Development Services for ${location.country}`}
+            src={`${siteConfig.cdnUrl}/avytrix-banner_image.png`}
+            alt={`Web development services for ${location.country}`}
             width={500}
             height={400}
             className="max-w-full h-auto"
@@ -139,11 +173,10 @@ export default async function LocationPage({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Why {location.country} Businesses Choose Viliha
+              Why {location.country} Businesses Choose Avytrix Technologies
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We understand the unique needs of {location.region} businesses and deliver
-              tailored solutions that drive real results.
+              We know how {location.region} businesses work and build websites and software that fit.
             </p>
           </div>
 
@@ -184,7 +217,7 @@ export default async function LocationPage({ params }: Props) {
               Our Services for {location.country} Clients
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive software development services tailored for {location.region} businesses.
+              Web and software development services for {location.region} businesses.
             </p>
           </div>
 
@@ -228,33 +261,12 @@ export default async function LocationPage({ params }: Props) {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">How We Work with {location.region} Clients</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our proven process ensures seamless collaboration regardless of location.
+              A simple four-step process that works across time zones.
             </p>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              {
-                step: "01",
-                title: "Discovery",
-                description: "We start with a free consultation to understand your requirements, goals, and timeline.",
-              },
-              {
-                step: "02",
-                title: "Planning",
-                description: "Our team creates a detailed roadmap, tech stack recommendations, and project timeline.",
-              },
-              {
-                step: "03",
-                title: "Development",
-                description: "Agile development with regular updates, demos, and continuous feedback integration.",
-              },
-              {
-                step: "04",
-                title: "Delivery",
-                description: "Thorough testing, deployment support, and ongoing maintenance to ensure success.",
-              },
-            ].map((item, index) => (
+            {steps.map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-16 h-16 bg-[#0058EE] text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
                   {item.step}
@@ -273,7 +285,7 @@ export default async function LocationPage({ params }: Props) {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Technologies We Use</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We leverage modern technologies to build scalable, secure, and high-performance solutions.
+              Modern, proven tools for websites and applications that are fast, secure and easy to scale.
             </p>
           </div>
 
@@ -299,6 +311,16 @@ export default async function LocationPage({ params }: Props) {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="py-16 lg:py-20">
+        <div className="max-w-[800px] mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Web Development for {location.country}: Common Questions
+          </h2>
+          <FaqAccordion items={faq} />
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-[#0A3176] py-16 lg:py-20">
         <div className="max-w-[1200px] mx-auto px-4 text-center">
@@ -306,8 +328,8 @@ export default async function LocationPage({ params }: Props) {
             Ready to Build Your Next Project?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Join {location.testimonialRegion} who trust Viliha for their software development needs.
-            Get a free consultation today.
+            Join the {location.testimonialRegion} that work with Avytrix Technologies on their websites and software.
+            Book a free consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

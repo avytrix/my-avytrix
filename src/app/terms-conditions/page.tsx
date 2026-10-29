@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/terms-conditions",
-  title: "Terms and Conditions | Viliha",
+  title: "Terms and Conditions | Avytrix Technologies",
   description:
     `Read the terms and conditions that apply when you use the ${siteConfig.name} website and services, including limits of liability and the governing law.`,
 };
@@ -93,7 +93,7 @@ export default function TermsConditionsPage() {
           <p className="text-gray-600">
             If you have any questions about these Terms and Conditions, You can contact us via{" "}
             <Link href="/contact" className="text-[#0058EE] underline">
-              the Viliha contact form
+              our contact page
             </Link>
           </p>
         </div>

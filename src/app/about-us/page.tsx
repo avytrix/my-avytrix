@@ -9,9 +9,9 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/about-us",
-  title: "About Viliha: Software Development Partner | Viliha",
+  title: "About Our Web Development Team | Avytrix Technologies",
   description:
-    "Learn who Viliha is: a software development company serving startups and AI companies with custom software, DevOps, automation and digital transformation.",
+    "Meet Avytrix Technologies, a remote web and software development team working with startups and growing businesses in the USA, Europe, the UK and Australia.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -19,100 +19,100 @@ export const metadata: Metadata = pageMetadata(seo);
 const aboutContent = {
   banner: {
     bgImage: `${siteConfig.cdnUrl}/About-us-hero-banner-image.webp`,
-    heading: "Your Partner in Digital Innovation",
+    heading: "About Avytrix Technologies",
     tagline:
-      "We are a passionate team of strategists, designers, and developers dedicated to crafting exceptional digital experiences that drive growth and solve real-world challenges.",
-    buttonText: "Let's Build Your Digital Future, Together",
+      "We are a team of strategists, designers and developers who build websites, web applications and software that help businesses grow and solve real problems.",
+    buttonText: "Start a Project With Us",
     buttonLink: "/contact",
   },
   twoColumn: {
-    heading: "Our Story: Powering Digital Futures",
+    heading: "Our Story",
     content:
-      `${siteConfig.name} was founded with a clear mission: to be a trusted software partner for businesses worldwide, helping them navigate and thrive in the ever-evolving digital landscape. Our journey is driven by a passion for technology and a commitment to delivering scalable, high-quality products that make a real impact. We believe in harnessing modern tools not just to build software, but to architect brighter digital futures for our clients.`,
-    image: `${siteConfig.cdnUrl}/virtual-meeting 2.jpg`,
+      `${siteConfig.name} started with a simple goal: to be a software partner businesses around the world can rely on as technology keeps changing. We care about technology and about shipping high-quality products that grow with our clients and make a real difference to how they work.`,
+    image: `${siteConfig.cdnUrl}/virtual-meeting_2.jpg`,
   },
   mission: [
     {
       title: "Our Vision",
       content:
-        "To be a trusted software partner for businesses. This vision guides every project we undertake and every solution we deliver. We aim to build lasting relationships based on trust, transparency, and mutual success.",
+        "To be the software partner businesses trust. That goal shapes every project we take on. We want long working relationships built on trust, openness and shared success.",
     },
     {
-      title: "Meet Our Driving Force (Our Team)",
+      title: "Our Team",
       content:
-        `At the heart of ${siteConfig.name} is a team of experienced developers and strategists passionate about technology and client success. While our skills are diverse, we are united by a shared commitment to excellence and innovation.`,
+        `${siteConfig.name} is a team of experienced developers and strategists who care about technology and about our clients doing well. Our skills vary, but we share the same high standards.`,
     },
   ],
   coreValues: {
-    heading: "Our Core Values: The Foundation of Our Work",
+    heading: "Our Values",
     intro:
-      "Our values are the bedrock of our company culture and the principles that define our approach to every client engagement.",
+      "These principles shape our culture and how we work with every client.",
     items: [
       {
-        icon: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
         title: "Quality",
         content:
-          "We are committed to delivering robust, scalable, and secure solutions that stand the test of time. Excellence is not just an aspiration; it's our standard.",
+          "We build secure, scalable software that lasts. High quality is our normal standard, not a special effort.",
       },
       {
         icon: `${siteConfig.cdnUrl}/icons/Responsive.svg`,
         title: "Transparency",
         content:
-          "We believe in clear, open communication and providing full visibility throughout the project lifecycle. You'll always know where things stand.",
+          "We communicate clearly and openly from start to finish. You will always know where your project stands.",
       },
       {
         icon: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
         title: "Efficiency",
         content:
-          "Our streamlined processes and experienced team ensure fast, reliable delivery without compromising on quality. We value your time and investment.",
+          "A lean process and an experienced team mean fast, reliable delivery without cutting corners. We respect your time and your budget.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
         title: "Innovation",
         content:
-          "We thrive on leveraging modern technologies and creative thinking to develop cutting-edge solutions that address complex challenges.",
+          "We enjoy using modern technology and fresh thinking to solve hard problems.",
       },
       {
         icon: `${siteConfig.cdnUrl}/icons/Responsive.svg`,
         title: "Affordability",
         content:
-          "We provide effective, high-impact digital solutions at fair and reasonable prices, ensuring you receive exceptional value.",
+          "Good work at fair prices, so you get real value for what you spend.",
       },
       {
         icon: `${siteConfig.cdnUrl}/icons/E-commerce.svg`,
         title: "On-Time Delivery",
         content:
-          "We understand the importance of deadlines and are dedicated to delivering every project as promised.",
+          "Deadlines matter. We deliver every project as promised.",
       },
     ],
   },
   whyUs: {
-    image: `${siteConfig.cdnUrl}/why-partner-with-viliha.webp`,
-    title: "Why Partner with Viliha?",
-    para: "Choosing Viliha means choosing a partner dedicated to your success. Here's what sets us apart:",
+    image: `${siteConfig.cdnUrl}/why-partner.webp`,
+    title: "Why Partner with Avytrix Technologies?",
+    para: "When you work with Avytrix Technologies, you get a partner focused on your success. Here is what makes us different:",
     faqItems: [
       {
         question: "Global Collaboration, Local Understanding",
         answer:
-          "We offer seamless collaboration for a global clientele, bringing EU-grade quality standards to every project with competitive cost efficiency.",
+          "We work smoothly with clients around the world and hold every project to EU-grade quality standards at a competitive cost.",
       },
       {
-        question: "Agile & Transparent Delivery",
+        question: "Agile, Open Delivery",
         answer:
-          "Experience a flexible, agile approach with real-time project visibility and sprint-based reporting. We adapt to your evolving needs.",
+          "We work in agile sprints, report on each one and give you a live view of progress. When your needs change, we adjust.",
       },
       {
-        question: "Strong Domain Expertise",
+        question: "Industry Experience",
         answer:
-          "We bring specialized experience to the table, particularly in delivering compliant and secure solutions for various industries.",
+          "We have specialist experience building secure, compliant software for many industries.",
       },
       {
         question: "Commitment to Your Goals",
         answer:
-          "We invest time in understanding your business to deliver solutions that truly align with your objectives.",
+          "We take the time to understand your business, so what we build fits your goals.",
       },
     ],
-    buttonText: "Start Your Project with Viliha",
+    buttonText: "Start Your Project with Avytrix Technologies",
     buttonUrl: "/contact",
   },
 };
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <div>
               <Image
                 src={twoColumn.image}
-                alt="Viliha team collaborating"
+                alt="Avytrix Technologies team collaborating"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -194,7 +194,7 @@ export default function AboutPage() {
             <div>
               <Image
                 src={whyUs.image}
-                alt="Why Partner with Viliha"
+                alt="Two business partners shaking hands in front of a globe"
                 width={500}
                 height={400}
                 className="rounded-lg"

@@ -13,7 +13,7 @@ export function GET() {
 
   const body = `# ${siteConfig.name}
 
-> ${siteConfig.name} is a remote software development company${siteConfig.legal.name ? ` operated by ${siteConfig.legal.name}` : ""}. It builds custom software, web and mobile applications, APIs, and cloud infrastructure for startups, AI companies and enterprises, and it supplies dedicated development teams. Clients are served remotely in ${locations.map((l) => l.country).join(", ")}. To start a project, use ${url}/contact or email ${siteConfig.email.contactEmail}.
+> ${siteConfig.name} is a web development company${siteConfig.legal.name ? ` operated by ${siteConfig.legal.name}` : ""}. It builds websites, web applications, custom software, mobile apps, APIs and cloud infrastructure for startups and businesses, and it supplies dedicated remote development teams. Clients are served remotely in ${locations.map((l) => l.country).join(", ")}. To start a project, use ${url}/contact or email ${siteConfig.email.contactEmail}.
 
 Key facts, each one stated on this site:
 - Services: ${services.map((s) => s.title).join(", ")}.
@@ -29,8 +29,8 @@ What this site does not state:
 ${services.map((s) => `- [${s.intro.pageTitle}](${url}/services/${s.slug}): ${s.description}`).join("\n")}
 - [All services](${url}/services): overview of every service.
 
-## Regions
-${locations.map((l) => `- [${l.country}](${url}/software-development/${l.slug}): ${l.metaDescription}`).join("\n")}
+## Web development by region
+${locations.map((l) => `- [${l.country}](${url}/web-development/${l.slug}): ${l.metaDescription}`).join("\n")}
 
 ## Company
 - [About ${siteConfig.name}](${url}/about-us): mission, values, and approach.

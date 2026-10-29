@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/privacy-policy",
-  title: "Privacy Policy | Viliha",
+  title: "Privacy Policy | Avytrix Technologies",
   description:
     `Read how ${siteConfig.name} collects, uses and protects your personal information when you use this website, and how to contact us about your data.`,
 };
@@ -69,7 +69,7 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Website</strong> refers to {siteConfig.name}, accessible from{" "}
               <Link href="/" className="text-[#0058EE] underline">
-                Viliha
+                Avytrix Technologies
               </Link>
             </li>
             <li>
@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
           <p className="text-gray-600">
             If you have any questions about this Privacy Policy, You can contact us via{" "}
             <Link href="/contact" className="text-[#0058EE] underline">
-              the Viliha contact form
+              our contact page
             </Link>
           </p>
         </div>

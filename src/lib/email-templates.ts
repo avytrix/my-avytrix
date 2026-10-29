@@ -8,7 +8,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You for Contacting Viliha</title>
+  <title>Thank You for Contacting Avytrix Technologies</title>
 </head>
 <body style="margin: 0; padding: 0;">
 <table style="background-color: #f9fafb;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -18,7 +18,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Viliha" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/logos/viliha-d.jpg" alt="Viliha Logo" width="150" height="40"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/logos/avytrix-logo.png" alt="Avytrix Technologies Logo" width="150" height="60"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">
@@ -32,7 +32,7 @@ export function getCustomerEmailTemplate(name: string): string {
 </tr>
 <tr>
 <td style="padding: 0 24px 24px 24px;" align="center">
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; color: #718096; line-height: 1.6; margin: 0;">We've received your message and one of our experts will get back to you within <span style="font-weight: 600; color: #0058ee;">24–48 working hours</span>. We truly appreciate your interest in our services and are excited about the opportunity to assist you.</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; color: #718096; line-height: 1.6; margin: 0;">We have received your message and one of our team will get back to you within <span style="font-weight: 600; color: #0058ee;">24 to 48 working hours</span>. Thank you for your interest in our services.</p>
 </td>
 </tr>
 <tr>
@@ -41,7 +41,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <tbody>
 <tr>
 <td>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; font-weight: 500; color: #0058ee; margin: 0 0 16px 0;">In the meantime, feel free to explore more about our offerings:</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; font-weight: 500; color: #0058ee; margin: 0 0 16px 0;">In the meantime, you can read more about what we do:</p>
 <table role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
@@ -110,8 +110,8 @@ export function getCustomerEmailTemplate(name: string): string {
 </html>`;
 }
 
-// Email template for Viliha (new contact notification)
-export function getVilihaNotificationTemplate(data: {
+// Email template for Avytrix Technologies (new contact notification)
+export function getNotificationTemplate(data: {
   name: string;
   email: string;
   company: string;
@@ -139,7 +139,7 @@ export function getVilihaNotificationTemplate(data: {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Viliha" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/logos/viliha-d.jpg" alt="Viliha Logo" width="150" height="40"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/logos/avytrix-logo.png" alt="Avytrix Technologies Logo" width="150" height="60"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">
@@ -207,8 +207,8 @@ export function getVilihaNotificationTemplate(data: {
 <tr>
 <td style="padding: 0 24px 40px 24px;" align="center">
 <p style="font-family: 'Inter', Arial, sans-serif; font-size: 14px; color: #718096; margin: 0;">Regards,</p>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; color: #2d3748; margin: 4px 0 0 0;">The Viliha Team</p>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #a0aec0; margin: 16px 0 0 0;">This is an automated notification from the Viliha website.</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; color: #2d3748; margin: 4px 0 0 0;">The Avytrix Technologies Team</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #a0aec0; margin: 16px 0 0 0;">This is an automated notification from the Avytrix Technologies website.</p>
 </td>
 </tr>
 </tbody>

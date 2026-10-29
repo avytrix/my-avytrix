@@ -47,28 +47,29 @@ export const services: Service[] = [
       "Custom software built around your workflows: scalable architecture, SQL/NoSQL database design, API integration and CI/CD. Talk to Avytrix Technologies.",
     intro: {
       pageTitle: "Custom Software Development",
-      mainTitle: "Bespoke Software Solutions, Engineered for Your Exact Needs",
-      paragraph: "Bespoke Software Solutions, Engineered for Your Exact Needs",
+      mainTitle: "Software Built Around How Your Business Works",
+      paragraph:
+        "Custom software development means building an application from scratch for your business instead of bending an off-the-shelf tool to fit. We handle discovery, design, architecture, databases, APIs, testing and automated deployment, then keep the software maintained after launch.",
       buttonText: "Discuss Your Custom Software Project",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/Custom-Software-development.png`,
-      imageAlt: "A diagram showing a custom software development lifecycle.",
+      imageAlt: "Custom software development lifecycle diagram",
     },
     sections: [
       {
         tabTitle: "Our Process",
         id: "process",
         type: "interactive_list",
-        title: "A Structured Path to Success",
+        title: "How We Build Custom Software",
         paragraph:
-          "Our development process is transparent, collaborative, and designed to deliver results efficiently.",
+          "A clear, collaborative process that gets working software into your hands quickly.",
         items: [
           {
             buttonText: "Overview",
             targetId: "Overview",
-            title: "Purpose-Built Software for Growth",
+            title: "Software Built for Your Business",
             content:
-              "At Avytrix Technologies, we specialize in custom software development tailored to your exact business needs. Our bespoke applications are crafted to eliminate inefficiencies, improve user experience, and support business automation across various industries. Off-the-shelf tools often fail to meet the complex, evolving requirements of modern businesses—our custom-built platforms offer the flexibility and performance needed to scale and thrive.",
+              "Avytrix Technologies builds custom software around the way your business runs. Our applications remove manual work, make life easier for your users and automate routine processes. Off-the-shelf tools often cannot keep up with complex or changing requirements. Custom software gives you the flexibility and performance to grow.",
             listBlocks: [
               {
                 listSubtitle: "Why businesses choose custom software:",
@@ -87,32 +88,32 @@ export const services: Service[] = [
             targetId: "process-design",
             title: "Full-Cycle Development",
             content:
-              "We provide end-to-end software development services, guiding you from initial idea to final deployment—and beyond. Our agile teams follow a proven process that combines innovation with reliability, ensuring your software aligns with business goals and scales over time.",
+              "We take your software from first idea to deployment and keep supporting it afterwards. Our agile teams follow a tested process, so the software matches your business goals and can grow with you.",
             listBlocks: [
               {
                 listSubtitle: "Our development cycle includes:",
                 listItems: [
                   "In-depth discovery and technical consultation",
-                  "UI/UX design with responsive, user-centric layouts",
-                  "Seamless integration with your existing systems and workflows",
+                  "UI/UX design with responsive layouts built around your users",
+                  "Integration with your existing systems and workflows",
                   "Scalable architecture with microservices or modular design",
                   "Database modeling and optimization (SQL/NoSQL)",
                   "API development and third-party integration",
                   "CI/CD pipeline setup, testing, and automated deployment",
                 ],
                 listAfterPara:
-                  "Each solution is backed by DevOps automation, ensuring continuous delivery, security updates, and seamless maintenance post-launch.",
+                  "DevOps automation supports every project, so releases, security updates and maintenance after launch run smoothly.",
               },
               {
-                listSubtitle: "Seamless Integration & Migration",
+                listSubtitle: "Integration and Migration",
                 listSubtitlePara:
-                  "Our systems are designed to fit into your existing infrastructure—no disruptions, just results.",
+                  "We design new systems to fit into your existing infrastructure without disrupting your business.",
                 listItems: [
-                  "Connecting with tools like Salesforce, SAP, HubSpot, Stripe",
+                  "Connecting tools such as Salesforce, SAP, HubSpot and Stripe",
                   "Migrating from legacy platforms to modern architectures",
                   "Custom middleware development",
                   "Secure data synchronization and transformation",
-                  "Enhancing interoperability between cloud and on-premise systems",
+                  "Getting cloud and on-premise systems to work together",
                 ],
               },
             ],
@@ -120,32 +121,32 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "process-development",
-            title: "Tailored, Transparent, Trusted",
+            title: "Built for You, With You",
             content:
-              "Avytrix Technologies doesn't believe in one-size-fits-all. Every project we take on is uniquely built to match your internal operations, customer expectations, and industry standards.",
+              "We do not do one-size-fits-all. Every project is built to match your operations, your customers and the standards of your industry.",
             listBlocks: [
               {
                 listSubtitle: "What sets us apart:",
                 listItems: [
-                  "100% custom-built solutions—no templates",
-                  "Cross-platform compatibility for web, mobile, and cloud",
-                  "Rich experience in automation, DevOps, and secure APIs",
-                  "Strict adherence to compliance (HIPAA, GDPR, PCI)",
-                  "Transparent project management with agile sprints",
+                  "100% custom-built, no templates",
+                  "Works across web, mobile and cloud",
+                  "Wide experience in automation, DevOps and secure APIs",
+                  "Careful compliance with HIPAA, GDPR and PCI",
+                  "Open project management in agile sprints",
                 ],
                 listAfterPara:
-                  "We keep you in the loop at every step. Our teams use tools like Jira, Trello, and Slack to collaborate with clients, share progress, and adjust in real time.",
+                  "You stay informed at every step. We use Jira, Trello and Slack to share progress with you and adjust as we go.",
               },
               {
-                listSubtitle: "Industry-Focused Expertise:",
+                listSubtitle: "Industry Experience:",
                 listSubtitlePara:
-                  "Our experienced developers and engineers have delivered solutions for companies in:",
+                  "Our developers and engineers have built software for companies in:",
                 listItems: [
-                  "Healthcare – EMR/EHR systems, patient portals, telehealth apps",
-                  "Finance – Fintech dashboards, KYC automation, secure transactions",
-                  "Retail & E-commerce – Inventory tracking, POS systems, marketplace integrations",
-                  "Education – LMS platforms, e-learning tools, school management",
-                  "ERP/CRM – Custom dashboards, reporting tools, data pipelines",
+                  "Healthcare: EMR/EHR systems, patient portals, telehealth apps",
+                  "Finance: fintech dashboards, KYC automation, secure transactions",
+                  "Retail and e-commerce: inventory tracking, POS systems, marketplace integrations",
+                  "Education: LMS platforms, e-learning tools, school management",
+                  "ERP/CRM: custom dashboards, reporting tools, data pipelines",
                 ],
               },
             ],
@@ -157,46 +158,47 @@ export const services: Service[] = [
   {
     slug: "web-development",
     title: "Web Development",
-    metaTitle: "Responsive Web Development Services | Avytrix Technologies",
+    metaTitle: "Web Development Services | Avytrix Technologies",
     description:
-      "Fast, secure, responsive web apps built with React, Vue, Node.js, Laravel, .NET or Django, with SEO-friendly structure. Plan it with Avytrix Technologies.",
+      "Web development services for startups and businesses in the USA, Europe and Australia: fast, secure websites and web apps built with React, Vue and Node.js.",
     intro: {
-      pageTitle: "Responsive Web Development",
-      mainTitle: "Engaging Websites, Flawless on Every Screen",
-      paragraph: "Engaging Websites, Flawless on Every Screen",
-      buttonText: "Get Your Responsive Website",
+      pageTitle: "Web Development Services",
+      mainTitle: "Websites and Web Apps That Work on Every Screen",
+      paragraph:
+        "Web development services cover everything needed to put a website or web application online: design, front-end and back-end development, integrations, SEO-friendly structure and launch. We build with React, Vue, Next.js, Node.js, Laravel, .NET and Django for clients in the USA, Europe and Australia.",
+      buttonText: "Plan Your Website or Web App",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/Web-Application.png`,
-      imageAlt: "A responsive website shown on a desktop, tablet, and mobile device.",
+      imageAlt: "Responsive website on desktop, tablet and mobile",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "approach",
         type: "interactive_list",
-        title: "A Strategic Approach to Web Excellence",
+        title: "How We Approach Web Development",
         paragraph:
-          "We build digital assets that drive business growth. Our approach combines technical excellence with strategic thinking.",
+          "We build websites and web apps that earn their keep: technically sound and planned around your business goals.",
         items: [
           {
             buttonText: "Overview",
             targetId: "web-overview",
             title: "Build Smart, Fast & Secure",
             content:
-              "At Avytrix Technologies, we craft responsive, SEO-optimized websites and web applications that help your business grow. Our websites are more than just visually appealing—they're built for performance, accessibility, and scalability across all devices. Whether you need a corporate site, SaaS dashboard, or full web portal, we deliver secure, standards-compliant platforms that serve both users and business goals.",
+              "Avytrix Technologies builds responsive, SEO-friendly websites and web applications that help your business grow. They look good, but they are also fast, accessible and ready to scale on any device. Whether you need a company website, a SaaS dashboard or a full web portal, we deliver secure, standards-compliant platforms that serve your users and your goals.",
             listBlocks: [
               {
                 listAfterPara:
-                  "We specialize in web solutions tailored to specific industries like retail, education, finance, and healthcare, ensuring functionality meets compliance and user expectations. Our frontend and backend developers build on modern frameworks like React, Vue.js, Laravel, and Next.js, enabling faster load times, seamless navigation, and robust scalability.",
+                  "We build for industries such as retail, education, finance and healthcare, where features have to meet both compliance rules and user expectations. Our front-end and back-end developers work with React, Vue.js, Laravel and Next.js for fast load times, smooth navigation and room to scale.",
               },
               {
                 listSubtitle: "Why brands choose custom web development:",
                 listItems: [
                   "Complete control over UI/UX and branding",
-                  "Faster performance and optimized SEO scores",
+                  "Faster pages and better SEO scores",
                   "Custom backend logic and database integration",
                   "Full compatibility with mobile and tablet devices",
-                  "Enhanced security and compliance readiness",
+                  "Stronger security, ready for compliance checks",
                 ],
               },
             ],
@@ -206,26 +208,26 @@ export const services: Service[] = [
             targetId: "web-solutions",
             title: "Full-Stack Web Development",
             content:
-              "We provide end-to-end web development services designed to deliver scalable, maintainable, and modern platforms that engage users and drive conversions.",
+              "We cover the full web development process and deliver modern platforms that are easy to maintain, keep users engaged and turn visitors into customers.",
             listBlocks: [
               {
                 listSubtitle: "Our web development capabilities include:",
                 listItems: [
-                  "Custom front-end development using React, Vue, HTML5/CSS3",
-                  "Backend systems in Node.js, Laravel, .NET Core, Django",
+                  "Custom front-end development with React, Vue and HTML5/CSS3",
+                  "Back-end systems in Node.js, Laravel, .NET Core and Django",
                   "Cross-browser and cross-device responsive layouts",
-                  "Admin dashboards, CMS integrations, and web portals",
-                  "SEO-friendly structure, page speed optimization & schema",
+                  "Admin dashboards, CMS integrations and web portals",
+                  "SEO-friendly structure, page speed work and schema markup",
                 ],
               },
               {
-                listSubtitle: "System Integration & Web APIs",
+                listSubtitle: "System Integration and Web APIs",
                 listAfterPara:
-                  "Your website should connect seamlessly with tools your business relies on. We integrate third-party platforms and internal systems.",
+                  "Your website should talk to the tools your business already uses. We connect it to third-party platforms and internal systems.",
                 listItems: [
                   "Payment gateways (Stripe, PayPal, Razorpay)",
                   "CRM/ERP integration (Salesforce, HubSpot, Zoho, SAP)",
-                  "Booking engines, chatbots, and cloud storage",
+                  "Booking engines, chatbots and cloud storage",
                   "API and webhook development for custom workflows",
                 ],
               },
@@ -234,21 +236,21 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "web-why-avytrix",
-            title: "Experts in Purpose-Driven Web Platforms",
+            title: "Web Platforms Built Around Your Business",
             content:
-              "Avytrix Technologies is your trusted partner for building custom web platforms that scale with your business. We go beyond just front-end visuals; we create backend frameworks that support complex business logic, user role management, and automation.",
+              "Avytrix Technologies builds custom web platforms that grow with your business. We do more than the visible front end: we build the back end that handles complex business logic, user roles and automation.",
             listBlocks: [
               {
                 listSubtitle: "Why choose us for web development:",
                 listItems: [
-                  "Deep expertise in building e-commerce stores, LMS platforms, and B2B web portals",
-                  "Mobile-first design approach ensuring full responsiveness",
-                  "Strong understanding of web performance optimization, Core Web Vitals, and Google ranking factors",
-                  "Agile project delivery with full transparency and collaborative sprint planning",
-                  "Post-launch support for feature additions, monitoring, and A/B testing",
+                  "Experience building e-commerce stores, LMS platforms and B2B web portals",
+                  "Mobile-first design, fully responsive",
+                  "Solid knowledge of web performance, Core Web Vitals and Google ranking factors",
+                  "Agile delivery with open, shared sprint planning",
+                  "Support after launch for new features, monitoring and A/B testing",
                 ],
                 listAfterPara:
-                  "We've helped healthcare firms streamline appointment booking, education providers scale LMS platforms, and retailers boost online conversions—all through tailored web experiences.",
+                  "We have helped healthcare firms simplify appointment booking, education providers scale their LMS platforms and retailers sell more online, each with a website built for them.",
               },
             ],
           },
@@ -264,12 +266,13 @@ export const services: Service[] = [
       "Native iOS (Swift) and Android (Kotlin) apps, or cross-platform React Native and Flutter, from discovery to app store launch. Build with Avytrix Technologies.",
     intro: {
       pageTitle: "Mobile App Development",
-      mainTitle: "Native & Cross-Platform Mobile Solutions",
-      paragraph: "Native & Cross-Platform Mobile Solutions",
+      mainTitle: "Native and Cross-Platform Mobile Apps",
+      paragraph:
+        "Mobile app development is designing, building and launching apps for iPhone and Android phones. We build native apps in Swift and Kotlin, cross-platform apps in React Native and Flutter, and Progressive Web Apps, then handle app store submission and support after launch.",
       buttonText: "Develop Your Mobile App",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/Mobile-App-Development.png`,
-      imageAlt: "Mobile app development illustration",
+      imageAlt: "Mobile app development on iOS and Android",
     },
     sections: [
       {
@@ -277,14 +280,14 @@ export const services: Service[] = [
         id: "mobile-approach",
         type: "interactive_list",
         title: "Mobile-First Development",
-        paragraph: "We build mobile apps that deliver exceptional user experiences across all devices.",
+        paragraph: "We build mobile apps that are easy and pleasant to use on any device.",
         items: [
           {
             buttonText: "Overview",
             targetId: "mobile-overview",
             title: "Apps That Users Love",
             content:
-              "At Avytrix Technologies, we create mobile applications that combine stunning design with powerful functionality. Whether you need a native iOS app, Android app, or cross-platform solution, our team delivers apps that engage users and drive business results.",
+              "Avytrix Technologies builds mobile apps that look good and do their job well. Whether you need a native iOS app, an Android app or one cross-platform app, we build something your users will come back to.",
             listBlocks: [
               {
                 listSubtitle: "Our mobile development services:",
@@ -303,7 +306,7 @@ export const services: Service[] = [
             targetId: "mobile-solutions",
             title: "End-to-End Mobile Development",
             content:
-              "From concept to launch, we handle every aspect of mobile app development to ensure your app succeeds in the marketplace.",
+              "We handle every part of mobile app development, from the first concept to launch day and beyond.",
             listBlocks: [
               {
                 listSubtitle: "Our process includes:",
@@ -323,12 +326,12 @@ export const services: Service[] = [
             targetId: "mobile-why-avytrix",
             title: "Your Mobile Partner",
             content:
-              "We bring years of experience in mobile development across industries including healthcare, finance, retail, and education.",
+              "We have years of mobile development experience in healthcare, finance, retail and education.",
             listBlocks: [
               {
                 listSubtitle: "What sets us apart:",
                 listItems: [
-                  "Expertise in both native and cross-platform development",
+                  "Experience in both native and cross-platform development",
                   "Focus on performance and user experience",
                   "Agile methodology for faster delivery",
                   "Transparent communication throughout the project",
@@ -349,12 +352,13 @@ export const services: Service[] = [
       "User research, wireframes, prototypes, visual design and design systems for web, mobile and SaaS, tested with real users. Start with Avytrix Technologies.",
     intro: {
       pageTitle: "UX/UI Design",
-      mainTitle: "Design That Delights and Converts",
-      paragraph: "Design That Delights and Converts",
+      mainTitle: "Design People Enjoy Using",
+      paragraph:
+        "UX/UI design shapes how a website or app works (UX) and how it looks (UI). We start with user research, then move through information architecture, wireframes, prototypes, visual design and usability testing, and hand developers a design system they can build from.",
       buttonText: "Design Your Experience",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/UI.png`,
-      imageAlt: "UX/UI design illustration",
+      imageAlt: "UX/UI design for web and mobile apps",
     },
     sections: [
       {
@@ -362,14 +366,14 @@ export const services: Service[] = [
         id: "design-approach",
         type: "interactive_list",
         title: "User-Centered Design",
-        paragraph: "Our expert UX/UI design ensures exceptional engagement and effortless navigation.",
+        paragraph: "Good design keeps people engaged and makes your product easy to find your way around.",
         items: [
           {
             buttonText: "Overview",
             targetId: "design-overview",
             title: "Design with Purpose",
             content:
-              "We create digital experiences that are both beautiful and functional. Our design process is rooted in user research, ensuring every element serves a purpose and contributes to your business goals.",
+              "We design products that look good and work well. Every project starts with user research, so each element has a reason to be there and supports your business goals.",
             listBlocks: [
               {
                 listSubtitle: "Our design services include:",
@@ -387,9 +391,9 @@ export const services: Service[] = [
           {
             buttonText: "Our Solutions",
             targetId: "design-solutions",
-            title: "Comprehensive Design Services",
+            title: "Design Services",
             content:
-              "From initial concept to final implementation, we provide end-to-end design services that transform your vision into reality.",
+              "We take your idea from first concept to a finished design that developers can build.",
             listBlocks: [
               {
                 listSubtitle: "What we deliver:",
@@ -406,9 +410,9 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "design-why-avytrix",
-            title: "Design Excellence",
+            title: "How We Design",
             content:
-              "Our design team combines creativity with strategic thinking to deliver experiences that users love and businesses benefit from.",
+              "Our designers pair creativity with business sense, so the result works for your users and for you.",
             listBlocks: [
               {
                 listSubtitle: "Why work with us:",
@@ -434,27 +438,28 @@ export const services: Service[] = [
       "REST and GraphQL APIs plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to Avytrix Technologies.",
     intro: {
       pageTitle: "API Development",
-      mainTitle: "Connect, Integrate, Scale",
-      paragraph: "Connect, Integrate, Scale",
+      mainTitle: "Connect Your Systems",
+      paragraph:
+        "API development is building the interfaces that let software systems exchange data. We design and build secure, documented REST and GraphQL APIs and connect your software to payment gateways, CRMs, ERPs, cloud services and communication platforms such as Stripe, Salesforce, SAP and Twilio.",
       buttonText: "Integrate Your Systems",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/API-Development.png`,
-      imageAlt: "API development illustration",
+      imageAlt: "API development and system integration",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "api-approach",
         type: "interactive_list",
-        title: "API Excellence",
-        paragraph: "Enhance your software's functionality and streamline data flow across your digital ecosystem.",
+        title: "How We Build APIs",
+        paragraph: "Add features to your software and let data move between your systems without manual work.",
         items: [
           {
             buttonText: "Overview",
             targetId: "api-overview",
-            title: "Seamless System Integration",
+            title: "System Integration",
             content:
-              "We design and build APIs that connect your systems, automate workflows, and enable new capabilities. Our APIs are secure, scalable, and well-documented.",
+              "We design and build APIs that connect your systems, automate workflows and open up new features. Every API is secure, scales with demand and comes with clear documentation.",
             listBlocks: [
               {
                 listSubtitle: "Our API services:",
@@ -473,7 +478,7 @@ export const services: Service[] = [
             targetId: "api-solutions",
             title: "Integration Capabilities",
             content:
-              "We integrate with a wide range of platforms and services to extend your system's capabilities.",
+              "We connect your software to the platforms and services you rely on.",
             listBlocks: [
               {
                 listSubtitle: "Common integrations:",
@@ -490,15 +495,15 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "api-why-avytrix",
-            title: "API Expertise",
+            title: "API Experience",
             content:
-              "Our team has extensive experience building and integrating APIs across various industries and platforms.",
+              "Our team has built and integrated APIs for many industries and platforms.",
             listBlocks: [
               {
                 listSubtitle: "What we offer:",
                 listItems: [
                   "Secure and scalable API architecture",
-                  "Comprehensive documentation",
+                  "Complete documentation",
                   "Performance optimization",
                   "Ongoing maintenance and support",
                   "Compliance with industry standards",
@@ -518,27 +523,28 @@ export const services: Service[] = [
       "Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization on AWS, Azure, GCP and DigitalOcean. Plan it with Avytrix Technologies.",
     intro: {
       pageTitle: "Cloud Solutions",
-      mainTitle: "Scale Your Infrastructure in the Cloud",
-      paragraph: "Scale Your Infrastructure in the Cloud",
+      mainTitle: "Infrastructure That Scales in the Cloud",
+      paragraph:
+        "Cloud solutions move and run your applications on platforms such as AWS, Microsoft Azure, Google Cloud and DigitalOcean. We plan migrations, write infrastructure as code, run containers with Docker and Kubernetes, build serverless setups, and keep costs and security under control.",
       buttonText: "Optimize Your Cloud",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/Cloud-infrastructure.png`,
-      imageAlt: "Cloud solutions illustration",
+      imageAlt: "Cloud infrastructure on AWS, Azure and Google Cloud",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "cloud-approach",
         type: "interactive_list",
-        title: "Cloud-First Strategy",
-        paragraph: "We ensure high availability, cost-efficiency, and peak performance for your applications.",
+        title: "How We Approach the Cloud",
+        paragraph: "Your applications stay available and fast, and your hosting bill stays reasonable.",
         items: [
           {
             buttonText: "Overview",
             targetId: "cloud-overview",
             title: "Modern Cloud Infrastructure",
             content:
-              "We help businesses leverage cloud technologies to improve scalability, reduce costs, and enhance security. Our cloud solutions are designed for performance and reliability.",
+              "We help businesses use the cloud to scale more easily, spend less and improve security. Every setup we build is designed to be fast and reliable.",
             listBlocks: [
               {
                 listSubtitle: "Our cloud services:",
@@ -555,9 +561,9 @@ export const services: Service[] = [
           {
             buttonText: "Our Solutions",
             targetId: "cloud-solutions",
-            title: "Multi-Cloud Expertise",
+            title: "Multi-Cloud Experience",
             content:
-              "We work with all major cloud providers to deliver the best solution for your needs.",
+              "We work with all the major cloud providers and pick the one that fits your needs.",
             listBlocks: [
               {
                 listSubtitle: "Platforms we work with:",
@@ -576,7 +582,7 @@ export const services: Service[] = [
             targetId: "cloud-why-avytrix",
             title: "Cloud Expertise",
             content:
-              "Our certified cloud architects help you build and maintain robust cloud infrastructure.",
+              "Our certified cloud architects help you build and run dependable cloud infrastructure.",
             listBlocks: [
               {
                 listSubtitle: "Our approach:",
@@ -603,26 +609,27 @@ export const services: Service[] = [
     intro: {
       pageTitle: "QA & Testing",
       mainTitle: "Quality Assurance for Reliable Software",
-      paragraph: "Quality Assurance for Reliable Software",
-      buttonText: "Ensure Quality",
+      paragraph:
+        "Software QA and testing checks that an application works as intended before your users find the problems. We run manual, automated, performance, security, API and mobile tests, build them into your CI pipeline, and cover regression and user acceptance testing.",
+      buttonText: "Talk to Our QA Team",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/Software-qa-testing.png`,
-      imageAlt: "QA testing illustration",
+      imageAlt: "Software QA and testing",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "qa-approach",
         type: "interactive_list",
-        title: "Comprehensive Testing",
-        paragraph: "We cover rigorous manual, automated, and performance testing for optimal quality assurance.",
+        title: "How We Test",
+        paragraph: "Thorough manual, automated and performance testing, so you release with confidence.",
         items: [
           {
             buttonText: "Overview",
             targetId: "qa-overview",
             title: "Quality at Every Stage",
             content:
-              "Our QA team ensures your software meets the highest standards of quality, performance, and reliability. We integrate testing throughout the development lifecycle.",
+              "Our QA team makes sure your software is solid, fast and reliable. Testing runs through the whole development process, not just the end.",
             listBlocks: [
               {
                 listSubtitle: "Our testing services:",
@@ -642,7 +649,7 @@ export const services: Service[] = [
             targetId: "qa-solutions",
             title: "Testing Methodologies",
             content:
-              "We use industry-leading tools and methodologies to ensure comprehensive test coverage.",
+              "We use proven tools and methods to cover your software thoroughly.",
             listBlocks: [
               {
                 listSubtitle: "Our approach includes:",
@@ -659,18 +666,18 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "qa-why-avytrix",
-            title: "QA Excellence",
+            title: "Why Our QA Works",
             content:
-              "Our experienced QA engineers bring rigorous attention to detail and comprehensive testing expertise.",
+              "Our QA engineers are experienced, careful and thorough.",
             listBlocks: [
               {
                 listSubtitle: "What we deliver:",
                 listItems: [
-                  "Reduced defects and bugs",
+                  "Fewer defects and bugs",
                   "Improved user experience",
                   "Faster time to market",
                   "Cost savings through early bug detection",
-                  "Comprehensive test documentation",
+                  "Complete test documentation",
                 ],
               },
             ],
@@ -687,33 +694,34 @@ export const services: Service[] = [
       "Full-stack, mobile, DevOps, QA and UI/UX specialists as a dedicated team, team augmentation or project-based team. Scale up with Avytrix Technologies.",
     intro: {
       pageTitle: "Dedicated Teams",
-      mainTitle: "Scale Your Team with Expert Developers",
-      paragraph: "Scale Your Team with Expert Developers",
-      buttonText: "Scale Your Team",
+      mainTitle: "Grow Your Team With Experienced Developers",
+      paragraph:
+        "A dedicated development team is a group of developers who work only on your product, as an extension of your own staff. We provide full-stack, front-end, back-end, mobile, DevOps, QA and UI/UX specialists as a full-time team, as extra hands for your team, or for a single project.",
+      buttonText: "Build Your Team",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/team.png`,
-      imageAlt: "Dedicated teams illustration",
+      imageAlt: "Dedicated remote development team",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "teams-approach",
         type: "interactive_list",
-        title: "Flexible Team Solutions",
-        paragraph: "Get flexible talent and deep expertise to accelerate projects and drive innovation.",
+        title: "Flexible Teams",
+        paragraph: "Experienced people you can add or remove as your projects change.",
         items: [
           {
             buttonText: "Overview",
             targetId: "teams-overview",
             title: "Your Extended Team",
             content:
-              "Our dedicated development teams integrate seamlessly with your organization, providing the skills and capacity you need to achieve your goals.",
+              "Our developers join your organization as part of your team and bring the skills and capacity you are missing.",
             listBlocks: [
               {
                 listSubtitle: "Team capabilities:",
                 listItems: [
                   "Full-stack developers",
-                  "Frontend and backend specialists",
+                  "Front-end and back-end specialists",
                   "Mobile developers",
                   "DevOps engineers",
                   "QA engineers",
@@ -727,7 +735,7 @@ export const services: Service[] = [
             targetId: "teams-solutions",
             title: "Engagement Models",
             content:
-              "We offer flexible engagement models to match your needs and budget.",
+              "Choose the way of working that fits your needs and budget.",
             listBlocks: [
               {
                 listSubtitle: "Options include:",
@@ -744,9 +752,9 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "teams-why-avytrix",
-            title: "Trusted Partnership",
+            title: "A Long-Term Partner",
             content:
-              "We build long-term relationships based on trust, transparency, and shared success.",
+              "We aim for long working relationships built on trust and openness.",
             listBlocks: [
               {
                 listSubtitle: "Our commitment:",
@@ -772,27 +780,28 @@ export const services: Service[] = [
       "Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payments, ERP and CRM systems and dashboards. Build with Avytrix Technologies.",
     intro: {
       pageTitle: "E-commerce Solutions",
-      mainTitle: "E-commerce & Enterprise Platforms",
-      paragraph: "E-commerce & Enterprise Platforms",
+      mainTitle: "E-commerce and Enterprise Platforms",
+      paragraph:
+        "E-commerce development is building online stores and marketplaces, with payments and inventory behind them. We build custom stores, customize Shopify, WooCommerce and Magento, and develop enterprise systems such as ERP, CRM, business process automation and analytics dashboards.",
       buttonText: "Build Your Platform",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/E-Commerce.png`,
-      imageAlt: "E-commerce illustration",
+      imageAlt: "E-commerce website development",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "ecommerce-approach",
         type: "interactive_list",
-        title: "Commerce Excellence",
-        paragraph: "We design for growth, security, and seamless management.",
+        title: "How We Build for Commerce",
+        paragraph: "Built to grow, stay secure and be easy to manage.",
         items: [
           {
             buttonText: "Overview",
             targetId: "ecommerce-overview",
-            title: "Scalable Commerce Solutions",
+            title: "Online Stores That Scale",
             content:
-              "We build e-commerce platforms that drive sales and provide exceptional shopping experiences. From startups to enterprise, we deliver solutions that scale.",
+              "We build online stores that sell and are pleasant to shop in. They work for a new startup and keep working as you grow to enterprise size.",
             listBlocks: [
               {
                 listSubtitle: "Our e-commerce services:",
@@ -811,7 +820,7 @@ export const services: Service[] = [
             targetId: "ecommerce-solutions",
             title: "Enterprise Capabilities",
             content:
-              "We build enterprise solutions that streamline operations and drive efficiency.",
+              "We build business systems that simplify your operations and save your team time.",
             listBlocks: [
               {
                 listSubtitle: "Enterprise solutions:",
@@ -828,9 +837,9 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "ecommerce-why-avytrix",
-            title: "Commerce Expertise",
+            title: "Commerce Experience",
             content:
-              "Our team has deep experience in building successful e-commerce and enterprise solutions.",
+              "Our team has built many successful e-commerce and enterprise systems.",
             listBlocks: [
               {
                 listSubtitle: "What we offer:",
@@ -838,7 +847,7 @@ export const services: Service[] = [
                   "Conversion-focused design",
                   "Secure payment processing",
                   "Scalable architecture",
-                  "SEO optimization",
+                  "Search engine optimization",
                   "Ongoing support and optimization",
                 ],
               },
@@ -856,12 +865,13 @@ export const services: Service[] = [
       "Monitoring, bug fixes, security updates, performance tuning and feature work, on business-hours, extended or 24/7 enterprise plans. Keep your software healthy.",
     intro: {
       pageTitle: "Ongoing Support",
-      mainTitle: "Reliable Support & Maintenance",
-      paragraph: "Reliable Support & Maintenance",
-      buttonText: "Get Support",
+      mainTitle: "Reliable Support and Maintenance",
+      paragraph:
+        "Software support and maintenance keeps an application secure and working after launch. We monitor it, fix bugs, apply security updates, tune performance and add features, on business-hours, extended-hours or 24/7 enterprise plans, or on demand.",
+      buttonText: "Talk About Support",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/services/Support_new.png`,
-      imageAlt: "Support illustration",
+      imageAlt: "Software support and maintenance",
     },
     sections: [
       {
@@ -869,14 +879,14 @@ export const services: Service[] = [
         id: "support-approach",
         type: "interactive_list",
         title: "Continuous Support",
-        paragraph: "We provide continuous support to keep your applications secure and up-to-date.",
+        paragraph: "Ongoing support that keeps your applications secure and up to date.",
         items: [
           {
             buttonText: "Overview",
             targetId: "support-overview",
-            title: "Always There for You",
+            title: "We Keep Things Running",
             content:
-              "Our support team ensures your software runs smoothly, stays secure, and evolves with your business needs.",
+              "Our support team keeps your software running smoothly and securely, and updates it as your business changes.",
             listBlocks: [
               {
                 listSubtitle: "Support services:",
@@ -895,7 +905,7 @@ export const services: Service[] = [
             targetId: "support-solutions",
             title: "Support Plans",
             content:
-              "We offer flexible support plans to match your needs and budget.",
+              "Pick the support plan that fits your needs and budget.",
             listBlocks: [
               {
                 listSubtitle: "Plan options:",
@@ -912,9 +922,9 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "support-why-avytrix",
-            title: "Reliable Partnership",
+            title: "Support You Can Count On",
             content:
-              "We're committed to your long-term success with responsive, proactive support.",
+              "We respond quickly and spot problems before they reach your users.",
             listBlocks: [
               {
                 listSubtitle: "Our commitment:",
@@ -941,18 +951,19 @@ export const services: Service[] = [
     intro: {
       pageTitle: "SEO Services",
       mainTitle: "Search Engine Optimization",
-      paragraph: "Search Engine Optimization",
-      buttonText: "Boost Your Rankings",
+      paragraph:
+        "SEO (search engine optimization) is the work that helps your website rank in Google and other search engines for the terms your customers search. Our SEO services cover technical audits, keyword research, on-page and content optimization, local SEO, link building, site speed and mobile optimization.",
+      buttonText: "Improve Your Rankings",
       buttonUrl: "/contact",
       image: `${siteConfig.cdnUrl}/icons/Custom_Web_Development.svg`,
-      imageAlt: "SEO illustration",
+      imageAlt: "SEO services",
     },
     sections: [
       {
         tabTitle: "Our Approach",
         id: "seo-approach",
         type: "interactive_list",
-        title: "SEO Excellence",
+        title: "How We Do SEO",
         paragraph: "We help you rank higher and attract more qualified traffic.",
         items: [
           {
@@ -960,7 +971,7 @@ export const services: Service[] = [
             targetId: "seo-overview",
             title: "Data-Driven SEO",
             content:
-              "Our SEO services are built on data and best practices to deliver measurable results. We focus on sustainable growth, not quick fixes.",
+              "Our SEO work is based on data and proven practice, and we report results you can measure. We go for lasting growth, not quick tricks.",
             listBlocks: [
               {
                 listSubtitle: "Our SEO services:",
@@ -977,9 +988,9 @@ export const services: Service[] = [
           {
             buttonText: "Our Solutions",
             targetId: "seo-solutions",
-            title: "Comprehensive SEO",
+            title: "Full-Service SEO",
             content:
-              "We provide full-service SEO to improve your visibility across all search engines.",
+              "We handle every part of SEO to make your site easier to find in every search engine.",
             listBlocks: [
               {
                 listSubtitle: "Our approach includes:",
@@ -996,9 +1007,9 @@ export const services: Service[] = [
           {
             buttonText: "Why Choose Avytrix Technologies",
             targetId: "seo-why-avytrix",
-            title: "SEO Expertise",
+            title: "SEO Experience",
             content:
-              "Our SEO team stays current with algorithm updates and industry best practices.",
+              "Our SEO team keeps up with algorithm updates and current best practice.",
             listBlocks: [
               {
                 listSubtitle: "What we deliver:",

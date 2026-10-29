@@ -8,9 +8,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const seo = {
   path: "/services",
-  title: "Software Development Services | Avytrix Technologies",
+  title: "Web & Software Development Services | Avytrix Technologies",
   description:
-    "Compare Avytrix Technologies' services: custom software, web and mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, dedicated teams and ongoing support.",
+    "Web development, custom software, mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, SEO and dedicated teams for clients in the USA, Europe and Australia.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -25,7 +25,7 @@ export default function ServicesPage() {
       <div className="max-w-[1200px] mx-auto">
         <div className="py-20 mx-4 bg-[#0A3176]">
           <div className="flex items-center justify-center">
-            <h1 className="text-[28px] lg:text-[36px] font-bold text-center text-white">Our Services</h1>
+            <h1 className="text-[28px] lg:text-[36px] font-bold text-center text-white">Web and Software Development Services</h1>
           </div>
         </div>
       </div>
@@ -33,9 +33,9 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="max-w-[1200px] mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-semibold mb-4">Solutions Engineered for Your Success</h2>
+          <h2 className="text-3xl font-semibold mb-4">What We Can Build for You</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We deliver precisely what you need. Straightforward, powerful digital solutions designed for performance and scalability.
+            Choose one service or combine several. Every project is built to be fast, secure and ready to grow.
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export default function ServicesPage() {
         <div className="max-w-[1200px] mx-auto px-4 text-center">
           <h2 className="text-3xl font-semibold text-white mb-4">Ready to Start Your Project?</h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Let&apos;s discuss how we can help transform your ideas into reality.
+            Tell us what you want to build and we will show you how we would do it.
           </p>
           <Link
             href="/contact"

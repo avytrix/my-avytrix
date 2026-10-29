@@ -56,7 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Location landing pages
   const locationPages: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
-    url: `${baseUrl}/software-development/${slug}`,
+    url: `${baseUrl}/web-development/${slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.9,
   }));

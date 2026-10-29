@@ -93,7 +93,7 @@ export default function TermsConditionsPage() {
           <p className="text-gray-600">
             If you have any questions about these Terms and Conditions, You can contact us via{" "}
             <Link href="/contact" className="text-[#0058EE] underline">
-              the Avytrix Technologies contact form
+              our contact page
             </Link>
           </p>
         </div>

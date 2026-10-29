@@ -32,7 +32,7 @@ export function getCustomerEmailTemplate(name: string): string {
 </tr>
 <tr>
 <td style="padding: 0 24px 24px 24px;" align="center">
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; color: #718096; line-height: 1.6; margin: 0;">We've received your message and one of our experts will get back to you within <span style="font-weight: 600; color: #0058ee;">24–48 working hours</span>. We truly appreciate your interest in our services and are excited about the opportunity to assist you.</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; color: #718096; line-height: 1.6; margin: 0;">We have received your message and one of our team will get back to you within <span style="font-weight: 600; color: #0058ee;">24 to 48 working hours</span>. Thank you for your interest in our services.</p>
 </td>
 </tr>
 <tr>
@@ -41,7 +41,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <tbody>
 <tr>
 <td>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; font-weight: 500; color: #0058ee; margin: 0 0 16px 0;">In the meantime, feel free to explore more about our offerings:</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 16px; font-weight: 500; color: #0058ee; margin: 0 0 16px 0;">In the meantime, you can read more about what we do:</p>
 <table role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>

@@ -26,8 +26,8 @@ export default function CookieConsent() {
     >
       <div className="container mx-auto max-w-[1200px] flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="text-sm">
-          We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By
-          clicking &quot;Accept&quot;, you consent to our use of cookies.
+          We use cookies to improve your browsing experience, personalize content and understand our traffic. By
+          clicking &quot;Accept&quot;, you agree to our use of cookies.
         </p>
         <div className="flex gap-2">
           <button

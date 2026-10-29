@@ -9,9 +9,9 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/about-us",
-  title: "About Viliha: Software Development Partner | Viliha",
+  title: "About Us: Your Software Partner | Avytrix Technologies",
   description:
-    "Learn who Viliha is: a software development company serving startups and AI companies with custom software, DevOps, automation and digital transformation.",
+    "Learn who Avytrix Technologies is: a software development company serving startups and AI companies with custom software, DevOps and digital transformation.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -29,7 +29,7 @@ const aboutContent = {
     heading: "Our Story: Powering Digital Futures",
     content:
       `${siteConfig.name} was founded with a clear mission: to be a trusted software partner for businesses worldwide, helping them navigate and thrive in the ever-evolving digital landscape. Our journey is driven by a passion for technology and a commitment to delivering scalable, high-quality products that make a real impact. We believe in harnessing modern tools not just to build software, but to architect brighter digital futures for our clients.`,
-    image: `${siteConfig.cdnUrl}/virtual-meeting 2.jpg`,
+    image: `${siteConfig.cdnUrl}/virtual-meeting_2.jpg`,
   },
   mission: [
     {
@@ -49,7 +49,7 @@ const aboutContent = {
       "Our values are the bedrock of our company culture and the principles that define our approach to every client engagement.",
     items: [
       {
-        icon: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
         title: "Quality",
         content:
           "We are committed to delivering robust, scalable, and secure solutions that stand the test of time. Excellence is not just an aspiration; it's our standard.",
@@ -67,7 +67,7 @@ const aboutContent = {
           "Our streamlined processes and experienced team ensure fast, reliable delivery without compromising on quality. We value your time and investment.",
       },
       {
-        icon: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
+        icon: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
         title: "Innovation",
         content:
           "We thrive on leveraging modern technologies and creative thinking to develop cutting-edge solutions that address complex challenges.",
@@ -87,9 +87,9 @@ const aboutContent = {
     ],
   },
   whyUs: {
-    image: `${siteConfig.cdnUrl}/why-partner-with-viliha.webp`,
-    title: "Why Partner with Viliha?",
-    para: "Choosing Viliha means choosing a partner dedicated to your success. Here's what sets us apart:",
+    image: `${siteConfig.cdnUrl}/why-partner.webp`,
+    title: "Why Partner with Avytrix Technologies?",
+    para: "Choosing Avytrix Technologies means choosing a partner dedicated to your success. Here's what sets us apart:",
     faqItems: [
       {
         question: "Global Collaboration, Local Understanding",
@@ -112,7 +112,7 @@ const aboutContent = {
           "We invest time in understanding your business to deliver solutions that truly align with your objectives.",
       },
     ],
-    buttonText: "Start Your Project with Viliha",
+    buttonText: "Start Your Project with Avytrix Technologies",
     buttonUrl: "/contact",
   },
 };
@@ -150,7 +150,7 @@ export default function AboutPage() {
             <div>
               <Image
                 src={twoColumn.image}
-                alt="Viliha team collaborating"
+                alt="Avytrix Technologies team collaborating"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -194,7 +194,7 @@ export default function AboutPage() {
             <div>
               <Image
                 src={whyUs.image}
-                alt="Why Partner with Viliha"
+                alt="Why Partner with Avytrix Technologies"
                 width={500}
                 height={400}
                 className="rounded-lg"

@@ -100,7 +100,7 @@ export default async function LocationPage({ params }: Props) {
         </div>
         <div className="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
           <Image
-            src={`${siteConfig.cdnUrl}/viliha-banner_image.webp`}
+            src={`${siteConfig.cdnUrl}/avytrix-banner_image.png`}
             alt={`Software Development Services for ${location.country}`}
             width={500}
             height={400}
@@ -139,7 +139,7 @@ export default async function LocationPage({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Why {location.country} Businesses Choose Viliha
+              Why {location.country} Businesses Choose Avytrix Technologies
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We understand the unique needs of {location.region} businesses and deliver
@@ -306,7 +306,7 @@ export default async function LocationPage({ params }: Props) {
             Ready to Build Your Next Project?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Join {location.testimonialRegion} who trust Viliha for their software development needs.
+            Join {location.testimonialRegion} who trust Avytrix Technologies for their software development needs.
             Get a free consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

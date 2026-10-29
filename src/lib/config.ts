@@ -18,7 +18,7 @@ export const siteConfig = {
     siteName: name,
     author: name,
     // ponytail: ImageKit pads the hero banner to 1200x630; swap for a designed card when one exists
-    ogImage: `${cdnUrl}/viliha-banner_image.webp?tr=w-1200,h-630,cm-pad_resize,bg-FFFFFF,f-jpg`,
+    ogImage: `${cdnUrl}/avytrix-banner_image.png?tr=w-1200,h-630,cm-pad_resize,bg-FFFFFF,f-jpg`,
     locale: "en_US",
   },
 

@@ -7,7 +7,7 @@ export const homeContent = {
       "We provide custom software solutions with dedicated remote development teams. From MVP to enterprise scale, our skilled tech talent delivers world-class results for startups and growing businesses.",
     buttonText: "Let's Build Your Solution",
     buttonUrl: "/contact",
-    image: `${siteConfig.cdnUrl}/viliha-banner_image.webp`,
+    image: `${siteConfig.cdnUrl}/avytrix-banner_image.png`,
   },
 
   servicesOverview: {
@@ -26,21 +26,21 @@ export const homeContent = {
         title: "Responsive Web Development",
         content:
           "We build secure, scalable, and responsive websites and web applications using cutting-edge technologies that guarantee user engagement and business growth.",
-        imageLink: `${siteConfig.cdnUrl}/icons/Custom Web Development.svg`,
+        imageLink: `${siteConfig.cdnUrl}/icons/Custom_Web_Development.svg`,
         buttonUrl: "/services/web-development",
       },
       {
         title: "Mobile App Development",
         content:
           "Launch intuitive native and cross-platform mobile apps. We design captivating user experiences that expand your brand's reach on any device.",
-        imageLink: `${siteConfig.cdnUrl}/icons/App Code.svg`,
+        imageLink: `${siteConfig.cdnUrl}/icons/App_Code.svg`,
         buttonUrl: "/services/mobile-app-development",
       },
       {
         title: "User Experience (UX/UI) Design",
         content:
           "Transform ideas into visually stunning, user-friendly digital products. Our expert UX/UI design ensures exceptional engagement and effortless navigation for your users.",
-        imageLink: `${siteConfig.cdnUrl}/icons/UI Design.svg`,
+        imageLink: `${siteConfig.cdnUrl}/icons/UI_Design.svg`,
         buttonUrl: "/services/ux-ui-design",
       },
       {
@@ -61,14 +61,14 @@ export const homeContent = {
         title: "Software QA & Testing",
         content:
           "Ensure flawless, reliable software with our comprehensive QA. We cover rigorous manual, automated, and performance testing for optimal quality assurance.",
-        imageLink: `${siteConfig.cdnUrl}/icons/QA Testing.svg`,
+        imageLink: `${siteConfig.cdnUrl}/icons/QA_Testing.svg`,
         buttonUrl: "/services/qa-and-testing",
       },
       {
         title: "Dedicated Development Teams",
         content:
           "Augment your capacity with our skilled, agile development teams. Get flexible talent and deep expertise to accelerate projects and drive innovation.",
-        imageLink: `${siteConfig.cdnUrl}/icons/Dedicated Team.svg`,
+        imageLink: `${siteConfig.cdnUrl}/icons/Dedicated_Team.svg`,
         buttonUrl: "/services/dedicated-development-teams",
       },
       {
@@ -132,8 +132,8 @@ export const homeContent = {
         id: "tech-cloud",
         items: [
           { image: `${siteConfig.cdnUrl}/technologies/AWS.png`, title: "AWS" },
-          { image: `${siteConfig.cdnUrl}/technologies/Google Cloud.png`, title: "Google Cloud" },
-          { image: `${siteConfig.cdnUrl}/technologies/Microsoft Azure.png`, title: "Microsoft Azure" },
+          { image: `${siteConfig.cdnUrl}/technologies/Google_Cloud.png`, title: "Google Cloud" },
+          { image: `${siteConfig.cdnUrl}/technologies/Microsoft_Azure.png`, title: "Microsoft Azure" },
         ],
       },
       {
@@ -150,7 +150,7 @@ export const homeContent = {
 
   digitalInnovation: {
     title: "Your Trusted Partner in Digital Innovation",
-    image: `${siteConfig.cdnUrl}/trusted partner.png`,
+    image: `${siteConfig.cdnUrl}/trusted_partner.png`,
     faqItems: [
       {
         question: "Expert Problem Solvers",
@@ -173,7 +173,7 @@ export const homeContent = {
           "We leverage cutting-edge technology and a relentless focus on quality to deliver robust, scalable, and secure solutions that drive real results for your business.",
       },
     ],
-    buttonText: "Start Your Project with Viliha",
+    buttonText: "Start Your Project with Avytrix Technologies",
     buttonUrl: "/contact",
   },
 
@@ -193,7 +193,7 @@ export const homeContent = {
           "30% Year-over-year reduction in infrastructure costs.",
           "Improved platform scalability and resilience, seamlessly supporting millions of U.S. users.",
         ],
-        image: `${siteConfig.cdnUrl}/Kelley Blue Book.png`,
+        image: `${siteConfig.cdnUrl}/Kelley_Blue_Book.png`,
       },
       {
         client: "Criteo",

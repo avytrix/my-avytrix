@@ -4,7 +4,7 @@ import { z } from "zod";
 import { siteConfig } from "@/lib/config";
 import {
   getCustomerEmailTemplate,
-  getVilihaNotificationTemplate,
+  getNotificationTemplate,
 } from "@/lib/email-templates";
 import { checkRateLimit } from "@/lib/rate-limit";
 
@@ -78,7 +78,7 @@ export async function POST(request: NextRequest) {
     const customerEmailResult = await resendClient.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: "Thank You for Contacting Viliha",
+      subject: "Thank You for Contacting Avytrix Technologies",
       html: getCustomerEmailTemplate(name),
     });
 
@@ -90,13 +90,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send notification email to Viliha
-    const vilihaEmailResult = await resendClient.emails.send({
+    // Send notification email to Avytrix Technologies
+    const notificationResult = await resendClient.emails.send({
       from: FROM_EMAIL,
       to: siteConfig.email.notificationEmail,
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
-      html: getVilihaNotificationTemplate({
+      html: getNotificationTemplate({
         name,
         email,
         company,
@@ -105,8 +105,8 @@ export async function POST(request: NextRequest) {
       }),
     });
 
-    if (vilihaEmailResult.error) {
-      console.error("Failed to send notification email:", vilihaEmailResult.error);
+    if (notificationResult.error) {
+      console.error("Failed to send notification email:", notificationResult.error);
       // Don't fail the request if notification email fails - customer email was sent
     }
 

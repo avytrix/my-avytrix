@@ -223,7 +223,7 @@ export default function Footer() {
         </div>
 
         {/* Desktop Layout (>= 1024px) - 5 columns */}
-        <div className="hidden lg:grid lg:grid-cols-5 lg:gap-10">
+        <div className="hidden lg:grid lg:grid-cols-5 lg:gap-10 text-center">
           {/* Logo Column */}
           <div>
             <Link prefetch={false} href="/" className="inline-block mb-4">

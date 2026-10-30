@@ -2,6 +2,7 @@ import { navigation } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
+import SocialLinks from "@/components/SocialLinks";
 
 // One responsive layout: separate mobile/tablet/desktop copies put every heading and link
 // in the HTML three times, which crawlers report as duplicate headings and anchor text.
@@ -32,6 +33,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-sm text-gray-400 lg:mb-2">Web Development Company for Startups and Growing Businesses</p>
+            <SocialLinks className="justify-center my-4" />
             <p className="hidden lg:block text-xs text-gray-400">{copyright}</p>
           </div>
 

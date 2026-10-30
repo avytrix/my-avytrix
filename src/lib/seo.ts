@@ -67,7 +67,7 @@ export function pageGraph({ path, title, description, crumbs = [], extra = [] }:
         url: origin,
         logo: { "@type": "ImageObject", "@id": `${origin}/#logo`, url: siteConfig.logoUrl },
         email: siteConfig.email.contactEmail,
-        ...(siteConfig.social.length > 0 && { sameAs: siteConfig.social }),
+        ...(siteConfig.social.length > 0 && { sameAs: siteConfig.social.map((p) => p.url) }),
         ...(siteConfig.legal.name && { legalName: siteConfig.legal.name }),
         ...(siteConfig.legal.taxId && { taxID: siteConfig.legal.taxId }),
         ...(siteConfig.contact.address && { address: siteConfig.contact.address }),

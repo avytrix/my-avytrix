@@ -26,7 +26,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
     <div id="breadcrumbs" className="max-w-[1200px] mx-auto px-4">
       <nav aria-label="Breadcrumb" className="flex items-center text-sm text-gray-500 py-5">
         {/* Home */}
-        <Link href="/" className="hover:text-[#0058EE] flex items-center" aria-label="Home">
+        <Link prefetch={false} href="/" className="hover:text-[#0058EE] flex items-center" aria-label="Home">
           <House className="w-4 h-4" aria-hidden="true" />
         </Link>
 
@@ -49,7 +49,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
               ) : groupMeta ? (
                 // Parent group: icon on mobile/tablet, icon + text on desktop
                 item.href ? (
-                  <Link
+                  <Link prefetch={false}
                     href={item.href}
                     className="hover:text-[#0058EE] flex items-center gap-1"
                     title={groupMeta.label}
@@ -68,7 +68,7 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
               ) : (
                 // Fallback for non-group parents
                 item.href ? (
-                  <Link
+                  <Link prefetch={false}
                     href={item.href}
                     className="hover:text-[#0058EE] truncate max-w-[120px] md:max-w-none"
                     title={item.label}

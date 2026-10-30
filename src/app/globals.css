@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --font-family-sans: "Inter", "Poppins", ui-sans-serif, system-ui, sans-serif;
   --color-primary: #0058EE;
   --color-primary-dark: #00358f;
   --color-dark-blue: #0A3176;

@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="md:hidden">
           {/* Logo Section - Centered */}
           <div className="text-center mb-8">
-            <Link href="/" className="inline-block mb-3">
+            <Link prefetch={false} href="/" className="inline-block mb-3">
               <Image
                 src={siteConfig.logoUrl}
                 alt={`${siteConfig.name} logo`}
@@ -39,7 +39,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {navigation.footer.services.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
                     >
@@ -58,7 +58,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {navigation.footer.locations.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
                     >
@@ -77,7 +77,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {navigation.footer.company.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
                     >
@@ -111,7 +111,7 @@ export default function Footer() {
                   </a>
                 </li>
                 <li className="pt-2">
-                  <Link
+                  <Link prefetch={false}
                     href="/contact"
                     className="inline-block bg-[#0058EE] hover:bg-[#00358f] text-white text-xs font-medium py-2 px-4 rounded-full transition-colors"
                   >
@@ -128,7 +128,7 @@ export default function Footer() {
           <div className="grid grid-cols-6 gap-6">
             {/* Logo Column */}
             <div className="col-span-2">
-              <Link href="/" className="inline-block mb-4">
+              <Link prefetch={false} href="/" className="inline-block mb-4">
                 <Image
                   src={siteConfig.logoUrl}
                   alt={`${siteConfig.name} logo`}
@@ -150,7 +150,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {navigation.footer.services.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
                     >
@@ -169,7 +169,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {navigation.footer.locations.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
                     >
@@ -186,7 +186,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {navigation.footer.company.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       className="text-sm text-gray-400 hover:text-[#0058EE] transition-colors"
                     >
@@ -226,7 +226,7 @@ export default function Footer() {
         <div className="hidden lg:grid lg:grid-cols-5 lg:gap-10">
           {/* Logo Column */}
           <div>
-            <Link href="/" className="inline-block mb-4">
+            <Link prefetch={false} href="/" className="inline-block mb-4">
               <Image
                 src={siteConfig.logoUrl}
                 alt={`${siteConfig.name} logo`}
@@ -251,7 +251,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navigation.footer.services.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
@@ -270,7 +270,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navigation.footer.locations.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
@@ -287,7 +287,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {navigation.footer.company.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <Link prefetch={false}
                     href={link.href}
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
@@ -319,7 +319,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="pt-2">
-                <Link
+                <Link prefetch={false}
                   href="/contact"
                   className="inline-block bg-[#0058EE] hover:bg-[#00358f] text-white text-sm font-medium py-2 px-4 rounded-full transition-colors"
                 >

@@ -29,7 +29,7 @@ export default function HomePage() {
           <h1 className="text-4xl md:text-5xl font-semibold leading-[40px] lg:leading-[56px]">{hero.heading}</h1>
           <p className="text-xl font-medium text-[#0058EE] my-4">{hero.subheading}</p>
           <p className="text-base text-gray-600 max-w-lg">{hero.paragraph}</p>
-          <Link
+          <Link prefetch={false}
             href={hero.buttonUrl}
             className="mt-8 inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-12 rounded-full transition-colors"
           >
@@ -62,7 +62,7 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6 mt-10">
             {aiHighlight.items.map((item) => (
-              <Link
+              <Link prefetch={false}
                 key={item.href}
                 href={item.href}
                 className="group block bg-white rounded-xl p-6 shadow-lg transition-transform hover:-translate-y-1"
@@ -86,7 +86,7 @@ export default function HomePage() {
           <p className="text-center max-w-xl mx-auto mt-4 text-gray-600">{servicesOverview.subheading}</p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
             {servicesOverview.services.map((service) => (
-              <Link
+              <Link prefetch={false}
                 key={service.title}
                 href={service.buttonUrl}
                 className="service-card block p-6 rounded-lg transition-transform transform hover:-translate-y-2 hover:shadow-xl"
@@ -131,7 +131,7 @@ export default function HomePage() {
             <div className="content space-y-4">
               <FaqAccordion items={digitalInnovation.faqItems} />
               <div className="text-center mt-10">
-                <Link
+                <Link prefetch={false}
                   href={digitalInnovation.buttonUrl}
                   className="inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-8 rounded-full transition-colors"
                 >

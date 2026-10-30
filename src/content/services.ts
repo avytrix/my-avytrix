@@ -42,9 +42,9 @@ export const services: Service[] = [
   {
     slug: "custom-software-development",
     title: "Custom Software Development",
-    metaTitle: "Custom Software Development Services | Avytrix Technologies",
+    metaTitle: `Custom Software Development Services | ${siteConfig.name}`,
     description:
-      "Custom software built around your workflows: scalable architecture, SQL/NoSQL database design, API integration and CI/CD. Talk to Avytrix Technologies.",
+      `Custom software built around your workflows: scalable architecture, SQL/NoSQL database design, API integration and CI/CD. Talk to ${siteConfig.name}.`,
     intro: {
       pageTitle: "Custom Software Development",
       mainTitle: "Software Built Around How Your Business Works",
@@ -69,7 +69,7 @@ export const services: Service[] = [
             targetId: "Overview",
             title: "Software Built for Your Business",
             content:
-              "Avytrix Technologies builds custom software around the way your business runs. Our applications remove manual work, make life easier for your users and automate routine processes. Off-the-shelf tools often cannot keep up with complex or changing requirements. Custom software gives you the flexibility and performance to grow.",
+              `${siteConfig.name} builds custom software around the way your business runs. Our applications remove manual work, make life easier for your users and automate routine processes. Off-the-shelf tools often cannot keep up with complex or changing requirements. Custom software gives you the flexibility and performance to grow.`,
             listBlocks: [
               {
                 listSubtitle: "Why businesses choose custom software:",
@@ -119,7 +119,7 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
+            buttonText: `Why Choose ${siteConfig.name}`,
             targetId: "process-development",
             title: "Built for You, With You",
             content:
@@ -158,7 +158,7 @@ export const services: Service[] = [
   {
     slug: "web-development",
     title: "Web Development",
-    metaTitle: "Web Development Services | Avytrix Technologies",
+    metaTitle: `Web Development Services | ${siteConfig.name}`,
     description:
       "Web development services for startups and businesses in the USA, Europe and Australia: fast, secure websites and web apps built with React, Vue and Node.js.",
     intro: {
@@ -185,7 +185,7 @@ export const services: Service[] = [
             targetId: "web-overview",
             title: "Build Smart, Fast & Secure",
             content:
-              "Avytrix Technologies builds responsive, SEO-friendly websites and web applications that help your business grow. They look good, but they are also fast, accessible and ready to scale on any device. Whether you need a company website, a SaaS dashboard or a full web portal, we deliver secure, standards-compliant platforms that serve your users and your goals.",
+              `${siteConfig.name} builds responsive, SEO-friendly websites and web applications that help your business grow. They look good, but they are also fast, accessible and ready to scale on any device. Whether you need a company website, a SaaS dashboard or a full web portal, we deliver secure, standards-compliant platforms that serve your users and your goals.`,
             listBlocks: [
               {
                 listAfterPara:
@@ -234,11 +234,11 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "web-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "web-why-us",
             title: "Web Platforms Built Around Your Business",
             content:
-              "Avytrix Technologies builds custom web platforms that grow with your business. We do more than the visible front end: we build the back end that handles complex business logic, user roles and automation.",
+              `${siteConfig.name} builds custom web platforms that grow with your business. We do more than the visible front end: we build the back end that handles complex business logic, user roles and automation.`,
             listBlocks: [
               {
                 listSubtitle: "Why choose us for web development:",
@@ -261,9 +261,9 @@ export const services: Service[] = [
   {
     slug: "mobile-app-development",
     title: "Mobile App Development",
-    metaTitle: "iOS & Android App Development | Avytrix Technologies",
+    metaTitle: `iOS & Android App Development | ${siteConfig.name}`,
     description:
-      "Native iOS (Swift) and Android (Kotlin) apps, or cross-platform React Native and Flutter, from discovery to app store launch. Build with Avytrix Technologies.",
+      `Native iOS (Swift) and Android (Kotlin) apps, or cross-platform React Native and Flutter, from discovery to app store launch. Build with ${siteConfig.name}.`,
     intro: {
       pageTitle: "Mobile App Development",
       mainTitle: "Native and Cross-Platform Mobile Apps",
@@ -287,7 +287,7 @@ export const services: Service[] = [
             targetId: "mobile-overview",
             title: "Apps That Users Love",
             content:
-              "Avytrix Technologies builds mobile apps that look good and do their job well. Whether you need a native iOS app, an Android app or one cross-platform app, we build something your users will come back to.",
+              `${siteConfig.name} builds mobile apps that look good and do their job well. Whether you need a native iOS app, an Android app or one cross-platform app, we build something your users will come back to.`,
             listBlocks: [
               {
                 listSubtitle: "Our mobile development services:",
@@ -322,8 +322,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "mobile-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "mobile-why-us",
             title: "Your Mobile Partner",
             content:
               "We have years of mobile development experience in healthcare, finance, retail and education.",
@@ -347,9 +347,9 @@ export const services: Service[] = [
   {
     slug: "ux-ui-design",
     title: "UX/UI Design Services",
-    metaTitle: "UX/UI Design for Web & Mobile | Avytrix Technologies",
+    metaTitle: `UX/UI Design for Web & Mobile | ${siteConfig.name}`,
     description:
-      "User research, wireframes, prototypes, visual design and design systems for web, mobile and SaaS, tested with real users. Start with Avytrix Technologies.",
+      `User research, wireframes, prototypes, visual design and design systems for web, mobile and SaaS, tested with real users. Start with ${siteConfig.name}.`,
     intro: {
       pageTitle: "UX/UI Design",
       mainTitle: "Design People Enjoy Using",
@@ -408,8 +408,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "design-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "design-why-us",
             title: "How We Design",
             content:
               "Our designers pair creativity with business sense, so the result works for your users and for you.",
@@ -433,9 +433,9 @@ export const services: Service[] = [
   {
     slug: "api-development",
     title: "API Development & Integration",
-    metaTitle: "API Development & Integration | Avytrix Technologies",
+    metaTitle: `API Development & Integration | ${siteConfig.name}`,
     description:
-      "REST and GraphQL APIs plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to Avytrix Technologies.",
+      `REST and GraphQL APIs plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to ${siteConfig.name}.`,
     intro: {
       pageTitle: "API Development",
       mainTitle: "Connect Your Systems",
@@ -493,8 +493,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "api-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "api-why-us",
             title: "API Experience",
             content:
               "Our team has built and integrated APIs for many industries and platforms.",
@@ -518,9 +518,9 @@ export const services: Service[] = [
   {
     slug: "cloud-solutions",
     title: "Cloud Solutions & Infrastructure",
-    metaTitle: "Cloud Solutions on AWS, Azure & GCP | Avytrix Technologies",
+    metaTitle: `Cloud Solutions on AWS, Azure & GCP | ${siteConfig.name}`,
     description:
-      "Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization on AWS, Azure, GCP and DigitalOcean. Plan it with Avytrix Technologies.",
+      `Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization on AWS, Azure, GCP and DigitalOcean. Plan it with ${siteConfig.name}.`,
     intro: {
       pageTitle: "Cloud Solutions",
       mainTitle: "Infrastructure That Scales in the Cloud",
@@ -578,8 +578,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "cloud-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "cloud-why-us",
             title: "Cloud Expertise",
             content:
               "Our certified cloud architects help you build and run dependable cloud infrastructure.",
@@ -603,9 +603,9 @@ export const services: Service[] = [
   {
     slug: "qa-and-testing",
     title: "Software QA & Testing",
-    metaTitle: "Software QA & Testing Services | Avytrix Technologies",
+    metaTitle: `Software QA & Testing Services | ${siteConfig.name}`,
     description:
-      "Manual, automated, performance, security, API and mobile testing, plus regression and UAT built into your CI pipeline. Ship better with Avytrix Technologies.",
+      `Manual, automated, performance, security, API and mobile testing, plus regression and UAT built into your CI pipeline. Ship better with ${siteConfig.name}.`,
     intro: {
       pageTitle: "QA & Testing",
       mainTitle: "Quality Assurance for Reliable Software",
@@ -664,8 +664,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "qa-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "qa-why-us",
             title: "Why Our QA Works",
             content:
               "Our QA engineers are experienced, careful and thorough.",
@@ -689,9 +689,9 @@ export const services: Service[] = [
   {
     slug: "dedicated-development-teams",
     title: "Dedicated Development Teams",
-    metaTitle: "Dedicated Development Teams | Avytrix Technologies",
+    metaTitle: `Dedicated Development Teams | ${siteConfig.name}`,
     description:
-      "Full-stack, mobile, DevOps, QA and UI/UX specialists as a dedicated team, team augmentation or project-based team. Scale up with Avytrix Technologies.",
+      `Full-stack, mobile, DevOps, QA and UI/UX specialists as a dedicated team, team augmentation or project-based team. Scale up with ${siteConfig.name}.`,
     intro: {
       pageTitle: "Dedicated Teams",
       mainTitle: "Grow Your Team With Experienced Developers",
@@ -750,8 +750,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "teams-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "teams-why-us",
             title: "A Long-Term Partner",
             content:
               "We aim for long working relationships built on trust and openness.",
@@ -775,9 +775,9 @@ export const services: Service[] = [
   {
     slug: "ecommerce-solutions",
     title: "E-commerce & Enterprise Solutions",
-    metaTitle: "E-commerce & Enterprise Software | Avytrix Technologies",
+    metaTitle: `E-commerce & Enterprise Software | ${siteConfig.name}`,
     description:
-      "Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payments, ERP and CRM systems and dashboards. Build with Avytrix Technologies.",
+      `Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payments, ERP and CRM systems and dashboards. Build with ${siteConfig.name}.`,
     intro: {
       pageTitle: "E-commerce Solutions",
       mainTitle: "E-commerce and Enterprise Platforms",
@@ -835,8 +835,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "ecommerce-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "ecommerce-why-us",
             title: "Commerce Experience",
             content:
               "Our team has built many successful e-commerce and enterprise systems.",
@@ -860,7 +860,7 @@ export const services: Service[] = [
   {
     slug: "ongoing-support",
     title: "Ongoing Support & Maintenance",
-    metaTitle: "Software Support & Maintenance | Avytrix Technologies",
+    metaTitle: `Software Support & Maintenance | ${siteConfig.name}`,
     description:
       "Monitoring, bug fixes, security updates, performance tuning and feature work, on business-hours, extended or 24/7 enterprise plans. Keep your software healthy.",
     intro: {
@@ -920,8 +920,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "support-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "support-why-us",
             title: "Support You Can Count On",
             content:
               "We respond quickly and spot problems before they reach your users.",
@@ -945,9 +945,9 @@ export const services: Service[] = [
   {
     slug: "seo",
     title: "SEO Services",
-    metaTitle: "Technical, On-Page & Local SEO | Avytrix Technologies",
+    metaTitle: `Technical, On-Page & Local SEO | ${siteConfig.name}`,
     description:
-      "Technical SEO audits, keyword research, on-page and content optimization, local SEO, link building and site speed work. Grow traffic with Avytrix Technologies.",
+      `Technical SEO audits, keyword research, on-page and content optimization, local SEO, link building and site speed work. Grow traffic with ${siteConfig.name}.`,
     intro: {
       pageTitle: "SEO Services",
       mainTitle: "Search Engine Optimization",
@@ -1005,8 +1005,8 @@ export const services: Service[] = [
             ],
           },
           {
-            buttonText: "Why Choose Avytrix Technologies",
-            targetId: "seo-why-avytrix",
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "seo-why-us",
             title: "SEO Experience",
             content:
               "Our SEO team keeps up with algorithm updates and current best practice.",

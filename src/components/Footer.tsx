@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-block mb-3">
               <Image
-                src={`${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png`}
+                src={siteConfig.logoUrl}
                 alt={`${siteConfig.name} logo`}
                 width={160}
                 height={64}
@@ -130,7 +130,7 @@ export default function Footer() {
             <div className="col-span-2">
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src={`${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png`}
+                  src={siteConfig.logoUrl}
                   alt={`${siteConfig.name} logo`}
                   width={160}
                   height={64}
@@ -228,7 +228,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src={`${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png`}
+                src={siteConfig.logoUrl}
                 alt={`${siteConfig.name} logo`}
                 width={145}
                 height={58}
@@ -239,7 +239,7 @@ export default function Footer() {
               Web Development Company for Startups and Growing Businesses
             </p>
             <p className="text-xs text-gray-400">
-              © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
+              © {new Date().getFullYear()} {siteConfig.legal.name || siteConfig.name}. All Rights Reserved.
             </p>
           </div>
 
@@ -335,7 +335,7 @@ export default function Footer() {
       <div className="border-t border-gray-700/50 lg:hidden">
         <div className="max-w-[1200px] mx-auto px-4 py-5">
           <p className="text-center text-sm text-gray-400">
-            © {new Date().getFullYear()} Avytrix Technologies{siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}. All Rights Reserved.
+            © {new Date().getFullYear()} {siteConfig.legal.name || siteConfig.name}. All Rights Reserved.
           </p>
         </div>
       </div>

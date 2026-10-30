@@ -173,7 +173,7 @@ export const homeContent = {
           "Code reviews, automated tests and modern tools keep what we build secure, stable and ready to scale.",
       },
     ],
-    buttonText: "Start Your Project with Avytrix Technologies",
+    buttonText: `Start Your Project with ${siteConfig.name}`,
     buttonUrl: "/contact",
   },
 

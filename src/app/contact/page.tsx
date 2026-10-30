@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
-// Contact form disabled: GitHub Pages can't run its API routes. Re-enable with a backend.
-// import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/ContactForm";
 import { Mail, Phone, MapPin, User } from "lucide-react";
 import { siteConfig } from "@/lib/config";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -58,12 +57,13 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Form Column (disabled, see import note)
-          <div className="lg:col-span-2 bg-gray-50 p-4 rounded-lg">
-            <h2 className="text-3xl font-semibold mb-8">Send Us a Message</h2>
-            <ContactForm />
-          </div>
-          */}
+          {/* Form posts to the contact Worker; hidden if NEXT_PUBLIC_CONTACT_API_URL is unset */}
+          {siteConfig.contactApiUrl && (
+            <div className="lg:col-span-2 bg-gray-50 p-4 lg:p-10 rounded-lg">
+              <h2 className="text-3xl font-semibold mb-8">Send Us a Message</h2>
+              <ContactForm />
+            </div>
+          )}
 
           {/* Direct Contact Column */}
           <div className="lg:col-span-2 bg-gray-50 p-6 lg:p-10 rounded-lg">

@@ -42,7 +42,7 @@ export default function ServicesPage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
-            <Link
+            <Link prefetch={false}
               key={service.slug}
               href={`/services/${service.slug}`}
               className="block p-6 bg-white rounded-lg border hover:shadow-xl transition-all transform hover:-translate-y-1"
@@ -69,7 +69,7 @@ export default function ServicesPage() {
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
             Tell us what you want to build and we will show you how we would do it.
           </p>
-          <Link
+          <Link prefetch={false}
             href="/contact"
             className="inline-block bg-white text-[#0058EE] font-medium py-3 px-8 rounded-full hover:bg-gray-100 transition-colors"
           >

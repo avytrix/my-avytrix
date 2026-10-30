@@ -1,23 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import { siteConfig } from "@/lib/config";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  variable: "--font-poppins",
-  display: "swap",
-});
+// No web fonts: the theme uses the system font stack, so Inter/Poppins were downloaded but never shown
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -50,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en">
       <head>
         <link rel="preconnect" href={new URL(siteConfig.cdnUrl).origin} />
         <link rel="icon" href="/favicon.ico" sizes="any" />

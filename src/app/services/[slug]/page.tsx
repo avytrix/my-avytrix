@@ -76,7 +76,7 @@ export default async function ServicePage({ params }: Props) {
           <div className="content">
             <h1 className="text-3xl md:text-4xl font-semibold leading-[46px]">{intro.pageTitle}</h1>
             <p className="text-lg text-gray-600 mt-2">{intro.paragraph}</p>
-            <Link
+            <Link prefetch={false}
               href={intro.buttonUrl}
               className="mt-8 inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-4 lg:px-8 rounded-full transition-colors"
             >
@@ -108,7 +108,7 @@ export default async function ServicePage({ params }: Props) {
           <p className="text-gray-600 mb-8">
             Tell us about your project and we will explain how our {service.title.replace(/ services$/i, "").toLowerCase()} services can help.
           </p>
-          <Link
+          <Link prefetch={false}
             href="/contact"
             className="inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-8 rounded-full transition-colors"
           >

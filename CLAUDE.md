@@ -25,7 +25,7 @@ Branch flow (enforced by repo rulesets): feature branch → PR into `develop` (s
 
 `.github/workflows/ci.yml` runs Lint, Type check, Build site and Source branch on every PR (these job names are the rulesets' required checks; renaming one blocks every PR) and deploys on every push to `main`. It builds a static export (`output: "export"` in `next.config.ts` when `NEXT_OUTPUT=export`, set by CI) and publishes `out/` to GitHub Pages. Images go through the ImageKit loader (`src/lib/imagekit-loader.ts`) for responsive sizes; do not add `static_site_generator: next` to `configure-pages`, it forces unoptimized images.
 
-GitHub Pages is static-only, so the workflow deletes `src/app/api` before building. The contact form's API routes do not run on Pages.
+GitHub Pages is static-only, so the contact form posts to a Cloudflare Worker (`worker/`, at `NEXT_PUBLIC_CONTACT_API_URL`). It verifies reCAPTCHA v3, rate-limits (Upstash, 1/day per IP and email) and sends two Resend templates: `contact-confirmation` to the visitor and `contact-team-notification` to the team. Deploy the Worker with `scripts/deploy-contact-worker.sh` (values from `.env.local`). Templates are generated from `src/lib/email-templates.ts`; after editing them run `npx -y tsx --env-file=.env.local scripts/resend-templates.mts`. Validation rules live in `src/lib/contact-schema.ts`, shared by the form and the Worker.
 Any route must be statically renderable: dynamic routes need `generateStaticParams`, and metadata routes need `export const dynamic = "force-static"`.
 
 ## SEO / AEO
@@ -50,8 +50,6 @@ Follows `seo_and_aeo_engineering_standard.md` (v2.1). Rules that bite:
 | `/web-development/[slug]` | Region landing pages (SEO: web development company for USA, UK, Europe, Germany, Australia, Singapore) |
 | `/privacy-policy` | Privacy policy |
 | `/terms-conditions` | Terms & conditions |
-| `/api/verify-recaptcha` | Server-side reCAPTCHA verification |
-| `/api/send-email` | Contact form email via Resend |
 
 `src/lib/seo.ts` - `pageMetadata()` and `pageGraph()` (single JSON-LD graph)
 
@@ -73,8 +71,9 @@ Follows `seo_and_aeo_engineering_standard.md` (v2.1). Rules that bite:
 
 **Lib** (`src/lib/`):
 - `config.ts` - Site metadata, navigation menus, email config
-- `email-templates.ts` - Customer and internal notification emails
-- `rate-limit.ts` - Rate limiting for API routes
+- `email-templates.ts` - Source HTML for the two Resend templates
+- `contact-schema.ts` - Contact form validation (form + Worker)
+- `imagekit-loader.ts` - next/image loader for ImageKit
 
 ## Environment Variables
 
@@ -105,6 +104,7 @@ Edit `src/content/services.ts` and add to the `services` array:
 |---------|---------|
 | ImageKit CDN | Image hosting (`NEXT_PUBLIC_CDN_URL`) |
 | Google reCAPTCHA v3 | Form protection (`NEXT_PUBLIC_RECAPTCHA_SITE_KEY`) |
-| Resend | Contact form email delivery |
+| Resend | Contact form email delivery (templates) |
 | Upstash Redis | Contact form rate limiting |
+| Cloudflare Workers | Contact form backend (`worker/`) |
 | GitHub Pages | Hosting |

@@ -27,6 +27,9 @@ export const siteConfig = {
     (url): url is string => !!url
   ),
 
+  // Contact form backend (Cloudflare Worker in worker/); the form is hidden when unset
+  contactApiUrl: process.env.NEXT_PUBLIC_CONTACT_API_URL ?? "",
+
   // reCAPTCHA v3
   recaptchaSiteKey: env(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, "NEXT_PUBLIC_RECAPTCHA_SITE_KEY"),
 

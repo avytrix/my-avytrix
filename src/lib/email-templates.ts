@@ -117,12 +117,8 @@ export function getNotificationTemplate(data: {
   company: string;
   service: string;
   message: string;
+  submittedAt: string;
 }): string {
-  const timestamp = new Date().toLocaleString("en-US", {
-    timeZone: "Asia/Ho_Chi_Minh",
-    dateStyle: "full",
-    timeStyle: "long",
-  });
 
   return `<!DOCTYPE html>
 <html>
@@ -173,7 +169,7 @@ export function getNotificationTemplate(data: {
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-bottom: 16px; font-family: 'Inter', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #4a5568;" width="150">Date of Request:</td>
-<td style="padding-bottom: 16px; font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #2d3748;">${timestamp}</td>
+<td style="padding-bottom: 16px; font-family: 'Inter', Arial, sans-serif; font-size: 15px; color: #2d3748;">${data.submittedAt}</td>
 </tr>
 <tr style="vertical-align: top;">
 <td style="padding-bottom: 24px; font-family: 'Inter', Arial, sans-serif; font-size: 15px; font-weight: 600; color: #4a5568;" width="150">Service of Interest:</td>

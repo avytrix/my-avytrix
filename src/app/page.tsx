@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
 import { homeContent } from "@/content/home";
@@ -9,9 +10,9 @@ import FaqAccordion from "@/components/FaqAccordion";
 
 const seo = {
   path: "",
-  title: "Web Development Company for Startups | Avytrix Technologies",
+  title: `Web Development Company for Startups | ${siteConfig.name}`,
   description:
-    "Avytrix Technologies is a web development company building websites, web apps and custom software for startups and businesses in the USA, Europe and Australia.",
+    `${siteConfig.name} is a web development company building websites, web apps and custom software for startups and businesses in the USA, Europe and Australia.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -38,7 +39,7 @@ export default function HomePage() {
         <div className="hero-image lg:flex flex-1 justify-center py-6 lg:py-0">
           <Image
             src={hero.image}
-            alt="Avytrix Technologies web developer at work"
+            alt={`${siteConfig.name} web developer at work`}
             width={500}
             height={400}
             className="max-w-full h-auto"

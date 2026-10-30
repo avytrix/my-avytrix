@@ -175,7 +175,7 @@ export default async function LocationPage({ params }: Props) {
         <div className="max-w-[1200px] mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              Why {location.country} Businesses Choose Avytrix Technologies
+              Why {location.country} Businesses Choose {siteConfig.name}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               We know how {location.region} businesses work and build websites and software that fit.
@@ -331,7 +331,7 @@ export default async function LocationPage({ params }: Props) {
             Ready to Build Your Next Project?
           </h2>
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            Join the {location.testimonialRegion} that work with Avytrix Technologies on their websites and software.
+            Join the {location.testimonialRegion} that work with {siteConfig.name} on their websites and software.
             Book a free consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

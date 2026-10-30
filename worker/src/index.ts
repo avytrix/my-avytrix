@@ -9,6 +9,7 @@ interface Env {
   EXTRA_ORIGINS: string; // comma-separated, e.g. http://localhost:3000 for local testing
   EMAIL_FROM: string; // "Name <address>"
   NOTIFICATION_EMAIL: string;
+  TIMEZONE: string; // IANA zone for the team email timestamp, e.g. Asia/Ho_Chi_Minh
   // secrets
   RESEND_API_KEY: string;
   RECAPTCHA_SECRET_KEY: string;
@@ -92,7 +93,7 @@ const worker = {
           COMPANY: escape(company),
           SERVICE: escape(service),
           MESSAGE: escape(message).replace(/\n/g, "<br>"),
-          SUBMITTED_AT: new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh", dateStyle: "full", timeStyle: "long" }),
+          SUBMITTED_AT: new Date().toLocaleString("en-US", { timeZone: env.TIMEZONE, dateStyle: "full", timeStyle: "long" }),
         },
       },
     });

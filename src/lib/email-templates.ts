@@ -8,7 +8,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thank You for Contacting Avytrix Technologies</title>
+  <title>Thank You for Contacting ${siteConfig.name}</title>
 </head>
 <body style="margin: 0; padding: 0;">
 <table style="background-color: #f9fafb;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -18,7 +18,7 @@ export function getCustomerEmailTemplate(name: string): string {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png?tr=w-300" alt="Avytrix Technologies logo" width="150" height="60"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="${siteConfig.name}" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.logoUrl}?tr=w-300" alt="${siteConfig.name} logo" width="150" height="60"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">
@@ -110,7 +110,7 @@ export function getCustomerEmailTemplate(name: string): string {
 </html>`;
 }
 
-// Email template for Avytrix Technologies (new contact notification)
+// Email template for the team (new contact notification)
 export function getNotificationTemplate(data: {
   name: string;
   email: string;
@@ -135,7 +135,7 @@ export function getNotificationTemplate(data: {
 <table class="content-table" style="background-color: #ffffff; border-radius: 12px; max-width: 600px;" role="presentation" border="0" width="600" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="padding: 40px 24px 24px 24px;" align="center"><a title="Avytrix Technologies" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.cdnUrl}/brand/avytrix-technologies-logo.png?tr=w-300" alt="Avytrix Technologies logo" width="150" height="60"> </a></td>
+<td style="padding: 40px 24px 24px 24px;" align="center"><a title="${siteConfig.name}" href="${siteConfig.url}"> <img style="display: block; border-radius: 6px;" src="${siteConfig.logoUrl}?tr=w-300" alt="${siteConfig.name} logo" width="150" height="60"> </a></td>
 </tr>
 <tr>
 <td style="padding: 0 24px 16px 24px;" align="center">
@@ -203,8 +203,8 @@ export function getNotificationTemplate(data: {
 <tr>
 <td style="padding: 0 24px 40px 24px;" align="center">
 <p style="font-family: 'Inter', Arial, sans-serif; font-size: 14px; color: #718096; margin: 0;">Regards,</p>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; color: #2d3748; margin: 4px 0 0 0;">The Avytrix Technologies Team</p>
-<p style="font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #a0aec0; margin: 16px 0 0 0;">This is an automated notification from the Avytrix Technologies website.</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 14px; font-weight: 600; color: #2d3748; margin: 4px 0 0 0;">The ${siteConfig.name} Team</p>
+<p style="font-family: 'Inter', Arial, sans-serif; font-size: 12px; color: #a0aec0; margin: 16px 0 0 0;">This is an automated notification from the ${siteConfig.name} website.</p>
 </td>
 </tr>
 </tbody>

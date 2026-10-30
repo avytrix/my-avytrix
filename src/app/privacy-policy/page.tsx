@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/privacy-policy",
-  title: "Privacy Policy | Avytrix Technologies",
+  title: `Privacy Policy | ${siteConfig.name}`,
   description:
     `Read how ${siteConfig.name} collects, uses and protects your personal information when you use this website, and how to contact us about your data.`,
 };
@@ -57,8 +57,7 @@ export default function PrivacyPolicyPage() {
           <ul className="list-disc list-inside text-gray-600 space-y-2 mb-6">
             <li>
               <strong>Company</strong> (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or
-              &quot;Our&quot; in this Agreement) refers to {siteConfig.name}
-              {siteConfig.legal.name && <>, operated by {siteConfig.legal.name}</>}
+              &quot;Our&quot; in this Agreement) refers to {siteConfig.legal.name || siteConfig.name}
               {siteConfig.legal.taxId && <> (tax code {siteConfig.legal.taxId})</>}
               {siteConfig.contact.address && <>, {siteConfig.contact.address}</>}.
             </li>
@@ -69,7 +68,7 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Website</strong> refers to {siteConfig.name}, accessible from{" "}
               <Link href="/" className="text-[#0058EE] underline">
-                Avytrix Technologies
+                {siteConfig.name}
               </Link>
             </li>
             <li>

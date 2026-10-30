@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/config";
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/content/services";
@@ -8,7 +9,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 const seo = {
   path: "/services",
-  title: "Web & Software Development Services | Avytrix Technologies",
+  title: `Web & Software Development Services | ${siteConfig.name}`,
   description:
     "Web development, custom software, mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, SEO and dedicated teams for clients in the USA, Europe and Australia.",
 };

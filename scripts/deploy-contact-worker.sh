@@ -1,7 +1,8 @@
 #!/bin/sh
 # Deploys the contact form Worker (worker/) to Cloudflare with values from .env.local:
+#   name     <- CONTACT_WORKER_NAME
 #   domain   <- host of NEXT_PUBLIC_CONTACT_API_URL
-#   vars     <- NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_EMAIL_FROM_NAME/EMAIL_FROM, NEXT_PUBLIC_NOTIFICATION_EMAIL, CONTACT_EXTRA_ORIGINS
+#   vars     <- NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_EMAIL_FROM_NAME/EMAIL_FROM, NEXT_PUBLIC_NOTIFICATION_EMAIL, CONTACT_EXTRA_ORIGINS, CONTACT_TIMEZONE
 #   secrets  <- RESEND_API_KEY, RECAPTCHA_SECRET_KEY, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
 # Needs `wrangler login` once. Ignores CLOUDFLARE_API_TOKEN/ACCOUNT_ID from the shell (they may belong to another project).
 set -eu
@@ -16,9 +17,10 @@ secrets=$(mktemp); trap 'rm -f "$secrets"' EXIT; chmod 600 "$secrets"
 python3 -c 'import json, os; print(json.dumps({k: os.environ[k] for k in ["RESEND_API_KEY", "RECAPTCHA_SECRET_KEY", "UPSTASH_REDIS_REST_URL", "UPSTASH_REDIS_REST_TOKEN"]}))' > "$secrets"
 
 cd worker
-wrangler deploy --domain "$domain" \
+wrangler deploy --name "$CONTACT_WORKER_NAME" --domain "$domain" \
   --var "SITE_URL:$NEXT_PUBLIC_SITE_URL" \
   --var "EXTRA_ORIGINS:${CONTACT_EXTRA_ORIGINS:-}" \
   --var "EMAIL_FROM:$NEXT_PUBLIC_EMAIL_FROM_NAME <$NEXT_PUBLIC_EMAIL_FROM>" \
-  --var "NOTIFICATION_EMAIL:$NEXT_PUBLIC_NOTIFICATION_EMAIL"
-wrangler secret bulk "$secrets"
+  --var "NOTIFICATION_EMAIL:$NEXT_PUBLIC_NOTIFICATION_EMAIL" \
+  --var "TIMEZONE:$CONTACT_TIMEZONE"
+wrangler secret bulk "$secrets" --name "$CONTACT_WORKER_NAME"

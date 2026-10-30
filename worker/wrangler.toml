@@ -1,6 +1,5 @@
 # Contact form backend. GitHub Pages is static, so the form posts here.
 # Deploy with scripts/deploy-contact-worker.sh: it sets the domain, vars and secrets from .env.local.
-name = "avytrix-contact"
 main = "src/index.ts"
 compatibility_date = "2026-10-01"
 workers_dev = false

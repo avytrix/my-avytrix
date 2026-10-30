@@ -4,10 +4,35 @@ export const homeContent = {
     heading: "Web Development Company for Startups and Growing Businesses",
     subheading: "Web development services for clients in the USA, Europe and Australia",
     paragraph:
-      "We design and build websites, web applications and custom software with dedicated remote teams. Whether you need an MVP or a platform that serves thousands of users, we take it from first sketch to launch and keep it running after.",
+      "We design and build websites, web applications, AI features and custom software with dedicated remote teams. Whether you need an MVP or a platform that serves thousands of users, we take it from first sketch to launch and keep it running after.",
     buttonText: "Get a Free Consultation",
     buttonUrl: "/contact",
     image: `${siteConfig.cdnUrl}/hero/web-development-company-hero.png`,
+  },
+
+  aiHighlight: {
+    eyebrow: "New",
+    heading: "AI Development and MCP Servers",
+    subheading:
+      "Put AI to work in your product, and let AI assistants such as Claude and ChatGPT use your systems safely.",
+    items: [
+      {
+        title: "AI Development",
+        content:
+          "LLM-powered assistants, RAG search over your own data, AI agents and workflow automation, built with testing and guardrails.",
+        icon: `${siteConfig.cdnUrl}/icons/ai-development-icon.svg`,
+        href: "/services/ai-development",
+        cta: "Explore AI development",
+      },
+      {
+        title: "MCP Server Development",
+        content:
+          "Model Context Protocol servers that connect Claude, ChatGPT, Cursor and other AI assistants to your APIs, databases and tools.",
+        icon: `${siteConfig.cdnUrl}/icons/mcp-server-development-icon.svg`,
+        href: "/services/mcp-server-development",
+        cta: "Explore MCP servers",
+      },
+    ],
   },
 
   servicesOverview: {
@@ -15,6 +40,20 @@ export const homeContent = {
     subheading:
       "Pick one service or combine several. Every project gets the same care for speed, security and room to grow.",
     services: [
+      {
+        title: "AI Development",
+        content:
+          "Assistants, AI agents and RAG search that answer from your own data, built with OpenAI, Claude, Gemini or open-source models.",
+        imageLink: `${siteConfig.cdnUrl}/icons/ai-development-icon.svg`,
+        buttonUrl: "/services/ai-development",
+      },
+      {
+        title: "MCP Server Development",
+        content:
+          "Secure Model Context Protocol servers that let AI assistants such as Claude and ChatGPT use your APIs, data and tools.",
+        imageLink: `${siteConfig.cdnUrl}/icons/mcp-server-development-icon.svg`,
+        buttonUrl: "/services/mcp-server-development",
+      },
       {
         title: "Custom Software Development",
         content:

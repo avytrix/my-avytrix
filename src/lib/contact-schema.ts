@@ -3,8 +3,10 @@ import { z } from "zod";
 // Shared by the contact form (browser) and the contact Worker (worker/src/index.ts), so both enforce the same rules
 
 export const serviceOptions = [
-  "Custom Software Development",
   "Web Development",
+  "AI Development",
+  "MCP Server Development",
+  "Custom Software Development",
   "Mobile App Development",
   "Other",
 ];

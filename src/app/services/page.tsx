@@ -11,7 +11,7 @@ const seo = {
   path: "/services",
   title: `Web & Software Development Services | ${siteConfig.name}`,
   description:
-    "Web development, custom software, mobile apps, UX/UI design, APIs, cloud, QA, e-commerce, SEO and dedicated teams for clients in the USA, Europe and Australia.",
+    "Web development, AI, MCP servers, custom software, mobile apps, UX/UI, APIs, cloud, QA and SEO for clients in the USA, Europe and Australia.",
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -49,8 +49,7 @@ export default function ServicesPage() {
             >
               <Image
                 src={service.intro.image}
-                alt=""
-                aria-hidden="true"
+                alt={`${service.title} icon`}
                 width={48}
                 height={48}
                 className="w-12 h-12 mb-4 object-contain"

@@ -11,7 +11,7 @@ const seo = {
   path: "/about-us",
   title: `About Our Web Development Team | ${siteConfig.name}`,
   description:
-    `Meet ${siteConfig.name}, a remote web and software development team working with startups and growing businesses in the USA, Europe, the UK and Australia.`,
+    `Meet ${siteConfig.name}, a remote web and software development team for startups and growing businesses in the USA, Europe, the UK and Australia.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -177,7 +177,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {coreValues.items.map((item) => (
               <div key={item.title} className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-                <Image src={item.icon} alt="" aria-hidden="true" width={48} height={48} className="mb-4" />
+                <Image src={item.icon} alt={`${item.title} icon`} width={48} height={48} className="mb-4" />
                 <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.content}</p>
               </div>

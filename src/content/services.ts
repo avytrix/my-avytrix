@@ -44,7 +44,7 @@ export const services: Service[] = [
     title: "AI Development",
     metaTitle: `AI Development: LLM Apps, Agents, RAG | ${siteConfig.name}`,
     description:
-      "AI development services: LLM apps, AI agents, RAG search over your own data, chatbots and workflow automation built with OpenAI, Claude, Gemini or open models.",
+      "AI development services: LLM apps, AI agents, RAG search over your data and workflow automation built with OpenAI, Claude, Gemini or open models.",
     intro: {
       pageTitle: "AI Development Services",
       mainTitle: "AI Features Your Users Will Actually Use",
@@ -130,7 +130,7 @@ export const services: Service[] = [
     title: "MCP Server Development",
     metaTitle: `MCP Server Development & Integration | ${siteConfig.name}`,
     description:
-      "MCP server development: connect Claude, ChatGPT, Cursor and other AI assistants to your APIs, databases and tools with secure Model Context Protocol servers.",
+      "MCP server development: secure Model Context Protocol servers that connect Claude, ChatGPT and Cursor to your APIs, databases and tools.",
     intro: {
       pageTitle: "MCP Server Development",
       mainTitle: "Connect AI Assistants to Your Systems",
@@ -330,7 +330,7 @@ export const services: Service[] = [
     title: "Web Development",
     metaTitle: `Web Development Services | ${siteConfig.name}`,
     description:
-      "Web development services for startups and businesses in the USA, Europe and Australia: fast, secure websites and web apps built with React, Vue and Node.js.",
+      "Web development services for startups and businesses in the USA, Europe and Australia: fast, secure websites and web apps in React, Vue and Node.js.",
     intro: {
       pageTitle: "Web Development Services",
       mainTitle: "Websites and Web Apps That Work on Every Screen",
@@ -605,7 +605,7 @@ export const services: Service[] = [
     title: "API Development & Integration",
     metaTitle: `API Development & Integration | ${siteConfig.name}`,
     description:
-      `REST and GraphQL APIs plus integration with Stripe, Salesforce, HubSpot, SAP, Twilio and AWS, with security and documentation. Talk to ${siteConfig.name}.`,
+      `REST and GraphQL APIs plus Stripe, Salesforce, HubSpot, SAP, Twilio and AWS integrations, secured and documented. Talk to ${siteConfig.name}.`,
     intro: {
       pageTitle: "API Development",
       mainTitle: "Connect Your Systems",
@@ -690,7 +690,7 @@ export const services: Service[] = [
     title: "Cloud Solutions & Infrastructure",
     metaTitle: `Cloud Solutions on AWS, Azure & GCP | ${siteConfig.name}`,
     description:
-      `Cloud migration, infrastructure as code, Kubernetes, serverless and cost optimization on AWS, Azure, GCP and DigitalOcean. Plan it with ${siteConfig.name}.`,
+      `Cloud migration, infrastructure as code, Kubernetes, serverless and cost control on AWS, Azure, GCP and DigitalOcean. Plan it with ${siteConfig.name}.`,
     intro: {
       pageTitle: "Cloud Solutions",
       mainTitle: "Infrastructure That Scales in the Cloud",
@@ -947,7 +947,7 @@ export const services: Service[] = [
     title: "E-commerce & Enterprise Solutions",
     metaTitle: `E-commerce & Enterprise Software | ${siteConfig.name}`,
     description:
-      `Custom e-commerce, Shopify, WooCommerce and Magento builds, marketplaces, payments, ERP and CRM systems and dashboards. Build with ${siteConfig.name}.`,
+      `Online stores, Shopify, WooCommerce and Magento builds, marketplaces, payment integration, ERP and CRM systems from ${siteConfig.name}.`,
     intro: {
       pageTitle: "E-commerce Solutions",
       mainTitle: "E-commerce and Enterprise Platforms",
@@ -1032,7 +1032,7 @@ export const services: Service[] = [
     title: "Ongoing Support & Maintenance",
     metaTitle: `Software Support & Maintenance | ${siteConfig.name}`,
     description:
-      "Monitoring, bug fixes, security updates, performance tuning and feature work, on business-hours, extended or 24/7 enterprise plans. Keep your software healthy.",
+      "Monitoring, bug fixes, security updates, performance tuning and new features on business-hours, extended or 24/7 plans. Keep your software healthy.",
     intro: {
       pageTitle: "Ongoing Support",
       mainTitle: "Reliable Support and Maintenance",
@@ -1117,7 +1117,7 @@ export const services: Service[] = [
     title: "SEO Services",
     metaTitle: `Technical, On-Page & Local SEO | ${siteConfig.name}`,
     description:
-      `Technical SEO audits, keyword research, on-page and content optimization, local SEO, link building and site speed work. Grow traffic with ${siteConfig.name}.`,
+      `Technical SEO audits, keyword research, on-page and content work, local SEO, link building and site speed. Grow your traffic with ${siteConfig.name}.`,
     intro: {
       pageTitle: "SEO Services",
       mainTitle: "Search Engine Optimization",

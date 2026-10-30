@@ -12,7 +12,7 @@ const seo = {
   path: "",
   title: `Web Development Company for Startups | ${siteConfig.name}`,
   description:
-    `${siteConfig.name} is a web development company building websites, web apps and custom software for startups and businesses in the USA, Europe and Australia.`,
+    `${siteConfig.name} builds websites, web apps and custom software for startups and growing businesses in the USA, Europe and Australia.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -67,7 +67,7 @@ export default function HomePage() {
                 href={item.href}
                 className="group block bg-white rounded-xl p-6 shadow-lg transition-transform hover:-translate-y-1"
               >
-                <Image src={item.icon} alt="" aria-hidden="true" width={48} height={48} className="w-12 h-12 object-contain" />
+                <Image src={item.icon} alt={`${item.title} icon`} width={48} height={48} className="w-12 h-12 object-contain" />
                 <h3 className="text-xl font-semibold mt-4">{item.title}</h3>
                 <p className="text-sm text-gray-600 mt-2">{item.content}</p>
                 <span className="inline-block mt-4 text-sm font-semibold text-[#0058EE] group-hover:underline">
@@ -94,8 +94,7 @@ export default function HomePage() {
                 {service.imageLink && (
                   <Image
                     src={service.imageLink}
-                    alt=""
-                    aria-hidden="true"
+                    alt={`${service.title} icon`}
                     width={48}
                     height={48}
                     className="w-12 h-12 mb-6 object-contain"
@@ -154,13 +153,13 @@ export default function HomePage() {
                   <div className="py-8 px-2 lg:px-8 rounded-lg">
                     <h3 className="text-2xl font-semibold">{study.client}</h3>
                     <p className="mt-4 text-sm">
-                      <strong>Challenge:</strong> {study.challenge}
+                      <span className="font-semibold">Challenge:</span> {study.challenge}
                     </p>
                     <p className="mt-2 text-sm">
-                      <strong>Our Solution:</strong> {study.solution}
+                      <span className="font-semibold">Our Solution:</span> {study.solution}
                     </p>
                     <p className="mt-4 text-sm">
-                      <strong>Key Results:</strong>
+                      <span className="font-semibold">Key Results:</span>
                     </p>
                     <ul className="list-disc list-inside space-y-1 mt-2 text-sm">
                       {study.keyResults.map((result, i) => (

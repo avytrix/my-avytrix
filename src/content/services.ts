@@ -955,8 +955,8 @@ export const services: Service[] = [
         "SEO (search engine optimization) is the work that helps your website rank in Google and other search engines for the terms your customers search. Our SEO services cover technical audits, keyword research, on-page and content optimization, local SEO, link building, site speed and mobile optimization.",
       buttonText: "Improve Your Rankings",
       buttonUrl: "/contact",
-      image: `${siteConfig.cdnUrl}/icons/web-development-icon.svg`,
-      imageAlt: "SEO services",
+      image: `${siteConfig.cdnUrl}/services/seo-services.png`,
+      imageAlt: "SEO services: search rankings, keyword growth, site speed and local SEO",
     },
     sections: [
       {

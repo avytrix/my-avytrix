@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { navigation, siteConfig } from "@/lib/config";
 
@@ -15,13 +16,10 @@ export default function Header() {
     <header id="navbar" className="fixed top-0 left-0 w-full bg-white z-[999] border-b border-gray-200">
       <div className="container mx-auto h-[54px] flex justify-between items-center px-4 max-w-[1200px]">
         {/* Logo */}
-        <Link prefetch={false}
-          href="/"
-          className="block w-[120px] h-[40px] bg-contain bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${siteConfig.logoUrl}?tr=w-240)` }}
-          aria-label={siteConfig.name}
-          onClick={closeMenu}
-        />
+        {/* A real img (not a CSS background), so the home link has text for crawlers: the alt */}
+        <Link prefetch={false} href="/" className="block" onClick={closeMenu}>
+          <Image src={siteConfig.logoUrl} alt={`${siteConfig.name} home`} width={100} height={40} priority className="h-10 w-auto" />
+        </Link>
 
         {/* Main Navigation */}
         <div id="menubar" className="flex items-center gap-4">
@@ -54,8 +52,8 @@ export default function Header() {
                               <li key={link.name}>
                                 <Link prefetch={false} href={link.href} className="text-sm hover:text-[#0058EE] py-4">
                                   <span className="opacity-70">{link.name}</span>
-                                  {"badge" in link && <span className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
                                 </Link>
+                                {"badge" in link && <span aria-hidden="true" className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
                               </li>
                             ))}
                           </ul>
@@ -115,6 +113,7 @@ export default function Header() {
             : "-translate-y-4 opacity-0 max-h-0 pointer-events-none"
         }`}
       >
+        {mobileMenuOpen && (
         <nav className="p-4">
           {/* Main Menu Items */}
           <ul className="space-y-1">
@@ -174,6 +173,7 @@ export default function Header() {
             </Link>
           </div>
         </nav>
+        )}
       </div>
     </header>
   );
@@ -228,7 +228,7 @@ function MobileDropdown({ closeMenu, pathname }: { closeMenu: () => void; pathna
                       }`}
                     >
                       {link.name}
-                      {"badge" in link && <span className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
+                      {"badge" in link && <span aria-hidden="true" className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
                     </Link>
                   </li>
                 ))}

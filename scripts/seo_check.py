@@ -78,6 +78,14 @@ class Page(HTMLParser):
             self.text.append(data)
 
 
+
+# Arial 14px advance widths: how Google and SEO tools truncate snippets (~1000px). Unknown chars count as 'M'.
+ARIAL14 = {' ': 3.89, '!': 3.89, '"': 4.97, '#': 7.78, '$': 7.78, '%': 12.45, '&': 9.34, "'": 2.67, '(': 4.66, ')': 4.66, '*': 5.45, '+': 8.17, ',': 3.89, '-': 4.66, '.': 3.89, '/': 3.89, '0': 7.78, '1': 7.78, '2': 7.78, '3': 7.78, '4': 7.78, '5': 7.78, '6': 7.78, '7': 7.78, '8': 7.78, '9': 7.78, ':': 3.89, ';': 3.89, '<': 8.17, '=': 8.17, '>': 8.17, '?': 7.78, '@': 14.22, 'A': 9.34, 'B': 9.34, 'C': 10.11, 'D': 10.11, 'E': 9.34, 'F': 8.55, 'G': 10.89, 'H': 10.11, 'I': 3.89, 'J': 7.0, 'K': 9.34, 'L': 7.78, 'M': 11.66, 'N': 10.11, 'O': 10.89, 'P': 9.34, 'Q': 10.89, 'R': 10.11, 'S': 9.34, 'T': 8.55, 'U': 10.11, 'V': 9.34, 'W': 13.22, 'X': 9.34, 'Y': 9.34, 'Z': 8.55, '[': 3.89, '\\': 3.89, ']': 3.89, '^': 6.56, '_': 7.78, '`': 4.66, 'a': 7.78, 'b': 7.78, 'c': 7.0, 'd': 7.78, 'e': 7.78, 'f': 3.89, 'g': 7.78, 'h': 7.78, 'i': 3.11, 'j': 3.11, 'k': 7.0, 'l': 3.11, 'm': 11.66, 'n': 7.78, 'o': 7.78, 'p': 7.78, 'q': 7.78, 'r': 4.66, 's': 7.0, 't': 3.89, 'u': 7.78, 'v': 7.0, 'w': 10.11, 'x': 7.0, 'y': 7.0, 'z': 7.0, '{': 4.67, '|': 3.64, '}': 4.67, '~': 8.17}
+
+
+def desc_px(text):
+    return sum(ARIAL14.get(c, ARIAL14['M']) for c in text)
+
 def norm(s):
     return re.sub(r"\s+", " ", s).strip()
 
@@ -108,8 +116,10 @@ def check(out):
         if not p.title or len(p.title) > 60:
             e(f"title length {len(p.title)} (max 60): {p.title!r}")
         desc = p.meta.get("description", "")
-        if not 140 <= len(desc) <= 160:
-            e(f"description length {len(desc)} (140-160)")
+        if not 120 <= len(desc) <= 160:
+            e(f"description length {len(desc)} (120-160)")
+        if (px := desc_px(desc)) > 990:
+            e(f"description too wide for search results: {px:.0f}px (max 990, Arial 14px)")
         # Canonical
         c = p.canonical or ""
         if not c.startswith(ORIGIN):

@@ -41,20 +41,6 @@ export const homeContent = {
       "Pick one service or combine several. Every project gets the same care for speed, security and room to grow.",
     services: [
       {
-        title: "AI Development",
-        content:
-          "Assistants, AI agents and RAG search that answer from your own data, built with OpenAI, Claude, Gemini or open-source models.",
-        imageLink: `${siteConfig.cdnUrl}/icons/ai-development-icon.svg`,
-        buttonUrl: "/services/ai-development",
-      },
-      {
-        title: "MCP Server Development",
-        content:
-          "Secure Model Context Protocol servers that let AI assistants such as Claude and ChatGPT use your APIs, data and tools.",
-        imageLink: `${siteConfig.cdnUrl}/icons/mcp-server-development-icon.svg`,
-        buttonUrl: "/services/mcp-server-development",
-      },
-      {
         title: "Custom Software Development",
         content:
           "Software built from scratch around how your business actually works, so your team spends less time on workarounds.",

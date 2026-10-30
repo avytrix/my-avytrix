@@ -26,8 +26,9 @@ export default function Breadcrumb({ items }: BreadcrumbProps) {
     <div id="breadcrumbs" className="max-w-[1200px] mx-auto px-4">
       <nav aria-label="Breadcrumb" className="flex items-center text-sm text-gray-500 py-5">
         {/* Home */}
-        <Link prefetch={false} href="/" className="hover:text-[#0058EE] flex items-center" aria-label="Home">
+        <Link prefetch={false} href="/" className="hover:text-[#0058EE] flex items-center">
           <House className="w-4 h-4" aria-hidden="true" />
+          <span className="sr-only">Home</span>
         </Link>
 
         {items.map((item, index) => {

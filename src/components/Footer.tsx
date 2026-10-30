@@ -29,8 +29,8 @@ export default function Footer() {
           {/* Divider */}
           <div className="border-t border-gray-700/50 mb-8"></div>
 
-          {/* 2 Column Menu Grid */}
-          <div className="grid grid-cols-2 gap-6 mb-8">
+          {/* 2 Column Menu Grid: inset so the lists sit balanced under the centered logo */}
+          <div className="grid grid-cols-2 gap-6 mb-8 px-4 sm:px-8">
             {/* Services Column */}
             <div>
               <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-white">

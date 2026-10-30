@@ -24,10 +24,14 @@ export const siteConfig = {
     locale: "en_US",
   },
 
-  // Official profiles (schema.org sameAs); unset ones are skipped
-  social: [process.env.NEXT_PUBLIC_LINKEDIN_URL, process.env.NEXT_PUBLIC_FACEBOOK_URL].filter(
-    (url): url is string => !!url
-  ),
+  // Official profiles: footer icons and schema.org sameAs; unset ones are skipped
+  social: (
+    [
+      { network: "github", url: process.env.NEXT_PUBLIC_GITHUB_URL },
+      { network: "linkedin", url: process.env.NEXT_PUBLIC_LINKEDIN_URL },
+      { network: "facebook", url: process.env.NEXT_PUBLIC_FACEBOOK_URL },
+    ] as const
+  ).filter((p): p is typeof p & { url: string } => !!p.url),
 
   // Contact form backend (Cloudflare Worker in worker/); the form is hidden when unset
   contactApiUrl: process.env.NEXT_PUBLIC_CONTACT_API_URL ?? "",

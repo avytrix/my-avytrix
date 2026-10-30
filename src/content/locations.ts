@@ -1,3 +1,5 @@
+import { siteConfig } from "@/lib/config";
+
 export interface LocationData {
   slug: string;
   country: string;
@@ -25,8 +27,8 @@ export const locations: LocationData[] = [
     heroTitle: "Web Development Company for US Businesses",
     heroSubtitle: "Remote web and software development on US hours",
     heroDescription:
-      "Avytrix Technologies builds websites, web applications and custom software for US startups and enterprises. Our remote teams overlap with Eastern and Pacific time, so you get answers during your workday.",
-    metaTitle: "Web Development Company for the USA | Avytrix Technologies",
+      `${siteConfig.name} builds websites, web applications and custom software for US startups and enterprises. Our remote teams overlap with Eastern and Pacific time, so you get answers during your workday.`,
+    metaTitle: `Web Development Company for the USA | ${siteConfig.name}`,
     metaDescription:
       "Web development services for US startups and enterprises: websites, web apps, custom software and remote teams with EST and PST overlap. Free consultation.",
     keywords: [
@@ -73,8 +75,8 @@ export const locations: LocationData[] = [
     heroTitle: "Web Development Company for UK Businesses",
     heroSubtitle: "A remote web development partner on UK business hours",
     heroDescription:
-      "Avytrix Technologies builds websites, web applications and custom software for UK startups and established companies. Our teams overlap with GMT, so daily stand-ups and quick calls are easy.",
-    metaTitle: "Web Development Company for the UK | Avytrix Technologies",
+      `${siteConfig.name} builds websites, web applications and custom software for UK startups and established companies. Our teams overlap with GMT, so daily stand-ups and quick calls are easy.`,
+    metaTitle: `Web Development Company for the UK | ${siteConfig.name}`,
     metaDescription:
       "Web development services for UK startups and companies: websites, web apps, custom software and remote teams working in UK business hours. Free consultation.",
     keywords: [
@@ -121,8 +123,8 @@ export const locations: LocationData[] = [
     heroTitle: "Web Development Company for Australian Businesses",
     heroSubtitle: "A remote web development partner in your region",
     heroDescription:
-      "Avytrix Technologies builds websites, web applications and custom software for Australian businesses. Our APAC-based teams work during Australian business hours and understand the ANZ market.",
-    metaTitle: "Web Development for Australia | Avytrix Technologies",
+      `${siteConfig.name} builds websites, web applications and custom software for Australian businesses. Our APAC-based teams work during Australian business hours and understand the ANZ market.`,
+    metaTitle: `Web Development for Australia | ${siteConfig.name}`,
     metaDescription:
       "Web development services for Australian businesses: websites, web apps, custom software and remote teams aligned with AEST and AEDT hours. Free consultation.",
     keywords: [
@@ -169,8 +171,8 @@ export const locations: LocationData[] = [
     heroTitle: "Web Development Company for European Businesses",
     heroSubtitle: "A remote web development partner with GDPR built in",
     heroDescription:
-      "Avytrix Technologies builds websites, web applications and custom software for European businesses. Our teams overlap with CET and build GDPR requirements into every project.",
-    metaTitle: "Web Development Company for Europe | Avytrix Technologies",
+      `${siteConfig.name} builds websites, web applications and custom software for European businesses. Our teams overlap with CET and build GDPR requirements into every project.`,
+    metaTitle: `Web Development Company for Europe | ${siteConfig.name}`,
     metaDescription:
       "Web development services for European businesses: websites, web apps, custom software and remote teams with CET overlap and GDPR built in. Free consultation.",
     keywords: [
@@ -217,8 +219,8 @@ export const locations: LocationData[] = [
     heroTitle: "Web Development Company for Singapore Businesses",
     heroSubtitle: "Your development partner in Southeast Asia",
     heroDescription:
-      "Avytrix Technologies builds websites, web applications and custom software for Singapore businesses. We work from Vietnam, one hour behind Singapore, and know the APAC market well.",
-    metaTitle: "Web Development for Singapore | Avytrix Technologies",
+      `${siteConfig.name} builds websites, web applications and custom software for Singapore businesses. We work from Vietnam, one hour behind Singapore, and know the APAC market well.`,
+    metaTitle: `Web Development for Singapore | ${siteConfig.name}`,
     metaDescription:
       "Web development services for Singapore businesses: websites, web apps and custom software, delivered from Vietnam, one hour behind Singapore. Free consultation.",
     keywords: [
@@ -263,8 +265,8 @@ export const locations: LocationData[] = [
     heroTitle: "Web Development Company for German Businesses",
     heroSubtitle: "Careful engineering for German businesses",
     heroDescription:
-      "Avytrix Technologies builds websites, web applications and custom software for German companies. Our teams pair solid engineering with the precision and reliability German businesses expect.",
-    metaTitle: "Web Development Company for Germany | Avytrix Technologies",
+      `${siteConfig.name} builds websites, web applications and custom software for German companies. Our teams pair solid engineering with the precision and reliability German businesses expect.`,
+    metaTitle: `Web Development Company for Germany | ${siteConfig.name}`,
     metaDescription:
       "Web development services for German SMEs and Mittelstand firms: websites, web apps, custom software and remote teams on German working hours. Free consultation.",
     keywords: [

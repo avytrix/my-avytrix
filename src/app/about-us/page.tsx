@@ -9,16 +9,16 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/about-us",
-  title: "About Our Web Development Team | Avytrix Technologies",
+  title: `About Our Web Development Team | ${siteConfig.name}`,
   description:
-    "Meet Avytrix Technologies, a remote web and software development team working with startups and growing businesses in the USA, Europe, the UK and Australia.",
+    `Meet ${siteConfig.name}, a remote web and software development team working with startups and growing businesses in the USA, Europe, the UK and Australia.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);
 
 const aboutContent = {
   banner: {
-    heading: "About Avytrix Technologies",
+    heading: `About ${siteConfig.name}`,
     tagline:
       "We are a team of strategists, designers and developers who build websites, web applications and software that help businesses grow and solve real problems.",
     buttonText: "Start a Project With Us",
@@ -87,8 +87,8 @@ const aboutContent = {
   },
   whyUs: {
     image: `${siteConfig.cdnUrl}/illustrations/global-business-partnership.webp`,
-    title: "Why Partner with Avytrix Technologies?",
-    para: "When you work with Avytrix Technologies, you get a partner focused on your success. Here is what makes us different:",
+    title: `Why Partner with ${siteConfig.name}?`,
+    para: `When you work with ${siteConfig.name}, you get a partner focused on your success. Here is what makes us different:`,
     faqItems: [
       {
         question: "Global Collaboration, Local Understanding",
@@ -111,7 +111,7 @@ const aboutContent = {
           "We take the time to understand your business, so what we build fits your goals.",
       },
     ],
-    buttonText: "Start Your Project with Avytrix Technologies",
+    buttonText: `Start Your Project with ${siteConfig.name}`,
     buttonUrl: "/contact",
   },
 };
@@ -149,7 +149,7 @@ export default function AboutPage() {
             <div>
               <Image
                 src={twoColumn.image}
-                alt="Avytrix Technologies remote development team on a video call"
+                alt={`${siteConfig.name} remote development team on a video call`}
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"

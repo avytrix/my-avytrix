@@ -7,7 +7,7 @@ import { siteConfig } from "@/lib/config";
 
 const seo = {
   path: "/terms-conditions",
-  title: "Terms and Conditions | Avytrix Technologies",
+  title: `Terms and Conditions | ${siteConfig.name}`,
   description:
     `Read the terms and conditions that apply when you use the ${siteConfig.name} website and services, including limits of liability and the governing law.`,
 };

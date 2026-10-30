@@ -12,6 +12,8 @@ export const siteConfig = {
   name,
   url: env(process.env.NEXT_PUBLIC_SITE_URL, "NEXT_PUBLIC_SITE_URL"),
   cdnUrl,
+  // Full logo URL (header, footer, schema, emails)
+  logoUrl: env(process.env.NEXT_PUBLIC_LOGO_URL, "NEXT_PUBLIC_LOGO_URL"),
 
   // SEO Configuration
   seo: {

@@ -40,6 +40,176 @@ export interface Service {
 
 export const services: Service[] = [
   {
+    slug: "ai-development",
+    title: "AI Development",
+    metaTitle: `AI Development: LLM Apps, Agents, RAG | ${siteConfig.name}`,
+    description:
+      "AI development services: LLM apps, AI agents, RAG search over your own data, chatbots and workflow automation built with OpenAI, Claude, Gemini or open models.",
+    intro: {
+      pageTitle: "AI Development Services",
+      mainTitle: "AI Features Your Users Will Actually Use",
+      paragraph:
+        "AI development is building software features powered by large language models (LLMs): assistants that answer from your own documents, agents that complete multi-step tasks, and automation that reads, sorts and drafts for your team. We design, build and run them with OpenAI, Anthropic Claude, Google Gemini or open-source models, with testing and guardrails built in.",
+      buttonText: "Plan Your AI Project",
+      buttonUrl: "/contact",
+      image: `${siteConfig.cdnUrl}/services/ai-development-services.svg`,
+      imageAlt: "AI development: an AI chip connected to chat, documents and analytics",
+    },
+    sections: [
+      {
+        tabTitle: "Our Approach",
+        id: "ai-approach",
+        type: "interactive_list",
+        title: "How We Build AI Features",
+        paragraph: "Start small, measure the results, then scale what works.",
+        items: [
+          {
+            buttonText: "Overview",
+            targetId: "ai-overview",
+            title: "AI Built Into Your Product",
+            content:
+              "We add AI where it saves time or improves the experience, not for show. Every feature starts with a clear task, real examples from your business and a way to check that the model gets it right.",
+            listBlocks: [
+              {
+                listSubtitle: "What we build:",
+                listItems: [
+                  "AI assistants and chatbots that answer from your own content",
+                  "Retrieval-augmented generation (RAG) search over documents and data",
+                  "AI agents that call your APIs to complete multi-step tasks",
+                  "Document processing: extraction, classification and summaries",
+                  "AI features inside existing web and mobile apps",
+                ],
+              },
+            ],
+          },
+          {
+            buttonText: "Our Solutions",
+            targetId: "ai-solutions",
+            title: "From Prototype to Production",
+            content:
+              "A demo is easy. A dependable AI feature needs the engineering around the model: evaluation, safety, monitoring and cost control.",
+            listBlocks: [
+              {
+                listSubtitle: "Every AI project includes:",
+                listItems: [
+                  "Model selection across OpenAI, Anthropic Claude, Google Gemini and open-source models",
+                  "Prompt design and evaluation sets that catch regressions",
+                  "Guardrails, content filtering and human review where it matters",
+                  "Cost and response-time monitoring in production",
+                  "Privacy controls so sensitive data stays where it belongs",
+                ],
+              },
+            ],
+          },
+          {
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "ai-why-us",
+            title: "Engineers First",
+            content:
+              "We are software engineers, so your AI feature ships with the same testing, security and deployment practices as the rest of your product.",
+            listBlocks: [
+              {
+                listSubtitle: "What you get:",
+                listItems: [
+                  "One team for the AI, the back end and the user interface",
+                  "Integration with your existing APIs, CRM and databases",
+                  "Clear reporting on quality, cost and usage",
+                  "Support and improvements after launch",
+                ],
+                listAfterPara:
+                  "Want AI assistants such as Claude or ChatGPT to work with your own systems? See our MCP server development service.",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "mcp-server-development",
+    title: "MCP Server Development",
+    metaTitle: `MCP Server Development & Integration | ${siteConfig.name}`,
+    description:
+      "MCP server development: connect Claude, ChatGPT, Cursor and other AI assistants to your APIs, databases and tools with secure Model Context Protocol servers.",
+    intro: {
+      pageTitle: "MCP Server Development",
+      mainTitle: "Connect AI Assistants to Your Systems",
+      paragraph:
+        "MCP (Model Context Protocol) is an open standard that lets AI assistants such as Claude, ChatGPT, Cursor and VS Code use outside tools and data in a controlled way. An MCP server exposes your APIs, databases and business actions as tools the assistant can call. We design, build, secure and host MCP servers for your products and internal systems.",
+      buttonText: "Plan Your MCP Server",
+      buttonUrl: "/contact",
+      image: `${siteConfig.cdnUrl}/services/mcp-server-development-services.svg`,
+      imageAlt: "MCP server connecting an AI assistant to a database, code, calendar and cloud services",
+    },
+    sections: [
+      {
+        tabTitle: "Our Approach",
+        id: "mcp-approach",
+        type: "interactive_list",
+        title: "How We Build MCP Servers",
+        paragraph: "Useful tools, safe access and clear limits.",
+        items: [
+          {
+            buttonText: "Overview",
+            targetId: "mcp-overview",
+            title: "What an MCP Server Does",
+            content:
+              "Without MCP, every AI integration is a one-off. With MCP, you build the connection once and any compatible assistant can use it, from your team's desktop apps to your customers' AI agents.",
+            listBlocks: [
+              {
+                listSubtitle: "Common uses:",
+                listItems: [
+                  "Let your team query internal databases and dashboards from Claude or ChatGPT",
+                  "Give developers your APIs and docs inside Cursor or VS Code",
+                  "Open your SaaS product to your customers' AI agents",
+                  "Automate support, operations and reporting tasks",
+                  "Connect CRM, ticketing and knowledge base tools",
+                ],
+              },
+            ],
+          },
+          {
+            buttonText: "Our Solutions",
+            targetId: "mcp-solutions",
+            title: "MCP Development Services",
+            content: "We cover the whole MCP lifecycle, from tool design to hosting and monitoring.",
+            listBlocks: [
+              {
+                listSubtitle: "What we deliver:",
+                listItems: [
+                  "Custom MCP servers in TypeScript or Python",
+                  "Tools, resources and prompts designed around real user tasks",
+                  "Remote MCP servers over Streamable HTTP, or local servers over stdio",
+                  "OAuth 2.1 authorization, scoped permissions and audit logs",
+                  "Hosting on Cloudflare Workers, AWS or your own infrastructure",
+                  "Existing REST and GraphQL APIs wrapped as MCP tools",
+                ],
+              },
+            ],
+          },
+          {
+            buttonText: `Why Choose ${siteConfig.name}`,
+            targetId: "mcp-why-us",
+            title: "Secure From the Start",
+            content:
+              "An MCP server can act on real systems, so we treat it like any production API: least-privilege access, input validation, rate limits and logging.",
+            listBlocks: [
+              {
+                listSubtitle: "How we work:",
+                listItems: [
+                  "Read-only by default; write actions only where you approve them",
+                  "Tested with the AI clients your users actually use",
+                  "Built on our API development and integration experience",
+                  "Documentation so your team can extend it",
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
     slug: "custom-software-development",
     title: "Custom Software Development",
     metaTitle: `Custom Software Development Services | ${siteConfig.name}`,

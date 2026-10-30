@@ -101,7 +101,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div
-          className="lg:hidden fixed inset-0 top-[54px] bg-black/20 z-40"
+          className="lg:hidden fixed inset-0 top-[54px] bg-black/20 z-40 cursor-pointer"
           onClick={closeMenu}
         />
       )}

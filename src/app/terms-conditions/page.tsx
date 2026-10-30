@@ -92,7 +92,7 @@ export default function TermsConditionsPage() {
           <h2 className="text-2xl font-semibold mt-8 mb-4">Contact Us</h2>
           <p className="text-gray-600">
             If you have any questions about these Terms and Conditions, You can contact us via{" "}
-            <Link href="/contact" className="text-[#0058EE] underline">
+            <Link prefetch={false} href="/contact" className="text-[#0058EE] underline">
               our contact page
             </Link>
           </p>

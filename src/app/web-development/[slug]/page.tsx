@@ -118,13 +118,13 @@ export default async function LocationPage({ params }: Props) {
           <p className="text-xl font-medium text-[#0058EE] my-4">{location.heroSubtitle}</p>
           <p className="text-base text-gray-600 max-w-lg">{location.heroDescription}</p>
           <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Link
+            <Link prefetch={false}
               href="/contact"
               className="inline-flex items-center justify-center bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-8 rounded-full transition-colors"
             >
               Get Free Consultation
             </Link>
-            <Link
+            <Link prefetch={false}
               href="/services"
               className="inline-flex items-center justify-center border-2 border-[#0058EE] text-[#0058EE] font-medium py-3 px-8 rounded-full hover:bg-[#0058EE]/5 transition-colors"
             >
@@ -225,7 +225,7 @@ export default async function LocationPage({ params }: Props) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredServices.map((service) => (
-              <Link
+              <Link prefetch={false}
                 key={service.slug}
                 href={`/services/${service.slug}`}
                 className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all"
@@ -245,7 +245,7 @@ export default async function LocationPage({ params }: Props) {
           </div>
 
           <div className="text-center mt-8">
-            <Link
+            <Link prefetch={false}
               href="/services"
               className="inline-flex items-center gap-2 text-[#0058EE] font-semibold hover:underline"
             >
@@ -335,7 +335,7 @@ export default async function LocationPage({ params }: Props) {
             Book a free consultation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <Link prefetch={false}
               href="/contact"
               className="inline-flex items-center justify-center bg-white text-[#0058EE] font-semibold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors"
             >

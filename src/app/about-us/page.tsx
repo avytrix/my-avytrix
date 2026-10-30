@@ -129,7 +129,7 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-[1200px] text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">{banner.heading}</h1>
           <p className="text-lg max-w-3xl mx-auto mb-8 opacity-90">{banner.tagline}</p>
-          <Link
+          <Link prefetch={false}
             href={banner.buttonLink}
             className="inline-block bg-white text-[#0058EE] font-medium py-3 px-8 rounded-full hover:bg-gray-100 transition-colors"
           >
@@ -202,7 +202,7 @@ export default function AboutPage() {
             <div>
               <FaqAccordion items={whyUs.faqItems} />
               <div className="mt-8">
-                <Link
+                <Link prefetch={false}
                   href={whyUs.buttonUrl}
                   className="inline-block bg-[#0058EE] hover:bg-[#00358f] text-white font-medium py-3 px-8 rounded-full transition-colors"
                 >

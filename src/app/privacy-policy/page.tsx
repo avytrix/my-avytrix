@@ -67,7 +67,7 @@ export default function PrivacyPolicyPage() {
             </li>
             <li>
               <strong>Website</strong> refers to {siteConfig.name}, accessible from{" "}
-              <Link href="/" className="text-[#0058EE] underline">
+              <Link prefetch={false} href="/" className="text-[#0058EE] underline">
                 {siteConfig.name}
               </Link>
             </li>
@@ -124,7 +124,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-2xl font-semibold mt-8 mb-4">Contact Us</h2>
           <p className="text-gray-600">
             If you have any questions about this Privacy Policy, You can contact us via{" "}
-            <Link href="/contact" className="text-[#0058EE] underline">
+            <Link prefetch={false} href="/contact" className="text-[#0058EE] underline">
               our contact page
             </Link>
           </p>

@@ -15,7 +15,7 @@ export default function Header() {
     <header id="navbar" className="fixed top-0 left-0 w-full bg-white z-[999] border-b border-gray-200">
       <div className="container mx-auto h-[54px] flex justify-between items-center px-4 max-w-[1200px]">
         {/* Logo */}
-        <Link
+        <Link prefetch={false}
           href="/"
           className="block w-[120px] h-[40px] bg-contain bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${siteConfig.logoUrl}?tr=w-240)` }}
@@ -52,7 +52,7 @@ export default function Header() {
                           <ul className="space-y-2">
                             {column.links.map((link) => (
                               <li key={link.name}>
-                                <Link href={link.href} className="text-sm hover:text-[#0058EE] py-4">
+                                <Link prefetch={false} href={link.href} className="text-sm hover:text-[#0058EE] py-4">
                                   <span className="opacity-70">{link.name}</span>
                                   {"badge" in link && <span className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
                                 </Link>
@@ -65,14 +65,14 @@ export default function Header() {
                   </li>
                 ) : (
                   <li key={item.name}>
-                    <Link href={item.href} className="px-4 py-2 text-sm font-medium hover:text-[#0058EE]">
+                    <Link prefetch={false} href={item.href} className="px-4 py-2 text-sm font-medium hover:text-[#0058EE]">
                       {item.name}
                     </Link>
                   </li>
                 )
               )}
             </ul>
-            <Link
+            <Link prefetch={false}
               href="/contact"
               className="ml-6 bg-[#0058EE] hover:bg-[#00358f] text-white text-sm font-medium py-2 px-5 rounded-full transition-colors"
             >
@@ -120,7 +120,7 @@ export default function Header() {
           <ul className="space-y-1">
             {/* Home */}
             <li>
-              <Link
+              <Link prefetch={false}
                 href="/"
                 onClick={closeMenu}
                 className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium transition-colors ${
@@ -143,7 +143,7 @@ export default function Header() {
 
             {/* About Us */}
             <li>
-              <Link
+              <Link prefetch={false}
                 href="/about-us"
                 onClick={closeMenu}
                 className={`flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium transition-colors ${
@@ -162,7 +162,7 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="mt-6 px-2">
-            <Link
+            <Link prefetch={false}
               href="/contact"
               onClick={closeMenu}
               className="flex items-center justify-center gap-2 w-full bg-[#0058EE] hover:bg-[#00358f] text-white font-semibold py-3.5 rounded-full transition-colors shadow-lg shadow-[#0058EE]/25"
@@ -218,7 +218,7 @@ function MobileDropdown({ closeMenu, pathname }: { closeMenu: () => void; pathna
               <ul className="space-y-0.5">
                 {column.links.map((link) => (
                   <li key={link.name}>
-                    <Link
+                    <Link prefetch={false}
                       href={link.href}
                       onClick={closeMenu}
                       className={`block px-4 py-2.5 ml-4 text-sm rounded-lg transition-colors ${

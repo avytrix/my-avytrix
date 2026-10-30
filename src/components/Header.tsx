@@ -52,8 +52,9 @@ export default function Header() {
                           <ul className="space-y-2">
                             {column.links.map((link) => (
                               <li key={link.name}>
-                                <Link href={link.href} className="text-sm hover:text-[#0058EE] py-4 opacity-70">
-                                  {link.name}
+                                <Link href={link.href} className="text-sm hover:text-[#0058EE] py-4">
+                                  <span className="opacity-70">{link.name}</span>
+                                  {"badge" in link && <span className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
                                 </Link>
                               </li>
                             ))}
@@ -227,6 +228,7 @@ function MobileDropdown({ closeMenu, pathname }: { closeMenu: () => void; pathna
                       }`}
                     >
                       {link.name}
+                      {"badge" in link && <span className="ml-2 align-middle rounded-full bg-[#0058EE] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-white">{link.badge}</span>}
                     </Link>
                   </li>
                 ))}

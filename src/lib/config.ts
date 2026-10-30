@@ -72,6 +72,8 @@ export const navigation = {
     {
       title: "Web & Software Development",
       links: [
+        { name: "AI Development", href: "/services/ai-development", badge: "New" },
+        { name: "MCP Server Development", href: "/services/mcp-server-development", badge: "New" },
         { name: "Custom Software Solutions", href: "/services/custom-software-development" },
         { name: "Web Development Services", href: "/services/web-development" },
         { name: "Mobile App Development", href: "/services/mobile-app-development" },
@@ -93,6 +95,8 @@ export const navigation = {
   ],
   footer: {
     services: [
+      { name: "AI Development", href: "/services/ai-development" },
+      { name: "MCP Server Development", href: "/services/mcp-server-development" },
       { name: "Custom Software Solutions", href: "/services/custom-software-development" },
       { name: "Web Development Services", href: "/services/web-development" },
       { name: "Mobile App Development", href: "/services/mobile-app-development" },

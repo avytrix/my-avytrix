@@ -18,7 +18,7 @@ const seo = {
 export const metadata: Metadata = pageMetadata(seo);
 
 export default function HomePage() {
-  const { hero, servicesOverview, techStack, digitalInnovation, caseStudies } = homeContent;
+  const { hero, aiHighlight, servicesOverview, techStack, digitalInnovation, caseStudies } = homeContent;
 
   return (
     <div>
@@ -47,6 +47,35 @@ export default function HomePage() {
             fetchPriority="high"
             sizes="(max-width: 1024px) 90vw, 500px"
           />
+        </div>
+      </section>
+
+      {/* AI and MCP highlight */}
+      <section className="bg-gradient-to-r from-[#0A3176] to-[#0058EE] py-14 px-4">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="text-center text-white">
+            <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+              {aiHighlight.eyebrow}
+            </span>
+            <h2 className="text-3xl font-semibold mt-4">{aiHighlight.heading}</h2>
+            <p className="max-w-2xl mx-auto mt-3 text-white/85">{aiHighlight.subheading}</p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 mt-10">
+            {aiHighlight.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group block bg-white rounded-xl p-6 shadow-lg transition-transform hover:-translate-y-1"
+              >
+                <Image src={item.icon} alt="" aria-hidden="true" width={48} height={48} className="w-12 h-12 object-contain" />
+                <h3 className="text-xl font-semibold mt-4">{item.title}</h3>
+                <p className="text-sm text-gray-600 mt-2">{item.content}</p>
+                <span className="inline-block mt-4 text-sm font-semibold text-[#0058EE] group-hover:underline">
+                  {item.cta} &rarr;
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

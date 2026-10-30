@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, FormEvent } from "react";
 import Script from "next/script";
 import { Asterisk, CircleAlert } from "lucide-react";
-import { z } from "zod";
+import { contactSchema, isDisposableEmail, serviceOptions, type ContactFormData } from "@/lib/contact-schema";
 import { siteConfig } from "@/lib/config";
 
 declare global {
@@ -15,46 +15,6 @@ declare global {
   }
 }
 
-const serviceOptions = [
-  "Custom Software Development",
-  "Web Development",
-  "Mobile App Development",
-  "Other",
-];
-
-const disposableDomains = [
-  "tempmail.com", "throwaway.email", "guerrillamail.com", "mailinator.com",
-  "temp-mail.org", "10minutemail.com", "fakeinbox.com", "trashmail.com",
-  "yopmail.com", "getnada.com", "mohmal.com", "dispostable.com",
-  "mailnesia.com", "tempr.email", "discard.email", "throwawaymail.com",
-];
-
-// Zod validation schema
-const contactSchema = z.object({
-  name: z
-    .string()
-    .min(2, "Full name must be at least 2 characters")
-    .max(50, "Full name must be less than 50 characters")
-    .regex(/^[a-zA-Z\s'-]+$/, "Full name can only contain letters, spaces, hyphens, and apostrophes"),
-  email: z
-    .string()
-    .min(5, "Email must be at least 5 characters")
-    .max(254, "Email must be less than 254 characters")
-    .email("Please enter a valid email address"),
-  company: z
-    .string()
-    .min(2, "Company name must be at least 2 characters")
-    .max(100, "Company name must be less than 100 characters"),
-  service: z
-    .string()
-    .min(1, "Please select a service"),
-  message: z
-    .string()
-    .min(10, "Message must be at least 10 characters")
-    .max(1000, "Message must be less than 1000 characters"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
 
 // Required field label component
 function RequiredLabel({ children }: { children: React.ReactNode }) {
@@ -96,11 +56,6 @@ export default function ContactForm() {
     window.addEventListener("click", handleClick);
     return () => window.removeEventListener("click", handleClick);
   }, []);
-
-  const isDisposableEmail = (email: string) => {
-    const domain = email.split("@")[1]?.toLowerCase();
-    return disposableDomains.some((d) => domain?.includes(d));
-  };
 
   const sanitizeInput = (str: string) => {
     return str
@@ -192,26 +147,11 @@ export default function ContactForm() {
         return;
       }
 
-      // Verify reCAPTCHA on server
-      const verifyResponse = await fetch("/api/verify-recaptcha", {
+      // One request: the Worker verifies reCAPTCHA, rate-limits and sends both emails
+      const emailResponse = await fetch(siteConfig.contactApiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token: recaptchaToken }),
-      });
-
-      const verifyResult = await verifyResponse.json();
-
-      if (!verifyResult.success) {
-        setFormError("Security verification failed. Please try again.");
-        setIsSubmitting(false);
-        return;
-      }
-
-      // Send email via Resend API
-      const emailResponse = await fetch("/api/send-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(sanitizedData),
+        body: JSON.stringify({ ...sanitizedData, token: recaptchaToken }),
       });
 
       const emailResult = await emailResponse.json();
@@ -221,6 +161,8 @@ export default function ContactForm() {
         setFormData({ name: "", email: "", company: "", service: "Web Development", message: "" });
         formLoadTime.current = Date.now(); // Reset bot detection timer
         setTimeout(() => setShowSuccess(false), 10000);
+      } else if (emailResponse.status === 403) {
+        setFormError("Security verification failed. Please refresh the page and try again.");
       } else if (emailResponse.status === 429) {
         // Rate limit exceeded
         setFormError("Email cannot be sent. You have already submitted a request today. Please try again tomorrow.");

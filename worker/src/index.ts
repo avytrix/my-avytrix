@@ -5,8 +5,7 @@ import { contactSchema, isDisposableEmail } from "../../src/lib/contact-schema";
 
 interface Env {
   // vars (from .env.local via the deploy script)
-  SITE_URL: string;
-  EXTRA_ORIGINS: string; // comma-separated, e.g. http://localhost:3000 for local testing
+  SITE_URL: string; // the only origin, and the only reCAPTCHA hostname, accepted
   EMAIL_FROM: string; // "Name <address>"
   NOTIFICATION_EMAIL: string;
   TIMEZONE: string; // IANA zone for the team email timestamp, e.g. Asia/Ho_Chi_Minh
@@ -27,8 +26,8 @@ const escape = (s: string) =>
 const worker = {
   async fetch(request: Request, env: Env): Promise<Response> {
     const origin = request.headers.get("Origin") ?? "";
-    const allowed = [env.SITE_URL, ...env.EXTRA_ORIGINS.split(",")].map((o) => o.trim()).filter(Boolean);
-    const cors: Record<string, string> = allowed.includes(origin)
+    const site = new URL(env.SITE_URL);
+    const cors: Record<string, string> = origin === site.origin
       ? { "Access-Control-Allow-Origin": origin, "Access-Control-Allow-Methods": "POST", "Access-Control-Allow-Headers": "Content-Type", Vary: "Origin" }
       : {};
     const json = (body: object, status = 200) => Response.json(body, { status, headers: cors });
@@ -37,6 +36,15 @@ const worker = {
     if (new URL(request.url).pathname !== "/contact") return json({ success: false, error: "Not found" }, 404);
     if (request.method !== "POST") return json({ success: false, error: "Method not allowed" }, 405);
     if (!cors["Access-Control-Allow-Origin"]) return json({ success: false, error: "Origin not allowed" }, 403);
+
+    // Origin can be faked outside a browser, so throttle each IP before calling Google.
+    // (Cloudflare's built-in rate limiter is approximate per location and did not engage in testing.)
+    const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
+    const redis = new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN });
+    const burst = new Ratelimit({ redis, limiter: Ratelimit.slidingWindow(5, "1 m"), prefix: "contact_burst" });
+    if (!(await burst.limit(`ip:${ip}`)).success) {
+      return json({ success: false, error: "Too many requests. Please wait a minute." }, 429);
+    }
 
     const body = (await request.json().catch(() => null)) as Record<string, unknown> | null;
     const parsed = contactSchema.safeParse(body);
@@ -47,20 +55,20 @@ const worker = {
     if (isDisposableEmail(email)) return json({ success: false, error: "Please use a business email address" }, 400);
 
     // reCAPTCHA v3: same request as the data, so nothing is sent without a passing token
-    const ip = request.headers.get("CF-Connecting-IP") ?? "unknown";
     const verify = (await (
       await fetch("https://www.google.com/recaptcha/api/siteverify", {
         method: "POST",
         body: new URLSearchParams({ secret: env.RECAPTCHA_SECRET_KEY, response: body.token, remoteip: ip }),
       })
-    ).json()) as { success: boolean; score?: number; action?: string };
-    if (!verify.success || (verify.score ?? 0) < MIN_SCORE || verify.action !== RECAPTCHA_ACTION) {
+    ).json()) as { success: boolean; score?: number; action?: string; hostname?: string };
+    // hostname: the token must come from the live site, not from the public site key used elsewhere (e.g. localhost)
+    if (!verify.success || (verify.score ?? 0) < MIN_SCORE || verify.action !== RECAPTCHA_ACTION || verify.hostname !== site.hostname) {
       return json({ success: false, error: "reCAPTCHA verification failed" }, 403);
     }
 
     // One enquiry per day per IP and per email
     const limiter = new Ratelimit({
-      redis: new Redis({ url: env.UPSTASH_REDIS_REST_URL, token: env.UPSTASH_REDIS_REST_TOKEN }),
+      redis,
       limiter: Ratelimit.fixedWindow(1, "1 d"),
       prefix: "contact_form",
     });

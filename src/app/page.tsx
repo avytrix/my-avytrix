@@ -180,6 +180,14 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <div className="text-center mt-12">
+            <Link prefetch={false}
+              href="/our-work"
+              className="inline-block border border-[#0058EE] text-[#0058EE] hover:bg-[#0058EE] hover:text-white font-medium py-3 px-8 rounded-full transition-colors"
+            >
+              See the products we build
+            </Link>
+          </div>
         </section>
       </div>
     </div>

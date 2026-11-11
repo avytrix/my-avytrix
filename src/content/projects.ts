@@ -20,6 +20,8 @@ export interface Project {
   expertise: ProjectLink[];
   // schema.org type for the JSON-LD list
   schemaType: "SoftwareApplication" | "SoftwareSourceCode";
+  // programmingLanguage for SoftwareSourceCode
+  language?: string;
   url: string;
 }
 
@@ -119,11 +121,40 @@ export const projects: Project[] = [
       service("qa-and-testing", "QA and Testing"),
     ],
     schemaType: "SoftwareSourceCode",
+    language: "TypeScript",
     url: "https://crud.avytrix.dev",
+  },
+  {
+    slug: "vela",
+    name: "vela",
+    tagline: "Folder and file permissions for self-hosted GitLab CE",
+    logo: { src: siteConfig.logoUrl, width: 160, height: 64 },
+    problem:
+      "GitLab Free cannot say that only the frontend team may change the frontend folder. vela adds view, read and write rules for each file and folder, per user or group, without a higher GitLab tier.",
+    built: [
+      "A server hook that rejects any push, web edit, API commit or merge touching a path the person may not change, using only GitLab's documented hooks.",
+      "An overlay that hides paths in file lists, search, diffs, the API and GraphQL, with a settings page under Project Settings. A git clone still gets every file, and the docs say so.",
+      "A rules engine in plain Ruby with no runtime dependencies that fails closed, with end-to-end tests on real GitLab CE releases.",
+    ],
+    facts: [
+      { label: "License", value: "MIT" },
+      { label: "Tested on", value: "GitLab CE 15.11 to 19.5" },
+      { label: "Levels", value: "View, read and write per file or folder" },
+      { label: "Stack", value: "Ruby, no runtime dependencies" },
+    ],
+    links: [{ label: "GitHub repository", href: "https://github.com/avytrix/vela" }],
+    expertise: [
+      service("custom-software-development", "Custom Software"),
+      service("cloud-solutions", "Cloud Solutions"),
+      service("qa-and-testing", "QA and Testing"),
+    ],
+    schemaType: "SoftwareSourceCode",
+    language: "Ruby",
+    url: "https://github.com/avytrix/vela",
   },
 ];
 
-// How we build, drawn from the three projects above
+// How we build, drawn from the projects above
 export const practices = [
   {
     title: "Tested before it ships",

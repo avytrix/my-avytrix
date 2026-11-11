@@ -33,7 +33,7 @@ ${services.map((s) => `- [${s.intro.pageTitle}](${url}/services/${s.slug}): ${s.
 ${locations.map((l) => `- [${l.country}](${url}/web-development/${l.slug}): ${l.metaDescription}`).join("\n")}
 
 ## Company
-- [Our Work](${url}/our-work): products ${siteConfig.name} builds and runs: Pulse (decision data and an MCP server for AI shopping agents), the Viliha admin theme (six framework editions) and Nestjs Drizzle (open-source CRUD for NestJS and Drizzle ORM).
+- [Our Work](${url}/our-work): products ${siteConfig.name} builds and runs: Pulse (decision data and an MCP server for AI shopping agents), the Viliha admin theme (six framework editions) Nestjs Drizzle (open-source CRUD for NestJS and Drizzle ORM) and vela (open-source folder and file permissions for self-hosted GitLab CE).
 - [About ${siteConfig.name}](${url}/about-us): mission, values, and approach.
 - [Contact](${url}/contact): request a free consultation.
 - [Privacy Policy](${url}/privacy-policy)

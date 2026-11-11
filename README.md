@@ -43,6 +43,8 @@ Work goes from a feature branch into `develop` (squash merge), then from `develo
 
 Every pull request runs lint, type check and a full build. Every push to `main` builds the static site, runs the SEO checks and publishes it to GitHub Pages.
 
+Site settings such as the phone numbers and emails are repository variables (Settings, then Secrets and variables, then Actions, Variables tab). They are read at build time, so after changing one, redeploy with Actions, then CI, then Run workflow on `main`.
+
 GitHub Pages only serves files, so the contact form posts to a Cloudflare Worker in `worker/`. It checks reCAPTCHA, limits requests per visitor and sends the emails through Resend. Deploy it with `scripts/deploy-contact-worker.sh`, which reads its secrets from `.env.local`.
 
 ## Services it uses

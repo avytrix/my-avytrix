@@ -11,7 +11,7 @@ import { locations } from "@/content/locations";
 const seo = {
   path: "/our-work",
   title: `Our Work: Products and Open Source | ${siteConfig.name}`,
-  description: `Products ${siteConfig.name} builds and runs: Pulse for AI shopping agents, the Viliha admin theme and Nestjs Drizzle, an open-source NestJS library.`,
+  description: `Products ${siteConfig.name} builds and runs: Pulse for AI shopping agents, the Viliha admin theme, and the open-source Nestjs Drizzle and vela.`,
 };
 
 export const metadata: Metadata = pageMetadata(seo);
@@ -32,7 +32,7 @@ const projectList = {
       ...(project.schemaType === "SoftwareSourceCode"
         ? {
             codeRepository: project.links.find((l) => l.href.startsWith("https://github.com/"))?.href,
-            programmingLanguage: "TypeScript",
+            programmingLanguage: project.language,
             license: "https://opensource.org/licenses/MIT",
           }
         : { applicationCategory: "DeveloperApplication" }),
@@ -52,9 +52,10 @@ export default function OurWorkPage() {
         <div className="container mx-auto max-w-[1200px] text-center text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Products We Build and Run</h1>
           <p className="text-lg max-w-3xl mx-auto mb-8 opacity-90">
-            {siteConfig.name} builds its own software, not only client work. Pulse, Viliha and Nestjs Drizzle
-            are products our team designed, built and maintains, and each one shows the skills we bring to your
-            project: AI agents and MCP servers, design systems across six frameworks, and production NestJS APIs.
+            {siteConfig.name} builds its own software, not only client work. Pulse, Viliha, Nestjs Drizzle and
+            vela are products our team designed, built and maintains, and each one shows the skills we bring to
+            your project: AI agents and MCP servers, design systems across six frameworks, production NestJS APIs
+            and access control for GitLab.
           </p>
           <Link prefetch={false}
             href="/contact"
@@ -146,7 +147,7 @@ export default function OurWorkPage() {
         <section className="py-16">
           <h2 className="text-3xl font-semibold text-center">How We Build</h2>
           <p className="text-center max-w-3xl mx-auto mt-4 text-gray-600">
-            The same practices run through all three products, and we bring them to client work.
+            The same practices run through all four products, and we bring them to client work.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
             {practices.map((practice) => (

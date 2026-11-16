@@ -3,12 +3,15 @@
 
 Writes page/index.html (instant meta refresh + canonical) next to every exported page.html.
 Run after scripts/seo_check.py: the stubs are not pages and would fail its gates.
+Skips the docs under out/opensource/<slug>/: they export route/index.html and handle their own URLs.
 
 Usage: python3 scripts/trailing_slash_redirects.py [out_dir]
 """
 import os
 import sys
 from pathlib import Path
+
+from nested_sites import in_nested_site, nested_sites
 
 ORIGIN = os.environ.get("NEXT_PUBLIC_SITE_URL") or sys.exit("NEXT_PUBLIC_SITE_URL is not set")
 SKIP = {"index.html", "404.html", "_not-found.html"}
@@ -21,8 +24,9 @@ STUB = """<!doctype html>
 
 def write_stubs(out):
     written = []
+    sites = nested_sites(out)
     for page in list(out.rglob("*.html")):
-        if page.name in SKIP or "_next" in page.parts:
+        if page.name in SKIP or "_next" in page.parts or in_nested_site(page, sites):
             continue
         stub = page.with_suffix("") / "index.html"
         if stub.exists():

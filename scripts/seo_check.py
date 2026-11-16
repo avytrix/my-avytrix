@@ -12,6 +12,8 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
+from nested_sites import in_nested_site, nested_sites
+
 ORIGIN = os.environ.get("NEXT_PUBLIC_SITE_URL") or sys.exit("NEXT_PUBLIC_SITE_URL is not set")
 GENERIC_ANCHORS = {"click here", "here", "read more", "link", "more", "learn more"}
 ROBOTS_INDEX = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
@@ -99,8 +101,10 @@ def url_for(out, path):
 def check(out):
     errors = []
     pages = {}
+    # The docs under out/opensource/<slug>/ pass their own repo's gate; check only this site's pages
+    sites = nested_sites(out)
     for f in sorted(out.rglob("*.html")):
-        if f.name in ("404.html", "_not-found.html") or "_next" in f.parts:
+        if f.name in ("404.html", "_not-found.html") or "_next" in f.parts or in_nested_site(f, sites):
             continue
         p = Page()
         p.feed(f.read_text(encoding="utf-8"))
@@ -208,7 +212,11 @@ def check(out):
     llms = out / "llms.txt"
     if llms.exists():
         for link in re.findall(r"\]\((.*?)\)", llms.read_text()):
-            if link.rstrip("/") not in pages:
+            if link.rstrip("/") in pages:
+                continue
+            # A link into a docs app must hit a file it built: a page (dir/index.html) or a file like llms.txt
+            target = out / link.removeprefix(ORIGIN).strip("/")
+            if not (in_nested_site(target, sites) and (target.is_file() or (target / "index.html").is_file())):
                 errors.append(f"llms.txt links to non-page {link}")
 
     return pages, errors
@@ -219,5 +227,7 @@ if __name__ == "__main__":
     pages, errors = check(out)
     for err in errors:
         print("FAIL", err)
+    for site in nested_sites(out):
+        print(f"skipped {site.relative_to(out)}/ (separately built site, gated in its own repo)")
     print(f"{len(pages)} pages, {len(errors)} failures")
     sys.exit(1 if errors else 0)

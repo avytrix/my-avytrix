@@ -2,6 +2,7 @@ import { siteConfig } from "@/lib/config";
 import { services } from "@/content/services";
 import { locations } from "@/content/locations";
 import { homeContent } from "@/content/home";
+import { openSourceProjects, docsPath } from "@/content/projects";
 
 // Required for static export (GitHub Pages)
 export const dynamic = "force-static";
@@ -32,8 +33,17 @@ ${services.map((s) => `- [${s.intro.pageTitle}](${url}/services/${s.slug}): ${s.
 ## Web development by region
 ${locations.map((l) => `- [${l.country}](${url}/web-development/${l.slug}): ${l.metaDescription}`).join("\n")}
 
+## Open source
+- [Open Source](${url}/opensource): the MIT-licensed projects ${siteConfig.name} publishes, with links to their docs, code and npm.
+${openSourceProjects
+  .map((p) => {
+    const docs = `${url}${docsPath(p.openSource)}`;
+    return `- [${p.name} documentation](${docs}): ${p.tagline}. Docs for language models: [${p.name} llms.txt](${docs}/llms.txt).`;
+  })
+  .join("\n")}
+
 ## Company
-- [Our Work](${url}/our-work): products ${siteConfig.name} builds and runs: Pulse (decision data and an MCP server for AI shopping agents), the Viliha admin theme (six framework editions) Nestjs Drizzle (open-source CRUD for NestJS and Drizzle ORM) and vela (open-source folder and file permissions for self-hosted GitLab CE).
+- [Our Work](${url}/our-work): products ${siteConfig.name} builds and runs: Pulse (decision data and an MCP server for AI shopping agents), the Viliha admin theme (six framework editions), Nestjs Drizzle (open-source CRUD for NestJS and Drizzle ORM) and vela (open-source folder and file permissions for self-hosted GitLab CE).
 - [About ${siteConfig.name}](${url}/about-us): mission, values, and approach.
 - [Contact](${url}/contact): request a free consultation.
 - [Privacy Policy](${url}/privacy-policy)

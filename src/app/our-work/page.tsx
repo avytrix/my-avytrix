@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import JsonLd from "@/components/JsonLd";
 import Breadcrumb from "@/components/Breadcrumb";
-import { pageMetadata, pageUrl, orgRef } from "@/lib/seo";
+import { pageMetadata, pageUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/config";
-import { projects, practices } from "@/content/projects";
+import { projects, practices, projectSchema } from "@/content/projects";
 import { locations } from "@/content/locations";
 
 const seo = {
@@ -24,20 +24,7 @@ const projectList = {
   itemListElement: projects.map((project, index) => ({
     "@type": "ListItem",
     position: index + 1,
-    item: {
-      "@type": project.schemaType,
-      name: project.name,
-      description: project.tagline,
-      url: project.url,
-      ...(project.schemaType === "SoftwareSourceCode"
-        ? {
-            codeRepository: project.links.find((l) => l.href.startsWith("https://github.com/"))?.href,
-            programmingLanguage: project.language,
-            license: "https://opensource.org/licenses/MIT",
-          }
-        : { applicationCategory: "DeveloperApplication" }),
-      creator: orgRef,
-    },
+    item: projectSchema(project),
   })),
 };
 
@@ -95,8 +82,7 @@ export default function OurWorkPage() {
                     <a
                       key={link.href}
                       href={link.href}
-                      target="_blank"
-                      rel="noopener"
+                      {...(link.href.startsWith("http") && { target: "_blank", rel: "noopener" })}
                       className="inline-block border border-[#0058EE] text-[#0058EE] hover:bg-[#0058EE] hover:text-white text-sm font-medium py-2 px-4 rounded-full transition-colors"
                     >
                       {link.label}

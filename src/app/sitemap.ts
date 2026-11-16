@@ -6,6 +6,7 @@ import { getAllLocationSlugs } from "@/content/locations";
 // Required for static export (GitHub Pages)
 export const dynamic = "force-static";
 
+// The docs under /opensource/<slug> publish their own sitemaps, listed in robots.txt
 // No lastModified: a date that changes on every deploy gets ignored by Google
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -27,6 +28,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/our-work`,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/opensource`,
       changeFrequency: "monthly",
       priority: 0.8,
     },

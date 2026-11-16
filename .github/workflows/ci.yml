@@ -1,4 +1,6 @@
 # CI for every pull request, and the GitHub Pages deploy on push to main.
+# The site ships the docs of our open-source projects under /opensource/<slug>/, built from their
+# own repos: a daily run and a `docs-updated` repository_dispatch put their merged docs live.
 # Job `name:`s are the required status checks in the branch rulesets: rename one and every PR blocks.
 #   develop: Lint, Type check
 #   main:    Lint, Type check, Build site, Source branch
@@ -10,7 +12,24 @@ on:
     types: [opened, synchronize, reopened, edited]
   push:
     branches: [develop, main]
+  # Docs refs to build. Empty uses the repo variable of the same name (upper case), then main.
+  # A manual run on main deploys whatever refs it built.
   workflow_dispatch:
+    inputs:
+      crud_docs_ref:
+        description: avytrix/nestjs-drizzle-crud ref for /opensource/nestjs-drizzle-crud
+        required: false
+        default: ""
+      vela_docs_ref:
+        description: avytrix/vela ref for /opensource/gitlab-vela
+        required: false
+        default: ""
+  # Daily, so docs merged in the project repos go live within a day
+  schedule:
+    - cron: "0 3 * * *"
+  # The project repos can trigger a redeploy (POST /repos/{owner}/{repo}/dispatches)
+  repository_dispatch:
+    types: [docs-updated]
 
 permissions:
   contents: read
@@ -91,8 +110,27 @@ jobs:
       NEXT_PUBLIC_LEGAL_NAME: ${{ vars.NEXT_PUBLIC_LEGAL_NAME }}
       NEXT_PUBLIC_TAX_ID: ${{ vars.NEXT_PUBLIC_TAX_ID }}
       NEXT_PUBLIC_CONTACT_API_URL: ${{ vars.NEXT_PUBLIC_CONTACT_API_URL }}
+      CRUD_DOCS_REF: ${{ inputs.crud_docs_ref || vars.CRUD_DOCS_REF || 'main' }}
+      VELA_DOCS_REF: ${{ inputs.vela_docs_ref || vars.VELA_DOCS_REF || 'main' }}
+      DOCS: ${{ github.workspace }}/../opensource
     steps:
       - uses: actions/checkout@v7
+      # The docs repos, checked out first so their lockfiles key the pnpm store cache
+      - uses: actions/checkout@v7
+        with:
+          repository: avytrix/nestjs-drizzle-crud
+          ref: ${{ env.CRUD_DOCS_REF }}
+          path: .opensource/nestjs-drizzle-crud
+          # Page dates, the sitemap lastmod and the changelog are read from git history
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/checkout@v7
+        with:
+          repository: avytrix/vela
+          ref: ${{ env.VELA_DOCS_REF }}
+          path: .opensource/vela
+          fetch-depth: 0
+          persist-credentials: false
       - uses: pnpm/action-setup@v6
         with:
           version: 10
@@ -100,6 +138,13 @@ jobs:
         with:
           node-version: "24"
           cache: pnpm
+          cache-dependency-path: |
+            pnpm-lock.yaml
+            .opensource/nestjs-drizzle-crud/pnpm-lock.yaml
+            .opensource/vela/site/pnpm-lock.yaml
+      # Out of the site's tree, so neither its pnpm workspace nor its type check sees them
+      - name: Move docs repos out of the site
+        run: mv .opensource "$DOCS"
       # No static_site_generator: it would force unoptimized images and bypass the ImageKit loader
       - name: Setup Pages
         uses: actions/configure-pages@v6
@@ -107,19 +152,48 @@ jobs:
       - run: pnpm next build
         env:
           NEXT_OUTPUT: export
+      # Each docs build follows its repo's contract and passes that repo's own SEO gate.
+      # pnpm switches to the version in each repo's packageManager field; their pnpm settings
+      # (minimumReleaseAge, trustPolicy) come from their own pnpm-workspace.yaml.
+      - name: Build nestjs-drizzle-crud docs
+        working-directory: ${{ env.DOCS }}/nestjs-drizzle-crud
+        env:
+          NEXT_PUBLIC_BASE_PATH: /opensource/nestjs-drizzle-crud
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm turbo run build --filter=nestjs-drizzle-crud-docs
+          python3 apps/docs/scripts/seo_check.py apps/docs/out
+      - name: Build gitlab-vela docs
+        working-directory: ${{ env.DOCS }}/vela/site
+        env:
+          NEXT_PUBLIC_BASE_PATH: /opensource/gitlab-vela
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm build
+          python3 scripts/seo_check.py out
+      - name: Add the docs to the site
+        run: |
+          for pair in nestjs-drizzle-crud:nestjs-drizzle-crud/apps/docs/out gitlab-vela:vela/site/out; do
+            dest="out/opensource/${pair%%:*}"
+            test ! -e "$dest" || { echo "::error::$dest already exists in the site export"; exit 1; }
+            mkdir -p "$dest"
+            cp -R "$DOCS/${pair#*:}/." "$dest/"
+            test -f "$dest/index.html" -a -f "$dest/sitemap.xml" || { echo "::error::$dest has no index.html or sitemap.xml"; exit 1; }
+          done
+      # Skips out/opensource/<slug>/ (gated above); still checks /opensource itself
       - name: SEO/AEO gates
         run: python3 scripts/seo_check.py out
       # After the gates: the stubs it writes are redirects, not pages
       - name: Trailing-slash redirects
         run: python3 scripts/trailing_slash_redirects.py out
-      - if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+      - if: github.ref == 'refs/heads/main' && contains(fromJSON('["push", "workflow_dispatch", "schedule", "repository_dispatch"]'), github.event_name)
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./out
 
   deploy:
-    # A manual run on main redeploys, e.g. after changing a repo variable
-    if: (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && github.ref == 'refs/heads/main'
+    # A manual, scheduled or docs-updated run on main redeploys, e.g. after changing a repo variable
+    if: github.ref == 'refs/heads/main' && contains(fromJSON('["push", "workflow_dispatch", "schedule", "repository_dispatch"]'), github.event_name)
     needs: [lint, types, build]
     runs-on: ubuntu-latest
     permissions:

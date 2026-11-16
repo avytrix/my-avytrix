@@ -71,6 +71,7 @@ export const navigation = {
     { name: "Home", href: "/" },
     { name: "Services", href: "#", hasDropdown: true },
     { name: "Our Work", href: "/our-work" },
+    { name: "Open Source", href: "/opensource" },
     { name: "About Us", href: "/about-us" },
   ],
   megaMenu: [
@@ -127,6 +128,7 @@ export const navigation = {
     company: [
       { name: "About Us", href: "/about-us" },
       { name: "Our Work", href: "/our-work" },
+      { name: "Open Source", href: "/opensource" },
       { name: "Contact Us", href: "/contact" },
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Terms & Conditions", href: "/terms-conditions" },

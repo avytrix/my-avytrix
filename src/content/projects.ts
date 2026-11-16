@@ -1,4 +1,5 @@
 import { siteConfig } from "@/lib/config";
+import { orgRef } from "@/lib/seo";
 
 // Products we build and run, shown on /our-work. Every fact here must be
 // checkable on the product's own site, its public GitHub repository or npm (standard section 0).
@@ -6,6 +7,13 @@ import { siteConfig } from "@/lib/config";
 export interface ProjectLink {
   label: string;
   href: string;
+}
+
+// An open-source project: its docs are built from its own repository into /opensource/<docsSlug>
+export interface OpenSource {
+  docsSlug: string;
+  repo: string;
+  npm?: string;
 }
 
 export interface Project {
@@ -23,7 +31,29 @@ export interface Project {
   // programmingLanguage for SoftwareSourceCode
   language?: string;
   url: string;
+  openSource?: OpenSource;
 }
+
+export const docsPath = (os: OpenSource) => `/opensource/${os.docsSlug}`;
+export const sponsorUrl = "https://github.com/sponsors/avytrix";
+
+// Docs, repository and npm links, in that order, for an open-source project
+const openSourceLinks = (os: OpenSource): ProjectLink[] => [
+  { label: "Documentation", href: docsPath(os) },
+  { label: "GitHub repository", href: os.repo },
+  ...(os.npm ? [{ label: "npm package", href: os.npm }] : []),
+];
+
+const nestjsDrizzle: OpenSource = {
+  docsSlug: "nestjs-drizzle-crud",
+  repo: "https://github.com/avytrix/nestjs-drizzle-crud",
+  npm: "https://www.npmjs.com/package/@avytrix/nestjs-drizzle-crud",
+};
+
+const vela: OpenSource = {
+  docsSlug: "gitlab-vela",
+  repo: "https://github.com/avytrix/vela",
+};
 
 const service = (slug: string, label: string): ProjectLink => ({ label, href: `/services/${slug}` });
 
@@ -109,11 +139,7 @@ export const projects: Project[] = [
       { label: "Databases", value: "PostgreSQL, MySQL and SQLite" },
       { label: "Stack", value: "TypeScript, NestJS, Drizzle ORM" },
     ],
-    links: [
-      { label: "Documentation", href: "https://crud.avytrix.dev" },
-      { label: "GitHub repository", href: "https://github.com/avytrix/nestjs-drizzle-crud" },
-      { label: "npm package", href: "https://www.npmjs.com/package/@avytrix/nestjs-drizzle-crud" },
-    ],
+    links: openSourceLinks(nestjsDrizzle),
     expertise: [
       service("api-development", "API Development"),
       service("custom-software-development", "Custom Software"),
@@ -122,7 +148,8 @@ export const projects: Project[] = [
     ],
     schemaType: "SoftwareSourceCode",
     language: "TypeScript",
-    url: "https://crud.avytrix.dev",
+    url: `${siteConfig.url}${docsPath(nestjsDrizzle)}`,
+    openSource: nestjsDrizzle,
   },
   {
     slug: "vela",
@@ -142,7 +169,7 @@ export const projects: Project[] = [
       { label: "Levels", value: "View, read and write per file or folder" },
       { label: "Stack", value: "Ruby, no runtime dependencies" },
     ],
-    links: [{ label: "GitHub repository", href: "https://github.com/avytrix/vela" }],
+    links: openSourceLinks(vela),
     expertise: [
       service("custom-software-development", "Custom Software"),
       service("cloud-solutions", "Cloud Solutions"),
@@ -150,9 +177,28 @@ export const projects: Project[] = [
     ],
     schemaType: "SoftwareSourceCode",
     language: "Ruby",
-    url: "https://github.com/avytrix/vela",
+    url: `${siteConfig.url}${docsPath(vela)}`,
+    openSource: vela,
   },
 ];
+
+export const openSourceProjects = projects.filter((p): p is Project & { openSource: OpenSource } => !!p.openSource);
+
+// schema.org node for a project, with only the facts shown on /our-work and /opensource
+export const projectSchema = (project: Project) => ({
+  "@type": project.schemaType,
+  name: project.name,
+  description: project.tagline,
+  url: project.url,
+  ...(project.schemaType === "SoftwareSourceCode"
+    ? {
+        codeRepository: project.openSource?.repo,
+        programmingLanguage: project.language,
+        license: "https://opensource.org/licenses/MIT",
+      }
+    : { applicationCategory: "DeveloperApplication" }),
+  creator: orgRef,
+});
 
 // How we build, drawn from the projects above
 export const practices = [

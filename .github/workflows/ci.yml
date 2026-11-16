@@ -179,6 +179,8 @@ jobs:
             mkdir -p "$dest"
             cp -R "$DOCS/${pair#*:}/." "$dest/"
             test -f "$dest/index.html" -a -f "$dest/sitemap.xml" || { echo "::error::$dest has no index.html or sitemap.xml"; exit 1; }
+            # Pages 301s the folder /opensource/<slug> to <slug>/ but serves <slug>.html directly; the canonical has no slash
+            cp "$dest/index.html" "$dest.html"
           done
       # Skips out/opensource/<slug>/ (gated above); still checks /opensource itself
       - name: SEO/AEO gates

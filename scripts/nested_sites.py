@@ -10,5 +10,6 @@ def nested_sites(out: Path) -> list[Path]:
     return sorted(s.parent for s in out.rglob("sitemap.xml") if s.parent != out and "_next" not in s.parts)
 
 
+# <site>.html is the site's index copied next to its folder, so GitHub Pages serves /<site> without a redirect
 def in_nested_site(path: Path, sites: list[Path]) -> bool:
-    return any(path.is_relative_to(site) for site in sites)
+    return any(path.is_relative_to(site) or path == site.with_suffix(".html") for site in sites)
